@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 練習 - 製作凱薩密碼 (Caesar Cipher) 加密工具
+    // 使用者先輸入英文明文，再輸入數字密鑰
+    // 請編寫一個 function 處理資料
+    // 將明文和密鑰傳入，回傳處理完後的密文
+    // 最後在網頁上顯示出來
+
+    // 範例:
+    //  密鑰: 3
+    //  明文: meet me after the toga party
+    //  密文: PHHW PH DIWHU WKH WRJD SDUWB
+
+    // 提示:
+    //   字串.charCodeAt(索引) 可取得指定文字的字元數字編號
+    //   String.fromCharCode(數字) 可將字元編號轉回文字
+    //   英文大寫 A - Z 的編號是連續的，小寫 A - Z 也是，但是英文大小寫編號間有其他字
+
+    let message = prompt('請輸入英文明文')
+    console.log(message.length);
+    // console.log(message.charCodeAt()); //只能取到第一個值
+
+    let key = parseInt(prompt('請輸入數字密鑰'))
+
+    const secret = (message, key) => {
+
+      // 迴圈處理每個字母
+      for (let i = 0; i < message.length; i++) {
+        // message.charCodeAt(i); //這是 message 的每個 ASCII 碼
+        // console.log(message.charCodeAt(i)); //加入迴圈後，可以取到多個值
+
+        let code = message.charCodeAt(i) + key  //先將 message 加密(key值)
+        // console.log(code);
+        // let secret = String.fromCharCode(code)
+        // console.log(secret);
+
+        if (code > 64 && code < 91) { //大寫
+          code = (code - 64) % 26 + 64
+        } else if (code > 96 && code < 123) { //小寫
+          code = (code - 96) % 26 + 96
+        } else { //非字母的以未加密鑰之原型呈現
+          code -= key
+        }
+
+        let secret = String.fromCharCode(code)
+        // console.log(code);
+        // console.log(secret);
+        document.write(`輸入英文明文${message[i]}加密後為${secret} <br>`)
+      }
+      // ?? 調整變數讓 secret 可以在外面以整句呈現
+
+      // console.log(message);
+      // console.log(secret);
+      // document.write(`輸入英文明文${message}加密後為${secret}`)
+
+    }
+    console.log(message);
+    console.log(secret(message, key));
+
+// 部分參考 https://ithelp.ithome.com.tw/articles/10226999?sc=rss.iron
+
+
+  </script>
+</body>
+
+</html>
