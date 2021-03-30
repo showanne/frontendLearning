@@ -10,7 +10,10 @@
     #clock {
       width: 300px;
       height: 300px;
-      background-color: rgb(162, 135, 250);
+      /* background-color: rgb(162, 135, 250); */
+      background-image: url('./Clock1.png');
+      background-repeat: no-repeat;
+      background-size: cover;
       border-radius: 50%;
       margin: 5rem auto;
       position: relative;
@@ -52,11 +55,109 @@
       transform-origin: bottom center;
     }
 
-    #number {
+    #circle {
+      width: 9px;
+      height: 9px;
+      margin: auto;
+      background-color: wheat;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* #number {
       width: 300px;
       height: 300px;
       border-radius: 50%;
 
+    } */
+
+    p {
+      position: absolute;
+      font-size: 3rem;
+      line-height: 172px;
+      font-family: 'Trebuchet MS', sans-serif;
+      transform-origin: bottom center;
+    }
+
+    p:nth-child(1) {
+      bottom: 57%;
+      left: 61%;
+      transform: rotate(30deg);
+    }
+
+    p:nth-child(2) {
+      bottom: 47%;
+      left: 67%;
+      transform: rotate(60deg);
+    }
+
+    p:nth-child(3) {
+      bottom: 34%;
+      left: 68%;
+      transform: rotate(90deg);
+    }
+
+    p:nth-child(4) {
+      bottom: 19%;
+      left: 63%;
+      transform: rotate(120deg);
+    }
+
+    p:nth-child(5) {
+      bottom: 11%;
+      left: 58%;
+      transform: rotate(150deg);
+    }
+
+    p:nth-child(6) {
+      bottom: 7%;
+      left: 43%;
+      transform: rotate(180deg);
+    }
+
+    p:nth-child(7) {
+      bottom: 8%;
+      right: 50%;
+      transform: rotate(210deg);
+    }
+
+    p:nth-child(8) {
+      bottom: 17%;
+      right: 59%;
+      transform: rotate(238deg);
+      /* 為了畫面平衡，240deg改237deg */
+    }
+
+    p:nth-child(9) {
+      bottom: 34%;
+      right: 69%;
+      transform: rotate(270deg);
+    }
+
+    p:nth-child(10) {
+      bottom: 48%;
+      right: 68%;
+      transform: rotate(300deg);
+    }
+
+    p:nth-child(11) {
+      bottom: 57%;
+      right: 56%;
+      transform: rotate(330deg);
+    }
+
+    p:nth-child(12) {
+      bottom: 60.5%;
+      left: 40%;
+      transform: rotate(360deg);
+    }
+
+    #Now {
+      text-align: center;
+      text-shadow: 3px 3px 3px yellowgreen;
     }
   </style>
 </head>
@@ -67,19 +168,21 @@
     <div id="minute"></div>
     <div id="second"></div>
     <div id="number">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-      <span>5</span>
-      <span>6</span>
-      <span>7</span>
-      <span>8</span>
-      <span>9</span>
-      <span>10</span>
-      <span>11</span>
-      <span>12</span>
+      <p>Ⅰ</p>
+      <p>Ⅱ</p>
+      <p>Ⅲ</p>
+      <p>Ⅳ</p>
+      <p>Ⅴ</p>
+      <p>Ⅵ</p>
+      <p>Ⅶ</p>
+      <p>Ⅷ</p>
+      <p>Ⅸ</p>
+      <p>Ⅹ</p>
+      <p>ⅩⅠ</p>
+      <p>ⅩⅡ</p>
     </div>
+    <div id="circle"></div>
+    <!-- 參考定位用 -->
   </div>
   <h1 id="Now"></h1>
 
@@ -99,25 +202,32 @@
     const update = () => {
       const now = new Date()
       hour.style.transform = `rotate(${now.getHours() * 30}deg)`
-      //                                                              360/12=30
+      //                                            360/12=30
       minute.style.transform = `rotate(${now.getMinutes() * 6}deg)`
-      //                                                              360/60=6
+      //                                            360/60=6
       second.style.transform = `rotate(${now.getSeconds() * 6}deg)`
-      //                                                              360/60=6
+      //                                            360/60=6
 
       Now.innerText = ` ${now.getFullYear()}年  ${now.getMonth() + 1}月  ${now.getDate()}日`
-
-      number.style.transform = `rotate(${now.getHours() * 30}deg)`
-
     }
     setInterval(update, 1000)
     update()
 
 
 
-    // for (let i = 1; i <= 12; i++) {
-    //   document.write(`<span>${i}</span>`)
+    // 想控制數字自己自動旋轉排列
+    // let span = document.getElementsByTagName('span')
+
+    // const number = () => {
+    //   for (let i = 1; i <= 12; i++) {
+    //     // document.write(`<span>${i}</span>`)
+    //     span.style.transform = `rotate(${i * 30}deg)`
+    //   }
     // }
+
+
+
+
 
     // 目前想要做
     // 1~12 的 js 直接旋轉排列 (迴圈應該可以)
