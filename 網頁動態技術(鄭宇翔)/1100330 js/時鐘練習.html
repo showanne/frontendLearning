@@ -51,35 +51,50 @@
       transform: rotate(50deg);
       transform-origin: bottom center;
     }
+
+    #number {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+
+    }
   </style>
 </head>
 
 <body>
   <div id="clock">
-    <div id="Now"></div>
     <div id="hour"></div>
     <div id="minute"></div>
     <div id="second"></div>
+
   </div>
+  <h1 id="Now"></h1>
+
   <script>
-    const Now = document.getElementById('Now')
+
+    // 時鐘得時針、分針、秒針
     const hour = document.getElementById('hour')
     const minute = document.getElementById('minute')
     const second = document.getElementById('second')
+    const Now = document.getElementById('Now')
 
     const update = () => {
       const now = new Date()
-      Now.innerText = ` ${now.getFullYear()}年  ${now.getMonth() + 1}月  ${now.getDate()}日`
       hour.style.transform = `rotate(${now.getHours() * 30}deg)`
       //                                                              360/12=30
       minute.style.transform = `rotate(${now.getMinutes() * 6}deg)`
       //                                                              360/60=6
       second.style.transform = `rotate(${now.getSeconds() * 6}deg)`
       //                                                              360/60=6
-    }
 
+      Now.innerText = ` ${now.getFullYear()}年  ${now.getMonth() + 1}月  ${now.getDate()}日 }`
+
+    }
     setInterval(update, 1000)
     update()
+
+
+
   </script>
 </body>
 
