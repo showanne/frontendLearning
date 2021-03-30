@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practice_label</title>
+
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+    }
+
+    .label {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .label label {
+      padding: 3px;
+      margin: 3px 2px;
+
+      transition: 1s;
+    }
+
+    .label label:hover {
+      background-color: rgba(135, 137, 250, 0.295);
+      border: 1px dashed rgb(135, 137, 250);
+    }
+
+    .ticket {
+      width: 350px;
+      /* height: 500px; */
+      margin: auto;
+
+      /* 類郵票形狀  https://ithelp.ithome.com.tw/articles/10191417 */
+      background:
+        radial-gradient(circle at top left, transparent 15px, rgb(135, 152, 250) 0) top left,
+        radial-gradient(circle at top right, transparent 15px, rgb(135, 152, 250) 0) top right,
+        radial-gradient(circle at bottom right, transparent 15px, rgb(135, 152, 250) 0) bottom right,
+        radial-gradient(circle at bottom left, transparent 15px, rgb(135, 152, 250) 0) bottom left;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    /* 把 input 開關點點先關掉 */
+    .ticket input {
+      display: none;
+    }
+
+    /* 先隱藏資料 */
+    .ticket>.info {
+      display: none;
+    }
+
+    /* 被checked到的，隔壁的div顯示 */
+    .ticket input:checked+.info {
+      display: block;
+    }
+
+    .info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info img {
+      width: 250px;
+      padding: 30px 50px 0 50px;
+      /* display: inline; */
+
+    }
+
+    .info p {
+      /* display: inline; */
+      margin: 0;
+      padding: 30px;
+
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="label">
+    <label for="my01">my01</label>
+    <label for="my02">my02</label>
+    <label for="my03">my03</label>
+    <label for="my04">my04</label>
+  </div>
+  <div class="ticket">
+    <input id="my01" type="radio" name="myPhoto" checked>
+    <div class="info">
+      <img src="./img/myPhoto (1).jpg" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores beatae impedit praesentium officia ab,
+        dicta nulla! Fugit, quos excepturi, libero iusto nam repudiandae soluta quam obcaecati, explicabo pariatur eaque
+        doloribus? Optio quam iste minus tenetur!</p>
+    </div>
+    <input id="my02" type="radio" name="myPhoto">
+    <div class="info">
+      <img src="./img/myPhoto (2).jpg" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti consequatur veniam dolores architecto
+        voluptates fuga, id neque, repudiandae velit dignissimos tempora aperiam! Sit eveniet, numquam ratione eius,
+        quae voluptatem sapiente eligendi asperiores, quasi natus ex?</p>
+    </div>
+    <input id="my03" type="radio" name="myPhoto">
+    <div class="info">
+      <img src="./img/myPhoto (3).jpg" alt="">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo assumenda, esse expedita, libero accusantium
+        corporis cupiditate provident cum molestias architecto vitae veniam sed dicta inventore totam a dolores facere
+        nesciunt deserunt est nisi explicabo tempore.</p>
+    </div>
+    <input id="my04" type="radio" name="myPhoto">
+    <div class="info">
+      <img src="./img/myPhoto (4).jpg" alt="">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad omnis harum alias repellat deleniti eos quidem
+        praesentium deserunt et sapiente id, dolor amet. Quasi laudantium iusto veritatis quae consectetur, unde odio
+        illum vel ut voluptas.</p>
+    </div>
+  </div>
+</div>
+
+<body>
+
+</body>
+
+</html>

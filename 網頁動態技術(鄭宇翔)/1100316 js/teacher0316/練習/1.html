@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let numbers = [33, 75, 69, 41, 50, 19]
+    let index41 = -1
+    let even = 0
+    let min = numbers[0]
+    let max = numbers[0]
+
+    for(let i=0;i<numbers.length;i++) {
+      console.log(`第 ${i+1} 個數字是 ${numbers[i]}`)
+
+      // 如果現在這個值是 41
+      if (numbers[i] == 41) {
+        index41 = i
+      }
+
+      // 如果現在這個值是偶數
+      if (numbers[i] %2 == 0) {
+        even++
+      }
+
+      // 如果現在這個值比記錄的大
+      if (numbers[i] > max) {
+        max = numbers[i]
+      }
+
+      // 如果現在這個值比記錄的小
+      if (numbers[i] < min) {
+        min = numbers[i]
+      }
+    }
+    console.log(`41 是第 ${index41+1} 個`);
+    console.log(`偶數有 ${even} 個，奇數有 ${numbers.length - even} 個`);
+    console.log(`最大: ${max} 最小: ${min}`);
+  </script>
+</body>
+</html>

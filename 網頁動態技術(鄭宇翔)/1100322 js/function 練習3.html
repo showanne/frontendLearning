@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 練習  -  製作易經數字卦占卜程式
+    // 使用者輸入三個數字後，將數字以陣列方式傳進 function
+    //   並將處理後的上卦名、下卦名、變爻用陣列回傳
+
+    // 數字卦占卜方式：
+    // 輸入三個三位數數字
+    // 將前兩個數字各除以 8，最後一個除以 6
+    // 如果整除，則餘數即為除數 8 或 6
+    // 各數字算完的餘數照八卦的順序選取卦
+    // 八卦順序為乾一、兌二、離三、震四、巽五、坎六、艮七、坤八
+    // 乾為天、兌為澤、離為火、震為雷、巽為風、坎為水、艮為山、坤為地
+
+    // 範例：
+    // 取三個數字 435 692 734
+    // 下卦為 435 除以 8 的餘數，為 3，離卦
+    // 上卦為 692 除以 8 的餘數，為 4，震卦
+    // 變爻為 734 除以 6 的餘數，為 2，第二爻
+    // 卜問出來的卦即是離下震上的雷火豐卦，可參考易學網解卦
+
+
+    let eight = ['坤', '乾', '兌', '離', '震', '巽', '坎', '艮']
+    // number%8  0(8)   1     2     3     4     5     6     7
+    // 若按照原本的八卦順序，number%8=0 結果會是'乾'，但事實上 =1 結果才是'乾'，所以做順序微調讓結果正確
+
+    const gua = (array) => {
+      // ... 在此寫你的程式碼
+
+      // array = numbers
+      let num1 = eight[array[0] % 8]
+      let num2 = eight[array[1] % 8]
+      let num3 = array[2] % 6
+
+      return [num1, num2, num3]
+
+    }
+    // console.log(array);
+
+
+    const number1 = parseInt(prompt('第一個數字'))
+    const number2 = parseInt(prompt('第二個數字'))
+    const number3 = parseInt(prompt('第三個數字'))
+    const numbers = [number1, number2, number3]
+    const result = gua(numbers)
+    console.log(result[0]) // 輸出 離
+    console.log(result[1]) // 輸出 震
+    console.log(result[2]) // 輸出 2
+
+  </script>
+</body>
+
+</html>

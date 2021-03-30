@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function sayHello() {
+      document.write('你好')
+    }
+
+    sayHello()
+    document.write(`<br><br>`)
+
+    function sayHello2(name) {
+      document.write(`${name} , 你好 <br>`)
+    }
+
+    sayHello2('AA')
+    sayHello2('BB')
+    document.write(`<br><br>`)
+
+
+    // function sum(number1, number2) {
+
+    //   // arguments 把傳進來的東西放進一個陣列裡
+    //   console.log(arguments);
+
+    //   alert(number1 + number2)
+    // }
+
+    // sum(6, 19)
+
+    function sayHello3(name = '無名氏') {
+      document.write(`${name} , 你好 <br>`)
+    }
+    // sayHello3('CC')
+
+    function sayHello4(name = '無名氏', age = 7) {
+      document.write(`${name}，你好，你 ${age} 歲了！ <br>`)
+    }
+    // 指定第一個值
+    sayHello4('DD')
+    // 兩個值都使用預設
+    sayHello4()
+    // 指定第二個值
+    sayHello4(undefined, 21)
+
+    function sayHello5(name = '無名氏', age = 19) {
+      let str = `${name}，你好，你 ${age}了！ `
+      return str
+    }
+    let helloText = sayHello5()
+    console.log(helloText);
+
+    function sayHello6(name = '無名氏', age = 21) {
+      return `${name}，你好，你 ${age}了！`
+    }
+
+    console.log(sayHello6());
+
+    const sayHello7 = (name = '無名氏', age = 1) => {
+      return `${name}，你好，你 ${age}了！`
+    }
+
+    console.log(sayHello7());
+  </script>
+</body>
+
+</html>

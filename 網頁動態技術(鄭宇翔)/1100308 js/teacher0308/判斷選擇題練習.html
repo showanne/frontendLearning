@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let answer = prompt(`心理測驗\n當你在沙漠很渴時，出現一瓶飲料，你希望他是什麼?\n1.水\n2.可樂\n3.茶\n4.咖啡`)
+
+    // if (answer === null) {
+    //   document.write('未作答')
+    // } else if (answer === "1") {
+    //   document.write('你是一個喜歡喝水的人')
+    // } else if (answer === "2") {
+    //   document.write('你是一個喜歡喝可樂的人')
+    // } else if (answer === "3") {
+    //   document.write('你是一個喜歡喝茶的人')
+    // } else if (answer === "4") {
+    //   document.write('你是一個喜歡喝咖啡的人')
+    // } else {
+    //   document.write('沒有這個選項')
+    // }
+
+    switch(answer) {
+      case null:
+        document.write('未作答')
+        break
+      case '1':
+        document.write('你是一個喜歡喝水的人')
+        break
+      case '2':
+        document.write('你是一個喜歡喝可樂的人')
+        break
+      case '3':
+        document.write('你是一個喜歡喝茶的人')
+        break
+      case '4':
+        document.write('你是一個喜歡喝咖啡的人')
+        break
+      default:
+        document.write('沒有這個選項')
+        break
+    }
+  </script>
+</body>
+</html>

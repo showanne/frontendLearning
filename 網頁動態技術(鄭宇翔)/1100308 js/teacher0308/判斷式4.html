@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 跳出輸入框，收到的結果為文字，點取消的話是 null
+    let age = prompt('請輸入年齡')
+    
+    if (age === null) {
+      document.write('未輸入年齡')
+    } else if (age >= 18) {
+      document.write(`<img src="./18.png" width="100">`)
+      document.write(`你的年齡是${age}，你可以看限制級`)
+    } else if (age >= 15) {
+      document.write(`<img src="./15.png" width="100">`)
+      document.write(`你的年齡是${age}，你可以看輔 15 級`)
+    } else if (age >= 12) {
+      document.write(`<img src="./12.png" width="100">`)
+      document.write(`你的年齡是${age}，你可以看輔 12 級`)
+    } else if (age >= 6) {
+      document.write(`<img src="./6.png" width="100">`)
+      document.write(`你的年齡是${age}，你可以看保護級`)
+    } else {
+      document.write(`<img src="./0.png" width="100">`)
+      document.write(`你的年齡是${age}，你可以看普遍級`)
+    }
+  </script>
+</body>
+</html>

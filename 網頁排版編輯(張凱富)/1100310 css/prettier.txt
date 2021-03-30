@@ -1,0 +1,22 @@
+
+  // prettier -----------------------------------------------------------------------------------------
+  "editor.formatOnSave": true, // 自動存檔
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 格式化預設為 prettier
+  // html 文件使用 vscode.html-language-features 來格式化
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "prettier.semi": false, // 不加分號
+  "prettier.singleQuote": true, // 使用單引號
+  "prettier.trailingComma": "none", // 省略尾巴逗號
+  "prettier.useTabs": false, // 縮排不使用 tab
+  "prettier.tabWidth": 2, // tab 縮排 2 個字元
+  "prettier.printWidth": 160, // 屬性想折行可以註解起來
+  "prettier.bracketSpacing": true, // 在物件字面值、陣列使用的的括號與文字間加上空格
+  "prettier.arrowParens": "avoid", // 省略箭頭函式參數一個時的小括號
+  // 測試中選項
+  "prettier.jsxBracketSameLine": true, // 在 jsx 中把'>' 是否單獨放在一行
+  "prettier.jsxSingleQuote": true, // jsx 使用單引號
+  "prettier.quoteProps": "as-needed", // 物件的 KEY 僅在必要時用引號
+  "prettier.htmlWhitespaceSensitivity": "ignore", // 忽略 HTML 空白
+  "prettier.vueIndentScriptAndStyle": true

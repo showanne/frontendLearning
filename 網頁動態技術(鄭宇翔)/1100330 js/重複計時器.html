@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 設定每0.5秒顯示一次Hi
+    let timer = setInterval(() => {
+      document.write('Hi')
+      document.write(`<br><br>`)
+    }, 500)
+
+    // 5秒後清除 timer 動作
+    setTimeout(() => {
+      clearInterval(timer);
+    }, 5000)
+  </script>
+</body>
+
+</html>

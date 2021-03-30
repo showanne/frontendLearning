@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 標題 -->
+  <h1>Hello World!</h1>
+  <h2>Hello World!</h2>
+  <h3>Hello World!</h3>
+  <h4>Hello World!</h4>
+  <h5>Hello World!</h5>
+  <h6>Hello World!</h6>
+
+  <!-- 段落 -->
+  <p>段落文章</p>
+
+  <!-- 水平線 -->
+  <hr>
+
+  <!-- 連結 -->
+  <!-- Hypertext Reference -->
+  <!-- _blank 開啟新視窗 -->
+  <a href="http://www.google.com" target="_blank">Google</a>
+  <br>
+  <a href="#myform">跳到myform</a>
+  <br>
+  <a href="#list">跳到list</a>
+  <!-- 換行 -->
+  <br>
+  <a href="http://www.yahoo.com">Yahoo</a>
+  <!-- ul 無序號清單 -->
+  <ul id="list">
+    <!-- 清單項目 -->
+    <li>上網</li>
+    <li>看電影</li>
+    <li>唱歌</li>
+    <li>逛街</li>
+  </ul>
+
+  <!-- ol 有序號清單 -->
+  <ol>
+    <!-- 清單項目 -->
+    <li>上網</li>
+    <li>看電影</li>
+    <li>唱歌</li>
+    <li>逛街</li>
+  </ol>
+
+  <!-- 巢狀結構 -->
+  <ul>
+    <li>
+      <h3>前端技能</h3>
+      <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>jQuery</li>
+      </ol>
+    </li>
+
+    <li>
+      <h3>後端技能</h3>
+      <ol>
+        <li>PHP</li>
+        <li>MySql</li>
+      </ol>
+    </li>
+  </ul>
+
+  <!-- 圖片 -->
+  <!-- alt 替代文字，圖片連結失效出現的文字 -->
+  <!-- title 滑鼠移上圖片的標題文字 -->
+  <!-- 相對路徑，設計網站請用這個 -->
+  <img src="./images/tailogo.jpg" width="300" alt="泰山職訓局" title="哈囉">
+  <!-- 絕對路徑 -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/ROC_Workforce_Development_Agency_Logo.svg/1200px-ROC_Workforce_Development_Agency_Logo.svg.png"
+       width="300">
+  <!-- 
+    ./images/01.jpg 存目前文件位置去找資源
+    ../other/hello.jpg 回上一層的目錄找尋資源
+   -->
+  <img src="./pikachu.jpg" width="300">
+
+  <!-- 跑馬燈 -->
+  <marquee>今天是第一天 html 課程</marquee>
+
+  <!-- 粗體 -->
+  <b>我是粗體</b>
+  <strong>我是粗體</strong>
+  <hr>
+  <!-- 斜體 -->
+  <i>我是斜體</i>
+  <em>我是斜體</em>
+  <hr>
+  <!--刪除線 -->
+  <s>我是刪除線</s>
+  <del>我是刪除線</del>
+  <hr>
+  <!-- 底線 -->
+  <u>我是底線</u>
+  <ins>我是底線</ins>
+  <hr>
+  <!-- 上標 -->
+  X<sup>2</sup>
+  <hr>
+  <!-- 下標 -->
+  CO<sub>2</sub>
+
+  <pre>
+    <code>
+    var btn = document.getElementById('btn')
+    var showTime = document.getElementById('showTime')
+    btn.onclick = function () {
+      setInterval(() => {
+        showTime.innerText = new Date().toLocaleString()
+      }, 1000);
+    }
+    </code>
+  </pre>
+
+  <hr>
+
+  <!-- 頁框 -->
+  <a href="./hello.html" target="showFrame">hello.html</a>
+  <iframe name="showFrame" src="./03.HTML_structure.html" frameborder="1" width="500" height="300" frameborder="1"></iframe>
+  <hr>
+
+  <!-- 基本表格 -->
+  <!-- 
+    cellspacing 欄位與欄位之間的距離
+    cellpadding 欄位的內距
+   -->
+  <table border="1" align="center" width="600" cellspacing="10" cellpadding="10">
+    <tr align="center">
+      <td>表格</td>
+      <td>表格</td>
+      <td>表格</td>
+    </tr>
+    <tr align="center">
+      <td>表格</td>
+      <td>表格</td>
+      <td>表格</td>
+    </tr>
+    <tr align="center">
+      <td>表格</td>
+      <td>表格</td>
+      <td>表格</td>
+    </tr>
+  </table>
+
+  <!-- table 完整 -->
+  <!-- thead、tbody、tfoot 不影響畫面，多包一層表示結構的分類 -->
+  <table border="1" align="center" width="600">
+    <caption>射鵰三部曲</caption>
+    <thead>
+      <tr>
+        <th>名字</th>
+        <th>內功</th>
+        <th>絕技</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>郭靖</td>
+        <td>九陰真經</td>
+        <td>降龍十八掌</td>
+      </tr>
+      <tr>
+        <td>楊過</td>
+        <td>九陰真經</td>
+        <td>黯然銷魂掌</td>
+      </tr>
+      <tr>
+        <td>張無忌</td>
+        <td>九陽真經</td>
+        <td>乾坤大挪移</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>表格註腳</td>
+        <td>表格註腳</td>
+        <td>表格註腳</td>
+      </tr>
+    </tfoot>
+  </table>
+  <br>
+  <!-- 表格合併 -->
+  <!-- 
+    colsapn（欄合併）（左右欄的合併） 
+    左吃右，右消失，colspan="吃幾個+自己"
+  -->
+  <!-- 
+    rowspan（列合併）（上下列的合併） 
+    上吃下，下消失，rowspan="吃幾個+自己"
+  -->
+  <table border="1" width="600" align="center">
+    <tr align="center">
+      <td colspan="3">1</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>2</td>
+      <td rowspan="2">3</td>
+      <td>4</td>
+      <td colspan="2">5</td>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr align="center">
+      <td rowspan="3">1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </table>
+
+  <br>
+  <br>
+
+  <!-- 常用表單  -->
+  <!-- enctype="multipart/form-data" 上傳檔案必須的屬性 -->
+  <!-- get 傳送會資料顯示在瀏覽器網址列，帳密不能使用 get -->
+  <form id="myform" action="a.html" method="post" enctype="multipart/form-data">
+    <table width="100%" border="1" cellspadding="5" cellspacing="0">
+      <tr>
+        <td width="100">帳號：</td>
+        <!-- size 欄位寬度 -->
+        <!-- maxlength 最大字元數 -->
+        <td><input type="text" size="30" maxlength="10" placeholder="請輸入帳號" name="account"></td>
+      </tr>
+      <tr>
+        <td>密碼：</td>
+        <td><input type="password" placeholder="請輸入密碼" name="pw"></td>
+      </tr>
+      <tr>
+        <td>性別：</td>
+        <td>
+          <!-- radio 為單選，name需相同表示同一組，checked 為預設勾選選項 -->
+          <input type="radio" name="gender" value="男">男
+          <input type="radio" name="gender" value="女" checked>女
+        </td>
+      </tr>
+      <tr>
+        <td>興趣：</td>
+        <td>
+          <input type="checkbox" name="like" value="拍照" checked>拍照
+          <input type="checkbox" name="like" value="看書">看書
+          <input type="checkbox" name="like" value="唱歌">唱歌
+          <input type="checkbox" name="like" value="寫網頁">寫網頁
+        </td>
+      </tr>
+      <tr>
+        <td>出生年份：</td>
+        <td>
+          <select name="my_select">
+            <option value="1980">1980</option>
+            <option value="1990">1990</option>
+            <option value="2000" selected>2000</option>
+            <option value="2010">2010</option>
+          </select>
+          年
+        </td>
+      </tr>
+      <tr>
+        <td>上傳檔案：</td>
+        <td><input type="file" name="upload_file"></td>
+      </tr>
+      <tr>
+        <td>留言訊息：</td>
+        <td><textarea name="msg" cols="50" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" value="送出">
+          <input type="reset" value="重置">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <!-- 區塊標籤(元素) 一人佔一行空間-->
+  <!-- div、p、ul、li -->
+  <div>div</div>
+  <p>p</p>
+  <!-- 行內標籤(元素) 乖乖排隊-->
+  <!-- span、a、em、b、s、i -->
+  <a href="#">aaa</a>
+  <a href="#">bbb</a>
+  <span>ccc</span>
+  <span>ddd</span>
+
+  <!-- html5 新增標籤 -->
+  <!-- 語意(義)化 -->
+  <!-- 定義網頁頁首的區域 -->
+  <header></header>
+  <!-- 定義網頁導覽區域 -->
+  <nav></nav>
+  <!-- 定義網頁頁尾區域 -->
+  <footer></footer>
+  <!-- 定義一個區塊範圍 -->
+  <section></section>
+  <!-- 定義側邊區域範圍 -->
+  <aside></aside>
+  <!-- 定義文章範圍 -->
+  <article></article>
+
+  <div id="header"></div>
+  <div id="footer">footer</div>
+
+  <a href="#">回頂端</a>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 100px;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background: mediumslateblue;
+        }
+
+        .box2 {
+            background: mistyrose;
+            width: 300px;
+        }
+
+        .box3 {
+            background: orange;
+            width: 300px;
+            height: 200px;
+            overflow: auto;
+            /* 溢出部分 overflow: hidden 超出元素範圍時，內容會被隱藏，不會顯示卷軸
+                                 scroll 超出元素範圍時，內容會被隱藏，自動顯示卷軸
+                                 auto 瀏覽器自動選擇，超出範圍時，自動顯示卷軸 */
+        }
+
+        .box4-1 {
+            background: lightgreen;
+            width: 300px;
+            margin: 50px;
+            /* margin 外距、邊界
+               margin: top right bottom left (順時針方向)
+                       ↑ 也可以分別拆開做設定
+               margin: 上下  左右; */
+            /* 外距及內距 若要設定百分比，則是根據外層元素(body)的寬度去做計算 */
+            /* margin 可設定負值 */
+            margin: -50px;
+        }
+
+        .box4-2 {
+            background: lightgreen;
+            width: 300px;
+            padding: 20px;
+            /* padding 內距
+               padding: top right bottom left (順時針方向)
+                        ↑ 也可以分別拆開做設定
+               padding: 上下  左右;  */
+            /* 外距及內距 若要設定百分比，則是根據外層元素(body)的寬度去做計算 */
+            padding: 5%;
+            /* padding 不可設定負值 */
+        }
+
+        .box4-3 {
+            background: lightgreen;
+            width: 300px;
+            height: 300px;
+            /* border 邊框 */
+            /* border-style 樣式種類 
+                solid 實線 / dotted 點點線 / dashed 短線 / double 兩條實線 / groove 刻入 <-> ridge 浮雕 / inset 陷入 <-> outset 凸出 */
+
+            /* 直接對四邊做設定 */
+            border-width: 15px;
+            border-style: dashed dotted groove double;
+            border-color: #666 #dd2 #123 #1e1;
+            /* 也可以對單邊做3種設定 */
+            border-bottom: 25px ridge deepskyblue;
+
+            /* 若 border-color 設成 transparent(透明)，背景澀會渲染到 border */
+            /* border-color: transparent; */
+
+            outline: 10px dashed tomato;
+            /* outline 外框 */
+        }
+
+        /* box5、box6 若外距有重疊(垂直部分)，會以大的為主
+           box5 m-bottom: 50px、box6 m-top: 20px -> 則t垂直重疊部分為 50px
+           box5 m-right: 50px、box6 m-left: 20px -> 則水平重疊部分為 70px
+         */
+        .box5 {
+            width: 300px;
+            height: 200px;
+            background: wheat;
+            margin-bottom: 50px;
+        }
+
+        .box6 {
+            width: 300px;
+            height: 200px;
+            background: silver;
+            margin-top: 20px;
+        }
+
+        .box7 {
+            background: skyblue;
+            /* 內容區域 */
+            width: 300px;
+            height: 300px;
+            /* 內外距 */
+            padding: 0 10px;
+            margin: 0 10px;
+            /* 邊框 */
+            border-left: 5px solid springgreen;
+            border-right: 5px solid sienna;
+            /* 外框 -> 不影響計算 */
+            outline: 3px dotted tan;
+            /* 總寬度計算 300+10*2+10*2+5*2=350px */
+        }
+
+        .box8 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid #666;
+            border-bottom-right-radius: 30%;
+            /* border-radius 圓角
+               border-radius: 左上 右上 右下 左下 (順時針方向)
+                       ↑ 也可以分別拆開做設定
+               border-radius: 左上右下  右上左下; */
+            border-radius: 10% 10px;
+        }
+
+        .box9 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid #abf;
+            border-radius: 50%;
+            /* 圓形必須由正方形去設定 50% radius
+                                  或超大的值 ex.200px */
+            /* 盒子水平置中 ->外面的空間需大於圓形的寬度才有空間顯示置中 */
+            margin: auto;
+            /* 盒子陰影 box-shadow
+                水平位移 垂直位移 模糊半徑 擴散半徑 顏色  inset 陰影朝內
+                (+、-)   (+、-)   (+)    (+、-) */
+            box-shadow:
+                0 0 50px 0 rgba(0, 166, 255, 0.8),
+                -10px -20px 0 10px rgba(250, 57, 202, 0.5),
+                0 0 50px 10px rgba(108, 24, 243, 0.8),
+                0 0 50px 0 rgba(0, 0, 255, 0.8) inset;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>box1 畫一個盒子，設定寬、高、背景色</h2>
+    <div class="box1"></div>
+
+    <hr>
+
+    <h2>box2 不設定高度，高度會以內容高度為主 (隨著內容長高)</h2>
+    <div class="box2">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quam excepturi earum officia illo magni placeat
+        dignissimos ipsam consequatur. Minima laboriosam optio laborum aliquam ex, repellendus quia? Quas, aliquam
+        blanditiis.
+        <br><br>
+        歌曲玄幻幫你解釋體會感染還要一週似乎，經營外觀增加，很少具體期待在這風雲眼睛一年演出以後，優秀目的措施一流看過，機器在這裡呵呵訪問，文章此處銀行培訓設計至今，系統良好工作紀念答案臺灣人報紙根據星座得知給予，轉移國際事件本站不停要有也能監督緊緊，祝福大力各。
+    </div>
+
+    <hr>
+
+    <h2>box3 設定高度，內容太多超過高度或寬度會溢出，必須額外設定 overflow 防止溢出 </h2>
+    <div class="box3">
+        我家不行包裝降低這些簽名民間歷史自信和諧那種寫真下載地址，企業說法，記者裝飾價格差不多一致網頁停止床上運動大小禮品這就是，足夠誠信舉行傳播不知精英意識敵人，廣場附近擔心，我把標誌天堂它們危險製品世界上職責，對比沒有語文詳細內容，硬體漂亮高考電子商務請問任務出去，關心貼圖幾年三星望着一番還不直播主，提問但我擁有，經濟給他學習不要現在請教美國，三大報名財政公斤求助情形則是集團好像明年本次看見，眾人地方或是優秀引起權限管理員充滿青春，功夫不管怎麼會儘快網路實在一個月時候很有全面遊戲房屋打算自己，虛擬接下來數量未，突然基隆馬上其中國內循環通訊轉讓，校園需要實業，配套作戰批准幽默開展厲害很有，大力應該轉讓導演聯盟日常輸入儘快，某些方法學術貫徹發佈，逐步一。
+    </div>
+
+    <hr>
+
+    <h2>box3-2 設定高度，且有設定寬度 內容p > 上層div，寬度部分溢出會有 x軸 的卷軸</h2>
+    <div class="box3">
+        <p style="width: 500px;">
+            我家不行包裝降低這些簽名民間歷史自信和諧那種寫真下載地址，企業說法，記者裝飾價格差不多一致網頁停止床上運動大小禮品這就是，足夠誠信舉行傳播不知精英意識敵人，廣場附近擔心，我把標誌天堂它們危險製品世界上職責，對比沒有語文詳細內容，硬體漂亮高考電子商務請問任務出去，關心貼圖幾年三星望着一番還不直播主，提問但我擁有，經濟給他學習不要現在請教美國，三大報名財政公斤求助情形則是集團好像明年本次看見，眾人地方或是優秀引起權限管理員充滿青春，功夫不管怎麼會儘快網路實在一個月時候很有全面遊戲房屋打算自己，虛擬接下來數量未，突然基隆馬上其中國內循環通訊轉讓，校園需要實業，配套作戰批准幽默開展厲害很有，大力應該轉讓導演聯盟日常輸入儘快，某些方法學術貫徹發佈，逐步一。
+        </p>
+    </div>
+
+    <hr>
+
+    <h2>box4-1 設定盒子的 margin</h2>
+    <div class="box4-1">
+        連續台鐵次數適當成績眼裡附近一天評分留學小遊戲機場它的加大，排名十分按鈕身材，必要包括些什麼相同每天越來越食物有時候威望困難合同錯誤成長，如此詳細溫度航空據說路線更新你說世界是一個裝飾許多不再，準確那麼綠色委員會食物英雄整合所有人刺激臺灣經過一年，成立規。
+    </div>
+
+    <hr>
+
+    <h2>box4-2 設定盒子的 padding</h2>
+    <div class="box4-2">
+        連續台鐵次數適當成績眼裡附近一天評分留學小遊戲機場它的加大，排名十分按鈕身材，必要包括些什麼相同每天越來越食物有時候威望困難合同錯誤成長，如此詳細溫度航空據說路線更新你說世界是一個裝飾許多不再，準確那麼綠色委員會食物英雄整合所有人刺激臺灣經過一年，成立規。
+    </div>
+
+    <hr>
+
+    <h2>box4-3 設定盒子的 border(邊框)、outline(外框)</h2>
+    <div class="box4-3">
+        連續台鐵次數適當成績眼裡附近一天評分留學小遊戲機場它的加大，排名十分按鈕身材，必要包括些什麼相同每天越來越食物有時候威望困難合同錯誤成長，如此詳細溫度航空據說路線更新你說世界是一個裝飾許多不再，準確那麼綠色委員會食物英雄整合所有人刺激臺灣經過一年，成立規。
+    </div>
+
+    <hr>
+
+    <h2>box5、box6 外距重疊現象；只發生在垂直，會以大的數值為主，</h2>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+    <hr>
+
+    <h2>box7 計算一個盒子的寬度</h2>
+    <div class="box7">
+        <p>實際總寬度 = width + padding + border + margin</p>
+    </div>
+
+    <hr>
+
+    <h2>box8 圓角設定 border-radius</h2>
+    <div class="box8"></div>
+
+    <hr>
+
+    <h2>box9 圓形</h2>
+    <div class="box9"></div>
+
+</body>
+
+</html>

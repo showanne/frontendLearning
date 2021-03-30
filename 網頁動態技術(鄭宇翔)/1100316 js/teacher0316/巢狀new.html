@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let people = [
+      { name: '一號同學', number: 1},
+      { name: '二號同學', number: 2}
+    ]
+    for (let i=0;i<people.length;i++) {
+      console.log(people[i].name)
+    }
+
+    let restaurant = {
+      name: '好好吃便當店',
+      tel: '02-21345678',
+      foods: ['雞排飯', '排骨飯']
+    }
+    for (let i=0;i<restaurant.foods.length;i++) {
+      console.log(restaurant.foods[i])
+    }
+
+    let restaurant2 = {
+      name: '好好吃便當店',
+      tel: '02-21345678',
+      foods: [
+        { name: '雞排飯', price: 90 },
+        { name: '排骨飯', price: 70 }
+      ]
+    }
+    for (let i=0;i<restaurant2.foods.length;i++) {
+      let food = restaurant2.foods[i]
+      console.log(`${food.name}的價格為${food.price}`)
+    }
+
+    // I 班 J 號的數學成績
+    // 外層是班級，內層是座號
+    let score = [
+      [10, 20, 30, 40],
+      [50, 60, 70, 80],
+      [50, 80, 40 ,30]
+    ]
+    // 先跑每一班
+    for(let i=0;i<score.length;i++) {
+      // 再跑每一號
+      for (let j=0;j<score[i].length;j++) {
+        // console.log(`${i+1} 班 ${j+1} 號的分數是 ${score[i][j]}`)
+      }
+    }
+
+    // I 年 J 班 K 號
+    // 最外層是年級，中層是班級，內層是座號
+    let score2 = [
+      [
+        [10, 20, 30, 40],
+        [50, 60, 70, 80],
+        [50, 80, 40 ,30]
+      ],
+      [
+        [20, 30, 40, 50],
+        [60, 70, 80, 90],
+        [60, 90, 50 ,40]
+      ],
+    ]
+    // 先跑每一年
+    for(let i=0;i<score2.length;i++) {
+      // 再跑每一班
+      for (let j=0;j<score2[i].length;j++) {
+        // 最後是每一號
+        for (let k=0;k<score2[i][j].length;k++) {
+          console.log(`${i} 年 ${j} 班 ${k} 號的分數是 ${score2[i][j][k]}`)
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    for (let i = 0; i < 20; i++) {
+      document.write(i + "<br>")
+    }
+    // console.log(i)  //not defined
+    //  let i 在此處為區域變數，在外面 log 會出錯
+
+    document.write("<br><hr><br>")
+
+    //練習 - 試試看自己寫一個迴圈，輸出這四個數字: 1, 4, 7, 10
+    for (let i = 1; i < 12; i = i + 3) {
+      document.write(i + "<br>")
+    }
+
+    document.write("<br><hr><br>")
+
+    // 挑戰 -   在網頁上產生一排 51 個顏色漸變的 ★，第一個星的顏色為 rgb(0, 0, 255) ，最後一個 ★ 色碼為 rgb(255, 0, 0) ，綠色值都是0
+    for (let i = 0; i < 256; i = i + 5) {
+      document.write(`<span style="color:rgb( ${i}, 0, ${255 - i});">★</span>`)
+    }
+
+    document.write("<br><hr><br>")
+
+    //練習 -   想一想，怎麼用兩個 for 迴圈製作一個九九乘法表。
+    // 以下兩種練習，請同學依照順序挑戰  1.一行一行的算式  2.製作成表格
+
+    // 1.一行一行的算式
+    for (let i = 1; i < 10; i++) {
+      for (let j = 1; j < 10; j++) {
+        document.write(i + "x" + j + "=" + i * j + "<br>")
+        // document.write(`${i} x ${j} = ${i * j} <br>`)   //一樣的寫法
+      }
+    }
+    document.write("<br><br>")
+
+    // 2.製作成表格
+    // 迴圈 練習-99乘法表應用.html
+
+
+
+// 挑戰 -  上面兩種都完成的同學，試著結合剛剛的顏色漸變星星，將九九乘法表表格加上顏色漸變背景
+
+  </script>
+
+
+</body>
+
+</html>

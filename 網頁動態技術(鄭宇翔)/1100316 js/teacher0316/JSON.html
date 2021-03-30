@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let frontClass = {
+      teacher: '蔡老師',
+      studentCount: 24,
+      classroom: '1104'
+    }
+
+    // JSON 可以直接指定新索引和值
+    frontClass.os = 'win10'
+
+    // 無法用 .length 取得資料筆數
+    console.log(frontClass.length)
+    // JSON 要用 .索引 或 [索引] 找資料
+    console.log(frontClass.teacher)
+
+    let aaa = 'classroom'
+    console.log(frontClass['classroom'])
+    console.log(frontClass[aaa])
+    
+    // 可以用 Object.keys 取得 JSON 的所有索引
+    let keys = Object.keys(frontClass)
+    console.log(keys)
+    console.log(`JSON 有 ${keys.length} 個索引`)
+  </script>
+</body>
+</html>

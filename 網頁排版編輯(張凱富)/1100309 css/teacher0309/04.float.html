@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: 2rem auto;
+      background: #ffa;
+      padding: 1rem;
+    }
+
+    .float_left {
+      /* 區塊化 block 的特性 */
+      float: left;
+      margin: 1rem;
+    }
+
+    .clear_left {
+      clear: left;
+    }
+
+    p {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    1. float 元素會從正常流向獨立出來，移動到浮動層，後方元素會在 float 元素下方，元素裡面文字內容會圍繞著 float 元素 
+    2. float 只有 left、right
+    3. 具有區塊化 block 特性，自動轉型成 block
+   -->
+  <div class="container">
+    <h2>float-left</h2>
+    <img class="float_left" src="https://picsum.photos/200/200/?random=1">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum assumenda, magnam voluptatem veritatis molestiae temporibus pariatur! Id ullam fugiat,
+    </p>
+    <p class="clear_left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi impedit vero, corrupti accusantium delectus quas atque excepturi commodi
+      pariatur
+      laudantium nihil perspiciatis labore. Pariatur, corporis exercitationem. Quae soluta nemo a!</p>
+
+    <hr>
+
+    <h2>float-left 和 float-right</h2>
+    <img src="https://picsum.photos/200/200/?random=1" style="float:left;">
+    <img src="https://picsum.photos/200/200/?random=1" style="float:right">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, eius quia veritatis neque dolorem nobis distinctio rem dolore
+      delectus quod cum
+      adipisci fuga impedit sunt, exercitationem sapiente, nihil veniam quidem ut labore est et eveniet rerum corporis. Asperiores ab neque quasi odio animi
+      exercitationem quis perspiciatis voluptatibus earum reiciendis beatae aspernatur natus, vitae tempora sunt nesciunt numquam, pariatur ipsa voluptas
+      adipisci alias blanditiis itaque. Consequuntur doloribus quaerat voluptas magni aperiam necessitatibus animi odio. Eos sequi fugit unde accusamus, est
+      enim, amet, voluptate veniam molestias nihil placeat et perferendis voluptatibus! Obcaecati nam est, voluptate veniam quidem numquam sed eos error
+      placeat!</p>
+    <p style="clear:both;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, eius quia veritatis neque dolorem nobis distinctio rem dolore
+      delectus quod cum
+      adipisci fuga impedit sunt, exercitationem sapiente, nihil veniam quidem ut labore est et eveniet rerum corporis. Asperiores ab neque quasi odio animi
+      exercitationem quis perspiciatis voluptatibus earum reiciendis beatae aspernatur natus, vitae tempora sunt nesciunt numquam, pariatur ipsa voluptas
+      adipisci alias blanditiis itaque. Consequuntur doloribus quaerat voluptas magni aperiam necessitatibus animi odio. Eos sequi fugit unde accusamus, est
+      enim, amet, voluptate veniam molestias nihil placeat et perferendis voluptatibus! Obcaecati nam est, voluptate veniam quidem numquam sed eos error
+      placeat!</p>
+  </div>
+
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      float: left;
+    }
+  </style>
+
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+
+</body>
+
+</html>

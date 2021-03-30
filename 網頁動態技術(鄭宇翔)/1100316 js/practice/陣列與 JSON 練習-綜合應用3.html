@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 練習 - 假設某一公司有五種產品 A、B、C、D、E
+    // 其單價分別為 12、16、10、14、15 元
+    // 而該公司共有三位銷售員，他們在某個月份的銷售量如下所示
+    //            產品 A	產品 B	產品 C	產品 D	產品 E
+    //   銷售員 1	  33	    32     56      45    	33
+    //   銷售員 2	  77	    33     68      45    	23
+    //   銷售員 3	  43	    55     43      67    	65
+    // 請將上表的內容設定成二維陣列，變數數量和陣列格式不限，並依序完成下列各題
+    //   每一個銷售員的銷售總金額
+    //   每一項產品的銷售總金額
+
+    // 外層 括號 是銷售員
+    // 內層 括號 是銷售員的每個產品
+    let sell = [
+      [33, 32, 56, 45, 33],
+      [77, 33, 68, 45, 23],
+      [43, 55, 43, 67, 65]
+    ]
+    let price = [12, 16, 10, 14, 15]
+
+    // console.log(sell.length); //3
+    // console.log(price.length); //5
+
+
+    let product = [0, 0, 0, 0, 0]  //  每一項產品的銷售總金額
+
+    // i 是銷售員
+    // j 是產品
+
+    for (let i = 0; i < sell.length; i++) {
+      let seller = 0   //  每一個銷售員的銷售總金額
+
+      for (let j = 0; j < sell[i].length; j++) {
+        // console.log(`銷售員 ${i + 1} 的產品 ${j + 1} 的銷售量為${sell[i][j]}`);
+
+        seller += (sell[i][j] * price[j])
+        product[j] += (price[j] * sell[i][j])
+
+        // console.log(`產品 ${j + 1} 的銷售量為 ${product} 元`);
+
+      }
+      console.log(`銷售員 ${i + 1} 的銷售量為 ${seller} 元`);
+      // console.log(`產品的銷售量為 ${product} 元`);
+
+
+    }
+
+    console.log(`產品的銷售總金額分別為 ${product}`);
+
+
+
+    for (let i = 0; i < sell.length; i++) {
+      for (let j = 0; j < price.length; j++) {
+        // let seller = price[j] * sell[i][j]
+        // let product = sell[i][j] * price[j]
+
+        // console.log(sell[i][j]);
+        // console.log(price[j]);
+
+
+        // seller += (sell[i][j] * price[j])
+        // product += (price[j] * sell[i][j])
+
+        // console.log(seller);
+        // console.log(product);
+
+        // console.log(`銷售員${i}的銷售總金額${(sell[i][j] * price[j])}`);
+        // console.log(`產品${j}的銷售總金額${(price[j] * sell[i][j])}`);
+
+
+      }
+      // console.log(`銷售員${i}的銷售總金額${(sell[i][j] * price[j])}`);
+      // console.log(`產品${j}的銷售總金額${(price[j] * sell[i][j])}`);
+
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

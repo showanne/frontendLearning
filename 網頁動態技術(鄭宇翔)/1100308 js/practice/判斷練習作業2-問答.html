@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 講義範例
+        // 一開始 100 分
+        // let score = 100;
+
+        // let q1 = prompt("1 + 1 = ?");
+        // if (q1 === "2") {
+        //     alert("恭喜你答對!");
+        // }
+        // else {
+        //     alert("答錯囉，扣你 10 分!");
+        //     score -= 10;
+        // }
+
+        // let q2 = confirm("鳳梨披薩是不是食物?");
+        // if (q2) {
+        //     alert("對，鳳梨披薩不是食物");
+        // }
+        // else {
+        //     alert("答錯囉，扣你 10 分!");
+        //     score -= 10;
+        // }
+
+        // alert(`遊戲結束，你得到了 ${score} 分!`);
+
+        // 作業：https://rogeraabbccdd.github.io/F2E-book/views/ch4.html#%E7%B6%9C%E5%90%88%E6%87%89%E7%94%A8
+
+        // 作業 - 改寫講義裡有關分數的問答範例，自己設計 5 道題目，遊戲結束後會顯示得分
+
+        let score = 100;
+
+        alert("現在就來測你的健康指數吧~ \n 滿分 100 分，那我們就開始囉^^")
+
+        let Q1 = confirm('你喜歡喝茶還是開水？ \n(喝茶選確定，喝水選取消)')
+        if (Q1) {
+            alert("健康指數 -10 分! T.T")
+            score -= 20
+        } else {
+            alert("好棒棒，繼續保持 ^.~")
+        }
+
+        let Q2 = confirm('你喜歡喝水還是咖啡？ \n(喝水選確定，喝咖啡選取消)')
+        if (Q2) {
+            alert("好棒棒，繼續保持 ^.~")
+        } else {
+            alert("健康指數 -10 分! T.T")
+            score -= 20
+        }
+
+        let Q3 = prompt('平常吃飯都選擇"外食"還是"自己煮"？')
+        if (Q3 == '外食') {
+            alert("外食一週盡量不要超過5天唷！")
+            score -= 20
+        } else if (Q3 == '自己煮') {
+            alert("加油，堅持就是勝利 ")
+        } else {
+            alert("請填寫一個選項~")
+        }
+
+        let Q4 = confirm('每天有吃水果的習慣嗎？')
+        if (Q4) {
+            alert("好棒棒~~ \n天天五蔬果，疾病遠離我")
+        } else {
+            alert("你的健康亮起了紅燈")
+            score -= 20
+        }
+
+        let Q5 = prompt('每天大概幾點睡覺？ \n(24小時制)')
+        if (Q5 >= 20 && Q5 <= 23) {
+            alert("早睡早起身體好")
+        } else if (Q5 > 23 && Q5 <= 3) {
+            alert("建議還是早一點睡喔！")
+            score -= 20
+        } else if (Q5 > 3 && Q5 < 20) {
+            alert("這個時間睡覺你不累嗎？")
+            score -= 20
+        } else {
+            alert("你確定你的時間是對的嗎？ \n提醒...一天24小時唷！")
+            score -= 20
+        }
+
+        alert(`測驗結束，你得到了 ${score} 分!`);
+
+
+    </script>
+</body>
+
+</html>

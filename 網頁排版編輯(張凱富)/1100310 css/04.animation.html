@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    section:nth-child(even) {
+      background-color: olivedrab;
+      /* ??? */
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: orchid;
+      line-height: 200px;
+      text-align: center;
+      color: palegoldenrod;
+      font-size: 1.5rem;
+    }
+
+    .animation {
+      /* 動畫名稱 */
+      animation-name: animation;
+      /* 持續時間 */
+      animation-duration: 3s;
+      /* 播放次數 預設1 / infinite 無限循環 */
+      animation-iteration-count: infinite;
+      /* 播放速率
+               ease 預設 / linear 維持等速 / ease-in 由慢變快 / ease-out 由快變慢 / ease-in-out 由慢變快，再由快變慢 / 
+               或是到 貝茲曲線速率 https://easings.net/ 搜尋想要的模式*/
+      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+      /*   
+            normal 預設 0~100
+            alternate 交替播放 0~100 -> 100~0 / 
+            alternate-reverse 交替播放 0~100 -> 0~100 / 
+            reverse 反向播放 100~0 , 100~0 */
+      animation-direction: normal;
+      /* 撥放後的狀態
+            forwards 保留動畫結束後的樣式 / backwards 返回動畫一開始的樣式 */
+      animation-fill-mode: forwards;
+      animation-delay: 1s;
+      animation: animation 5s 0s infinite ease alternate-reverse forwards;
+      /* 動畫的混和寫法 name duration timing-function delay iteration-count direction fill-mode */
+    }
+
+    /* 建立動畫
+          步驟一：必須要建一組關鍵影格(keyframes)
+           起始 from(0%)、結束 to(100%)
+          步驟二：套用動畫到選擇器  */
+    /* name duration timing-function delay iteration-count direction fill-mode */
+    @keyframes animation {
+      from {
+        background-color: palegoldenrod;
+        font-size: 1rem;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        background-color: tan;
+        font-size: 7rem;
+        transform: scale(2) rotate(0deg);
+      }
+
+      to {
+        background-color: powderblue;
+        font-size: 1rem;
+        transform: scale(2) rotate(360deg);
+      }
+    }
+
+    .multiple {
+      animation: rotateIt 3s, moveIt 6s;
+    }
+
+    @keyframes rotateIt {
+      50% {
+        transform: rotate(360deg);
+      }
+
+      /* 直接寫 50% 相當於 0~50%~100% */
+      /* 寫法相等
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            } 
+             */
+    }
+
+    @keyframes moveIt {
+      50% {
+        margin-left: 1000px;
+      }
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      color: wheat;
+      font-size: 2rem;
+      background-color: yellowgreen;
+      /* steps(4, start) 動畫開始畫面就停在結束位置 */
+      animation: move 4s steps(4, start) infinite;
+    }
+
+    .box2 {
+      width: 100px;
+      height: 100px;
+      color: dimgray;
+      font-size: 2rem;
+      background-color: thistle;
+      /* steps(4, end) 動畫開始畫面就停在起始位置 */
+      animation: move 4s steps(4, end) infinite;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    .doraemon {
+      width: 250px;
+      height: 300px;
+      background: url(./doraemon.png) no-repeat left top;
+      animation: run 0.6s steps(6, end) infinite;
+    }
+
+    @keyframes run {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -1500px 0;
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="note">
+    <h1>Transition 轉場</h1>
+    <h2>
+      <ol>
+        <li>1.兩組樣式之間漸進式的轉換過程，一個是起始樣式，一個是結束樣式，瀏覽器會將兩個樣式形成補間動畫(Tween)</li>
+        <li>2.必須要有狀態觸發動作(狀態有很多種)，最常見 :hover ，程式修改 class id，或是 media query 媒體查詢尺寸的改變</li>
+        <li>3.無法載入時自動發生，而且他是一次性，沒有循環效果，必須觸發完再重新觸發一次</li>
+      </ol>
+    </h2>
+    <h1>Animation 動畫</h1>
+    <h2>
+      <ol>
+        <li>1.可以設定關鍵影格(keyframes)</li>
+        <li>2.必須要有狀態觸發動作(狀態有很多種)，</li>
+      </ol>
+    </h2>
+    <h2>建立動畫</h2>
+    <h3>步驟一：必須要建一組關鍵影格(keyframes)</h3>
+    <p>起始 from(0%)、結束 to(100%)</p>
+    <h3>步驟二：套用動畫到選擇器</h3>
+
+    <br><br>
+    <hr><br>
+  </div>
+
+  <section>
+    <div class="box animation">Lorem, <br> ipsum.</div>
+  </section>
+
+  <section>
+    <div class="box multiple"></div>
+  </section>
+
+  <div style="margin: 100px 0; background-color: #eee; width: 500px;">
+    <h1>布進動畫</h1>
+    <div class="box1">start</div>
+    <div class="box2">end</div>
+  </div>
+
+  <section>
+    <div class="doraemon"></div>
+  </section>
+</body>
+
+</html>

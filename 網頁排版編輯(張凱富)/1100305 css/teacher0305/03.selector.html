@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+    類別選擇器 . (點)
+    - 類別名稱前必定以 . 句點開頭
+    - 名稱必須以字元開始，但不能數字開頭
+    - 可以使用連字 - 符號和底線 _ 串接名稱
+    - 類別名稱有大小寫區分
+    */
+    .a {
+      color: blue;
+    }
+
+    li {
+      color: green;
+    }
+
+    .b {
+      color: darkmagenta;
+    }
+
+    .c {
+      font-size: 30px;
+    }
+
+    #header {
+      color: red;
+    }
+
+    #main {
+      color: blue;
+    }
+
+    #sidebar {
+      color: green;
+    }
+
+    /* 子代選擇器，只選擇到兒子 */
+    nav>p {
+      color: red;
+    }
+
+    /* 後代選擇器，選擇到兒子與孫子們 */
+    nav p {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="a">Class 選擇器</h1>
+  <p>class 是 CSS 裡最常被使用的選擇器，因為具有重複使用的特性。</p>
+
+  <h2>相同元素，不同外觀</h2>
+  <ul>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li class="b">Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+  </ul>
+
+  <h2>可以重複使用</h2>
+  <p>Lorem ipsum dolor <em class="c">sit amet consectetur</em> adipisicing elit. Quae delectus earum quia consequatur sunt ratione ab! Voluptatem voluptate esse
+    perspiciatis sequi quia! <span class="c">Impedit</span> ut quia obcaecati in iure at numquam.</p>
+
+  <h1>ID 選擇器</h1>
+  <!-- 一份文件，只允許一個獨一無二的 ID 名稱，不能重複 -->
+  <h3>可以當作網頁邏輯區塊。例如家中的格局:客廳、廚房、臥室...</心>
+    <div id="header">header</div>
+    <div id="main">main</div>
+    <div id="sidebar">sidebar</div>
+    <div id="footer">footer</div>
+
+    <h2>被 JavaScript 或 jQuery 拿來當選擇器用</h2>
+    <div id="container">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, aperiam nesciunt laborum possimus animi eligendi amet placeat magni, id ea quaerat
+      fuga
+      maxime veritatis iure aliquam culpa! Facilis, iusto eveniet.
+    </div>
+    <button id="btn">按我</button>
+
+    <hr>
+
+    <h1>後代選擇器與子代選擇器</h1>
+
+    <nav>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </nav>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+            integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
+    <script>
+      $('#btn').click(function () {
+        $('#container').slideToggle()
+      })
+    </script>
+
+</body>
+
+</html>

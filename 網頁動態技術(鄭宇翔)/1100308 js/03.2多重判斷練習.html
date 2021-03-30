@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let Grades = prompt('你的成績是幾分呢？')
+
+        if (Grades === null) {
+            document.write('未作答')
+        } else if (Grades >= 95) {
+            document.write('你的成績是 S 級')
+        } else if (Grades >= 90) {
+            document.write('你的成績是 A 級')
+        } else if (Grades >= 80) {
+            document.write('你的成績是 B 級')
+        } else if (Grades >= 70) {
+            document.write('你的成績是 C 級')
+        } else {
+            document.write('你的成績是 D 級')
+        }
+    </script>
+</body>
+
+</html>

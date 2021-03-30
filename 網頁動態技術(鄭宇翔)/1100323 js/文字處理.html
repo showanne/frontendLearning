@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let aaa = '   diwOjidjifj mVkna  '
+
+    // trim 移除文字前後空白
+    aaa = aaa.trim()
+    console.log(aaa);
+
+    // toUpperCase 文字轉大寫
+    aaa = aaa.toUpperCase();
+    console.log(aaa);
+
+    // toLowerCase 文字轉小寫
+    aaa = aaa.toLowerCase();
+    console.log(aaa);
+
+    // 不分大小寫的搜尋應用
+    let search = ' apple'  //prompt('')
+    let arr = ['Apple', 'Banana']
+    for (let fruit of arr) {
+      if (fruit.trim().toUpperCase() == search.trim().toUpperCase()) {
+        console.log('找到了！');
+        break
+      }
+    }
+
+
+    let bbb = '勞動部勞動力發展署北基宜花金馬分署泰山職業訓練場，地址：243新北市泰山區貴子里致遠新村55之1號 '
+
+    // .substr(開始, 長度) 文字切割
+    // 若第二個值不放，就是取到結尾處
+    let sub = bbb.substr(2, 3)
+    console.log(sub);
+
+    // .substring(開始位置, 結尾位置) 文字切割
+    // 若第二個值不放，就是取到結尾處
+    let sub2 = bbb.substring(28, 34)
+    console.log(sub2);
+
+    // .slice(開始位置, 結尾位置) 文字切割
+    // 可以放負數，代表倒數
+    // 若第二個值不放，就是取到結尾處
+    let sub3 = bbb.slice(-10)
+    console.log(sub3);
+
+
+
+    // 文字轉數字或浮點
+    let ccc = "123456";
+    let num = parseInt(ccc);
+    console.log();
+    let CCC = "12345.67";
+    let float = parseFloat(CCC);
+    console.log();
+
+    // 文字轉換成數字
+    let ddd = '123456789'
+    let int = parseInt(ddd)
+    // 判斷是文字還是數字，回傳 true 或 false
+    console.log(isNaN(ddd));
+    console.log(isNaN('12345'));
+
+
+    // .split(分割文字) 文字轉成陣列
+    let eee = 'a, b, c, d, e, f, g'
+    let arr2 = eee.split(' , ')
+    console.log(arr2);
+
+    // 正則表達式的測試
+    // https://regex101.com/
+    // [A - Za - z]
+
+    // includes() 搜尋有沒有指定文字，大小寫敏感，回傳布林值(True, False)
+    let fff = 'Hello, welcome to the world of Javascript.'
+    console.log(fff.includes('javascript'));
+
+    // indexOf() (文字, 開始搜尋位置)
+    // 要找的字的位置，"-1"代表找不到
+    console.log(fff.indexOf('Hello, -6'));
+
+    // .match() 正則表達式
+    // 找出一個符合表達式的東西，除非表達式有 g
+    // null 代表找不到
+    let regex1 = /JavaScript/ig
+    // i 大小寫敏感；g 全域、搜索
+    console.log(fff.match(regex1));
+
+    // .matchAll() 符合要找的東西
+    let mails = [
+      'aaa@gmail.com',
+      'aafeadeafvm',
+      'eee@yahoo.com',
+      'ddd@ggg'
+    ]
+    let regex2 = /[A-Z]+@[A-Z]+\.[a-z]+/ig
+    for (let mail of mails) {
+      // matchAll 會得到 regExpStringIterato {}
+      // 必須用迴圈或其餘運算子取得資料
+      let all = mail.matchAll(regex2)
+      // let data = [...all]
+      console.log(all);
+      for (let a of all) {
+        console.log(a);
+      }
+    }
+
+
+    // 取代文字 .replace(搜尋文字, 取代文字)
+    // 如果搜尋是一般文字，只會取代一個，取代多個必須用有 g 的正則表達式
+    let xmas = 'Today is Xmas, Merry Xmas';
+    console.log(xmas.replace('Xmas', 'Christmas'));
+    console.log(xmas.replace(/Xmas/g, 'Christmas'));
+
+    // 正則表達式的群組可以用  $數字  帶入取代文字中
+    let ggg = '太師傅的雞腿飯好好吃'
+    console.log(ggg.replace(/.+的(.+飯).+/g, '便當店的$1好難吃'));
+
+
+    let hh1 = 'aBCd'
+    console.log(hh1.charCodeAt(1));
+    let hh2 = '三'
+    console.log(hh2.charCodeAt(0));
+
+    // String.fromCharCode(字元編號) 將字元編號轉為一般文字
+    let mmm = String.fromCharCode(67)
+    console.log(mmm);
+
+
+
+
+  </script>
+</body>
+
+</html>

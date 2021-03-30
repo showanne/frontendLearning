@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: mediumpurple;
+        }
+
+        p {
+            background-color: mistyrose;
+            color: olivedrab;
+            padding: 1rem;
+        }
+
+        .float-left {
+            /* 區塊化 block 的特性 */
+            float: left;
+            /* 把自身浮起來，塞進下一區塊 */
+            margin: 1rem;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .clear-both {
+            clear: both;
+            /* both 清除兩側 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>float <-> clear </h1>
+        <h2>
+            <ol style="color: peachpuff;">
+                <li>float 元素會從 <b>正常流向(由左而右、從上而下)</b> 獨立出來，移動到浮動層，後方元素會在 float 元素下方，元素裡面文字內容會圍繞著 float 元素</li>
+                <li>float 只有left、right</li>
+                <li>具有區塊化 block 的特性，自動轉型成 block</li>
+            </ol>
+            <ol>
+                <li>常見區塊元素標籤：div、ul li、p、h1<br>
+                    常見行內元素標籤：span、a、imput、img</li>
+                <li>Inline行內元素<br>
+                    ．元素可在同一行內呈現，圖片或文字均不換行，也不會影響其版面配置<br>
+                    ．不可設定長寬，元素的寬高由它的內容撐開</li>
+                <li>Block區塊元素<br>
+                    ．元素寬度預設會撐到最大，使其占滿整個容器 <br>
+                    ．可以設定長寬/margin/padding，但仍會占滿一整行</li>
+                <li>inline-block行內區塊<br>
+                    ．以inline的方式呈現，但同時擁有block的屬性<br>
+                    ．可設定元素的寬高/margin/padding<br>
+                    ．可水平排列</li>
+                <li>display:inline-block 後，即可同時擁有block可設定寬高的屬性，但其排版仍像inline屬性，並不會向右占滿整個容器。</li>
+            </ol>
+        </h2>
+        <img class="float-left" src="https://picsum.photos/200/200/?random=1">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, sint voluptas corporis molestiae dolorum
+        </p>
+        <p class="clear-both">
+            voluptate maxime rem? Cum consequatur quis dolorem fuga vitae commodi, a consectetur omnis ipsum laudantium
+            debitis expedita officiis libero architecto, distinctio nihil reiciendis. Esse voluptates velit magni
+            ducimus nulla vitae perspiciatis iusto qui ipsam nobis est voluptas beatae distinctio nam, sequi architecto
+        </p>
+        <img class="float-right" src="https://picsum.photos/200/200/?random=1">
+        <p>
+            aspernatur blanditiis! Inventore vero sit, id reiciendis autem voluptatem explicabo tempore. Sint corrupti
+            dicta quasi architecto ut nesciunt excepturi itaque magni officiis, sapiente lib cta dolore nisi eos quam
+            quaerat et unde eveniet provident deleniti odit cupiditate architecto!
+        </p>
+        <p class="clear-both">
+            Necessitatibus adipisci culpa et laboriosam id similique fuga aliquam magni corrupti ipsum nam ipsam labore
+            inventore corporis hic at, ducimus eligendi consequatur temporibus in veniam numquam quisquam unde! Ullam,
+            eos soluta fugit voluptas a quidem maxime hic libero esse at, ea non cupiditate nesciunt laborum sint
+            recusandae nisi commodi illum enim repellat amet nemo. Dolores ipsa magnam aspernatur totam nesciunt
+            consequuntur repellendus, dolorum aliquam et veniam blanditiis! Quis id repellat porro unde quaerat eligendi
+            omnis alias dolor, molestiae et reiciendis nostrum eos ullam debitis maiores, nihil minus vitae eveniet fuga
+            quo ipsum veniam sed.
+        </p>
+        <span style="float: left;">我是span</span>
+
+        <br><br>
+
+    </div>
+</body>
+
+</html>

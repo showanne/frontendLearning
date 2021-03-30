@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Math.round 四捨五入
+    console.log(Math.round(9.45));  //9
+
+    // Math.ceil 無條件進位
+    console.log(Math.ceil(12.45)); //13
+
+    // Math.floor 無條件捨去
+    console.log(Math.floor(19.5)); //19
+
+    // Math.pow (數字, 次方)
+    console.log(Math.pow(2, 10)); //1024
+
+    // Math.sqrt 平方根
+    console.log(Math.sqrt(9)); //3
+
+    // Math.sign 正負數
+    // 正數回傳 1 / 負數回傳 -1 / 0 回傳 0 
+    console.log(Math.sign(-100)); //-3
+
+    // Math.abs 絕對值
+    console.log(Math.abs(-200)); //200
+
+    // Math.min 最小值  Math.max 最大值
+    console.log(Math.min(12, 5, 48, 0, 6, 9, -0.7, 51)); //-0.7
+
+    let num = [12, 5, 48, 0, 6, 9, 0.7, 51]
+    console.log(Math.max(...num)); //51
+
+    // Math.random 隨機  
+    // 隨機 一個 0~1 的小數，包含 0 但不包含 1
+    console.log(Math.random()); //0.~~
+
+  </script>
+</body>
+
+</html>

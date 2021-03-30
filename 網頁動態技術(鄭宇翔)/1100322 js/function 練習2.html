@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 練習  -  小明喜歡數數
+    // 某天媽媽請他從 n 開始數，下一個數字是 n + 1，再下一個數字是 n + 2，以此類推
+    // 媽媽想知道，小明數了多少個數字後，數過的數字總和會超過 m
+
+    // 請寫一個程式，使用者可以用 prompt 輸入 n 和 m
+    // 請將兩個數字傳入 function 計算後將結果回傳
+
+    const calculate = (n, m) => {
+      let count = 0;
+      let sum = 0
+
+      while (sum <= m) {
+        count++
+        n++
+        sum = n + sum
+      }
+      return count
+    }
+
+    const number1 = parseInt(prompt('n'))
+    const number2 = parseInt(prompt('m'))
+    console.log(calculate(number1, number2))
+
+    document.write(`從 ${number1} 開始數，數到數字總和超過 ${number2}，共數了${calculate(number1, number2)}次`)
+
+
+
+  </script>
+</body>
+
+</html>

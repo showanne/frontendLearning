@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let t = 5;
+    t = 5 * t;
+    console.log(t);
+    // console.log 會顯示在開發工具的控制台
+
+    let a = 0;
+    let b = 10;
+    // let a = 0, b = 10; //可以一次宣告多個變數
+    a = b++;
+    console.log(a, b); // 10, 11
+    b = a--;
+    console.log(a, b); // 9, 10
+    a = ++b;
+    console.log(a, b); // 11, 11
+    a = --b;
+    console.log(a, b); // 9, 9 ??答案是10, 10
+    b = --a;
+    console.log(a, b); // 9, 9
+
+    /* a = b++ 代表先執行 a = b，才執行 b = b + 1
+       a = ++b 代表先執行 b = b + 1，才執行 a=b
+       b-- 和 --b 也是一樣的運作方式 */
+    //  ++a 是先運算後取值，而 a++ 是先取值後運算。
+
+    /* 練習 - 宣告變數 x 和 y，變數 x 為 777， y 是 x 除以 7 的餘數加 7
+       在控制台顯示 y 的值 */
+    let x = 777;
+    let y = x % 7 + 7;
+    console.log(y); //7, x % 7 = 0
+    console.log(56 % 3); //2
+
+    /* 練習 - 文字連接 宣告兩個變數，一個是你的姓，一個是你的名
+        在網頁寫上 我的名字是 XXX */
+    let firstName = '琇安' //名
+    let lastName = '詹' //姓
+    let fullName = lastName + firstName
+    //   = `${lastName} ${firstName}`
+    let myName = " 你好，我是 " + fullName
+    console.log(myName);
+  </script>
+</body>
+
+</html>

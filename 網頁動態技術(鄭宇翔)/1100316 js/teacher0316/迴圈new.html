@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let fruits = ['鳳梨', '蘋果', '西瓜', '葡萄', '芭樂', '香蕉', '芒果']
+    let frontClass = {
+      teacher: '蔡老師',
+      studentCount: 24,
+      classroom: '1104'
+    }
+
+    // fruit 代表陣列每個值
+    // for of 只迴值，沒有辦法取得索引，所以需要自己寫個 i 跟著跑
+    let i = 0
+    for (let fruit of fruits) {
+      console.log(fruit)
+      i++
+    }
+    // for of 無法對 JSON 跑迴圈
+    // for (let front of frontClass) {
+    //   console.log(fruit)
+    // }
+
+    // for in 只迴索引
+    for (let key in fruits) {
+      console.log(key, fruits[key])
+    }
+    for (let key in frontClass) {
+      console.log(key, frontClass[key])
+    }
+  </script>
+</body>
+</html>

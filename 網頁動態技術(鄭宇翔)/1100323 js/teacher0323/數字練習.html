@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const rand = (min, max) => {
+      return Math.round(Math.random()*(max-min)) + min
+    }
+    for(let i=0;i<1000;i++) {
+      // const num = Math.round(Math.random()*100)
+      const num = rand(5, 9)
+      document.write(num+'<br>')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 挑戰
+    // ☆  ☆
+    // ☆☆  ☆☆
+    // ☆☆☆  ☆☆☆
+    // ☆☆☆☆  ☆☆☆☆
+    // ☆☆☆☆☆  ☆☆☆☆☆
+
+    let star = prompt()
+    for (let i = 1; i <= star; i++) {
+
+      for (let j = 1; j <= i; j++) {
+
+        document.write(`☆`)
+      }
+
+      document.write(`<span style = "color: transparent">☆</span>`)
+
+      for (let j = 1; j <= i; j++) {
+
+        document.write(`☆`)
+      }
+
+      document.write(`<br>`)
+
+    }
+
+  </script>
+</body>
+
+</html>

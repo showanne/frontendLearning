@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 練習 - 試試看自己寫一個猜數字遊戲，並加入太大、太小等提示訊息
+    let num = 1
+    let secretnum = 19
+    while (true) {
+      let answer = prompt(`第 ${num} 次猜測，猜猜看秘密數字是多少？`)
+      if (answer == secretnum) {
+        alert(`恭喜第 ${num} 次終於答對囉！`)
+        break
+      } else if (answer >= 17 && answer <= 21) {  //要放前面才能先判斷
+        alert(`很接近囉！\n加油吧~`)
+      } else if (answer > secretnum) {
+        alert(`猜太大囉！\n再小一點吧~`)
+      } else if (answer < secretnum) {
+        alert(`猜太小囉！\n再大一點吧~`)
+      }
+      num++;
+    }
+
+
+  </script>
+</body>
+
+</html>

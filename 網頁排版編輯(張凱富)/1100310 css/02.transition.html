@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            background-color: slateblue;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            /* transition-property 轉場屬性設定
+            預設 all */
+            transition-property: width, height, background-color, border-radius, transform, box-shadow;
+            /* transition-duration 轉場持續時間
+               預設 0 ，s = second */
+            transition-duration: 2s;
+            /* transition-timing-function 變化樣式
+               ease 預設 / linear 維持等速 / ease-in 由慢變快 / ease-out 由快變慢 / ease-in-out 由慢變快，再由快變慢 / 
+               或是到 貝茲曲線速率 https://easings.net/ 搜尋想要的模式*/
+            transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+            /* transition-delay 延遲時間 
+               預設 0 */
+            transition-delay: 1s;
+            /* 轉場動畫 混和設定 -> 可分別設定每種屬性的樣式 */
+            transition:
+                width 0.5s ease-in,
+                height 0.5s ease-out 1s,
+                background-color 3s linear;
+        }
+
+        .box:hover {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            border-radius: 3rem;
+            transform: rotate(30deg);
+            /* box-shadow: 10px 10px 10px 5px darkblue; */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>轉場</h1>
+    <h2>
+        <ol>
+            <li>兩組樣式之間漸進式的轉換過程，一個是起始樣式，一個是結束樣式，瀏覽器會將兩個樣式形成補間動畫(Tween)</li>
+            <li>必須要有狀態觸發動作(狀態有很多種)，最常見 :hover ，程式修改 class id，或是 media query 媒體查詢尺寸的改變</li>
+        </ol>
+    </h2>
+    <h1>Transition無法作用的情況</h1>
+    <ul>
+        <li>transition必須是確切數值的轉換<br>
+            transition轉換的開始和結束屬性值都必須是確切數值，否則將無法進行計算，如以下情形：
+            <ol>
+                <li>width:auto(不確定的值)轉換成width:100px(確切值)</li>
+                <li>display:none轉換成display:block，none和block都不是數值</li>
+            </ol>
+        </li>
+        <li>transition需要事件觸發<br>
+            沒辦法一進頁面自動產生效果。需透過JavaScript事件處理或是就只能配合與事件有關的偽類別(:hover、:focus 等)呈現效果。 </li>
+    </ul>
+
+
+
+
+
+
+    <div class="box"></div>
+
+    <br>
+    <hr><br>
+
+    <!-- :checked 狀態改變 -->
+    <style>
+        p {
+            display: inline-block;
+            transition: 1s;
+        }
+
+        /* "+" 相鄰選擇器(兄弟選擇器) */
+        input:checked+p {
+            transform: rotate(330deg) translate(5px, -15px);
+        }
+    </style>
+    <input type="checkbox">
+    <p>checkout</p>
+
+    <!-- :focus 狀態改變 -->
+    <style>
+        nav {
+            transition: 1s;
+        }
+
+        nav:focus {
+            transform: translateX(100px);
+        }
+    </style>
+    <nav tabindex="1">focus me</nav>
+</body>
+
+</html>

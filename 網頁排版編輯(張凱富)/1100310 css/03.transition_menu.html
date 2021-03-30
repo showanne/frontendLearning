@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav {
+      background-color: darkcyan;
+      padding: 1rem 0;
+
+      text-align: center;
+
+    }
+
+    nav a {
+      display: inline-block;
+      color: lightgreen;
+      text-decoration: none;
+      font-family: '微軟正黑體';
+      padding: 1rem 1rem 0.5rem 1rem;
+      border-bottom: 1px dashed transparent;
+      /* transparent 透明 */
+
+      /* 有進場及回場動畫 */
+      transition: 1s;
+    }
+
+    nav a:hover {
+      color: tomato;
+      border-bottom: 5px dashed lightsalmon;
+      font-size: 1.5rem;
+      background-color: moccasin;
+
+      /* 寫在狀態只有進場動畫，沒有回場動畫 */
+      /* transition: 1s; */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu">
+    <a href="">1111111</a>
+    <a href="">2222222</a>
+    <a href="">3333333</a>
+    <a href="">4444444</a>
+    <a href="">5555555</a>
+    <a href="">6666666</a>
+  </nav>
+</body>
+
+</html>

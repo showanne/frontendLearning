@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let username = prompt('輸入名稱')
+    let month = prompt('輸入月份')
+    let date = prompt('輸入日')
+
+    if (username == null || month == null || date == null) {
+      document.write('未作答')
+    } else {
+      let star = ''
+      if ( (month == '1' && date >= 21) || (month == '2' && date <= 19) ) {
+        star = '水瓶'
+      } else if ( (month == '2' && date >= 20) || (month == '3' && date <= 20)) {
+        star = '雙魚'
+      }
+      /// 以此類推
+
+      document.write(`${name} 你好，你的星座是${star}座`)
+    }
+  </script>
+</body>
+</html>

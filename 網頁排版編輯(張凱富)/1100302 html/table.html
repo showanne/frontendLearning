@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表格 / tr列 / td欄        欄位與欄位之間的距離 / 欄位的內距 -->
+    <table border="1" width="299" cellspacing="17" cellpadding="20">
+        <tr align="center">
+            <td>表格</td>
+            <td>表格</td>
+        </tr>
+        <tr align="center">
+            <td>表格</td>
+            <td>表格</td>
+            <td>表格</td>
+        </tr>
+    </table>
+    <br><hr><br>
+    <!-- thead、tbody、tfoot 不影響畫面，表示結構的分類 -->
+    <table border="1" align="center">
+        <caption>我的表格</caption>
+        <thead>
+            <tr>
+                <th>No.1</th>
+                <th>No.2</th>
+                <th>No.3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>6</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>註解^^</td>
+                <td>註解^^</td>
+                <td>註解^^</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br><hr><br>
+    <!-- 表格欄位合併 / colspan 欄合併 / rowspan 列合併  -->
+    <table border="1" bgcolor="#F1E1FF" width="199">
+        <tr align="center">
+            <td colspan="2">1</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td colspan="3">2</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td colspan="3">4</td>
+        </tr>
+        <tr align="center">
+            <td>1</td>
+            <td rowspan="2">2</td>
+            <td>3</td>
+            <td>4</td>
+            <td rowspan="3">5</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td rowspan="2">1</td>
+            <td>3</td>
+            <td>4</td>
+            <td>6</td>
+        </tr>
+        <tr align="center">
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>6</td>
+        </tr>
+    </table>
+    <br><hr><br>
+
+</body>
+</html>

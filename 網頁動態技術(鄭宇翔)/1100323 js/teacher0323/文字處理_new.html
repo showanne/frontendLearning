@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // trim 移除前後空白
+    let str = '  sdkJflsdjgdlsg '
+    str = str.trim()
+    console.log(str)
+
+    // 轉大寫
+    str = str.toUpperCase()
+    console.log(str)
+
+    // 轉小寫
+    str = str.toLowerCase()
+    console.log(str)
+
+    // 利用轉大小寫做大小寫不敏感搜尋
+    let search = 'apple  '
+    let arr = ['Apple ', ' Banana']
+    for(let fruit of arr) {
+      if (fruit.trim().toUpperCase() == search.trim().toUpperCase()) {
+        console.log('找到了');
+        break
+      }
+    }
+
+    let str2 = '新北市泰山區貴子里致遠新村55之1號'
+    // .substr(開始位置, 長度)
+    // 長度不放就是取到最後
+    let sub = str2.substr(0, 3)
+    console.log(sub)
+    // .substr(開始位置, 結尾位置)
+    // 結尾不放就是取到最後
+    let sub2 = str2.substring(3, 6)
+    console.log(sub2)
+    // .slice(開始位置, 結尾位置)
+    // 結尾不放就是取到最後
+    // 可以放負數倒數
+    let sub3 = str2.slice(-5)
+    console.log(sub3)
+
+    // 判斷是文字還是數字
+    let str3 = 'aaa'
+    let int = parseInt(str3)
+    console.log(isNaN(str3))
+    console.log(isNaN('123456'))
+
+    let str4 = 'a,b,c,d,e,f,g'
+    let arr2 = str4.split(',')
+    console.log(arr2)
+
+    let str5 = 'Hello, welcome to the world of Javascript.'
+    // includes()
+    // 搜尋有沒有指定文字，大小寫敏感，回傳布林值
+    console.log(str5.includes('javascript'))
+    // indexOf(文字, 開始搜尋位置)
+    // 要找的字的位置，-1 代表找不到
+    console.log(str5.indexOf('Hello'))
+
+    // .match(正則表達式)
+    // 找出一個符合表達式的東西，除非表達式有 g
+    // null 代表找不到
+    // 如果沒有 g 的話會有詳細的配對資料，有 g 的話就只會得到符合的文字
+    let regex1 = /[aeiou]/ig
+    console.log(str5.match(regex1))
+
+    let mails = [
+      'aaa@yahoo.com',
+      'asdasdasdasd',
+      'bbb@gmail.com',
+      'ccc@ddd'
+    ]
+    let regex2 = /[A-Z]+@[A-Z]+\.[A-Z]+/ig
+    for(let mail of mails) {
+      // matchAll 會得到 RegExpStringIterator {}
+      // 必須用迴圈或運算子取得資料
+      let all = mail.matchAll(regex2)
+      console.log(all)
+      for (let a of all) {
+        console.log(a)
+      }
+    }
+
+
+  </script>
+</body>
+</html>

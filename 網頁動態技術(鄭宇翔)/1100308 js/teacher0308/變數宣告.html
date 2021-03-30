@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 嚴格模式
+    'use strict'
+
+    // var 可以重複宣告，新的會蓋掉舊的
+    // 宣告 x 為 2
+    var x = 2;
+    // 在網頁上寫下 x 的值
+    document.write(x);
+    // 宣告 x 為 3
+    var x = 3;
+    // 在網頁上寫下 x 的值
+    document.write(x);
+
+    document.write('<br>');
+
+    // let 不可重複宣告
+    let y = 'aaa';
+    document.write(y);
+    // 重複宣告會出錯
+    // let y = 'bbb'
+    y = 'bbb'; // 修改 y 為 bbb
+    document.write(y);
+
+    document.write('<br>');
+
+    // const 不能重複宣告，宣告後就不能改值
+    const pi = 3.14;
+    document.write(pi);
+    // const pi = 3.1415926;
+    // pi = 3.1415926
+    // document.write(pi);
+
+    document.write('<br>');
+
+    // 不用宣告也可以正常使用，但是在嚴格模式會出錯
+    z = true;
+    document.write(z);
+  </script>
+</body>
+</html>

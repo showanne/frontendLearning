@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 7rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // 嚴格模式
+        'use strict'
+
+        // 會跳出警告文字 
+        // alert('hello');
+
+        // 宣告 x
+        var x = 2;
+        document.write(x);
+        var x = 5;
+        document.write(x);
+        // 在網頁上寫下 x 的值
+        // var 可以重複宣告，新的會蓋掉舊的
+
+        document.write('<br>');
+
+        let y = 'Hello'
+        document.write(y);
+        // let y = 'Morning'
+        y = 'Morning' //修改 y 為 Morning
+        document.write(y);
+        // let 不可重複宣告，若重複宣告會出錯
+
+        document.write('<br>');
+
+        const z = 0.78
+        document.write(z);
+        // z = '4512' // 不能重複宣告
+        // document.write(z);
+        // const 宣告後不能改值，也不能重複宣告
+
+        a = true; //不用宣告也可以正常使用，但在嚴格模式會出錯
+        document.write('<br>');
+        document.write(a);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let think = prompt(`心理測驗\n你喜歡喝咖啡☕，還是喝茶🍵呢？\n現在就來測驗一下，你是哪種特質吧？\n下列咖啡，你最愛喝哪一種？\nA.美式黑咖啡\nB.拿鐵咖啡\nC.卡布奇諾咖啡\nD.義式濃縮咖啡\nE.特調咖啡`)
+        // x來源：https://meetype.com/41290/coffee
+        // if (think === null) {
+        //     document.write('未作答')
+        // } else if (think === "A") {
+        //     document.write('愛喝美式黑咖啡的你 \n 你很能吃苦，把生活中的苦味當成了享受。做事時喜歡化繁為簡，也因此非常有效率。在生活中有一套自己的習慣，不喜歡改變。')
+        // } else if (think === "B") {
+        //     document.write('愛喝拿鐵咖啡的你 \n 你是一個有趣的人，在朋友圈裡是令人開心的存在，不僅懂得活絡氣氛，也很會安慰人，因此是很多人的知己。雖然對家人朋友很好，有時反而卻忽略了自己。')
+        // } else if (think === "C") {
+        //     document.write('愛喝卡布奇諾咖啡的你 \n 你是個外向又樂觀的人，很喜歡嘗試各式各樣的新奇事物，覺得生活一成不變是很無聊的事。但你不會執著於外在的物質生活，而是認為內在的精神層面一樣重要。')
+        // } else if (think === "D") {
+        //     document.write('愛喝義式濃縮咖啡的你 \n 你是個務實的人，讓自己忙起來才會覺得充實。同時也是一個做事比較大膽的人，一路往前衝不怕吃苦，雖然感覺是中規中矩的在人生的路上前進，但其實隨時都準備好迎接每一個新的機會。')
+        // } else if (think === "E") {
+        //     document.write('愛喝特調咖啡的你 \n 你是個很有主見和創意的人，你的想法常常感染身邊的人。你具有想像力，且不會被現實阻礙，有想法就會去做，不需要他人的督促。這樣特別有行動力的你，可以試著把生活的腳步稍稍放慢一點，會有更多的發現。')
+        // } else {
+        //     alert("請選一個選項喔！");
+        // }
+
+        switch (think) {
+            case null:
+                document.write('未作答')
+                break
+            case 'A':
+                document.write('愛喝美式黑咖啡的你')
+                break
+            case 'B':
+                document.write('愛喝拿鐵咖啡的你')
+                break
+            case 'C':
+                document.write('愛喝卡布奇諾咖啡的你')
+                break
+            case 'D':
+                document.write('愛喝義式濃縮咖啡的你')
+                break
+            case 'E':
+                document.write('愛喝特調咖啡的你')
+                break
+            default:
+                alert("請選一個選項喔！")
+                break
+        }
+    </script>
+</body>
+
+</html>

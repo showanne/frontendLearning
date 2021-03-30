@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        body {
+            background: linear-gradient(180deg, #fff 80%, #aaa);
+        }
+
+        .title {
+            background-color: darkseagreen;
+            width: 20%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            height: 100vh;
+            /* background-color: coral; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: lemonchiffon;
+            padding: 3rem 0 5rem 0;
+            /* margin: 0.2rem; */
+            text-align: center;
+
+            /* 倒影 -webkit-box-reflect 
+               方向 above 上 / below 下 / left 左 / right 右
+               偏移距離 數值 / 百分比(相對於元素自身計算，和transform中translate 一樣
+               遮罩 漸層 / 圖片遮罩 */
+            -webkit-box-reflect: below 0 linear-gradient(transparent, rgba(255, 255, 255, 0.3));
+
+            /* 盒子陰影 box-shadow
+                水平位移 垂直位移 模糊半徑 擴散半徑 顏色  inset 陰影朝內
+                (+、-)   (+、-)   (+)    (+、-) */
+            box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.295);
+
+            /* 撲克卡牌翻轉效果 */
+            transform-style: preserve-3d;
+            transition: 0.5s all ease;
+        }
+
+        .card img {
+            border-radius: 50%;
+            padding: 3rem;
+
+            /* 有進場及回場動畫 */
+            transition: 1s;
+        }
+
+        .card img+span {
+            /* 字先消失 hover後出現 */
+            font-size: 0;
+
+            /* 字出現的定位還需要再調整 */
+            position: relative;
+            top: -10.7rem;
+            right: 6rem;
+
+            /* 不知為何translate無效??問老師?? */
+            /* transform: translate(0 30px); */
+        }
+
+        /* 照片hover後好像有奇怪的位移,猜測是span的空位??問老師?? */
+        .card img:hover {
+            border-radius: 35% 10%;
+
+            /* 嘗試漸層-1 */
+            /* background: radial-gradient(circle, transparent, rgb(0, 0, 0)); */
+
+            /* 嘗試漸層-2 */
+            /* background:
+                linear-gradient(toprgba(255, 255, 255, 1),
+                    rgba(255, 255, 255, 0)), url("https://picsum.photos/100/100/?random=1") no-repeat center cover; */
+
+            /* 嘗試漸層-3 */
+            /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 5, 255, 0.5)),
+                url("https://picsum.photos/100/100/?random=1");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover; */
+
+            /* 想要圖片上有不透明漸層 ??問老師?? */
+
+        }
+
+
+        .card img:hover+span {
+            font-size: 1.2rem;
+            font-weight: bolder;
+            font-family: '微軟正黑體';
+            color: lightyellow;
+
+            /* 字效果-1 */
+            /* text-shadow: 3px 3px 10px 0 rgba(255, 228, 196, 0.945); */
+            /* transform: translate(-1500px, -1500px); */
+
+            /* 字效果-2 */
+            /* text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7); */
+
+            /* 字效果-3 */
+            text-shadow:
+                0 0 5px #fff,
+                0 0 13px #ceb6f5,
+                0 0 13px #ceb6f5,
+                0 0 13px #ceb6f5;
+        }
+
+        .card p {
+            padding: 2.5rem;
+        }
+
+        .card-bg-L {
+            background: linear-gradient(90deg, #fff 90%, #ccc);
+        }
+
+        .card-bg-C {
+            background: linear-gradient(90deg, #eee, #fff 10%, #fff 90%, #ccc);
+        }
+
+        .card-bg-R {
+            background: linear-gradient(270deg, #fff 90%, #eee);
+        }
+
+        .card:nth-child(odd):hover {
+            background: linear-gradient(45deg, #ceb6f5 25%, #3e2066 25%, #3e2066 50%, #ceb6f5 50%, #ceb6f5 75%, #3e2066 75%, #3e2066 100%);
+            background-size: 66px 66px;
+
+            /* 撲克卡牌翻轉效果 */
+            transform-origin: 50% 0;
+            transform: rotateY(180deg) skew(0, 20deg);
+
+        }
+
+        .card:nth-child(even):hover {
+            background: linear-gradient(315deg, #ceb6f5 25%, #3e2066 25%, #3e2066 50%, #ceb6f5 50%, #ceb6f5 75%, #3e2066 75%, #3e2066 100%);
+            background-size: 66px 66px;
+        }
+
+        /* 不知為何 p:hover 後，背景card會縮小??問老師?? */
+
+        .card:nth-child(odd) p:hover {
+            background-color: #decbfa;
+
+            transform: scale(1.1);
+
+            padding: 1.5rem;
+
+            box-shadow: 5px 6px 11px #decbfa;
+            -webkit-box-shadow: 5px 6px 11px #decbfa;
+            -moz-box-shadow: 5px 6px 11px #decbfa;
+
+            color: darkslateblue;
+        }
+
+        .card:nth-child(even) p:hover {
+            background-color: #3e2066;
+
+            transform: scale(0.9);
+
+            padding: 1.5rem;
+
+            box-shadow: 5px 6px 11px #3e2066;
+            -webkit-box-shadow: 5px 6px 11px #3e2066;
+            -moz-box-shadow: 5px 6px 11px #3e2066;
+
+            color: lavender;
+        }
+
+        .title:hover {
+            /* 震動動畫 */
+            animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-10px, 0, 5px);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(20px, 5px, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-40px, 5px, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(40px, 5px, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">我是可愛的標題</h1>
+
+    <div class="container">
+        <div class="card card-bg-L">
+            <img src="https://picsum.photos/150/150/?random=1">
+            <span>Img</span>
+            <p>名稱他們一句話他人點擊具體制度是他金屬防止新型，網際網路幾乎學院上路變得見過程式食品，便是清楚包含並且協會發行回家角色天地透明結婚數學明星據說，金錢變化直到喜歡我愛舉報老人下午郵遞區號性別，風雲但我可愛本週電子明天行為，知名美女報導股東政府綠色，姐姐。
+            </p>
+        </div>
+        <div class="card card-bg-C">
+            <img src="https://picsum.photos/150/150/?random=2">
+            <span>Img</span>
+            <p>名稱他們一句話他人點擊具體制度是他金屬防止新型，網際網路幾乎學院上路變得見過程式食品，便是清楚包含並且協會發行回家角色天地透明結婚數學明星據說，金錢變化直到喜歡我愛舉報老人下午郵遞區號性別，風雲但我可愛本週電子明天行為，知名美女報導股東政府綠色，姐姐。
+            </p>
+        </div>
+        <div class="card card-bg-C">
+            <img src="https://picsum.photos/150/150/?random=3">
+            <span>Img</span>
+            <p>名稱他們一句話他人點擊具體制度是他金屬防止新型，網際網路幾乎學院上路變得見過程式食品，便是清楚包含並且協會發行回家角色天地透明結婚數學明星據說，金錢變化直到喜歡我愛舉報老人下午郵遞區號性別，風雲但我可愛本週電子明天行為，知名美女報導股東政府綠色，姐姐。
+            </p>
+        </div>
+        <div class="card card-bg-R">
+            <img src="https://picsum.photos/150/150/?random=4">
+            <span>Img</span>
+            <p>名稱他們一句話他人點擊具體制度是他金屬防止新型，網際網路幾乎學院上路變得見過程式食品，便是清楚包含並且協會發行回家角色天地透明結婚數學明星據說，金錢變化直到喜歡我愛舉報老人下午郵遞區號性別，風雲但我可愛本週電子明天行為，知名美女報導股東政府綠色，姐姐。
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

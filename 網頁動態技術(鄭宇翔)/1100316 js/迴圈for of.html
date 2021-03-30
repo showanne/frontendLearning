@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    let fruits = ['鳳梨', '水梨', '香蕉', '蘋果', '芭樂', '芒果', '西瓜'];
+
+    let frontClass = {
+      teacher: '蔡老師',
+      studentCount: 24,
+      classrom: '1104'  //  '  ' 文字屬性
+    }
+
+
+    //  fruit 代表陣列的每個值
+    for (let fruit of fruits) {
+      console.log(fruit);
+    }
+
+    // for of 只迴值，沒有辦法取得索引，所以要自己寫個 i 跟著跑
+    let i = 0
+    for (let fruit of fruits) {
+      console.log(fruit);
+      i++
+    }
+    // 鳳梨
+    // 水梨
+    // 香蕉
+    // 蘋果
+    // 芭樂
+    // 芒果
+    // 西瓜
+
+    // for of 無法對 JSON 跑迴圈
+    // for (let front of frontClass) {
+    //   console.log(front);  // is not iterable
+    // }
+
+    // for in 只迴索引
+    for (let key in fruits) {
+      console.log(key, fruits[key]);
+      // 0 鳳梨
+      // 1 水梨
+      // 2 香蕉
+      // 3 蘋果
+      // 4 芭樂
+      // 5 芒果
+      // 6 西瓜
+    }
+
+    for (let key in frontClass) {
+      console.log(key, frontClass[key]);
+      // teacher 蔡老師
+      // studentCount 24
+      // classrom 1104
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

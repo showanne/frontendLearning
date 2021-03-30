@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <!-- h1~6 標題 / p 段落 -->
+    <h1>Hello</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam officiis assumenda ea commodi nulla repellat!</p>
+    <h2>Hello</h2>
+    <h3>Hello</h3>
+    <h4>Hello</h4>
+    <h5>Hello</h5>
+    <h6>Hello</h6>
+    
+    <!-- 水平線 -->
+    <hr>
+
+    <!-- 連結 Hypertext Reference -->
+    <!-- target="_blank" 開新視窗 -->
+    <a href="http://www.google.com" target="_blank">Google</a><br>
+    <a href="http://www.yahoo.com">Yahoo!</a><br>
+    <a href="#mylist">跳到mylist</a>
+    
+    <!-- 換行 -->
+    <br>
+
+    <!-- ul 無序號清單 / li 清單項目 / ol 有序號清單 -->
+    <ul id="mylist">
+        <li>你好</li>
+        <li>我好</li>
+        <li>大家好</li>
+    </ul>
+    <ol>
+        <li>你好</li>
+        <li>我好</li>
+        <li>大家好</li>
+    </ol>
+
+    <!-- 巢狀結構 -->
+    <ul>
+        <li>
+            <h3>OO</h3>
+            <ol>
+                <li>1</li>
+                <li>2</li>
+            </ol>
+        </li>
+        <li>
+            <h3>XX</h3>
+            <ol>
+                <li>01</li>
+                <li>02</li>
+            </ol>
+        </li>
+    </ul>
+
+    <!-- 圖片 -->
+    <!-- 
+        alt 替代文字，圖片連結失效出現的文字
+        title 滑鼠移上圖片顯示的文字
+     -->
+     <!-- 相對路徑 -->
+    <img src="./images/pucca01.png" width="290" alt="pucca" title="Hello! 我是Pucca！"><br>
+    <img src="./images/garu01.png" width="290" alt="garu" title="Hello! 我是Garu！"><br>
+    <img src="./images/jpg.png" alt="我不是jpg喔" title="Ha! Ha! 我不是jpg喔！"><br>
+    <img src="./sample/other/pucca-i-garu.png" width="190" alt="">
+     <!-- 絕對路徑 -->
+    <img src="http://2.bp.blogspot.com/-C0fsutvsMvE/TjyTHy85sQI/AAAAAAAABAk/lPZd31wW2yk/s1600/user-90-pucca-wallpaper-789292.jpg" width="470" alt="">
+
+    <!-- 跑馬燈 -->
+    <marquee behavior="" direction="">跑~ 跑~ 跑~ ~</marquee>
+
+    <hr>
+
+    <!-- 一個是以前使用，一個是現在的語意化標籤 -->
+    <!-- 粗體 -->
+    <b>粗體</b><br>
+    <strong>粗體</strong><br>
+
+    <!-- 斜體 -->
+    <i>斜體</i><br>
+    <em>斜體</em><br>
+
+    <!-- 刪除線 -->
+    <s>刪除線</s><br>
+    <del>刪除線</del><br>
+
+    <!-- 底線 -->
+    <u>底線</u><br>
+    <ins>底線</ins><br>
+
+    <hr>
+
+    <!-- 上標 / 下標 -->
+    X<sup>2</sup>
+    CO<sub>2</sub>
+    <hr>
+
+    <!-- 可以把空格顯現 -->
+    <pre>
+        我前面有空格喔
+    </pre>
+    <hr>
+
+    <!-- 頁框 可以在這個頁面的特定範圍載入指定網頁 -->
+    <iframe src="./HTML_structure.html" frameborder="0" width="300" height="180"></iframe><hr>
+
+    <a href="./HTML_base_structure.html" target="showframe">Hello</a><br>
+    <iframe name="showframe" src="./HTML_structure.html" frameborder="0" width="300" height="180"></iframe><br>
+    <br><hr><br>
+
+    <!-- 表格 -->
+
+    <!-- 表單 -->
+
+    <!-- 區塊標籤(元素) div、p、ul、li (一個標籤一行) -->
+    <div>div</div>
+    <p>p</p>
+    
+    <!-- 行內標籤(元素) span、a、em、b、s、i... (標籤全部擠在一起) -->
+    <span>span</span>
+    <a href="">a</a>
+    <i>i</i>
+
+    <!-- html5新增的區塊標籤(語意化) -->
+    <header></header> <!-- 網頁頁首 -->
+    <nav></nav> <!-- 網頁導覽區域 -->
+    <footer></footer> <!-- 網頁頁尾 -->
+    <section></section> <!-- 一個區域 -->
+    <aside></aside> <!-- 側邊區域 -->
+    <article></article> <!-- 定義文章範圍 -->
+    
+    <br><hr>
+    <a href="#">回頂端</a>
+</body>
+</html>

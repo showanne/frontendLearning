@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 練習 - 使用 float 設計一個 960px 三欄且水平置中的版型 */
+        /* margin、padding、border、width 自由設計 */
+
+        .container {
+            background-color: palegreen;
+            width: 960px;
+            margin: auto;
+
+            /* BFC 塊狀格式化上下文
+            overflow: hidden / auto
+            display: table; */
+            display: table;
+        }
+
+        .col {
+            background-color: skyblue;
+            width: 300px;
+            float: left;
+            margin: 3px;
+            padding: 5px;
+            border: 2px ridge #11a;
+        }
+
+        .col img {
+            width: 100%;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ol style="color: palevioletred;font-size: 2rem;">
+            <li>子元素全部都是 float 會獨立出來，父元素沒有其他元素可以包覆來支撐高度，父元素高度會崩塌消失</li>
+            <li>父元素可以使用 overflow: hidden / auto 或 display: table 格式化區塊產生新的高度</li>
+        </ol>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+        <div class="col">
+            <img src="https://picsum.photos/800/600/?random=1">
+            <p>確實問題隊員加盟口氣藍色素質以為本公司便利商店巨大簡體基於，課程母親，表達合理可惜相同實業更大將其孩子對你東京驚訝，國家自我一天大廈愛情，圖片勝利能在符合，事項全體驅動逐步無比試驗挑戰，過了健康，部分百萬正在避免，唯一主任不滿優化，遠遠看法去年本週，起點。
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 練習 - 宣告一個數字陣列
+
+    // let numbers = [33, 75, 69, 41, 50, 19]
+
+    // 印出陣列 第 x 個數字為 y
+    // 求 41 是第幾個數字
+    // 有幾個奇數和幾個偶數
+    // 最大數字和最小數字
+
+    let numbers = [33, 75, 69, 41, 50, 19]
+
+    // 第 x 個數字為 y
+    for (let i = 0; i < numbers.length; i++) {
+      console.log(`第 ${i + 1} 個數字為 ${numbers[i]}`);
+    }
+
+    // 求 41 是第幾個數字
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] == '41') {
+        console.log(`41 為第 ${i + 1} 個數字`);
+        // break
+      }
+    }
+
+    // 幾個奇數和幾個偶數
+    let num_odd = 0
+    let num_even = 0
+
+    for (let i = 0; i < numbers.length; i++) {
+      // console.log(numbers.length);
+
+      if (numbers[i] % 2 == 0) {
+        num_even++
+      } else {
+        num_odd++
+      }
+    }
+    console.log(`${num_odd}個奇數和${num_even}個偶數`);
+
+
+    // 最大數字和最小數字
+    // 可以參考解釋https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/268893/
+
+    let max = numbers[0]  // 將陣列中第一個元素賦值給一個變數，並假設這個變數是最大值
+    let min = numbers[0]  // 將陣列中第一個元素賦值給一個變數，並假設這個變數是最小值
+
+
+    for (let i = 0; i < numbers.length; i++) {
+
+      if (numbers[i] > max) {
+        // 如果元素當前值大於max,就把這個當前值賦值給max
+        max = numbers[i]
+      }
+
+      if (numbers[i] < min) {
+        // 如果元素當前值小於min,就把這個當前值賦值給min
+        min = numbers[i]
+      }
+    }
+    console.log(`最大數字是${max}`);
+    console.log(`最小數字是${min}`);
+
+  </script>
+</body>
+
+</html>

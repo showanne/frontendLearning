@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    // 1~x 區間內的隨機值
+    function getRandom(x) {
+      return Math.floor(Math.random() * x) + 1;
+      //                若要 0~x 區間的話就不要 +1
+
+    };
+
+    let x = parseInt(prompt())
+    document.write(`${typeof (x)}`) //number
+    document.write(`從1~${x} 取一個隨機值 ${getRandom(x)}`)
+
+    document.write(`<br><br>`)
+
+    // 0~y 區間內的隨機值
+    function getRandom(y) {
+      return Math.round(Math.random() * y);
+      // 因為 random() 會隨機一個 0~1 的小數，包含 0 但不包含 1
+      // 所以改用 round 來取 0~y 隨機值，結果會包含 0 和 y
+    };
+
+    let y = parseInt(prompt())
+    document.write(`從0~${y} 取一個隨機值 ${getRandom(y)}`)
+
+    document.write(`<br><br>`)
+
+
+    // 練習 - 製作隨機數字 function，提供最小整數和最大整數，回傳一個區間內的隨機整數
+
+    const rand = (min, max) => {
+      // 程式碼...
+
+      // console.log(Math.random());
+      return Math.round(Math.random() * (max - min)) + min;
+
+    }
+    let min = (prompt())
+    let max = (prompt())
+    document.write(`從 ${min} ~ ${max} 取一個隨機值 ${rand(min, max)}`)
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav {
+      background: black;
+      padding: 1rem 0;
+
+      text-align: center;
+    }
+
+    nav a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 1rem 0.5rem 1rem;
+      border-bottom: 1px solid transparent;
+      /* 有進場、回場動畫 */
+      transition: 1s;
+    }
+
+    nav a:hover {
+      color: #ff0;
+      border-bottom: 5px solid #ff0;
+      font-size: 1.5rem;
+      background-color: lightseagreen;
+      /* 寫在狀態只有進場動畫、沒有回場動畫 */
+      /* transition: 1s; */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu">
+    <a href="#">Lorem, ipsum dolor.</a>
+    <a href="#">Lorem, ipsum dolor.</a>
+    <a href="#">Lorem, ipsum dolor.</a>
+    <a href="#">Lorem, ipsum dolor.</a>
+    <a href="#">Lorem, ipsum dolor.</a>
+  </nav>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Cat {
+      constructor(name) {
+        this.name = name
+      }
+      meow() {
+        document.write(`${this.name} 喵 ~ <br>`)
+      }
+    }
+
+    const cat1 = new Cat('小黑')
+    cat1.meow()
+
+    const cat2 = new Cat('小白')
+    cat2.meow()
+
+    const cat3 = new Cat('浪浪')
+    cat3.meow()
+  </script>
+</body>
+
+</html>

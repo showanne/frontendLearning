@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let number1 = 10;   //number  數字
+        let number2 = '10';  //string 文字字串
+
+        if (number1 == number2) {
+            console.log('兩者相同')
+        } else {
+            console.log('兩者不同')
+        }
+
+        if (number1 === number2) {
+            console.log('兩者型態資料都相同')
+        } else {
+            console.log('兩者型態或資料不同')
+        }
+
+        //  \n 是換行，僅在 console.log 內作用
+        // 若是document.write 則直接加 <br> 標籤即可
+        // 僅在 ` ` 內可以換行並且會顯示換行的空格，" " 及 ' ' 皆會出現錯誤訊息。
+        if (number1 === number2) {
+            console.log(`兩者型態資料都相同，\nnumber1: ${typeof number1} ${number1} \nnumber2: ${typeof number2} ${number2}`)
+        } else {
+            console.log(`兩者型態或資料不同，\nnumber1: ${typeof number1} ${number1} \nnumber2: ${typeof number2} ${number2}`)
+        }
+
+        // 進階判斷式
+        let good = confirm('今天天氣好嗎')
+        // 如果變數是 true ，不用寫 = true
+        if (good) {  // (good = true)
+            console.log('oh ya！')
+        } else {
+            console.log('oh no！')
+        }
+
+        // 三元運算子
+        let reply = good ? 'oh ya！' : 'oh no！';
+        console.log(reply);
+
+        // 多條件式
+        let isGoodAtCoding = confirm('你會寫程式嗎');
+        let isRich = confirm('你有錢嗎');
+        let isFat = confirm('你胖嗎');
+
+        if (isRich || (!isFat && isGoodAtCoding)) {
+            alert('你棒棒');
+        } else {
+            alert('你加油');
+        }
+
+    </script>
+</body>
+
+</html>

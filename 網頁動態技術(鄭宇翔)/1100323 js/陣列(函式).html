@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr1 = ['a', 'b', 'c']
+    // forEach 裡面放 function 可以帶三個參數 值value, 索引index, 陣列本身arr
+    arr1.forEach(function (value, index, arr) {
+      console.log(value, index, arr);
+    })
+
+    // join() 陣列串成文字，()裡面放連接的東西
+    // 什麼都不放預設是用 , 連結
+    console.log(arr1.join('*'));
+
+    let arr2 = ['蘋果', '鳳梨', '香蕉']
+
+    // push()新增到陣列後面 / unshift()新增到陣列前面 ，然後回傳新的陣列長度
+    // 要新增的話 就一直放下去 '11', '22', '33' ...
+    arr2.push('芒果')
+    console.log(arr2);
+    arr2.unshift('番茄')
+    console.log(arr2);
+
+    // pop() 移除最後一個值 / shift()移除第一個值 並回傳陣列
+    let data1 = arr2.pop()
+    console.log(data1, arr2);
+    let data2 = arr2.shift()
+    console.log(data2, arr2);
+
+
+    // splice(開始位置, 刪除數量, 插入值1, 插入值2 ...)
+    // 插入值可以不放 
+    let arr3 = ['櫻桃', '藍莓', '芒果']
+    arr3.splice(0, 1, '乳酪', '布丁', '優格')
+    console.log(arr3);
+
+
+    // concat() 陣列連接，並回傳新的陣列
+    // 不會改到原本的陣列
+    let arr4 = ['a', 'b', 'c']
+    let arr5 = ['A', 'B', 'C']
+    let arr6 = arr4.concat(arr5)
+    console.log(arr6);
+
+    // reverse() 顛倒陣列排放
+    arr5.reverse()
+    console.log(arr5);
+
+    //includes() 陣列中有沒有包含()內指定的元素，回傳布林值 
+    console.log(arr3.includes('櫻桃'));
+
+    // indexOf() 陣列中有沒有包含()內指定的元素，回傳第一個發現的索引
+    //  -1 代表找不到
+    console.log(arr2.indexOf('香蕉'));
+
+
+    let arr7 = [1, 2, 3, 4, 5]
+    // some() 裡面放 function 可以帶三個參數 值value, 索引index, 陣列本身arr
+    // function 必須回傳 true 或 false
+    // some 會回傳迴圈有沒有結果 true
+    let some = arr7.some((value) => {
+      console.log(value);
+      return value > 4
+    })
+    console.log(some);
+
+
+    // map() 裡面放 function 可以帶三個參數 值value, 索引index, 陣列本身arr
+    // function 必須回傳運算後新的值
+    // 會產生一個新陣列
+    // 不會改道原本的陣列
+    let arr8 = arr7.map(value => {
+      return value > 5
+    })
+    console.log(arr8);
+
+
+    // filter() 裡面放 function 可以帶三個參數 值value, 索引index, 陣列本身arr
+    // function 必須回傳 true(保留) 或 false(移除)
+    // 會產生一個新陣列
+    // 不會改道原本的陣列
+    let arr9 = arr7.filter(value => {
+      return value > 3
+    })
+    console.log(arr9);
+
+
+
+    // reduce(function , 初始值)
+    // function 一定要帶兩個參數，目前加總和目前處理的值
+    // function 一定要回傳計算後的值
+    let sum = arr7.reduce((total, value) => {
+      console.log(total, value);
+      return total + value
+    }, 10)
+    console.log(sum);
+
+
+
+    // sort()裡的function 會迴圈跑過每個值，一次兩個
+    // a 是後面的值 ; b 是前面的值
+    // return < 0 , a 會排在 b 前面
+    // return = 0 , a b 順序不便
+    // return > 0 , b 會排在 a 前面
+
+
+    let arr10 = ['A', '吃', 'G', 16, 9, "cherry"]
+    arr10.sort()
+    console.log(arr10);
+
+    let arr11 = [12, 5, 48, 0, 6, 9, 0.7, 51]
+    arr11.sort()
+    console.log(arr11);
+
+    // a 是後面的值 ; b 是前面的值
+    let arr12 = [12, 5, 48, 0, 6, 9, 0.7, 51]
+    arr12.sort((a, b) => {
+      console.log(a, b, a - b);
+      return a - b //小到大
+      return b - a //大到小
+
+    })
+    console.log(arr12);
+
+    let arr13 = ['一', '四', '六', '九', '七', '三', '十',]
+    arr13.sort((a, b) => {
+      return a.localeCompare(b, 'zh-Hant-tw')
+    })
+    console.log(arr13);
+
+
+    // pass by reference 淺層複製
+    let arr14 = [1, 2, 3, 4]
+    let arr15 = arr14
+    arr15.push(5)
+    console.log(arr14);
+
+
+
+    const json1 = { a: 1, b: 2, c: 3 }
+    const json2 = json1
+    // json1.d = 4
+    // console.log(json1)
+
+    const json = Object.assign() ???
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 多重判斷
+        let age = prompt('請輸入年齡')
+        // prompt 跳出輸入框，收到的結果為文字，點取消 console 會顯示 null
+        if (age === null) {
+            document.write('未輸入年齡')
+        } else if (age >= 18) {
+            document.write(`<img src="./img/18.png" width="100">`)
+            document.write(`你的年齡是 ${age} 歲，你可以看限制級`)
+        } else if (age >= 15) {
+            document.write(`<img src="./img/15.png" width="100">`)
+            document.write(`你的年齡是 ${age} 歲，你可以看「輔十五」級`)
+        } else if (age >= 12) {
+            document.write(`<img src="./img/12.png" width="100">`)
+            document.write(`你的年齡是 ${age} 歲，你可以看「輔十二」級`)
+        } else if (age >= 6) {
+            document.write(`<img src="./img/6.png" width="100">`)
+            document.write(`你的年齡是 ${age} 歲，你可以看保護級`)
+        } else if (age > 0) {
+            document.write(`<img src="./img/0.png" width="100">`)
+            document.write(`你的年齡是 ${age} 歲，你可以看普遍級`)
+        } else {
+            alert("不可能沒有年齡喔！");
+        }
+
+
+    </script>
+</body>
+
+</html>

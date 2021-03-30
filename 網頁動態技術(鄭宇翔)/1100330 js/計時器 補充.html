@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 計時器
+    for (let i = 1; i <= 5; i++) {
+      setInterval(() => {
+        document.write(`${i}<br>`)
+      }, 1000);
+    }
+    // 結果 1 2 3 4 5
+
+
+    // var 全域變數特性 造成 for 已經跑完了，才開始 setTimeout
+    for (var j = 1; j <= 5; j++) {
+      setInterval(() => {
+        document.write(`${j}<br>`)
+      }, 1000);
+    }
+    // 結果 6 6 6 6 6
+
+  </script>
+</body>
+
+</html>

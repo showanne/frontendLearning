@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        類別選擇器 . (點)
+        必須以字元開頭，不能用數字開頭，且有區分大小寫
+        能以符號 ( - 、 _ )串接名稱
+        */
+        h1 {
+            background-color: rgb(205, 235, 99)
+        }
+
+        li {
+            color: lime;
+        }
+
+        .a {
+            color: lightsalmon;
+        }
+
+        .b {
+            color: mediumpurple;
+        }
+
+        .c {
+            color: orangered;
+        }
+
+        #btn {
+            border-radius: 0.5px;
+            background-color: royalblue;
+            color: seashell;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        nav>p {
+            /* 子代選擇器(大於) ">" 選擇到下一層(兒子) */
+            color: sienna;
+        }
+
+        nav p {
+            /* 後代選擇器(空格) " " 選擇到下層所有 p (兒孫們) */
+            color: steelblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="a">class 選擇器</h1>
+    <p>class 是 css 裡最常被使用的選擇器，因為具有重複使用的特性。</p>
+
+    <h2>相同元素，不同外觀</h2>
+    <ul>
+        <li>Lorem, ipsum dolor stetur adipisicing elore.</li>
+        <li>Lorem, ipsum dolor stetur adipisicing elore.</li>
+        <li class="b">Lorem, ipsum dolor stetur adipisicing elore.</li>
+        <li>Lorem, ipsum dolor stetur adipisicing elore.</li>
+        <li>Lorem, ipsum dolor stetur adipisicing elore.</li>
+    </ul>
+
+    <h2>可以重複使用</h2>
+    <p>Lorem ipsum dolor sit amet, cons<em class="b">ectetur adipisicing elit. Veritatis ea dolore </em> tenetur numquam
+        in, expli<span class="c">cabo consequatur, dolor labore cum </span> exercitationem cumque velit optio,
+        praesentium nam aliquam voluptas iure dignissimos maxime!</p>
+
+    <hr>
+
+    <h1>id 選擇器</h1>
+    <p>可以當作網頁邏輯區塊。</p>
+    <div id="top"></div>
+    <div id="nav"></div>
+    <div id="head"></div>
+
+    <h2>id 具有唯一性，不能重複</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, sit illum consequuntur cum cupiditate esse?</p>
+
+    <h2>被 JavaScript 和 jQuery 拿來當選擇器用</h2>
+    <div id="container">
+        <button id="btn">push</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione iste illum aut quisquam quidem animi tempore
+            molestias. Repellendus nemo, tempora reprehenderit, repellat voluptas iste sapiente dignissimos deserunt
+            incidunt recusandae voluptates!</p>
+    </div>
+
+    <hr>
+
+    <h1>後代選擇器與子代選擇器</h1>
+    <nav>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quidem repellendus iste. Obcaecati atque
+                maiores veritatis.</p>
+        </div>
+    </nav>
+    <h2>子代選擇器(大於) ">" 選擇到下一層(兒子)</h2>
+    <h2>後代選擇器(空格) " " 選擇到下層所有的 (兒孫們)</h2>
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+            integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+            crossorigin='anonymous'></script>
+    <!-- 安裝 cdnjs 套件 → 按F1搜尋 cdnjs → SEARCH FOR LIBRARIES → jQuery → 在看看要哪個版本 -->
+    <script>
+        $('#btn').click(function () {
+            $('#container').slideToggle()
+        })
+    </script>
+</body>
+
+</html>

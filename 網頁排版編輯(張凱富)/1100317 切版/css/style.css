@@ -1,0 +1,386 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /* background-color: goldenrod; */
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 建立寬度一致、水平置中的容器 */
+.container {
+  width: 75%;
+  margin: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+/* header 選單 */
+#header {
+  width: 75%;
+  height: 60px;
+
+  /* 固定 header 選單的位置 */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 9;
+}
+
+#header .menu {
+  /* 處理幽靈空白 */
+  font-size: 0;
+
+  position: absolute;
+  top: 25px;
+  /* 處理因  absolute 造成的欄位縮減*/
+  width: 100%;
+  height: 60px;
+
+  text-align: center;
+
+  background: url(../images/nav-bg-full.jpg) repeat-x center center;
+
+  /* 進入定位層後的順序，前提是有 position: absolute; 才能調整順序 */
+  z-index: -1;
+  /* 1.若logo結構在上面，menu會蓋到logo，設定 z-index 調整層級
+      2.也可以將logo與menu結構對調，logo在下，menu在上，後方會蓋住前方 */
+}
+
+#header .menu li {
+  display: inline-block;
+  padding: 1rem 0;
+
+  /* 處理幽靈空白 */
+  font-size: 1rem;
+}
+
+#header .menu li a {
+  color: azure;
+  text-decoration: none;
+
+  /* 若為原本的inline屬性，padding會顯示在li外面 */
+  padding: 0.5rem 1rem;
+  display: block;
+
+  transition: 1s;
+}
+
+#header .menu li a:hover {
+  background-color: rgba(255, 95, 80, 0.3);
+}
+
+#header .menu li:nth-child(3) {
+  /* 第3個li往右推移，空出logo位置 */
+  margin-right: 15%;
+}
+
+/* logo */
+#header .logo {
+  width: 15%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+#header .logo img {
+  /* 圖片要符合父元素.logo的尺寸，設定100% */
+  width: 100%;
+}
+
+#header .menu::before {
+  /* 偽元素必須要有的設定 */
+  content: ' ';
+  /* 圖片原有的寬高 */
+  width: 12px;
+  height: 60px;
+  background: url(../images/nav-bg-left.png) no-repeat left top/cover;
+
+  position: absolute;
+  left: -10px;
+}
+
+#header .menu::after {
+  content: ' ';
+  width: 12px;
+  height: 60px;
+  background: url(../images/nav-bg-right.png) no-repeat right top/cover;
+
+  position: absolute;
+  right: -10px;
+}
+
+/* section01 回首頁 */
+
+#section01 {
+  background: url(../images/section01-bg.jpg) no-repeat center center/cover;
+  position: relative;
+}
+
+#section01 .main-news {
+  /* background-color: tomato; */
+
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+
+  text-align: center;
+}
+
+#section01 .main-news h1 {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: yellow;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 1);
+}
+
+/* section02 遊戲介紹 */
+#section02 {
+  background: url(../images/section02-bg.jpg) no-repeat center center/cover;
+}
+
+#section02 .container {
+  position: relative;
+  /* background-color: sandybrown; */
+}
+
+#section02 .row {
+  width: 100%;
+
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+
+  /* 處理幽靈空白 */
+  font-size: 0;
+  /* 若未處理，欄寬會 width = 50%+50%+幽靈空白，會導致col換行 */
+}
+
+#section02 .col {
+  /* 改變盒模型計算的方式 */
+  box-sizing: border-box;
+  width: 50%;
+  color: rgb(255, 252, 238);
+
+  display: inline-block;
+  /* 處理幽靈空白 */
+  font-size: 1rem;
+
+  padding: 5rem 1rem;
+}
+
+#section02 .col h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#section02 .col p {
+  font-weight: 300;
+  line-height: 1.5;
+  text-indent: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+#section02 .col iframe {
+  width: 100%;
+  height: 300px;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* section03 角色列表 */
+#section03 {
+  background: linear-gradient(45deg, #666 40%, #aaa 40%);
+}
+
+/* #section03 .row {
+  background-color: #ffa;
+} */
+
+#section03 .col:nth-child(1) {
+  /* background-color: sandybrown; */
+  height: 65%;
+}
+
+#section03 .col:nth-child(2) {
+  /* background-color: steelblue; */
+  height: 35%;
+}
+
+/* 人物大圖 */
+#section03 .role_info .role {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+
+  padding: 5rem 1.5rem 0;
+
+  float: left;
+}
+
+#section03 .role_info .role img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 人物資料 */
+#section03 .role_info .info {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+
+  color: rgb(39, 36, 33);
+
+  padding: 10rem 1rem 3rem;
+
+  float: right;
+}
+
+#section03 .role_info .info h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#section03 .role_info .info p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+#section03 .role_info input {
+  /* 把 input 開關點點先關掉 */
+  display: none;
+}
+
+/* 下方角色清單 */
+
+#section03 .role_list {
+  /* 處理幽靈空白 */
+  font-size: 0;
+  text-align: center;
+}
+#section03 .role_list label {
+  display: inline-block;
+  width: 7%;
+  margin: 0 0 5px 0;
+
+  /* 滑鼠樣式 手指 */
+  cursor: pointer;
+
+  transition: 0.7s;
+}
+
+#section03 .role_list img {
+  width: 100%;
+}
+
+#section03 .role_list label:hover {
+  filter: drop-shadow(0 0 5px rgb(246, 146, 31)) drop-shadow(0 0 10px rgb(218, 214, 5));
+}
+
+/* ~ 同層全體選擇器 */ /* 第4個之後的全部label */
+#section03 .role_list label:nth-child(4) ~ label {
+  filter: brightness(0.4); /* 變暗 */
+  cursor: auto;
+}
+
+/* 隱藏上方所有人物資料 */
+#section03 .role_info > div {
+  display: none;
+}
+/* 被checked到的，隔壁的div顯示 */
+#section03 .role_info input:checked + div {
+  display: block;
+}
+
+/*  footer 關於我們  */
+#footer {
+  background-color: black;
+  color: aliceblue;
+  padding: 2rem 0;
+}
+
+#footer .row {
+  overflow: hidden;
+}
+
+#footer .row .col {
+  width: 25%;
+  float: left;
+}
+
+#footer .card {
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+#footer h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1.1rem;
+}
+
+#footer li {
+  line-height: 1.7;
+  padding-left: 1.5rem;
+}
+
+#footer .card h3 {
+  margin: 1rem 0;
+}
+
+#footer .card > i {
+  width: 30px;
+  font-size: 1.3rem;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding: 2rem 0 0;
+}
+
+/* backtop */
+.backtop {
+  width: 40px;
+  height: 40px;
+  color: rgb(255, 196, 196);
+  font-size: 0.8rem;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+}
+
+.backtop .square {
+  background-color: rgba(63, 48, 48, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  transition: 1s;
+}
+
+.backtop:hover .square {
+  transform: rotate(45deg) scale(1.2);
+  background-color: rgb(63, 48, 48);
+}
+
+.backtop a {
+  width: 100%;
+  height: 100%;
+  color: rgb(255, 196, 196);
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+}

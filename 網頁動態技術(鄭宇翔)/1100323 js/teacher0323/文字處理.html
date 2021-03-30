@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // trim 移除前後空白
+    let str = '  sdkJflsdjgdlsg '
+    str = str.trim()
+    console.log(str)
+
+    // 轉大寫
+    str = str.toUpperCase()
+    console.log(str)
+
+    // 轉小寫
+    str = str.toLowerCase()
+    console.log(str)
+
+    // 利用轉大小寫做大小寫不敏感搜尋
+    let search = 'apple  '
+    let arr = ['Apple ', ' Banana']
+    for(let fruit of arr) {
+      if (fruit.trim().toUpperCase() == search.trim().toUpperCase()) {
+        console.log('找到了');
+        break
+      }
+    }
+
+    let str2 = '新北市泰山區貴子里致遠新村55之1號'
+    // .substr(開始位置, 長度)
+    // 長度不放就是取到最後
+    let sub = str2.substr(0, 3)
+    console.log(sub)
+    // .substr(開始位置, 結尾位置)
+    // 結尾不放就是取到最後
+    let sub2 = str2.substring(3, 6)
+    console.log(sub2)
+    // .slice(開始位置, 結尾位置)
+    // 結尾不放就是取到最後
+    // 可以放負數倒數
+    let sub3 = str2.slice(-5)
+    console.log(sub3)
+  </script>
+</body>
+</html>

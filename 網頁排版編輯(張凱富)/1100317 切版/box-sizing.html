@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 原來盒子計算的方式 width + padding + border */
+
+    .box1 {
+      width: 500px;
+      height: 500px;
+      background-color: chartreuse;
+
+      padding: 10px;
+      border: 10px solid #555;
+    }
+
+    /* box-sizing 改變盒模型計算的方式 */
+    /* width、height 會包含 padding、border */
+
+    .box2 {
+      width: 500px;
+      height: 500px;
+      background-color: orangered;
+
+      padding: 10px;
+      border: 10px solid #555;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    原來盒子計算的方式 <br>
+    width: 500px + padding: 10px*2 + border: 10px*2
+  </div>
+  <div class="box2">
+    box-sizing 改變盒模型計算的方式 <br>
+    width、height 會包含 padding、border <br>
+    原始 width: 500px = width: 460px + padding: 10px*2 + border: 10px*2
+  </div>
+</body>
+
+</html>

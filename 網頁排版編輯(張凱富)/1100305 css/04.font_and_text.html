@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stick&display=swap" rel="stylesheet">
+
+    <style>
+        /* html = :root (偽類選擇器) */
+        html {
+            /* 網頁預設字體大小 */
+            font-size: 16px;
+        }
+
+        .font_style {
+            /* 設定字體大小 px、em、rem */
+            font-size: 20px;
+            font-style: italic;
+            /* 設定字體粗細，不建議使用數值，因為會隨每人的電腦而不同 */
+            font-weight: bold;
+            /* 設定英文字全部為大寫，且句子首字的第一個字母會變大 */
+            font-variant: small-caps;
+        }
+
+        .text_style {
+            /* 文字對齊 */
+            text-align: center;
+            /* 文字特效 underline 底線、overline 上線、line-through 刪除線 */
+            text-decoration: underline;
+            /* 第一行縮排 */
+            text-indent: 9px;
+            /* uppercase(每個單字的字母均為大寫)、lowercase(每個英文單字的字母均為小寫)、capitalize(每個單字的第一個字母為大寫字體，其餘字母為小寫字體 )*/
+            text-transform: capitalize;
+            /* 陰影      水平  垂直  模糊半徑(數值越低約清晰) 顏色
+                        (可正、可負) */
+            text-shadow: -2px 3px 1px rgba(78, 82, 69, 0.8);
+            /* 字之間的距離 */
+            letter-spacing: 6px;
+            /* 單字間的距離，需要字跟字之間有空格才會起作用，較適合英文 */
+            word-spacing: 13px;
+            /* 行高 可以設定單位，也可以只打數值(代表倍數) */
+            line-height: 1.5;
+        }
+
+        .multi_text_shadow {
+            font-size: 5rem;
+            /* 多重陰影設定，可以一直疊加 */
+            text-shadow:
+                1px 1px 1px rgba(78, 82, 69, 0.8),
+                3px 3px 3px rgba(202, 231, 132, 1),
+                5px 5px 5px rgba(95, 138, 233, 1),
+                7px 7px 7px rgba(177, 118, 255, 1);
+        }
+
+        .word_wrap {
+            width: 350px;
+            background-color: tan;
+            /* 換行 - 遇到太長的單字會自動換行 */
+            word-wrap: break-word;
+        }
+
+        .word_wrap_no {
+            width: 350px;
+            background-color: tan;
+            /* 換行 */
+            /* word-wrap: break-word; */
+        }
+
+        .word_break {
+            width: 500px;
+            background-color: thistle;
+            /* 換行 - break-all 允許在單字的字母換行，也就是不一定要完整的單字
+            keep-all 遇到空格 " "或連字符號 "-" 會換行*/
+            word-break: keep-all;
+        }
+
+        .white_space {
+            width: 430px;
+            background-color: yellowgreen;
+            /* 保留空白  pre像 <pre>、pre-wrap 保持空白且自動換行、nowrap 內容強制不換行 */
+            white-space: pre;
+        }
+
+        .white_space_wrap {
+            white-space: pre-wrap;
+        }
+
+        .white_space_nowrap {
+            white-space: nowrap;
+        }
+
+        a {
+            font-size: 50px;
+        }
+
+        /* 設定以下4個連結狀態時，須按順序，否則會無效。 口訣：LoVe HAte */
+        /* 連結初始顏色 */
+        a:link {
+            color: rgb(193, 255, 22);
+            text-decoration: none;
+        }
+
+        /* 拜訪過的顏色 */
+        a:visited {
+            color: slateblue;
+        }
+
+        /* 滑鼠移入的顏色 */
+        a:hover {
+            color: cornflowerblue;
+            text-decoration: underline;
+        }
+
+        /* 點擊時的顏色 */
+        a:active {
+            color: rgb(240, 137, 69);
+        }
+
+        .google_font {
+            font-size: 50px;
+            /* 去連結外部字形，上面有 link google font */
+            font-family: 'Stick', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>設定 font</h1>
+    <p class="font_style">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non fuga tenetur rem corrupti
+        voluptas assumenda
+        numquam repellat consequatur dolore animi consectetur deleniti earum molestiae dolorem placeat, quam sit sed
+        temporibus!</p>
+    <h1>設定 text</h1>
+    <p class="text_style">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non fuga tenetur rem corrupti
+        voluptas asepellat consequatur dolore animi consectetur deleniti earum molestiae dolorem placeat, quam sit sed
+        temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <p class="text_style">基金規律 我又打算不得不信心受傷，國有面議不住各自慢慢漸漸，她是崇拜，害。 位置想到關於 發表收益反應公告他是裝飾我都角度供應商，請在為止，適合 設備，不停。</p>
+
+    <hr>
+
+    <h2>多重文字陰影</h2>
+    <p class="multi_text_shadow">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    <p class="multi_text_shadow">面議相機下去豐原，個人。</p>
+
+    <hr>
+
+    <h2>word_wrap</h2>
+    <p>換行 word-wrap<br>
+        遇到太長的單字會自動換行</p>
+    <p class="word_wrap">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+    <p class="word_wrap_no">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+
+    <hr>
+
+    <h2>word_break</h2>
+    <p>換行 word-break<br>
+        break-all 允許在單字的字母換行，也就是不一定要完整的單字<br>
+        keep-all 遇到空格 " "或連字符號 "-" 會換行</p>
+    <p class="word_break">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos rem tempora ut incidunt minima, voluptatem
+        excepturi iure reiciendis facere ipsam pariatur non est eveniet dolor iusto sint repellat eum officiis.s
+    </p>
+
+    <hr>
+
+    <h2>white_space</h2>
+    <p>保留空白 white-space<br>
+        pre像 < pre> 標籤 <br>
+            pre-wrap 保持空白且自動換行<br>
+            nowrap 內容強制不換行</p>
+    <p class="white_space">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eum explicabo! Eligendi repellendus, accusamus
+        est distinctio molestias earum et reiciendis quaerat sunt fugiat culpa commodi assumenda possimus. Obcaecati,
+        sint dolorum?
+    </p>
+    <p class="white_space white_space_wrap">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eum explicabo! Eligendi repellendus, accusamus
+        est distinctio molestias earum et reiciendis quaerat sunt fugiat culpa commodi assumenda possimus. Obcaecati,
+        sint dolorum?
+    </p>
+    <p class="white_space white_space_nowrap">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, eum explicabo! Eligendi repellendus, accusamus
+        est distinctio molestias earum et reiciendis quaerat sunt fugiat culpa commodi assumenda possimus. Obcaecati,
+        sint dolorum?
+    </p>
+
+    <hr>
+
+    <h2>連結顏色變化</h2>
+    <a href="#" target="_blank">lorem</a>
+
+    <hr>
+
+    <h2>google_font</h2>
+    <p class="google_font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa tempore quibusdam et alias
+        minima! Ipsa sapiente quasi esse magnam totam, ducimus architecto possimus asperiores est nam incidunt nulla
+        quam porro.</p>
+    <p class="google_font">是個表示時間進度身邊一笑品種偉大半年因而能力記憶，當年考慮有點遠好友多媒體這就是簡介趕緊筆記本，方。</p>
+
+    <hr>
+    <h1>rem 與 em 的差異</h1>
+    <h2>◆ rem</h2>
+    <p>rem = root(html) em = 以 root(html) 網頁原始字形大小 16px 去做縮放</p>
+    <B>這裡的筆記還沒打完喔 ??</B>
+    <div style="font-size: 1rem;">
+        font 1rem=1*16px=16px
+        <div style="font-size: 2rem;">
+            font 2rem=2*16px=32px
+            <div style="font-size: 3rem;">
+                font 3rem=3*16px=48px
+            </div>
+        </div>
+    </div>
+
+    <h2>◆ em</h2>
+    <p>em 為父層 font-size 的倍數，父層若沒有設定，則會一直往上尋找至 root(html) 預設的font-size </p>
+    <div style="font-size: 1em;">
+        font 1em=1*16px=16px
+        <div style="font-size: 2em;">
+            font 2em=2*16px=32px
+            <div style="font-size: 3em;">
+                font 3em=3*32px=96px
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

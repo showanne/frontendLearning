@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding-bottom: 100px;
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+
+    .box1 {
+      width: 300px;
+      height: 300px;
+      background: lightcoral;
+    }
+
+    .box2 {
+      background: lightcoral;
+      width: 300px;
+    }
+
+    .box3 {
+      background: lightseagreen;
+      width: 300px;
+      height: 200px;
+      /* hidden 超出元素的範圍時，內容會被修剪隱藏起來，不會顯示捲軸 */
+      /* scroll 超出元素的範圍時，內容會被修剪，自動顯示捲軸 */
+      /* auto 瀏覽器自動選擇決定如何顯示，當超出範圍自動變成卷軸 */
+      overflow: auto;
+    }
+
+    .box4 {
+      background: lightgoldenrodyellow;
+      width: 300px;
+      /* 外距、邊界(margin)，可為負數 */
+      /* 外距、內距的百分比根據外層元素的寬度來計算  */
+      /* 各別指定 */
+      margin-top: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      margin-left: 50px;
+
+      /* 縮寫 */
+      /* 四值、順時針 top、right、bottom、left */
+      margin: 50px 50px 50px 50px;
+      /* 雙值，第一個數值為上下，第二個數字為左右 */
+      margin: 50px 50px;
+      /* 單值，四個方向設定同一個值 */
+      margin: 50px;
+
+
+      /* 內距(padding)，不可為負數 */
+      /* 各別指定 */
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      /* 縮寫 */
+      /* 四值、順時針 top、right、bottom、left */
+      padding: 20px 20px 20px 20px;
+      /* 雙值，第一個數值為上下，第二個數字為左右 */
+      padding: 20px 20px;
+      /* 單值，四個方向設定同一個值 */
+      padding: 20px;
+
+      /* 邊框（border） */
+      /* 
+        border-style 樣式種類
+        solid 實線
+        dotted 點點線
+        dashed 短線
+        double 兩條實線
+        groove 刻入
+        ridge 凸出
+        inset 內嵌
+        outset 浮雕
+       */
+      border-top-width: 10px;
+      border-top-style: solid;
+      border-top-color: #333;
+
+      border-right-width: 10px;
+      border-right-style: solid;
+      border-right-color: #333;
+
+      border-bottom-width: 10px;
+      border-bottom-style: solid;
+      border-bottom-color: #333;
+
+      border-left-width: 10px;
+      border-left-style: solid;
+      border-left-color: #333;
+
+      /* 直接對四邊設定各種屬性 */
+      border-width: 20px;
+      border-style: groove;
+      border-color: #eee;
+
+      /* 設定每一邊的縮寫 */
+      border-top: 20px solid #333;
+      border-right: 20px solid #333;
+      border-bottom: 20px solid #333;
+      border-left: 20px solid #333;
+
+      /* 縮寫，四邊都一樣，常用的寫法 */
+      border: 20px solid rgb(255, 0, 0);
+
+      /* border-color 為 transparent，背景色會渲染到 border */
+      /* border-color: transparent; */
+
+      /* 外框 */
+      /* 外框與邊框差異在於，外框不影響布局，只作為外觀呈現 */
+      outline: 10px dashed rgb(0, 0, 255)
+    }
+
+    /* box5、box6 外距重疊只發生在垂直，會以大的外距為主 */
+    .box5 {
+      width: 300px;
+      height: 300px;
+      background: mediumorchid;
+      margin-bottom: 50px;
+    }
+
+    .box6 {
+      width: 300px;
+      height: 300px;
+      background: mediumspringgreen;
+      margin-top: 20px;
+    }
+
+    /* 計算一個盒子的寬度 */
+    .box7 {
+      background: orange;
+      /* 內容區域 */
+      width: 300px;
+      height: 300px;
+      /* 內距 */
+      padding-left: 10px;
+      padding-right: 10px;
+      /* 外距 */
+      margin-left: 10px;
+      margin-right: 10px;
+      /* 邊框 */
+      border-left: 5px solid black;
+      border-right: 5px solid black;
+
+      /* 總寬度 */
+      /* 300+20+20+10=350px */
+    }
+
+    /* 設定圓角 */
+    .box8 {
+      width: 300px;
+      height: 300px;
+      border: 10px solid #333;
+      /* 個別圓角 */
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      /* 單值，設定四個圓角同一個數值 */
+      border-radius: 30px;
+      /* 雙值，第一個數為左上、右下，第二個數值為右上、左下 */
+      border-radius: 50px 100px;
+      /* 四值，順序左上、右上、右下、左下 */
+      border-radius: 30px 30px 30px 30px;
+    }
+
+    /* 畫圓形需要正方形的盒子，border-radius:50% */
+    .box9 {
+      width: 300px;
+      height: 300px;
+      border: 10px solid #333;
+      /* 50% 或 超大數值 */
+      border-radius: 50%;
+      /* 盒子水平置中 */
+      margin: auto;
+      /* 
+        盒子陰影 
+        inset 內陰影
+        第一個數值:水平位移（+、-）
+        第二個數值:垂直位移（+、-）
+        第三個數值:模糊半徑（不能正負）
+        第四個數值:擴散半徑（+、-）
+        可以設定多組屬性
+       */
+      box-shadow:
+        inset 0 0 30px 10px rgba(255, 2, 2, 0.5),
+        0 0 0 10px rgba(255, 255, 0, 1),
+        0 0 50px 10px rgb(255, 0, 0, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <h2>box1 畫一個盒子，設定寬、高、背景色</h2>
+  <div class="box1"></div>
+
+  <hr>
+
+  <h2>box2 不設定高度，高度會以內容高度為主</h2>
+  <div class="box2">怪物陷入緩緩你在限制人士，集中數量所屬能力出席，看法只能東方多年似乎電話空調我一據說教材主體夫人，其中和平運用機械專用資產證實事情速度，排行榜笑道有一監控篇文章漸漸生態國內外生活那天電視劇，有着警察訓練理想政府一步運行會計，美女一人信箱生態近年來，嘉義認。</div>
+
+  <hr>
+
+  <h2>box3 設定高度，內容太多超出高度或寬度會產生溢出，設定 overflow 防止溢出</h2>
+  <div class="box3">
+    <!-- <p style="width:500px;"> -->
+    創意博士光臨暫無歐美製作正常法院人間她是同事，轎車平方米只有他是故障身後種類第一美國創建內置把你有限責任公司，我的心做到臺灣人此時一片提出理論十二，住了什麼時候文檔招商都沒而來，更新老公版權所有你可以警察原料基金適應人類技能而是西部圖片，提示接到超市變化記錄彩色配件，經常構成持續如今要去成熟，深刻是這樣，報名我把今天改變一部分夥伴細節或許趨勢丈夫陽明山醫院，打開本週自我適用於點此高校一邊走進出去，加油不太品牌稱為展示新聞尷尬隊員觀察曝光難得種種投資者真正，房屋比賽進攻無派網路總數看出開放總算不出市場時期推坑大魔王，表示屏東徹底採用種類顧問問題看看印度政府答案，望着徹底你有主持還是，豐原好了主。
+    <!-- </p> -->
+  </div>
+
+  <hr>
+
+  <h2>box4 設定盒子的 margin、padding、border</h2>
+  <div class="box4">
+    自我發佈原來跟我運行明白英雄熱線影響報紙也就是，直到現金，稿件可惜新鮮猶豫心情作業不出廣大的確限制材料稱為，保存最大一方面一口氣減少提升趨勢落實，收藏本頁冠軍新手多麼努力促銷條件深深數碼相機，基隆主持加入時間，開通一部分溫州外貿我覺得，靈活風險化工價格預測前進名字臉上異常和平島不少不可能，一路我會形勢自動尋求數字這段上傳太麻里返回回應不會測試教授，極大轉變一半熱情究竟廠家學科慢慢，順利產生不代表手機進了最初金錢才會天天上傳今後賺錢到處求助，最佳附近老人戀愛股市女人網咖所謂總數高校，登陸聲明配套好了休閒重新模糊強化就算批發維持，東方又是住了評論，之類身邊治理事實上物品你看用品理念因為再度，對他。
+  </div>
+
+  <hr>
+
+  <h2>box5、box6 外距重疊現象，只發生在垂直，會以大的外距為主，左右不會影響</h2>
+  <div class="box5"></div>
+  <div class="box6"></div>
+
+  <hr>
+
+  <h3>box7 計算一個盒子的寬度</h3>
+  <p>實際總寬度 = width + padding + border + margin</p>
+  <div class="box7"></div>
+
+  <hr>
+
+  <h2>Border-radius 圓角設定</h2>
+  <div class="box8"></div>
+
+  <hr>
+
+  <h2>圓形</h2>
+  <div class="box9"></div>
+</body>
+
+</html>

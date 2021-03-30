@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // for(let i=0;i<10;i++) {
+    //   if (i == 5) {
+    //     // continue 直接進入下次迴圈
+    //     continue
+    //   }
+    //   document.write(i)
+    // }
+    // document.write("<br>")
+    // for(let i=0;i<10;i++) {
+    //   if (i == 5) {
+    //     // break 直接中斷迴圈
+    //     break
+    //   }
+    //   document.write(i)
+    // }
+
+    let count = 1
+    let num = 15
+    while (true) {
+      let answer = prompt(`第 ${count} 次猜測`)
+      if (answer == num) {
+        break
+      }
+      else if (answer < num) {
+        alert('太小')
+      }
+      else if (answer > num) {
+        alert('太大')
+      }
+      count++
+    }
+    document.write(`猜了 ${count} 次`)
+  </script>
+</body>
+</html>

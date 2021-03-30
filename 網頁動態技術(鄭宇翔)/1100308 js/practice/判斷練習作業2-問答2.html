@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 來源 https://applealmond.com/posts/37069
+    // 來源 https://health.tvbs.com.tw/regimen/317463
+
+    let grades = 100
+
+    alert('你的打電腦姿勢正確嗎？\n一項一項來檢查看看吧~')
+
+    let g1 = prompt('腳部姿勢？ \n1.腳踩地面 \n2.腳懸空 \n3.怎麼舒服怎麼擺，沒有固定姿勢')
+    if (g1 == 1) {
+      alert('正確姿勢！')
+    } else if (g1 == 2 || g1 == 3) {
+      alert('腳踏地上、膝蓋呈90°，才是最佳姿勢喔！')
+      grades -= 20
+    } else {
+      alert('請填入你的選擇')
+      grades -= 20
+    }
+
+    let g2 = prompt('桌面高度使你的手肘角度呈現？ \n1.大於90° \n2.90° \n3.小於90°')
+    if (g2 == 2) {
+      alert('此時你的手腕應該非常輕鬆，代表你的姿勢正確喔！')
+    } else if (g2 == 1 || g2 == 3) {
+      alert('手臂自然下垂，手肘與桌面垂直，自然、輕鬆的垂放才是最佳姿勢喔！')
+      grades -= 20
+    } else {
+      alert('請填入你的選擇')
+      grades -= 20
+    }
+
+    let g3 = prompt('手腕和前臂的姿勢？ \n1.平行一直線 \n2.往左歪 \n3.往右歪')
+    if (g3 == 1) {
+      alert('讓手腕與前臂保持在一直線上非常重要，關鍵在於手腕不能靠在鍵盤底部，應該靠肩膀去支撐你的手，讓手腕浮懸在鍵盤之上，或輕輕掠過鍵盤；移動滑鼠也是一樣的姿勢喔！')
+    } else if (g3 == 2 || g3 == 3) {
+      alert('建議修正姿勢為手腕與前臂保持在一直線，關鍵在於手腕不能靠在鍵盤底部，應該靠肩膀去支撐你的手，讓手腕浮懸在鍵盤之上，或輕輕掠過鍵盤；移動滑鼠也是一樣的姿勢喔！')
+      grades -= 20
+    } else {
+      alert('請填入你的選擇')
+      grades -= 20
+    }
+
+    let g4 = prompt('頭部姿勢？ \n1.眼睛仰視螢幕 \n2.眼睛低視螢幕 \n3.眼睛直視螢幕')
+    if (g4 == 3) {
+      alert('你的姿勢非常正確喔！請繼續保持^^')
+      // document.write(`<img src="https://applealmond.com/wp-content/uploads/2018/08/1533821977-a8b307499d66c324d0de22ffdb73b8d8.png" width="100">`)
+    } else if (g4 == 1 || g4 == 2) {
+      alert('正確的頭部姿勢應該是讓眼睛能夠直視螢幕，不用低頭就對囉！')
+      grades -= 20
+    } else {
+      alert('請填入你的選擇')
+      grades -= 20
+    }
+
+    let g5 = prompt('背部姿勢？ \n1.怎麼舒服怎麼擺，沒有固定姿勢 \n2.挺直 \n3.躺著椅背')
+    if (g5 == 2) {
+      alert('自然、輕鬆的挺直你的背就對囉！')
+    } else if (g5 == 1 || g5 == 3) {
+      alert('你不會腰痠背痛嗎？\n正確的姿勢是挺直喔！')
+      grades -= 20
+    } else {
+      alert('請填入你的選擇')
+      grades -= 20
+    }
+
+    alert(`你的打電腦姿勢獲得 ${grades} 分，低於80分代表你的姿勢有問題應該盡快修正，或是尋求協助喔！`)
+
+  </script>
+</body>
+
+</html>

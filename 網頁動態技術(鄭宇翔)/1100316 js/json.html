@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let frontClass = {
+      teacher: '蔡老師',
+      studentCount: 24,
+      classrom: '1104'  //  '  ' 文字屬性
+    }
+
+    // JSON可以直接指定新索引和值
+    frontClass.os = 'win10'
+
+
+    //  無法用 .length 取得資料筆數
+    console.log(frontClass.length);  //undefined
+
+    //  JSON 要用 ''.'' 索引 或是 [索引] 找資料
+    console.log(frontClass.teacher);  //蔡老師
+    console.log(frontClass['classrom']);  //1104
+
+    // 可以用 Object.keys 取得 JSON 的所有索引
+    let key = Object.keys(frontClass)
+
+    console.log(key);
+    //(4) ["teacher", "studentCount", "classrom", "os"]
+    // 0: "teacher"
+    // 1: "studentCount"
+    // 2: "classrom"
+    // 3: "os"
+    // length: 4
+
+    console.log(`JSON 有 ${key.length} 個索引`);  //4
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      /*
+      當背景設定為 background-attachment: fixed，背景圖片放置位置以瀏覽器左上角為基準平鋪
+      而不是從個別元素的區塊開始平舖
+      */
+      background-image: url("https://picsum.photos/1920/1080/?random=1");
+      background-attachment: fixed;
+    }
+
+    .box {
+      width: 600px;
+      height: 600px;
+      border: 5px solid #333;
+      margin: 100px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      font-size: 3rem;
+      color: yellow;
+      text-shadow: 0px 0px 3px rgb(0, 0, 0);
+      backdrop-filter: blur(10px);
+    }
+
+    .bg-color {
+      background-color: #faa;
+    }
+
+    .bg-img {
+      background-image: url("https://picsum.photos/100/100/?random=1")
+    }
+
+    .bg-repeat-x {
+      background-repeat: repeat-x;
+    }
+
+    .bg-repeat-y {
+      background-repeat: repeat-y;
+    }
+
+    .bg-no-repeat {
+      background-repeat: no-repeat;
+    }
+
+    .bg-size {
+      background-image: url("https://picsum.photos/300/200/?random=1");
+      background-repeat: no-repeat;
+      /* cover 背景圖片等比例縮放，直到填滿整個盒子 */
+      /* contain 背景圖片等比例縮放，一邊碰到盒子的一邊時，停止縮放 */
+      background-size: contain;
+    }
+
+
+    .bg-position {
+      /* 
+        background-position 可以對齊背景圖片的位置
+        第一個為水平、第二個為垂直
+        第一個數值 left、center、right => 0% 50% 100%
+        第二個數值 top、center、bottom => 0% 50% 100%
+        如果只設定一個值 left、right、top、bottom、center，另一個會被省略設定成 center
+      */
+      background-position: center;
+    }
+
+    /* 縮寫版 */
+    /* background-size 一定要緊接在 background-position 之後，且必須要用斜線分隔(/) */
+    .bg-abbr {
+      background: #fff url("https://picsum.photos/500/500/?random=1") no-repeat center center/cover;
+    }
+
+    /* 使用多層背景重疊時，各屬性用逗號分隔，圖片列出順序，將由上而下排列，上方會蓋住下方 */
+    .bg-three {
+      background-image:
+        url("https://picsum.photos/600/100/?random=1"),
+        url("https://picsum.photos/600/400/?random=2"),
+        url("https://picsum.photos/600/100/?random=1");
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: left top, left 100px, left bottom;
+    }
+
+    /* 漸層 */
+    /* 
+      1.background、background-image 都可以設定漸層，漸層是背景圖的一種
+      2.漸變軸判斷，角度 + 時針由圓心到針頭的方向(為顏色渲染的方向)
+      3.預設角度方向為 180deg = to bottom
+    */
+    .linear-gradient {
+      /* background: linear-gradient(red, yellow, white); */
+      background: linear-gradient(45deg, red, yellow, white);
+      background: linear-gradient(to left, red, yellow, white);
+    }
+
+    /* 有 % 漸層點 */
+    .linear-gradient2 {
+      background-image: linear-gradient(to right top, #fff 0%, lightblue 25%, #fff 50%, lightblue 75%, #fff 100%);
+    }
+
+    .radial-gradient {
+      background: radial-gradient(white, #ffa, pink)
+    }
+
+    .opacity {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://picsum.photos/600/600/?random=1");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box bg-color">background-color</div>
+  <div class="box bg-img">background-image</div>
+  <div class="box bg-img bg-repeat-x">background-repeat-x</div>
+  <div class="box bg-img bg-repeat-y">background-repeat-y</div>
+  <div class="box bg-img bg-no-repeat">background-no-repeat</div>
+  <div class="box bg-size">background-size</div>
+  <div class="box bg-img bg-no-repeat bg-position">background-position</div>
+  <div class="box" style="background-image:url('https://picsum.photos/1920/1080/?random=1');background-attachment: fixed;"></div>
+  <div class="box bg-abbr">縮寫版</div>
+  <div class="box bg-three">多張背景圖</div>
+  <div class="box linear-gradient">線性漸層1</div>
+  <div class="box linear-gradient2">線性漸層2</div>
+  <div class="box radial-gradient">放射漸層</div>
+  <div class="box opacity">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptatibus, veritatis aperiam, obcaecati animi dolor quidem
+    provident impedit fuga laboriosam architecto dicta! Facere consectetur hic dolorum, veritatis suscipit ex minus!</div>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-image: url("https://picsum.photos/1920/1080/?random=1");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* fixed 釘住圖片 */
+            /* 當背景設定為 background-attachment: fixed; ，背景圖片放置位置以瀏覽器左上角為基準平鋪，而不是從個別元素 */
+            /* 還沒打完 */
+        }
+
+        .box {
+            width: 600px;
+            height: 600px;
+            border: 19px solid rgb(156, 135, 250);
+            margin: 100px auto;
+            box-shadow: 0 0 20px rgba(135, 152, 250, 0.726);
+            font-size: 3rem;
+            color: lavender;
+            text-shadow: 0 0 3px mediumturquoise;
+            /* 模糊的感覺 */
+            backdrop-filter: blur(10px);
+        }
+
+        .bg_color {
+            background-color: rgb(241, 152, 34);
+        }
+
+        .bg_img {
+            background-image: url("https://picsum.photos/150/150/?random=1");
+            /* 打 picsum(假圖套件) 後就會自動跑圖案連結， width/height 再自訂寬高 */
+        }
+
+        .bg_repeat_x {
+            /* 只重複 X 軸 */
+            background-repeat: repeat-x;
+        }
+
+        .bg_repeat_y {
+            /* 只重複 Y 軸 */
+            background-repeat: repeat-y;
+        }
+
+        .bg_no_repeat {
+            background-repeat: no-repeat;
+        }
+
+        .bg_size {
+            background-image: url("https://picsum.photos/300/200/?random=1");
+            background-repeat: no-repeat;
+        }
+
+        .bg_size_cover {
+            /* cover 背景圖片等比例縮放，直到填滿範圍 */
+            background-size: cover;
+        }
+
+        .bg_size_contain {
+            /* contain 背景圖片等比例縮放，直到碰到其中一邊時，停止縮放，所以可能會有白邊產生 */
+            background-size: contain;
+        }
+
+        .bg_position {
+            /*                   水平 垂直 */
+            background-position: 100% 50%;
+            /* background-position: left center; */
+            /* 
+                數值(水平)： left center right -> 0% 50% 100%
+                數值(垂直)： top center bottom -> 0% 50% 100%
+                如果只設定一個值 left、right、top、bottom ，則另一個值會預設為 center
+            */
+        }
+
+        /* 縮寫版 */
+        .bg_abbr {
+            /*           color       image                                         repeat          position/size */
+            background: turquoise url("https://picsum.photos/300/300/?random=1") no-repeat center center/cover;
+            /* background-size 一定要緊跟在 background-position 之後，且必須要用 斜線"/" 分隔 */
+        }
+
+        .bg_many1 {
+            background-image:
+                url("https://picsum.photos/600/100/?random=1"),
+                url("https://picsum.photos/600/400/?random=2"),
+                url("https://picsum.photos/600/100/?random=1");
+            /* 特別之處在於，使用多層背景時，圖片前圖會蓋住後圖 */
+            /* 但是html標籤是後面蓋過前面 */
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-position: left top, left 100px, left bottom;
+        }
+
+        .bg_many2 {
+            background-image:
+                url("https://picsum.photos/300/100/?random=1"),
+                url("https://picsum.photos/600/400/?random=2");
+            /* 特別之處在於，使用多層背景時，圖片前圖會蓋住後圖 */
+            /* 但是html標籤是後面蓋過前面 */
+            background-repeat: no-repeat;
+            background-position: left top;
+        }
+
+        /* background 及 background-image 都可以設定漸層
+            → 漸變軸判斷，角度 + 時針由圓心到指針的方向(為顏色渲染的方向)
+            → 預設角度為 180deg = to bottom = 上到下
+        */
+
+        .linear-gradient1 {
+            background: linear-gradient(45deg, peachpuff, pink, peru);
+        }
+
+        .linear-gradient2 {
+            background: linear-gradient(45deg, #fff 0%, pink 25%, rgb(239, 253, 158) 50%, #ff6 100%);
+            /* 有 百分比% 的漸層 */
+        }
+
+        .radial-gradient {
+            background: radial-gradient(lightblue, pink, lightgreen);
+        }
+
+        .opacity {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 5, 255, 0.5)),
+                url("https://picsum.photos/600/600/?random=1");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* background-image 特別之處在於，使用多層背景時，圖片前圖會蓋住後圖 */
+        /* 但是html標籤是後面蓋過前面 */
+    </style>
+
+</head>
+
+<body>
+    <div class="box bg_color">
+        background-color
+    </div>
+    <div class="box bg_img">background_image</div>
+    <div class="box bg_img bg_repeat_x">background_repeat_x</div>
+    <div class="box bg_img bg_repeat_y">background_repeat_y</div>
+    <div class="box bg_img bg_no_repeat">background_no_repeat</div>
+    <div class="box bg_size bg_size_cover">background_size_cover</div>
+    <div class="box bg_size bg_size_contain">background_size_contain</div>
+
+    <!-- img picsum 可以改width/height ，若要有多張不同圖片則更改 random="1" 的數字 -->
+    <img src="https://picsum.photos/200/200/?random=1">
+    <img src="https://picsum.photos/200/200/?random=2">
+    <img src="https://picsum.photos/200/200/?random=3">
+
+    <!-- .box.bg_img.bg_no_repeat.bg_position ↓ -->
+    <div class="box bg_img bg_no_repeat bg_position">background_position</div>
+
+    <!-- 可以產生視差效果 -->
+    <div class="box" style="background-image: url('https://picsum.photos/1920/1280/?random=1');
+background-repeat: no-repeat;background-attachment: fixed;"></div>
+
+
+    <div class="box bg_abbr">縮寫版</div>
+    <div class="box bg_many1">多張背景圖1</div>
+    <div class="box bg_many2">多張背景圖2</div>
+    <div class="box linear-gradient1">線性漸層1</div>
+    <div class="box linear-gradient2">線性漸層2</div>
+    <div class="box radial-gradient">放射漸層</div>
+    <div class="box opacity">不透明的感覺 <br> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, delectus quos
+        dolorem
+        dolorum distinctio, debitis expedita voluptas eveniet odio iusto tenetur ipsa, nobis eum voluptate atque
+        doloribus sunt necessitatibus inventore.</div>
+
+
+
+
+
+
+</body>
+
+</html>

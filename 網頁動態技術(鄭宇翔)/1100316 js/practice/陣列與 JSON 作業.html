@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 作業 - 下表為某地星期一到星期四的時段一、時段二與時段三的氣溫
+
+    //        星期一  	星期二	  星期三  	星期四
+    // 時段一	 18.2	     17.3	     15.0	    13.4
+    // 時段二	 23.8	     25.1	     20.6	    17.8
+    // 時段三	 20.6	     21.5	     18.4	    15.7
+
+    // 請將上表的內容設定成二維陣列，變數數量和陣列格式不限，並依序完成下列各題
+
+    // 將陣列內容印出成表格
+    // 每日的平均溫度
+    // 時段一、時段二、時段三的平均氣溫
+    // 溫度最高的日子與時段
+    // 溫度最低的日子與時段
+
+    let week = [1, 2, 3, 4]
+    let temp = [
+      [18.2, 17.3, 15.0, 13.4],
+      [23.8, 25.1, 20.6, 17.8],
+      [20.6, 21.5, 18.4, 15.7]
+    ]
+
+    // 將陣列內容印出成表格
+    document.write(`<table border="1" width="399" cellspacing="7" 
+    cellpadding="3"><tr>`)
+    for (let i = 0; i < week.length; i++) {
+      if (i == 0) {
+        document.write(`<td></td>`)
+
+      } else {
+        document.write(`<td>時段${week[i - 1]}</td>`)
+
+      }
+    }
+    document.write(`</tr>`)
+
+    for (let i = 0; i < week.length; i++) {
+
+      // document.write(`<tr><td>時段${week[i]}</td></tr>`)
+
+      document.write(`<tr><td>星期${week[i]}</td>`)
+
+      for (let j = 0; j < temp.length; j++) {
+        document.write(`<td>${temp[j][i]}</td>`)
+      }
+      document.write(`</tr>`)
+    }
+    document.write(`</table>`)
+
+    document.write(`<br><br>`)
+
+    // 感覺順序有誤
+    // document.write(`<table border="1" width="399" cellspacing="7" cellpadding="3">`)
+    //   for (let i = 0; i < week.length; i++) {
+    //     document.write(`<tr>`)
+
+    //     if (i == 0) {
+    //       document.write(`<td> </td>`)
+    //     } else if (i == 1 || i == 2 || i == 3) {
+    //       document.write(`<td>時段${week[i]}</td>`)
+    //     } else {
+
+    //     }
+    //     document.write(`</tr>`)
+
+
+    //     for (let j = 0; j < temp.length; j++) {
+    //       document.write(`<tr><td>星期${week[i]}</td>`)
+
+    //       document.write(`<td>${temp[j][i]}</td>`)
+    //       document.write(`</tr>`)
+    //     }
+    //   }
+    //   document.write(`</table>`)
+
+
+    // 每日的平均溫度
+    for (let i = 0; i < week.length; i++) {
+      let average = 0
+
+      for (let j = 0; j < temp.length; j++) {
+        // console.log(`星期${i + 1}的時段${j + 1}溫度為${temp[j][i]}`);
+        average += temp[j][i]
+      }
+
+      document.write(`星期${i + 1}的平均溫度為${average / temp.length}<br>`);
+    }
+
+    document.write(`<br><br>`)
+
+
+    // 時段一、時段二、時段三的平均氣溫
+    for (let i = 0; i < temp.length; i++) {
+      let average = 0
+
+      for (let j = 0; j < week.length; j++) {
+        average += temp[i][j]
+
+      }
+      document.write(`時段${i + 1}的平均溫度為${average / week.length}<br>`);
+
+    }
+
+    document.write(`<br><br>`)
+
+
+    // 溫度最高的日子與時段
+    let maxWeek = 0
+    let maxTime = 0
+    let maxTemp = temp[0][0]
+
+    for (let i = 0; i < week.length; i++) {
+
+      for (let j = 0; j < temp.length; j++) {
+        if (temp[j][i] > maxTemp) {
+          maxTemp = temp[j][i]
+          maxWeek = i
+          maxTime = j
+
+          // console.log(`溫度最高的時段為時段${j + 1}`);
+
+        }
+        // console.log(`溫度最高的日子為星期${week[i]}`);
+
+      }
+
+    }
+    // console.log(`最高的溫度為${maxTemp}`);
+    document.write(`最高的溫度為${maxTemp}，在星期${maxWeek + 1}的時段${maxTime + 1}<br>`);
+
+
+    // console.log(`溫度最高的日子為${maxDate}`);
+    // console.log(`溫度最高的時段為${maxTime}`);
+
+    document.write(`<br><br>`)
+
+    // 溫度最低的日子與時段
+    let minWeek = 0
+    let minTime = 0
+    let minTemp = temp[0][0]
+
+    for (let i = 0; i < week.length; i++) {
+
+      for (let j = 0; j < temp.length; j++) {
+        if (temp[j][i] < minTemp) {
+          minTemp = temp[j][i]
+          minWeek = i
+          minTime = j
+          // console.log(`溫度最低的時段為時段${j + 1}`);
+
+        }
+        // console.log(`溫度最低的日子為星期${i + 1}`);
+
+      }
+
+    }
+    // console.log(`最低的溫度為${minTemp}`);
+    document.write(`最低的溫度為${minTemp}，在星期${minWeek + 1}的時段${minTime + 1}<br>`);
+
+  </script>
+</body>
+
+</html>

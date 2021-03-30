@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>剩餘 <span>&nbsp;&nbsp;</span> 秒</h1>
+  <!-- &nbsp; 空格 -->
+
+  <h2 id="text" style="color: mediumblue;">剩餘</h2>
+  <script>
+    // 練習   -   製作倒數計時器
+    // 使用者用 prompt() 輸入秒數數字
+    // 在網頁只能有一行字顯示 剩餘 X 秒，秒數不能變負數，顏色為藍色
+    // 時間到時文字變成紅色的 時間到
+
+    const span = document.getElementsByTagName('span')
+    console.log(span[0]);
+    const h1 = document.getElementsByTagName('h1')
+
+    let second = prompt('請輸入秒數')
+
+    // 讓網頁先顯示使用者輸入的秒數，而不是先空白1秒再顯示
+    span[0].innerText = `${second--}`
+    span[0].style.color = 'SlateBlue'
+
+    let Timer = setInterval(() => {
+      span[0].innerText = `${second--}`
+      // span[0].style.color = 'SlateBlue'
+
+      if (second < 0) {
+        clearInterval(Timer)
+        h1[0].innerText = '時間到'
+        h1[0].style.color = 'tomato'
+      }
+    }, 1000);
+
+
+    // 老師寫法 - function
+    const text = document.getElementById('text')
+    let input = parseInt(prompt())
+
+    const count = () => {
+      if (input > 0) {
+        text.innerText = `剩餘${second}秒`
+        second--
+      } else if (input <= 0) {
+        clearInterval(timer)
+        text.innerText = `時間到`
+        text.style.color = 'red'
+      }
+    }
+
+    let timer = setInterval(count, 1000)
+    count()
+
+  </script>
+</body>
+
+</html>

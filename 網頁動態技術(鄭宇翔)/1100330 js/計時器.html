@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 匿名函式 () => {}
+    setTimeout(() => {
+      document.write('過五秒後出現')
+      document.write(`<br><br>`)
+    }, 5000);
+
+    //  使用已定義好的函式
+    const runTime = () => {
+      document.write('過五秒後出現')
+      document.write(`<br><br>`)
+    }
+    setTimeout(runTime, 5000);
+
+    // 如果要呼叫的函式要傳東西進去，要傳的東西放在毫秒數後面
+    const rand = (min, max) => {
+      document.write(Math.round(Math.random() * (max - min)) + min)
+    }
+    setTimeout(rand, 5000, 1, 38);
+
+    // 將設的計時器清除
+    const write = (text) => {
+      document.write(text)
+      document.write(`<br><br>`)
+    }
+    let timer = setTimeout(write, 3000, 'hello');
+    clearTimeout(timer);
+
+  </script>
+</body>
+
+</html>

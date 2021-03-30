@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    //練習 -   想一想，怎麼用兩個 for 迴圈製作一個九九乘法表。
+    // 以下兩種練習，請同學依照順序挑戰  1.一行一行的算式  2.製作成表格
+
+    // 1.一行一行的算式
+    // for (let i = 1; i < 10; i++) {
+    //   for (let j = 1; j < 10; j++) {
+    //     document.write(i + "x" + j + "=" + i * j + "<br>")
+    //     document.write(`${i} x ${j} = ${i * j} <br>`)   //一樣的寫法
+    //   }
+    // }
+    document.write("<br><br>")
+
+    // 2.製作成表格-呈現方式1
+
+    // 我的作法
+    for (let i = 1; i < 10; i++) {
+
+      for (let j = 1; j < 10; j++) {
+        document.write
+          (`<table border="1" width="599" cellspacing="9" cellpadding="3">
+              <tr align="center">
+                <td bgcolor="#F1E1FF">${i} x ${j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+                <td>${i} x ${++j} = ${i * j}</td>
+              </tr>
+          </table>`)
+      }
+    }
+
+    document.write("<br><br>")
+
+    // 老師的作法
+    document.write('<table border="1">')
+    for (let i = 1; i <= 9; i++) {
+      document.write('<tr>')
+      for (let j = 1; j <= 9; j++) {
+        document.write(`<td>${i} * ${j} = ${i * j}</td>`)
+      }
+      document.write('</tr>')
+    }
+    document.write('</table>')
+
+    document.write("<br><hr><br>")
+
+
+    // 2.製作成表格-呈現方式2
+
+    // 老師說 i 是直的  j 是橫的 
+
+    for (let i = 1; i < 10; i++) {
+      document.write
+        (`<table border="1" width="599" cellspacing="9" cellpadding="3">
+              
+                <tr align="center">
+                  <td bgcolor="#aaa">乘</td>
+                  <td bgcolor="#F1E1FF">${i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                  <td>${++i}</td>
+                </tr>
+              
+          </table>`)
+      for (let j = 1; j < 10; j++) {
+        // document.write(i + "x" + j + "=" + i * j + "<br>")
+        document.write
+          (`<table border="1" width="599" cellspacing="9" cellpadding="3">
+              <tr align="center">
+                <td bgcolor="#aaa"> ${j} </td>
+                <td>${i * j}</td>
+                <td>${i * j}</td>
+                <td>${i * j}</td>
+              </tr>
+          </table>`)
+      }
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

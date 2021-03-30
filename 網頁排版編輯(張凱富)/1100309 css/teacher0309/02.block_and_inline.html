@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .block {
+      background: #ffa;
+      margin-top: 100px;
+      margin-right: 100px;
+      margin-bottom: 100px;
+      margin-left: 100px;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+    }
+
+    .inline {
+      background: cyan;
+      /* 寬、高對 inline 沒有作用 */
+      width: 1000px;
+      height: 1000px;
+      /* margin-top 無效 */
+      margin-top: 100px;
+      /* margin-bottom 無效 */
+      margin-bottom: 100px;
+      margin-left: 100px;
+      margin-right: 100px;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      border: 5px solid #333;
+    }
+
+    .menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      /* 處理幽靈空白將 font-size:0 */
+      font-size: 0;
+    }
+
+    .menu li {
+      display: inline-block;
+      width: 100px;
+      background: red;
+      /* 處理幽靈空白將字體大小設回來 font-size:1rem */
+      font-size: 1rem;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      background-color: black;
+      padding: 1rem 2rem;
+      display: block;
+      text-align: center;
+    }
+
+    .menu li a:hover {
+      background: lightcoral;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 區塊元素 -->
+  <div style="background:red;">Lorem ipsum dolor sit amet.</div>
+  <p style="background:red;">Lorem ipsum dolor sit amet.</p>
+  <h1 style="background:red;">Lorem ipsum dolor sit amet.</h1>
+
+  <!-- 行內元素 -->
+  <a href="#" style="background:pink;">aaa</a>
+  <a href="#" style="background:pink;">aaa</a>
+  <a href="#" style="background:pink;">aaa</a>
+  <a href="#" style="background:pink;">aaa</a>
+  <a href="#" style="background:pink;">aaa</a>
+  <span style="background:green;">Lorem ipsum dolor sit amet.</span>
+  <span style="background:green;">Lorem ipsum dolor sit amet.</span>
+  <span style="background:green;">Lorem ipsum dolor sit amet.</span>
+  <span style="background:green;">Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h3>兩種盒子與 margin、padding 關係</h3>
+  <div class="block">
+    Lorem ipsum dolor sit amet consectetur <span class="inline">行內元素</span> elit. Eligendi quod et nemo aliquid, libero praesentium sint est omnis eveniet
+    doloremque
+    laudantium accusantium veritatis eos assumenda. Sequi exercitationem voluptas quo placeat!
+  </div>
+
+  <hr>
+
+  <h3>使用 display 設定其他類型的盒子，這稱為轉型，例如:display:inline-block</h3>
+  <p>使用 display:inline-block 做橫向選單</p>
+  <ul class="menu">
+    <li><a href="#">link1</a></li>
+    <li><a href="#">link2</a></li>
+    <li><a href="#">link3</a></li>
+    <li><a href="#">link4</a></li>
+    <li><a href="#">link5</a></li>
+  </ul>
+
+
+</body>
+
+</html>

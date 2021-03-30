@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 練習 - 某國家發生通貨膨脹
+    // 饅頭第一天 1 元，第二天 2 元，第三天 3 元，以此類推
+    // 小明他從第一天起，連續買了 10 天的饅頭
+    // 每天買的饅頭數依序為 1, 8, 3, 4, 5, 6, 7, 2, 9, 10
+    // 求小明買饅頭花費的總金額
+
+
+    let eat = [1, 8, 3, 4, 5, 6, 7, 2, 9, 10]
+
+    let cost = 0
+
+    // i 是每天的饅頭錢，同時也可以做為陣列數值
+    // (剛好遞增才可以這樣設定)
+    for (let i = 1; i <= 10; i++) {
+      // console.log(i);
+      let buy = i * eat[i - 1]
+
+      console.log(`${buy}`);
+
+      cost += (i * eat[i - 1])
+
+    }
+
+    console.log(`總金額 = ${cost}`);  //349
+
+  </script>
+</body>
+
+</html>

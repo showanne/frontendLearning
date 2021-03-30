@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 練習 - 印星星塔，結構如下圖
+    // ☆☆☆☆★☆☆☆☆
+    // ☆☆☆★★★☆☆☆
+    // ☆☆★★★★★☆☆
+    // ☆★★★★★★★☆
+    // ★★★★★★★★★
+    // 使用者能用 prompt() 輸入星星塔層數
+
+    let star = prompt()
+
+    for (let i = 1; i <= star; i++) {
+
+      // 空心星星的數量是總層數減目前層數
+      // 算到最中間那排，第一層有一顆，第二層二顆...
+      for (j = 1; j <= (star - i); j++) {
+
+        document.write(`<span style = "color: rgb(${5 * i}, ${i * j}, ${8 * j});">☆</span>`)
+      }
+
+      // 1 3 5 7 9 ... 的遞增
+      for (j = 1; j <= (i * 2 - 1); j++) {
+        document.write(`<span style = "color: rgb(${5 * j}, ${i * j}, ${3 * i});">★</span>`)
+      }
+
+      // 空心星星的數量是總層數減目前層數
+      for (j = 1; j <= (star - i); j++) {
+        document.write(`<span style = "color: rgb(${255 - (5 * i)}, ${j * i}, ${255 - (8 * j)});">☆</span>`)
+      }
+
+      document.write(`<br>`)
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>

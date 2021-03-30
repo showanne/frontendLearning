@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1 + 2 + ...+ n
+    const sum = n => {
+      if (n == 1) {
+        return 1
+      } else {
+        return n + sum(n-1)
+      }
+    }
+
+    // 1 * 2 * ... * n
+    const factorial = (n) => {
+      if (n === 0) {
+        return 1;
+      }
+      else {
+        return n * factorial(n - 1);
+      }
+    }
+
+    // 0, 1, 1, 2, 3, 5, 8, 13
+    const fibonacci = (n) => {
+      if (n < 2) {
+        return n;
+      }
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    // 輾轉相除法
+    const gcd = (a, b) => {
+      if(a%b == 0){
+        return b;
+      }else{
+        return gcd(b, a%b);
+      }
+    }
+
+    document.write('累加數列:<br>')
+    for(let i=1;i<=10;i++) {
+      document.write(sum(i)+',')
+    }
+
+    document.write('<br>階乘數列:<br>')
+    for(let i=1;i<=10;i++) {
+      document.write(factorial(i)+',')
+    }
+
+    document.write('<br>費氏數列:<br>')
+    for(let i=1;i<=10;i++) {
+      document.write(fibonacci(i)+',')
+    }
+
+    document.write(`<br>2002, 847 最大公因數:${gcd(2002, 847)}<br>`)
+  </script>
+</body>
+</html>

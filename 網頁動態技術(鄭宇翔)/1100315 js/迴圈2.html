@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    for (let i = 0; i < 10; i++) {
+      if (i == 5) {
+        continue
+        // continue  直接進入下次迴圈
+      }
+      document.write(i)
+    }
+
+    document.write("<br><br>")
+
+    for (let i = 0; i < 10; i++) {
+      if (i == 5) {
+        break
+        // break  直接中斷迴圈
+      }
+      document.write(i)
+    }
+
+    document.write("<br><br>")
+
+    // 猜猜神秘數字，讓使用者猜測神秘數字是多少，猜對才打斷迴圈
+    let count = 1;
+    let num = 123;
+    while (true) {
+      let answer = prompt(`第 ${count} 次猜測，猜猜看秘密數字是多少？`);
+      if (answer == num) {
+        alert(`恭喜第 ${count} 次猜對神秘數字 ${num}！`)
+        break;
+      }
+      count++;
+    }
+    document.write(`恭喜第 ${count} 次猜對神秘數字 ${num}！`)
+
+    // 練習 - 試試看自己寫一個猜數字遊戲，並加入太大、太小等提示訊息
+    // 迴圈 練習-猜數字.html
+
+
+  </script>
+</body>
+
+</html>

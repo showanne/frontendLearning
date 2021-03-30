@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // Array 內放 JSON
+    let people = [
+      { name: '一號同學', number: 1 },
+      { name: '二號同學', number: 2 },
+
+    ]
+
+    for (let i = 0; i < people.length; i++) {
+      console.log(people[i].name);
+      //  一號同學
+      //  二號同學
+    }
+
+    // JSON 內放 Array
+    let restaurant = {
+      name: '便當店',
+      tel: '02-123456789',
+      foods: ['雞排飯', '雞腿飯', '排骨飯']
+    }
+    for (let i = 0; i < restaurant.foods.length; i++) {
+      console.log(restaurant.foods[i]);
+      // 雞排飯
+      // 雞腿飯'
+      // 排骨飯
+    }
+
+    let restaurant2 = {
+      name: '便當2店',
+      tel: '01-23456789',
+      foods: [
+        { name: '雞排飯', price: 80 },
+        { name: '雞腿飯', price: 85 },
+        { name: '排骨飯', price: 75 }
+      ]
+    }
+    for (let i = 0; i < restaurant2.foods.length; i++) {
+      let Food = restaurant2.foods[i]
+      console.log(`${Food.name}的價格為${Food.price}`);
+      // 雞排飯的價格為80
+      // 雞腿飯的價格為85
+      // 排骨飯的價格為75
+    }
+
+
+    // 解釋二維陣列 (綜合應用練習題的數字)
+
+    let sell = [
+      [33, 32, 56, 45, 33],
+      [77, 33, 68, 45, 23],
+      [43, 55, 43, 67, 65]
+    ]
+
+    // 外層 括號 是銷售員
+    // 內層 括號 是銷售員的每個產品
+
+    // i 是銷售員
+    // j 是產品
+
+    for (let i = 0; i < sell.length; i++) {
+      for (let j = 0; j < sell[i].length; j++) {
+        console.log(`銷售員 ${i} 的產品 ${j} 的銷售量為${sell[i][j]}`);
+      }
+    }
+
+
+    // 解釋二維陣列 -  i 班 j 號的數學成績
+    let score = [
+      [10, 20, 30, 40],
+      [50, 60, 70, 80],
+      [50, 80, 40, 30],
+    ]
+    // 外層是班級，內層是座號
+
+    // 先跑每一班
+    for (let i = 0; i < score.length; i++) {
+      // 再跑每一號
+      for (let j = 0; j < score.length; j++) {
+        console.log(`${i} 班 ${j} 號的分數是 ${score[i][j]}`);
+
+      }
+    }
+
+
+    // 解釋三維陣列 -  i 年 j 班 k 號的數學成績
+    let score2 = [
+      [
+        [10, 20, 30, 40],
+        [50, 60, 70, 80],
+        [50, 80, 40, 30],
+      ], [
+        [10, 20, 30, 40],
+        [50, 60, 70, 80],
+        [50, 80, 40, 30],
+      ]
+    ]
+    // 最外層是年級，中層是班級，內層是座號
+
+    // 先跑每一年級
+    for (let i = 0; i < score2.length; i++) {
+      // 再跑每一個班級
+      for (let j = 0; j < score2[i].length; j++) {
+        // 最後跑每一號
+        for (let k = 0; k < score2[i][j].length; k++) {
+          console.log(`${i} 年 ${j} 班 ${k} 號的分數是 ${score2[i][j][k]}`);
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

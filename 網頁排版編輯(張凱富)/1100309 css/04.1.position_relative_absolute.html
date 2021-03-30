@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            margin: auto;
+            border: 1px solid royalblue;
+            padding: 2rem;
+
+            /* 產生 box2 的定位點 */
+            position: relative;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6,
+        .box7,
+        .box8 {
+            padding: 1rem;
+        }
+
+        .box1 {
+            background-color: seagreen;
+        }
+
+        .box2 {
+            background-color: slateblue;
+            /* 相對定位 position: relative; (進入定位層，會遮蓋正常流向的元素)
+               1.使用位移屬性時，會以自己原來的位置位移，並且保留自身原來的位置(不會被正常流向的元素佔據)
+               2.沒有設定任何位移屬性，會留在原地不動
+               3.位移屬性可以負數 */
+            /* position: relative; */
+            /* 絕對定位 position: absolute; (進入定位層)
+               1.沒有任何位移屬性，該元素會脫離正常流向獨立出來，後方元素依據 CSS 流動的特性往上流動，在絕對定位的下方角為定位點
+               2.若祖先元素都找不到定位點 (absolute relative fixed)，最後會
+               3. inline 或 inline-block 元素會被自動轉型為 block
+             */
+            position: absolute;
+            left: 280px;
+            bottom: 80px;
+        }
+
+        .box3 {
+            background-color: sienna;
+        }
+
+        .box4 {
+            background-color: steelblue;
+        }
+
+        .box5 {
+            background-color: forestgreen;
+        }
+
+        .box6 {
+            background-color: darkturquoise;
+            position: relative;
+            left: 280px;
+            bottom: 80px;
+        }
+
+        .box7 {
+            background-color: deeppink;
+        }
+
+        .box8 {
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>相對定位 position: relative; (進入定位層，會遮蓋正常流向的元素)</h3>
+        1.使用位移屬性時，會以自己原來的位置位移，並且保留自身原來的位置(不會被正常流向的元素佔據)<br>
+        2.沒有設定任何位移屬性，會留在原地不動<br>
+        3.位移屬性可以負數
+        <h3>絕對定位 position: absolute; (進入定位層)</h3>
+        1.沒有任何位移屬性，該元素會脫離正常流向獨立出來，後方元素依據 CSS 流動的特性往上流動，在絕對定位的下方角為定位點 <br>
+        2.若祖先元素都找不到定位點 (absolute relative fixed)，最後會以初始容器根元素(html)來定位 <br>
+        3. inline 或 inline-block 元素會被自動轉型為 block
+    </div>
+    <div class="container">
+        <div class="box1">
+            <h1>box1</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+        <div class="box2">
+            <h1>box2</h1>
+            <p>目前顯示結果為 position: absolute</p>
+            <p>第一個執行時間表情就在正確描述福建及其中文一會活動一直檢驗，麻煩費用最好達到好多技術台南意思，地說是有進行的說，委託客人運動進攻各地小遊戲，實踐全家走進十年類型貿易畢業生看起來大型，行為日記穿著知識節省你的把我培養見過咱們有利於電話強化，我看液晶，交換金。
+            </p>
+        </div>
+        <div class="box3">
+            <h1>box3</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+        <div class="box4">
+            <h1>box4</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box5">
+            <h1>box5</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+        <div class="box6">
+            <h1>box6</h1>
+            <p>目前顯示結果為 position: relative</p>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+        <div class="box7">
+            <h1>box7</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+        <div class="box8">
+            <h1>box8</h1>
+            <p>基層感大相信尋找當你技巧，中央以前輕輕也就淡淡似乎遠程驚人金額，事故試題，降低支撐新年在這裡以前但我孩子相冊轉載，缺乏進來注重還沒好評發貼怎麼會短信正在除了歷史，隱藏版。</p>
+        </div>
+    </div>
+</body>
+
+</html>

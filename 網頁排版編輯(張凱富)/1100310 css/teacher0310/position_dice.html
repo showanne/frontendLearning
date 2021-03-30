@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      /* background: red; */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .dice {
+      width: 200px;
+      height: 200px;
+      border: 2px solid #000;
+      border-radius: 1rem;
+      background-image: linear-gradient(45deg, #ccc, #fff);
+      box-shadow: 0.2rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      /* 定位點 */
+      position: relative;
+    }
+
+    /* 紅點 */
+    .point-red {
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /* 黑點 */
+    .point-black {
+      width: 40px;
+      height: 40px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    /* 骰子位置 */
+    .center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .left-top {
+      top: 10%;
+      left: 10%;
+    }
+
+    .left-bottom {
+      left: 10%;
+      bottom: 10%;
+    }
+
+    .right-top {
+      top: 10%;
+      right: 10%;
+    }
+
+    .right-bottom {
+      bottom: 10%;
+      right: 10%;
+    }
+
+    .center-left {
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+    }
+
+    .center-right {
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 一點 -->
+    <div class="dice">
+      <div class="point-red center"></div>
+    </div>
+    <!-- 二點 -->
+    <div class="dice">
+      <div class="point-black left-top"></div>
+      <div class="point-black right-bottom"></div>
+    </div>
+    <!-- 三點 -->
+    <div class="dice">
+      <div class="point-black left-top"></div>
+      <div class="point-black center"></div>
+      <div class="point-black right-bottom"></div>
+    </div>
+    <!-- 四點 -->
+    <div class="dice">
+      <div class="point-red left-top"></div>
+      <div class="point-red right-top"></div>
+      <div class="point-red right-bottom"></div>
+      <div class="point-red left-bottom"></div>
+    </div>
+    <!-- 五點 -->
+    <div class="dice">
+      <div class="point-black left-top"></div>
+      <div class="point-black center"></div>
+      <div class="point-black right-bottom"></div>
+      <div class="point-black right-top"></div>
+      <div class="point-black left-bottom"></div>
+    </div>
+    <!-- 六點 -->
+    <div class="dice">
+      <div class="point-black left-top"></div>
+      <div class="point-black right-bottom"></div>
+      <div class="point-black right-top"></div>
+      <div class="point-black left-bottom"></div>
+      <div class="point-black center-left"></div>
+      <div class="point-black center-right"></div>
+    </div>
+  </div>
+</body>
+
+</html>

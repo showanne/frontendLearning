@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let score = 100
+
+    let answer = prompt('1+1=?')
+    if (answer === '2') {
+      alert('恭喜答對')
+    } else {
+      alert('答錯')
+      score -= 20
+    }
+
+    answer = prompt('2+2=?')
+    if (answer === '4') {
+      alert('恭喜答對')
+    } else {
+      alert('答錯')
+      score -= 20
+    }
+
+    answer = prompt('4+4=?')
+    if (answer === '8') {
+      alert('恭喜答對')
+    } else {
+      alert('答錯')
+      score -= 20
+    }
+
+    answer = prompt('8+8=?')
+    if (answer === '16') {
+      alert('恭喜答對')
+    } else {
+      alert('答錯')
+      score -= 20
+    }
+
+    answer = prompt('16+16=?')
+    if (answer === '32') {
+      alert('恭喜答對')
+    } else {
+      alert('答錯')
+      score -= 20
+    }
+
+    alert(`遊戲結束，你得到了 ${score} 分`)
+  </script>
+</body>
+</html>

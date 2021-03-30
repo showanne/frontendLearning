@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: dimgray;
+    }
+
+    a {
+      display: inline-block;
+      padding: 25px 30px;
+      color: lime;
+      font-size: 5rem;
+      letter-spacing: 5px;
+      text-decoration: none;
+      -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+      transition: 0.5s;
+
+      /* span 定位點 */
+      position: relative;
+
+      /*  濾鏡 */
+      filter: hue-rotate(160deg);
+    }
+
+    a:hover {
+      color: yellow;
+      background-color: rgba(153, 205, 50, 0.5);
+      text-shadow:
+        1px 1px 1px rgba(184, 82, 252, 0.5),
+        0 0 5px rgba(143, 50, 205, 1),
+        0 0 25px rgba(143, 50, 205, 1);
+      box-shadow:
+        0 0 5px rgba(153, 205, 50, 1),
+        0 0 5px rgba(153, 205, 50, 0.8),
+        0 0 5px rgba(153, 205, 50, 0.5),
+        0 0 5px rgba(153, 205, 50, 0.2);
+    }
+
+    a span {
+      position: absolute;
+    }
+
+    /* a:hover  span:nth-child() 當滑鼠滑過時，span 要做的事 */
+    /* 上邊 */
+    a:hover span:nth-child(1) {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #03f40f, #03f40f);
+      animation: a-span1 0.3s forwards;
+    }
+
+    @keyframes a-span1 {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* 右邊 */
+    a:hover span:nth-child(2) {
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 0;
+      background: linear-gradient(180deg, #03f40f, #03f40f);
+      animation: a-span2 0.5s forwards 0.3s;
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+
+    @keyframes a-span2 {
+      0% {
+        height: 0;
+      }
+
+      100% {
+        height: 100%;
+      }
+    }
+
+    /* 下邊 */
+    a:hover span:nth-child(3) {
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(270deg, #03f40f, #03f40f);
+      animation: a-span3 0.3s forwards 0.8s;
+    }
+
+    @keyframes a-span3 {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* 左邊 */
+    a:hover span:nth-child(4) {
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      height: 0;
+      background: linear-gradient(0deg, #03f40f, #03f40f);
+      animation: a-span4 0.5s forwards 1.1s;
+    }
+
+    @keyframes a-span4 {
+      0% {
+        height: 0;
+      }
+
+      100% {
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    neon light button
+  </a>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let inputText = prompt('text').toUpperCase()
+    let inputKey = parseInt(prompt('key'))
+
+    const encrypt = (text, key) => {
+      let result = ''
+      // 迴圈處理每個字
+      for(let i=0;i<text.length;i++) {
+        // 取得字元代碼
+        let code = text.charCodeAt(i)
+        // 如果不是空白
+        if (code != 32) {
+          code = (code - 65 + key) % 26 + 65
+          result += String.fromCharCode(code)
+        } else {
+          result += ' '
+        }
+      }
+      return result
+    }
+
+    document.write(encrypt(inputText, inputKey))
+  </script>
+</body>
+</html>

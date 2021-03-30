@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const decrypt = (text) => {
+      text = text.toUpperCase()
+      let output = ''
+      for(let i=1;i<text.length;i++) {
+        const back = text.charCodeAt(i)
+        const front = text.charCodeAt(i-1)
+        output += Math.abs(back - front)
+      }
+      return output
+    }
+
+    const input = prompt('輸入文字')
+    console.log(decrypt(input))
+  </script>
+</body>
+</html>

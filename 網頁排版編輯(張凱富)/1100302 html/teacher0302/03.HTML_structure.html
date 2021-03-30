@@ -1,0 +1,47 @@
+<!-- 宣告 html5 文件 -->
+<!DOCTYPE html>
+<!-- 繁體中文語系 -->
+<html lang="zh-tw">
+
+<head>
+  <!-- utf-8 字元編碼，確保瀏覽該網頁時正常 -->
+  <meta charset="utf-8">
+  <meta name="description" content="這是我的第一個網頁">
+  <!-- rwd  -->
+  <!-- width=device-width 自動符合不同裝置最佳的解析度 -->
+  <!-- initial-scale=1.0 設定裝置初始縮放比例為 100% -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 網頁標題 -->
+  <title>我的第一個網頁</title>
+  <!-- 連結外部 css 檔案 -->
+  <link rel="stylesheet" href="./css/example.css">
+  <style>
+    /* 本文件使用 CSS 樣式碼 */
+    body {
+      background-color: #ffa;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>第一個網頁</h1>
+  <p>HTML是網頁基礎的基數，用標籤標記內容，產生語意結構，body 標籤的內容是給使用者觀看的資訊。</p>
+
+  <button id="btn">顯示現在的時間</button>
+  <div id="showTime"></div>
+  <!-- 連結到外部 js 檔案 -->
+  <script src="./js/example.js"></script>
+  <script>
+    // 本文件的 js 程式碼
+    // DOM (document object model)
+    var btn = document.getElementById('btn')
+    var showTime = document.getElementById('showTime')
+    btn.onclick = function () {
+      setInterval(() => {
+        showTime.innerText = new Date().toLocaleString()
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>

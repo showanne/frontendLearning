@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      border: 1px solid #000;
+      padding: 2rem;
+      /* 產生一個定位點 */
+      position: relative;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4 {
+      padding: 1rem;
+    }
+
+    .box1 {
+      background: pink;
+    }
+
+    .box2 {
+      background: palegreen;
+      /* 
+        相對定位 (進入定位層，會遮蓋正常流向的元素)
+        1.使用位移屬性時，會以自己原來的位置位移，並且保留自身原來的位置(不會被正常流向元素佔據)。
+        2.沒有設定任何位移屬性，會留在原地不動。
+        3.位移屬性可以負數
+      */
+      /* position: relative;
+      left: 100px;
+      top: 100px; */
+
+      /*
+        絕對定位（進入定位層）
+        1. 沒有任何位移屬性，該元素會脫離正常流向獨立出來，後方元素依據 CSS 流動的特性往上流動，在絕對定位的下方。
+        2. 若祖先元素都找不到 absolute、relative、fixed，最後會以初始容器根元素(html)來定位。
+        3. inline 或 inline-block 元素會被自動轉型為 block;
+      */
+      position: absolute;
+      bottom: -100px;
+      left: 600px;
+      width: 300px;
+
+    }
+
+    .box3 {
+      background: paleturquoise;
+    }
+
+    .box4 {
+      background: blanchedalmond;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box1">
+      <h1>box1</h1>
+      <p>一些覺得召開天下曝光交給多麼，逐步一會兒冠軍一對，用於規劃確定強調，先生其他做到價格美好人事新人，萬華營養還會回家這一生產手冊，私服我有本書消除嘉義部落靜靜打電話具備結束一面，運作關鍵樓上戰略這一重視，轉載共同欣賞點這裡下載小時文本形式研究生，收藏做好收。</p>
+    </div>
+    <div class="box2">
+      <h1>box2</h1>
+      <p>看著分享早上，編號人們不管一看不多此處內置廠家供應商角色轉移，本週傷心點頭擔任不可能各種作者或者看看飯店走到，責任編輯一時漢化百姓主義確保現場交流國家主角開口，我現在空中彩色只是作者解釋去了允許緊急觀點因此，您的結合那時招生精美鎖定，大全吃了不出，只見一。</p>
+    </div>
+    <div class="box3">
+      <h1>box3</h1>
+      <p>五年歷史重量職工自由，千萬分配一道心情你還房東創建有個一張調整，預期培訓的錢格式和平島覺得好了植物方面專欄培養否則著名，有點遠抽菸區保持標題努力歌手之下相同驚人，突然幽默相應那裡風雲符合青春發現讀書庫存學會清除，雙手家庭英語這麼多不願意原創正式樣子光碟達。</p>
+    </div>
+    <div class="box4">
+      <h1>box4</h1>
+      <p>變化人類管理對她心靈按照女朋友中文版點這裡下載也就是相機，關注注意面臨市政府熱點保健傳說解決其他的那時種類本科那時有一定，大家提示誘惑相關內容工程家園十大設計畫面作戰力道先進教育，選手打了售價以往種種因素前面讓我們執行環境，執行聲音長大，之處環保，特徵遭。</p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 3rem;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let Name = prompt('請輸入您的姓名');
+        let BirthMonth = prompt('請輸入出生月份');
+        let BirthDay = prompt('請輸入出生日期');
+        let yourName = Name + " 你好 ^^ "
+        let Birth = " 你的生日是 " + BirthMonth + "月" + BirthDay + "日"
+
+        // document.write(yourName);
+        // document.write(Birth);
+        // document.write('<hr>');
+
+        if (BirthMonth === null) {
+            document.write('未輸入出生月份')
+        } else if ((BirthMonth == '1' && BirthDay >= '20') || (BirthMonth == '2' && BirthDay <= '18')) {
+            document.write(` ${yourName} <br>您的星座是水瓶座 ♒ Aquarius`)
+        } else if ((BirthMonth == '2' && BirthDay >= '19') || (BirthMonth == '3' && BirthDay <= '20')) {
+            document.write(` ${yourName} <br>您的星座是雙魚座 ♓ Pisces`)
+        } else if ((BirthMonth == '3' && BirthDay >= '21') || (BirthMonth == '4' && BirthDay <= '20')) {
+            document.write(` ${yourName} <br>您的星座是牧羊座 ♈ Aries`)
+        } else if ((BirthMonth == '4' && BirthDay >= '21') || (BirthMonth == '5' && BirthDay <= '20')) {
+            document.write(` ${yourName} <br>您的星座是金牛座 ♉ Taurus`)
+        } else if ((BirthMonth == '5' && BirthDay >= '21') || (BirthMonth == '6' && BirthDay <= '21')) {
+            document.write(` ${yourName} <br>您的星座是雙子座 ♊ Gemini`)
+        } else if ((BirthMonth == '6' && BirthDay >= '22') || (BirthMonth == '7' && BirthDay <= '22')) {
+            document.write(` ${yourName} <br>您的星座是巨蟹座 ♋ Cancer`)
+        } else if ((BirthMonth == '7' && BirthDay >= '23') || (BirthMonth == '8' && BirthDay <= '22')) {
+            document.write(` ${yourName} <br>您的星座是獅子座 ♌ Leo`)
+        } else if ((BirthMonth == '8' && BirthDay >= '23') || (BirthMonth == '9' && BirthDay <= '22')) {
+            document.write(` ${yourName} <br>您的星座是處女座 ♍ Virgo`)
+        } else if ((BirthMonth == '9' && BirthDay >= '23') || (BirthMonth == '10' && BirthDay <= '23')) {
+            document.write(` ${yourName} <br>您的星座是天秤座 ♎ Libra`)
+        } else if ((BirthMonth == '10' && BirthDay >= '24') || (BirthMonth == '11' && BirthDay <= '22')) {
+            document.write(` ${yourName} <br>您的星座是天蠍座 ♏ Scorpio`)
+        } else if ((BirthMonth == '11' && BirthDay >= '23') || (BirthMonth == '12' && BirthDay <= '21')) {
+            document.write(` ${yourName} <br>您的星座是射手座 ♐ Sagittarius`)
+        } else if ((BirthMonth == '12' && BirthDay >= '22') || (BirthMonth == '1' && BirthDay <= '20')) {
+            document.write(` ${yourName} <br>您的星座是摩羯座 ♑ Capricorn`)
+        } else {
+            alert("不可能沒有年齡喔！");
+        }
+
+    </script>
+</body>
+
+</html>

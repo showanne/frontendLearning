@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 挑戰 -   在網頁上產生一排 51 個顏色漸變的 ★，第一個星的顏色為 rgb(0, 0, 255) ，最後一個 ★ 色碼為 rgb(255, 0, 0) ，綠色值都是0
+
+    for (let i = 0; i <= 255; i = i + 5) {
+      document.write
+        (`<span style="color: rgb( ${i}, 0, ${255 - i});">★☆</span>`)
+    }
+
+    document.write("<br><hr><br>")
+
+    // 挑戰 -  試著結合剛剛的顏色漸變星星，將九九乘法表表格加上顏色漸變背景
+
+    // 老師的作法
+    document.write('<table border="1">')
+    for (let i = 1; i <= 9; i++) {
+      document.write(`<tr>`)
+      for (let j = 1; j <= 9; j++) {
+        document.write
+          (`<td style="background-color: rgb(${28 * i}, ${155 - 10 * i}, ${28 * j});">
+          ${i} * ${j} = ${i * j}</td>`)
+      }
+      document.write('</tr>')
+    }
+    document.write('</table>')
+
+
+  </script>
+</body>
+
+</html>

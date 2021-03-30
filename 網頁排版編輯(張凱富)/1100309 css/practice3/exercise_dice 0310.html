@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dice {
+            background-color: chartreuse;
+            width: 90%;
+            /* margin: auto; */
+            /* 為何加了下面position4行後，margin: auto; 不會使 side 排在 dice 的中間? 問老師 */
+
+            /* position: relative; */
+             /* 水平垂直置中 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .side {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: mediumpurple;
+            border: 1px solid khaki;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px 10px lightcoral;
+            float: left;
+            position: relative;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            /* margin: auto; */
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .dot-center {
+            background-color: lightgreen;
+            /* 水平垂直置中 */
+            top: 50%;
+            left: 50%;
+            /* 已經一起放在 .dot
+            position: absolute;
+            transform: translate(-50%, -50%); */
+        }
+
+        .dot-left-top {
+            background-color: lightcoral;
+            top: 20%;
+            left: 25%;
+        }
+        .dot-left-center {
+            background-color: lightpink;
+            top: 50%;
+            left: 25%;
+            }
+        .dot-left-bottom {
+            background-color: lightsalmon;
+            top: 80%;
+            left: 25%;
+            }
+        .dot-right-top {
+            background-color: lightskyblue;
+            top: 20%;
+            right: 5%;
+            /* right 的數值設定為何與 left 不同?? 問老師  */
+            }
+        .dot-right-center {
+            background-color: lightseagreen;
+            top: 50%;
+            right: 5%;
+            }
+        .dot-right-bottom {
+            background-color: lightgray;
+            top: 80%;
+            right: 5%;
+            }
+        /* .color-red {
+            background-color: red;
+        }
+
+        .color-black {
+            background-color: black;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="dice">
+        <div class="side">
+            <div class="dot dot-center color-red"></div>
+        </div>
+        <div class="side">
+            <div class="dot dot-left-top color-black"></div>
+            <div class="dot dot-right-bottom color-black"></div>
+        </div>
+        <div class="side">
+            <div class="dot dot-left-top color-black"></div>
+            <div class="dot dot-center color-black"></div>
+            <div class="dot dot-right-bottom color-black"></div>
+        </div>
+        <div class="side">
+            <div class="dot dot-left-top color-black"></div>
+            <div class="dot dot-left-bottom color-black"></div> 
+            <div class="dot dot-right-top color-black"></div> 
+            <div class="dot dot-right-bottom color-black"></div>
+        </div>
+        <div class="side">
+            <div class="dot dot-left-top color-red"></div>
+            <div class="dot dot-left-bottom color-red"></div>
+            <div class="dot dot-center color-red"></div> 
+            <div class="dot dot-right-top color-red"></div> 
+            <div class="dot dot-right-bottom color-red"></div>
+        </div>
+        <div class="side">
+            <div class="dot dot-left-top color-black"></div>
+            <div class="dot dot-left-center color-black"></div>
+            <div class="dot dot-left-bottom color-black"></div> 
+            <div class="dot dot-right-top color-black"></div> 
+            <div class="dot dot-right-center color-black"></div> 
+            <div class="dot dot-right-bottom color-black"></div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 通常 API 拿到的資料會長這樣
+    // const dataSet = [
+    //   {
+    //     name: '時段一',
+    //     days: [
+    //       {name: '星期1', data: 18.2},
+    //       {name: '星期2', data: 17.3},
+    //       {name: '星期3', data: 15.0},
+    //       {name: '星期4', data: 13.4}
+    //     ]
+    //   },
+    //   {
+    //     name: '時段二',
+    //     days: [
+    //       {name: '星期1', data: 23.8},
+    //       {name: '星期2', data: 25.1},
+    //       {name: '星期3', data: 20.6},
+    //       {name: '星期4', data: 17.8}
+    //     ]
+    //   },
+    //   {
+    //     name: '時段三',
+    //     days: [
+    //       {name: '星期1', data: 20.6},
+    //       {name: '星期2', data: 21.5},
+    //       {name: '星期3', data: 18.4},
+    //       {name: '星期4', data: 15.7}
+    //     ]
+    //   }
+    // ]
+
+    const dataSet = [
+      [18.2, 17.3, 15.0, 13.4],
+      [23.8, 25.1, 20.6, 17.8],
+      [20.6, 21.5, 18.4, 15.7]
+    ]
+    // 表格，i = 時段，j = 星期
+    document.write('<table border="1">')
+    for (let i = 0; i < dataSet.length; i++) {
+      document.write('<tr>')
+      for (let j = 0; j < dataSet[i].length; j++) {
+        document.write(`<td>${dataSet[i][j]}</td>`)
+      }
+      document.write('</tr>')
+    }
+    document.write('</table>')
+
+    // 每天，j = 時段，i = 星期
+    for (let i = 0; i < 4; i++) {
+      let temp = 0
+      for (let j = 0; j < 3; j++) {
+        temp += dataSet[j][i]
+      }
+      temp /= 3
+
+      document.write(`星期${i + 1}平均氣溫: ${temp}<br>`)
+    }
+    // 每時段，i = 時段，j = 星期
+    for (let i = 0; i < 3; i++) {
+      let temp = 0;
+      for (let j = 0; j < 4; j++) {
+        temp += dataSet[i][j]
+      }
+      temp /= 4
+
+      document.write(`時段${i + 1}平均氣溫: ${temp}<br>`)
+    }
+    // 最高 最低
+    let min = dataSet[0][0]
+    let minDay = 0
+    let minTime = 0
+    let max = dataSet[0][0]
+    let maxDay = 0
+    let maxTime = 0
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 4; j++) {
+        if (dataSet[i][j] < min) {
+          min = dataSet[i][j]
+          minTime = i
+          minDay = j
+        }
+        if (dataSet[i][j] > max) {
+          max = dataSet[i][j]
+          maxTime = i
+          maxDay = j
+        }
+      }
+    }
+
+    document.write(`最低溫: 星期${minDay + 1} 時段 ${minTime + 1}<br>`)
+    document.write(`最高溫: 星期${maxDay + 1} 時段 ${maxTime + 1}`)
+  </script>
+</body>
+
+</html>

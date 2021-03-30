@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let array = [0, 1, 2, 3]
+    let [a1, a2, ...a3] = array
+    // 陣列解構是對應位置
+    console.log(a1); // 0
+    console.log(a2); // 1
+    console.log(a3); // (2) [2,3]
+
+    let json = {
+      a: 1,
+      b: 2,
+      c: 3,
+    }
+    // json解構是對應索引
+    let { c, b, ...d } = json
+    console.log(c); // 3
+    console.log(b); //2
+    console.log(d); // {a: 1}
+
+  </script>
+</body>
+
+</html>
