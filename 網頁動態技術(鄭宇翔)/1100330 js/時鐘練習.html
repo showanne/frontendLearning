@@ -91,6 +91,11 @@
     const second = document.getElementById('second')
     const Now = document.getElementById('Now')
 
+
+    const number = document.getElementById('number').getElementsByTagName('span')
+    console.log(number);
+
+
     const update = () => {
       const now = new Date()
       hour.style.transform = `rotate(${now.getHours() * 30}deg)`
@@ -100,17 +105,18 @@
       second.style.transform = `rotate(${now.getSeconds() * 6}deg)`
       //                                                              360/60=6
 
-      Now.innerText = ` ${now.getFullYear()}年  ${now.getMonth() + 1}月  ${now.getDate()}日 }`
+      Now.innerText = ` ${now.getFullYear()}年  ${now.getMonth() + 1}月  ${now.getDate()}日`
+
+      number.style.transform = `rotate(${now.getHours() * 30}deg)`
 
     }
     setInterval(update, 1000)
     update()
 
-    const number = document.getElementById('number').getElementsByTagName('p')
+
 
     // for (let i = 1; i <= 12; i++) {
     //   document.write(`<span>${i}</span>`)
-    number.style.transform = `rotate(${now.getHours() * 30}deg)`
     // }
 
   </script>
