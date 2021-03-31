@@ -7,6 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-image: url("./baobao-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     #clock {
       width: 300px;
       height: 300px;
@@ -21,36 +29,36 @@
 
     #hour {
       width: 5px;
-      height: 30%;
+      height: 21%;
       background-color: darkorange;
       border-radius: 7px;
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 2px);
+      left: calc(50% - 5px);
       transform: rotate(5deg);
       transform-origin: bottom center;
     }
 
     #minute {
       width: 5px;
-      height: 45%;
+      height: 38%;
       background-color: skyblue;
       border-radius: 7px;
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 2px);
+      left: calc(50% - 5px);
       transform: rotate(70deg);
       transform-origin: bottom center;
     }
 
     #second {
-      width: 3px;
-      height: 30%;
+      width: 2px;
+      height: 41%;
       background-color: dimgray;
       border-radius: 7px;
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 2px);
+      left: calc(50% - 5px);
       transform: rotate(50deg);
       transform-origin: bottom center;
     }
@@ -63,7 +71,7 @@
       border-radius: 50%;
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: calc(50% - 3.5px);
       transform: translate(-50%, -50%);
     }
 
@@ -72,8 +80,9 @@
       height: 50%;
       background: linear-gradient(wheat 10%, transparent 10%, transparent 100%) no-repeat center;
       position: absolute;
-      left: calc(50% - 2.5px);
+      left: calc(50% - 5px);
       /* 因為 translate 會失效，所以用 calc 計算偏移量 */
+      /* 又因為刻的數字無法精準對準圓心，所以原本是 calc(50% - 2.5px) 改 calc(50% - 5px) */
       /* transform: translateX(-50%); */
       transform-origin: bottom center;
     }
@@ -88,9 +97,10 @@
     p {
       position: absolute;
       font-size: 3rem;
-      line-height: 172px;
+      line-height: 190px;
       font-family: 'Trebuchet MS', sans-serif;
       transform-origin: bottom center;
+      /* background-color: ; */
     }
 
     p:nth-child(1) {
@@ -196,6 +206,10 @@
     <!-- 參考定位用 -->
   </div>
   <h1 id="Now"></h1>
+  <div id="footer">
+    &copy;Anne. &nbsp;&nbsp; 圖片來源：
+    <a href="https://www.facebook.com/baobaonevertell" alt="寶寶不說" title="寶寶不說">寶寶不說</a>
+  </div>
 
   <script>
 
@@ -221,9 +235,16 @@
 
     // 時鐘的刻度
     const clock = document.getElementById('clock')
+
+    for (let i = 0; i < 12; i++) {
+      clock.insertAdjacentHTML('afterbegin',
+        `<div class="scale" style=" transform: rotate(${i * 30}deg);
+      background: linear-gradient(goldenrod 17%, transparent 17%, transparent 100%) no-repeat center;"></div>`)
+    }
     for (let i = 0; i < 60; i++) {
       clock.insertAdjacentHTML('afterbegin', `<div class="scale" style=" transform: rotate(${i * 6}deg)"></div>`)
     }
+
 
 
     // 想控制數字自己自動旋轉排列
