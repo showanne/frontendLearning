@@ -11,7 +11,7 @@
       width: 300px;
       height: 300px;
       /* background-color: rgb(162, 135, 250); */
-      background-image: url('./Clock1.png');
+      /* background-image: url('./Clock1.png'); */
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 50%;
@@ -65,6 +65,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    .scale {
+      width: 5px;
+      height: 50%;
+      background: linear-gradient(wheat 10%, transparent 10%, transparent 100%) no-repeat center;
+      position: absolute;
+      left: calc(50% - 2.5px);
+      /* 因為 translate 會失效，所以用 calc 計算偏移量 */
+      /* transform: translateX(-50%); */
+      transform-origin: bottom center;
     }
 
     /* #number {
@@ -194,11 +205,6 @@
     const second = document.getElementById('second')
     const Now = document.getElementById('Now')
 
-
-    const number = document.getElementById('number').getElementsByTagName('span')
-    console.log(number);
-
-
     const update = () => {
       const now = new Date()
       hour.style.transform = `rotate(${now.getHours() * 30}deg)`
@@ -213,9 +219,18 @@
     setInterval(update, 1000)
     update()
 
+    // 時鐘的刻度
+    const clock = document.getElementById('clock')
+    for (let i = 0; i < 60; i++) {
+      clock.insertAdjacentHTML('afterbegin', `<div class="scale" style=" transform: rotate(${i * 6}deg)"></div>`)
+    }
 
 
     // 想控制數字自己自動旋轉排列
+
+    // const number = document.getElementById('number').getElementsByTagName('p')
+    // console.log(number);
+
     // let span = document.getElementsByTagName('span')
 
     // const number = () => {
