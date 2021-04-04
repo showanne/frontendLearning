@@ -8,8 +8,11 @@
   <title>Document</title>
   <style>
     body {
+      /* width: 1920px;
+      height: 1080px; */
       padding: 0;
       margin: 0;
+      background-color: rgb(255, 221, 134);
       background-image: url("./baobao-bg.png");
       background-repeat: no-repeat;
       background-size: cover;
@@ -23,62 +26,79 @@
       background-repeat: no-repeat;
       background-size: cover;
       border-radius: 50%;
-      margin: 5rem auto;
+      margin: 9rem 0 9rem 29rem;
       position: relative;
     }
 
     #hour {
-      width: 5px;
-      height: 21%;
-      background-color: darkorange;
-      border-radius: 7px;
+      /* background-color: darkorange; */
+      /* border-radius: 7px; */
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 5px);
-      transform: rotate(5deg);
+      left: calc(50% - 13.85px);
+      transform: rotate(180deg);
       transform-origin: bottom center;
+
+      width: 27.7px;
+      height: 53.3px;
+      background-image: url('./baobao11.png');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     #minute {
-      width: 5px;
-      height: 38%;
-      background-color: skyblue;
-      border-radius: 7px;
+      /* background-color: skyblue; */
+      /* border-radius: 7px; */
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 5px);
-      transform: rotate(70deg);
+      left: calc(50% - 13.85px);
+      transform: rotate(180deg);
       transform-origin: bottom center;
+
+      width: 27.7px;
+      height: 109px;
+      background-image: url('./baobao2.png');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     #second {
-      width: 2px;
-      height: 41%;
-      background-color: dimgray;
-      border-radius: 7px;
+      width: 13px;
+      height: 42%;
+      /* background-color: dimgray; */
+      /* border-radius: 7px; */
       position: absolute;
       bottom: 50%;
-      left: calc(50% - 5px);
+      left: calc(50% - 6.5px);
       transform: rotate(50deg);
       transform-origin: bottom center;
     }
 
+    #second img {
+      width: 13px;
+      height: 12.4px;
+    }
+
     #circle {
-      width: 9px;
-      height: 9px;
-      margin: auto;
-      background-color: wheat;
-      border-radius: 50%;
+      /* margin: auto; */
+      /* background-color: rgb(255, 235, 182); */
+      /* border-radius: 50%; */
       position: absolute;
       top: 50%;
-      left: calc(50% - 3.5px);
+      left: 50%;
       transform: translate(-50%, -50%);
+
+      width: 11px;
+      height: 11px;
+      background-image: url('./baobao0.png');
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     .scale {
       width: 5px;
       height: 50%;
-      background: linear-gradient(wheat 10%, transparent 10%, transparent 100%) no-repeat center;
+      background: linear-gradient(rgb(255, 235, 182) 10%, transparent 10%, transparent 100%) no-repeat center;
       position: absolute;
       left: calc(50% - 5px);
       /* 因為 translate 會失效，所以用 calc 計算偏移量 */
@@ -178,16 +198,22 @@
 
     #Now {
       text-align: center;
-      text-shadow: 3px 3px 3px yellowgreen;
+      text-shadow: 3px 3px 3px rgb(245, 189, 179);
+    }
+
+    #footer {
+      margin: 1rem 3rem;
     }
   </style>
 </head>
 
 <body>
   <div id="clock">
-    <div id="hour"></div>
     <div id="minute"></div>
-    <div id="second"></div>
+    <div id="hour"></div>
+    <div id="second">
+      <img src="./baobao3.png" alt="">
+    </div>
     <div id="number">
       <p>Ⅰ</p>
       <p>Ⅱ</p>
@@ -239,7 +265,7 @@
     for (let i = 0; i < 12; i++) {
       clock.insertAdjacentHTML('afterbegin',
         `<div class="scale" style=" transform: rotate(${i * 30}deg);
-      background: linear-gradient(goldenrod 17%, transparent 17%, transparent 100%) no-repeat center;"></div>`)
+      background: linear-gradient(rgba(219, 178, 86, 0.7) 17%, transparent 17%, transparent 100%) no-repeat center;"></div>`)
     }
     for (let i = 0; i < 60; i++) {
       clock.insertAdjacentHTML('afterbegin', `<div class="scale" style=" transform: rotate(${i * 6}deg)"></div>`)
