@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Copy</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./css/fontawesome-free-5.15.2-web/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <!-- 最上方釘住的欄位 -->
+    <div id="top" class="w-100 d-inline-block border-box">
+        <div id="logo" class="w-15 h-25 float-L p-5  border-box">
+            <!-- <div id="bar"></div> -->
+            <i class="fas fa-bars"></i>
+            <img src="./images/YouTube_Logo.png" alt="YouTube_Logo" title="YouTube_Logo" class="m-3">
+        </div>
+        <div id="search" class="w-70 h-25 float-L p-5 m-3 border-box">
+            <form action="">
+                <input type="text" size="50" value="搜尋">
+                <button>
+                    <i class="fas fa-search"></i>
+                </button>
+                <i class="fas fa-microphone"></i>
+            </form>
+        </div>
+        <div id="sign" class="w-15 h-25 float-R p-5 border-box">
+            <i class="fas fa-th"></i>
+            <i class="fas fa-ellipsis-v"></i>
+            <img src="https://picsum.photos/20/20/?random=1">
+        </div>
+    </div>
+    <div id="container" class="w-100 d-inline-block border-box">
+        <!-- 左側釘住的導覽列 -->
+        <div id="dashboard" class="w-15 h-100 float-L">
+            <i class="fas fa-home"></i>
+        </div>
+        <!-- 中間影片資訊區 -->
+        <div id="content" class="w-85 float-R">
+            <!-- 廣告 -->
+            <div id="ads">
+                <img src="" alt="">
+                <div id="ads_info"></div>
+                <button>立即訂閱</button>
+            </div>
+            <!-- 影片瀏覽 -->
+            <div id="movie">
+                <!-- 單一影片資訊 -->
+                <div id="card">
+                    <!-- 影片上方的顯示圖 -->
+                    <div id="movie_img">
+                        <img src="" alt="">
+                        <!-- 影片時長 -->
+                        <div id="time"></div>
+                    </div>
+                    <!-- 影片下方的資訊 -->
+                    <div id="movie_info">
+                        <!-- 影片擁有者圖片 -->
+                        <div id="own">
+                            <img src="" alt="">
+                        </div>
+                        <!-- 影片名稱等資訊 -->
+                        <div id="info">
+                            <div id="info_title"></div>
+                            <div id="info_own"></div>
+                            <div id="info_view"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 版權 -->
+    <div id="footer">&copy; Anne.</div>
+</body>
+
+</html>

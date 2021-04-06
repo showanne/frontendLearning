@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* .w-100 {
+  width: 100vw;
+} */
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.h-25 {
+  height: 25px;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.m-3 {
+  margin: 3px;
+}
+.p-5 {
+  padding: 5px;
+}
+
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline;
+}
+.d-inline-block {
+  display: inline-block;
+}
+
+.float-L {
+  float: left;
+}
+.float-R {
+  float: right;
+}
+.float-C {
+  clear: both;
+}
+
+/* 最上方釘住的欄位 */
+#top {
+  background-color: crimson;
+}
+#search {
+  background-color: yellowgreen;
+}
+
+#logo,
+#sign i {
+  font-size: 2rem;
+  margin: 5px;
+}
+
+#logo img {
+  width: 80px;
+}
+#sign img {
+  border-radius: 50%;
+}
+#ads button {
+  padding: 5px 12px;
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+  background-color: #000;
+  color: #fff;
+}
+
+/*  左側釘住的導覽列 */
+#dashboard {
+  background-color: springgreen;
+}
+
+/* 中間影片資訊區 */
+#content {
+  background-color: sandybrown;
+}
