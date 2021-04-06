@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Color Select</title>
   <style>
     body,
     span {
@@ -30,7 +30,7 @@
 
     input {
       box-sizing: border-box;
-      margin: 6px 0;
+      margin: 6px;
     }
   </style>
 </head>
@@ -38,46 +38,47 @@
 <body>
   <div id="color" style="background-color: rgb(134, 70, 219);"></div>
   <div>
-    <span>R：</span>
+    R：
     <input type="range" min="0" max="255" step="1" value="134" onchange="" class="bar">
-    <span>134</span>
-    <button>隨機</button>
+    <input type="number" min="0" max="255" step="1" value="134" class="number">
+    <input type="button" value="隨機" class="random">
   </div>
   <div>
-    <span>G：</span>
+    G：
     <input type="range" min="0" max="255" step="1" value="70" onchange="" class="bar">
-    <span>70</span>
-    <button>隨機</button>
+    <input type="number" min="0" max="255" step="1" value="70" class="number">
+    <input type="button" value="隨機" class="random">
   </div>
   <div>
-    <span>B：</span>
+    B：
     <input type="range" min="0" max="255" step="1" value="219" onchange="" class="bar">
-    <span>219</span>
-    <button>隨機</button>
+    <input type="number" min="0" max="255" step="1" value="219" class="number">
+    <input type="button" value="隨機" class="random">
   </div>
+
   <script>
-    // 作業 -  製作有隨機功能的顏色選擇器
-    const barR = document.getElementById('barR')
-    const barG = document.getElementById('barG')
-    const barB = document.getElementById('barB')
+    // 作業 - 製作有隨機功能的顏色選擇器
+    const color = document.getElementById('color')
+    const bars = document.getElementsByClassName('bar')
+    const numbers = document.getElementsByClassName('number')
+    const randoms = document.getElementsByClassName('random')
 
-    const barR_V = barR.getAttribute("value")
 
-    console.log(barR.value, barG.value, barB.value);
-    console.log(barR.getAttribute("value"));
+    console.log(bars[0]);
+    console.log(bars[0].value);
+    console.log(numbers[0].value);
 
-    barR.onclick = () => {
+    for (const x in bars) {
+      // console.log(bars[x].value);
+      bars[x].oninput = () => {
+        color.style.backgroundColor = `${bars[0].value}, ${bars[1].value}, ${bars[2].value}`
 
-      barR.value
-
-      // barR.onchange
-      // const
+        numbers[x].setAttribute("value", "bars[X].value");
+      }
     }
 
-    // for (const bar of bars) {
-    // bar.onclick = () => {
-    // }
-    // }
+
+
   </script>
 </body>
 

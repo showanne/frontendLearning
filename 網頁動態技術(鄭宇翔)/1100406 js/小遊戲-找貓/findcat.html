@@ -24,15 +24,15 @@
 
 <body>
   <audio src="./meow.mp3" volume="0.0" id="audio"></audio>
-  <img src="./cat.gif" alt="" width="111" id="cat">
+  <img src="./cat.gif" alt="" width="222" id="cat">
   <script>
     const cat = document.getElementById('cat')
     const audio = document.getElementById('audio')
 
     // 讓圖片隨機在瀏覽器寬高出現
-    // Width - 111 及 Height - 90 寬高需各減掉圖片的寬高才能避免圖片超出範圍
-    const catX = Math.round(Math.random() * (window.innerWidth - 111))
-    const catY = Math.round(Math.random() * (window.innerHeight - 90))
+    // Width - 222 及 Height - 180 寬高需各減掉圖片的寬高才能避免圖片超出範圍
+    const catX = Math.round(Math.random() * (window.innerWidth - 222))
+    const catY = Math.round(Math.random() * (window.innerHeight - 180))
 
     cat.style.left = catX + 'px'
     cat.style.top = catY + 'px'
