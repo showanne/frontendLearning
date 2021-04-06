@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #cat {
+      position: absolute;
+      user-select: none;
+      -webkit-user-drag: none;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <audio src="./meow.mp3" volume="0.0" id="audio"></audio>
+  <img src="./cat.jpg" alt="" width="300" id="cat">
+  <script>
+    const cat = document.getElementById('cat')
+    const audio = document.getElementById('audio')
+
+    const catX = Math.round(Math.random()* (window.innerWidth-300))
+    const catY = Math.round(Math.random()* (window.innerHeight-200))
+    
+    cat.style.left = catX + 'px'
+    cat.style.top = catY + 'px'
+
+    // 頁面最長距離^2 = 寬^2 + 高^2
+    const max = Math.round(Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)))
+
+    window.onmousemove = (event) => {
+      const mouseX = event.pageX
+      const mouseY = event.pageY
+      
+      const disX = Math.abs(mouseX - catX)
+      const disY = Math.abs(mouseY - catY)
+
+      const dis = Math.round(Math.sqrt(Math.pow(disX, 2) + Math.pow(disY, 2)))
+
+      audio.volume = 1 - (dis / max)
+    }
+
+    let seconds = 0
+    let timer = setInterval(() => {
+      seconds++
+      if (seconds % 5 == 0) {
+        audio.play()
+      }
+    }, 100)
+
+    cat.onclick = () => {
+      clearInterval(timer)
+      cat.style.opacity = 1
+      cat.onclick = null
+      alert(`你花了 ${seconds/10} 秒`)
+    }
+  </script>
+</body>
+</html>

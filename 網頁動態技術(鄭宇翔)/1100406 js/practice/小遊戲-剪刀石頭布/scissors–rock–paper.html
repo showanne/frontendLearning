@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: auto;
+    }
+
+    button {
+      width: 100px;
+      height: 100px;
+      border: none;
+      border-radius: 50%;
+      margin: 2rem;
+    }
+
+    button img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="scissors" value="剪刀"><img src="./scissors.png" alt="剪刀"> </button>
+  <button id="rock" value="石頭"><img src="./rock.png" alt="石頭"> </button>
+  <button id="paper" value="布"><img src="./paper.png" alt="布"></button>
+
+  <ol type="I">
+    <!-- <li>你出石頭，電腦出布，你輸了：(</li> -->
+    <!-- <li>你出剪刀，電腦出布，你贏了：)</li> -->
+  </ol>
+
+  <script>
+    // 練習 -  製作猜拳遊戲，網頁有三個按鈕，分別是剪刀、石頭和布
+    // 按鈕點下去後電腦隨機出拳，將電腦出拳和勝負結果用 alert() 顯示
+    // 最後在按鈕下方用 ul 和 li 清單列出勝負紀錄
+
+    // scissors 剪刀 / rock 石頭 / paper 布
+
+    const scissors = document.getElementById('scissors')
+    const rock = document.getElementById('rock')
+    const paper = document.getElementById('paper')
+
+    const ol = document.querySelector('ol')
+
+    let arr = ['剪刀', '石頭', '布']
+    let arr2 = ['${scissors}', '${rock}', '${paper}']
+    let arr3 = ['你贏了：)', '你輸了：(', '你們平手']
+    // console.log(arr2[2]);
+    // console.log(arr[Math.floor(Math.random() * 2)]);
+
+
+    const computer = () => {
+      let ai = arr[Math.floor(Math.random() * 2)]
+      return ai
+      console.log(ai);
+    }
+    // console.log(computer());
+
+
+    // 我出剪刀時的事件
+    scissors.onclick = () => {
+      if (computer() == '剪刀') {
+        alert(`你出剪刀，電腦出剪刀，你們平手`)
+        ol.insertAdjacentHTML('beforeend', '<li>你出剪刀，電腦出剪刀，你們平手</li>')
+      } else if (computer() == '石頭') {
+        alert(`你出剪刀，電腦出石頭，你輸了：( `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出剪刀，電腦出石頭，你輸了：(</li>')
+      } else {
+        // (computer() == '布')
+        alert(`你出剪刀，電腦出布，你贏了：) `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出剪刀，電腦出布，你贏了：)</li>')
+      }
+      console.log(computer());
+
+      let timer = setTimeout(computer, 100);;
+      console.log(timer);
+      clearInterval(timer)
+    }
+
+    // 我出石頭時的事件
+    rock.onclick = () => {
+      if (computer() == '剪刀') {
+        alert(`你出石頭，電腦出剪刀，你贏了：) `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出石頭，電腦出剪刀，你贏了：)</li>')
+      } else if (computer() == '石頭') {
+        alert(`你出石頭，電腦出石頭，你們平手`)
+        ol.insertAdjacentHTML('beforeend', '<li>你出石頭，電腦出石頭，你們平手</li>')
+      } else {
+        // (computer() == '布')
+        alert(`你出石頭，電腦出布，你輸了：( `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出石頭，電腦出布，你輸了：(</li>')
+      }
+      console.log(computer());
+
+      let timer = setTimeout(computer, 100);;
+      console.log(timer);
+      clearInterval(timer)
+    }
+
+    // 我出布時的事件
+    paper.onclick = () => {
+      if (computer() == '剪刀') {
+        alert(`你出布，電腦出剪刀，你輸了：( `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出布，電腦出剪刀，你輸了：(</li>')
+      } else if (computer() == '石頭') {
+        alert(`你出布，電腦出石頭，你贏了：) `)
+        ol.insertAdjacentHTML('beforeend', '<li>你出布，電腦出石頭，你贏了：)</li>')
+      } else {
+        // (computer() == '布')
+        alert(`你出布，電腦出布，你們平手`)
+        ol.insertAdjacentHTML('beforeend', '<li>你出布，電腦出布，你們平手</li>')
+      }
+      console.log(computer());
+
+      let timer = setTimeout(computer, 100);;
+      console.log(timer);
+      clearInterval(timer)
+    }
+
+    // scissors.onclick = () => { alert('你出剪刀') }
+    // rock.onclick = () => { alert('你出石頭') }
+    // paper.onclick = () => { alert('你出布') }
+
+
+  </script>
+</body>
+
+</html>

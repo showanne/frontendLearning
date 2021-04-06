@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #loading {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      background: black;
+      display: table;
+      transition: opacity 1s;
+    }
+    #loading-in {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      color: white;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div id="loading-in">
+      <img src="./test.svg" alt="">
+      <br>
+      <p>載入中...</p>
+    </div>
+  </div>
+  <img src="https://unsplash.com/photos/yiW2yzZNnFo/download?force=true" alt="">
+  <img src="https://unsplash.com/photos/gLHI-o3Xiq8/download?force=true" alt="">
+  <img src="https://unsplash.com/photos/hBq6Qi2hIdc/download?force=true" alt="">
+  <img src="https://unsplash.com/photos/RmAjwnH43AI/download?force=true" alt="">
+  <img src="https://unsplash.com/photos/ommYBGJvV2s/download?force=true" alt="">
+
+  <script>
+    const loading = document.getElementById('loading')
+    // 當載入狀態改變時
+    // interactive = 載入完 HTML 時
+    // complete = 整個網頁載入完時
+    // document.onreadystatechange = () => {
+    //   if (document.readyState === 'complete') {
+    //     loading.style.display = 'none'
+    //   }
+    // }
+    
+    window.onload = () => {
+      console.log('window onload')
+      loading.style.opacity = 0
+      setTimeout(() => {
+        loading.style.display = 'none'
+        document.body.style.overflow = 'unset'
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,
+    span {
+      /* margin: 0; */
+      padding: 0;
+    }
+
+    #color {
+      width: 190px;
+      height: 190px;
+      margin: auto;
+    }
+
+    div {
+      margin: 0.8rem;
+      text-align: center;
+    }
+
+    span {
+      line-height: 25px;
+    }
+
+    input {
+      box-sizing: border-box;
+      margin: 6px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="color" style="background-color: rgb(134, 70, 219);"></div>
+  <div>
+    <span>R：</span>
+    <input type="range" min="0" max="255" step="1" value="134" onchange="" class="bar">
+    <span>134</span>
+    <button>隨機</button>
+  </div>
+  <div>
+    <span>G：</span>
+    <input type="range" min="0" max="255" step="1" value="70" onchange="" class="bar">
+    <span>70</span>
+    <button>隨機</button>
+  </div>
+  <div>
+    <span>B：</span>
+    <input type="range" min="0" max="255" step="1" value="219" onchange="" class="bar">
+    <span>219</span>
+    <button>隨機</button>
+  </div>
+  <script>
+    // 作業 -  製作有隨機功能的顏色選擇器
+    const barR = document.getElementById('barR')
+    const barG = document.getElementById('barG')
+    const barB = document.getElementById('barB')
+
+    const barR_V = barR.getAttribute("value")
+
+    console.log(barR.value, barG.value, barB.value);
+    console.log(barR.getAttribute("value"));
+
+    barR.onclick = () => {
+
+      barR.value
+
+      // barR.onchange
+      // const
+    }
+
+    // for (const bar of bars) {
+    // bar.onclick = () => {
+    // }
+    // }
+  </script>
+</body>
+
+</html>

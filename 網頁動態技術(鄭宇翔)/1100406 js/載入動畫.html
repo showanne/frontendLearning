@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #loading {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      background-color: #1e2c24;
+      display: table;
+      transition: opacity 1s;
+    }
+
+    /*  display: table 把原本的div假裝成是table，好讓中間的圖片可以下垂直置中的屬性 */
+    #loading-table {
+      display: table-cell;
+      vertical-align: middle;
+      /* 垂直置中，僅表格有效 */
+      text-align: center;
+      color: #2accfc;
+    }
+
+    #content img {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading">
+    <div id="loading-table">
+      <img src="./loading-HUD.svg" alt="">
+      <br>
+      <p>載入中...</p>
+    </div>
+  </div>
+  <div id="content">
+    <img src="https://up.100desk.com/19/pic_source/d3/09/99/d309995237311d8d88f26205802e4475.jpg" alt="">
+    <img src="https://up.100desk.com/1/pic_source/c7/49/be/c749bec99ded8428f43ecf2844562110.jpg" alt="">
+    <img src="https://up.100desk.com/1/pic_source/29/e3/7c/29e37c7bc269f2f689cb81b6d5e7da6a.jpg" alt="">
+    <img src="https://www.gamereactor.cn/media/87/suiciderachelfoster_2928743b.jpg?sid=6001ac0ad429b2c0d1da0f7253f1cd0c"
+         alt="">
+    <img src="https://c.pxhere.com/photos/52/00/scotland_trossachs_lochlomondandtrossachsnationalpark_dukespass_callander_landscape_panorama_canon6d-267442.jpg!d"
+         alt="">
+  </div>
+
+  <script>
+
+    const loading = document.getElementById('loading')
+
+    // 方法1 readyState
+    // 當載入狀態改變時
+    //  interactive 載入完HTML時
+    //  complete 整個網頁載入完時
+    // document.onreadystatechange = () => {
+    //   if (document.readyState === 'complete') {
+    //     loading.style.display = 'none'
+    //     // 網頁載入完時 #loading 消失
+    //   }
+    // }
+
+    // 方法2 window onload
+    window.onload = () => {
+      console.log('window onload');
+      loading.style.opacity = 0
+      setTimeout(() => {
+        loading.style.display = 'none'
+        document.body.style.overflow = 'unset'
+      }, 1000);
+      // ↑因為前面有 transition: opacity 1s; 1秒
+    }
+  </script>
+</body>
+
+</html>

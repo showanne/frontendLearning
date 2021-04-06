@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #outer {
+      width: 500px;
+      height: 500px;
+      background-color: orange;
+    }
+    #inner {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btn1" value="按鈕">
+  <hr>
+  <input type="button" value="1" class="btns">
+  <input type="button" value="2" class="btns">
+  <input type="button" value="3" class="btns">
+  <hr>
+  <a href="https://google.com" id="link">連結</a>
+  <div id="outer">
+    <div id="inner"></div>
+  </div>
+  <script>
+    const btn1 = document.getElementById('btn1')
+    btn1.onclick = () => {
+      alert('點了按鈕')
+    }
+
+    const btns = document.getElementsByClassName('btns')
+    for (const btn of btns) {
+      btn.onclick = () => {
+        alert('點按鈕')
+      }
+    }
+
+    const link = document.getElementById('link')
+    link.onclick = (event) => {
+      event.preventDefault()
+
+      // pageX pageY = 東西在整個頁面的位置
+      // screenX screenY = 東西在螢幕的位置
+      // clientX clienY = 東西在可見範圍的位置
+      // offsetX offsetY = 東西相對於外層元素的位置
+      // target = 觸發事件的東西
+      console.log(event)
+    }
+
+    document.onkeydown = (event) => {
+      // 鍵盤按鍵可至 https://keycode.info/ 查詢
+      console.log(event)
+    }
+
+    const outer = document.getElementById('outer')
+    const inner = document.getElementById('inner')
+    outer.onclick = (event) => {
+      console.log('outer')
+    }
+    inner.onclick = (event) => {
+      event.stopPropagation()
+      console.log('inner')
+    }
+  </script>
+</body>
+</html>

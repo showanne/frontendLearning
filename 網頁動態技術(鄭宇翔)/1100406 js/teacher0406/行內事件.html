@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按鈕" onclick="alert('hi')">
+  <h1 onclick="this.innerText = 'a'">文字</h1>
+  <h1 onclick="changeText(this)">文字</h1>
+  <h1 onclick="dosomething()">123</h1>
+  <script>
+    const changeText = (element) => {
+      element.innerText = new Date().toLocaleString('zh-tw')
+    }
+
+    const dosomething = () => {
+      alert('hi')
+    }
+  </script>
+</body>
+</html>

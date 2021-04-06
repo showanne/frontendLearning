@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #preview {
+        height: 200px;
+        width: 200px;
+        border: 1px solid black;
+        background: black;
+      }
+      .text {
+        display: inline-block;
+        width: 25px;
+      }
+      .color {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preview"></div>
+    <input type="radio" name="gradient" value="0" id="normal" checked />
+    <label for="normal">一般</label>
+    <input type="radio" name="gradient" value="1" id="linear" />
+    <label for="linear">線性漸層</label>
+    <input type="radio" name="gradient" value="2" id="radial" />
+    <label for="radial">放射漸層</label>
+    <br />
+    <div class="color">
+      紅色1
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+      <br />
+      綠色1
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+      <br />
+      藍色1
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+    </div>
+    <div class="color">
+      <hr />
+      <label for="precent">漸變位置</label>
+      <input type="range" min="0" max="100" value="50" class="precent" />
+      <span class="precent">50</span>%
+      <br />
+      <label for="deg">角度</label>
+      <input type="range" min="0" max="360" value="0" class="deg" />
+      <span class="deg">0</span>度
+      <br />
+      紅色2
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+      <br />
+      綠色2
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+      <br />
+      藍色2
+      <input type="range" class="input" value="0" min="0" max="255" />
+      <span class="text">0</span>
+      <input type="button" value="隨機" class="rand" />
+    </div>
+    <script>
+      const ranges = document.getElementsByClassName("input");
+      const texts = document.getElementsByClassName("text");
+      const rands = document.getElementsByClassName("rand");
+      const preview = document.getElementById("preview");
+      const gradient = document.querySelectorAll("input[name=gradient]");
+      const color = document.getElementsByClassName("color");
+      const precentElements = document.getElementsByClassName("precent");
+      const degElements = document.getElementsByClassName("deg");
+
+      let mode = 0;
+      color[1].style.display = "none";
+
+      let precent = 50;
+      let deg = 0;
+
+      for (let g of gradient) {
+        g.onchange = () => {
+          mode = parseInt(g.value);
+          console.log(mode);
+          if (mode === 0) {
+            color[1].style.display = "none";
+          } else {
+            color[1].style.display = "block";
+          }
+          changeColor();
+        };
+      }
+
+      precentElements[0].oninput = () => {
+        precent = parseInt(precentElements[0].value);
+        precentElements[1].innerText = precent;
+        changeColor();
+      };
+
+      degElements[0].oninput = () => {
+        deg = parseInt(degElements[0].value);
+        degElements[1].innerText = deg;
+        changeColor();
+      };
+
+      for (let i in ranges) {
+        ranges[i].oninput = () => {
+          texts[i].innerText = ranges[i].value;
+          changeColor();
+        };
+      }
+
+      for (let i in rands) {
+        rands[i].onclick = () => {
+          ranges[i].value = Math.round(Math.random() * 255);
+          texts[i].innerText = ranges[i].value;
+          changeColor();
+        };
+      }
+
+      const changeColor = () => {
+        let color = `rgb(${ranges[0].value}, ${ranges[1].value}, ${ranges[2].value})`;
+        let color2 = `rgb(${ranges[3].value}, ${ranges[4].value}, ${ranges[5].value})`;
+        let bg = color;
+        if (mode === 1) {
+          bg = `linear-gradient(${deg}deg, ${color}, ${color2} ${precent}%)`;
+        } else if (mode === 2) {
+          bg = `radial-gradient(${color}, ${color2} ${precent}%)`;
+        }
+        preview.style.background = bg;
+      };
+    </script>
+  </body>
+</html>

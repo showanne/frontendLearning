@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #preview {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="preview"></div>
+  紅色
+  <input class="color" type="range" min="0" max="255" value="0">
+  <span class="text">0</span>
+  <input type="button" value="隨機" class="random">
+  <br>
+  綠色
+  <input class="color" type="range" min="0" max="255" value="0">
+  <span class="text">0</span>
+  <input type="button" value="隨機" class="random">
+  <br>
+  藍色
+  <input class="color" type="range" min="0" max="255" value="0">
+  <span class="text">0</span>
+  <input type="button" value="隨機" class="random">
+  <br>
+  <script>
+    const colors = document.getElementsByClassName('color')
+    const texts = document.getElementsByClassName('text')
+    const randoms = document.getElementsByClassName('random')
+    const preview = document.getElementById('preview')
+
+    for(const i in colors) {
+      colors[i].oninput = () => {
+        preview.style.background = `rgb(${colors[0].value}, ${colors[1].value}, ${colors[2].value})`
+        texts[i].innerText = colors[i].value
+      }
+    }
+
+    for(const i in randoms) {
+      randoms[i].onclick = () => {
+        colors[i].value = Math.round(Math.random()*255)
+        preview.style.background = `rgb(${colors[0].value}, ${colors[1].value}, ${colors[2].value})`
+        texts[i].innerText = colors[i].value
+      }
+    }
+  </script>
+</body>
+</html>
