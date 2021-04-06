@@ -1,0 +1,350 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 建立寬度一致水平置中的容器 */
+.container {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+/* header 固定選單 ------------------------------------------------------------------------------------*/
+#header {
+  width: 75%;
+  height: 60px;
+
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 9999;
+}
+
+#header .menu {
+  font-size: 0;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background: url('../images/nav-bg-full.jpg') repeat-x center center;
+
+  position: absolute;
+  top: 25px;
+  /* 1. 若 logo 結構在上面， menu 會蓋到 logo，設定 z-index 調整層級  */
+  z-index: -1;
+  /* 2. 也可以將 logo 與 menu 結構對調，logo 在下，menu 在上，後方會蓋掉前方 */
+}
+
+#header .menu li {
+  font-size: 1rem;
+  display: inline-block;
+  padding: 1rem 0;
+}
+
+#header .menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1.5rem;
+  transition: 0.5s;
+}
+
+#header .menu li a:hover {
+  background: rgba(255, 60, 0, 0.3);
+}
+
+/* 第三個 li 右側推移 15% 的空間 */
+#header .menu li:nth-child(3) {
+  margin-right: 15%;
+}
+
+/* logo */
+#header .logo {
+  width: 15%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 圖片要符合父元素 .logo 的尺寸設定 100% */
+#header .logo img {
+  width: 100%;
+}
+
+#header .menu::before {
+  content: '';
+  width: 12px;
+  height: 60px;
+  background: url('../images//nav-bg-left.png') no-repeat left top/cover;
+
+  position: absolute;
+  left: -10px;
+}
+
+#header .menu::after {
+  content: '';
+  width: 12px;
+  height: 60px;
+  background: url('../images//nav-bg-right.png') no-repeat right top/cover;
+
+  position: absolute;
+  right: -10px;
+}
+
+/* section01 回首頁 -----------------------------------------------------------------------------*/
+#section01 {
+  background: url('../images/section01-bg.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+#section01 .main-news {
+  width: 100%;
+  text-align: center;
+
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#section01 .main-news h1 {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: yellow;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 1);
+}
+
+/* section02 遊戲介紹 ----------------------------------------------------------------------------------*/
+#section02 {
+  background: url('../images/section02-bg.jpg') no-repeat center center/cover;
+}
+
+#section02 .container {
+  position: relative;
+}
+
+#section02 .row {
+  width: 100%;
+  font-size: 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#section02 .col {
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 5rem 1rem;
+  color: white;
+  display: inline-block;
+}
+
+#section02 .col h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#section02 .col p {
+  line-height: 1.5;
+  text-indent: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+#section02 .col iframe {
+  width: 100%;
+  height: 300px;
+  border: 5px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* section03 角色列表 -------------------------------------------------------------------------*/
+#section03 {
+  background: linear-gradient(45deg, #222 40%, #aaa 40%);
+}
+
+#section03 .col:nth-child(1) {
+  height: 65%;
+}
+
+#section03 .col:nth-child(2) {
+  height: 35%;
+}
+
+/* 人物大圖 */
+#section03 .role_info .role {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  padding: 5rem 1.5rem 0;
+  float: left;
+}
+
+#section03 .role_info .role img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 人物資料 */
+#section03 .role_info .info {
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  padding: 10rem 1rem 5rem;
+  float: right;
+}
+
+#section03 .role_info .info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#section03 .role_info .info p {
+  padding: 0.5rem 0;
+  line-height: 1.2;
+}
+
+#section03 .role_info input {
+  display: none;
+}
+
+/* 下方角色清單 */
+#section03 .role_list {
+  font-size: 0;
+  text-align: center;
+}
+
+#section03 .role_list label {
+  width: 7%;
+  display: inline-block;
+  margin: 0 0 5px 0;
+  /* 滑鼠變成手指 */
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#section03 .role_list img {
+  width: 100%;
+}
+
+#section03 .role_list label:hover {
+  filter: drop-shadow(0 0 5px rgb(255, 0, 0))
+    drop-shadow(0 0 10px rgba(255, 0, 0, 1));
+}
+
+/* ~ 同層全體選擇器 */
+#section03 .role_list label:nth-child(4) ~ label {
+  filter: brightness(0.4);
+  cursor: auto;
+}
+
+/* 隱藏上方所有人物資料 */
+#section03 .role_info > div {
+  display: none;
+}
+
+#section03 .role_info input:checked + div {
+  display: block;
+}
+
+/* footer ---------------------------------------------------------------------------------------------*/
+#footer {
+  background: black;
+  color: white;
+  padding: 2rem 0;
+}
+
+#footer .row {
+  overflow: hidden;
+}
+
+#footer .row .col {
+  width: 25%;
+  float: left;
+}
+
+#footer .card {
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+#footer h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#footer li {
+  line-height: 1.5;
+  padding-left: 1.5rem;
+}
+
+#footer .card h3 {
+  margin: 1rem 0;
+}
+
+#footer .card > i {
+  width: 30px;
+  font-size: 1.3rem;
+}
+
+#footer .copyright {
+  text-align: center;
+  padding: 2rem 0 0;
+}
+
+/* backtop 回到最上面 */
+.backtop {
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 0.8rem;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+}
+
+.backtop .square {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.backtop:hover .square {
+  transform: rotate(45deg) scale(1.2);
+  background: rgba(0, 0, 0, 1);
+}
+
+.backtop a {
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+}
+
+/** JS 練習用 **/
+.text-center {
+  text-align: center;
+}
+
+.text-red {
+  color: red
+}

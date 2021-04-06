@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const now = new Date()
+    document.write(now.toLocaleString('zh-tw'))
+    document.write('<br>')
+    const date1 = new Date('2021-03-30T14:01:52.267+08:00')
+    document.write(date1.toLocaleString('zh-tw'))
+    document.write('<br>')
+    document.write(`${date1.getFullYear()} 年 ${date1.getMonth() + 1} 月 ${date1.getDate()} 日`)
+  </script>
+</body>
+</html>

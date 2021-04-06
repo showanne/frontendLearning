@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // setTimeout(() => {
+    //   document.write('過五秒')
+    // }, 5000)
+
+    // const write = () => {
+    //   document.write('過五秒')
+    // }
+    // setTimeout(write, 5000)
+
+    const write = (text) => {
+      document.write(text)
+    }
+    // 如果呼叫的函式要傳東西進去，放在毫秒數後面
+    let timer = setTimeout(write, 5000, 'abc')
+    clearTimeout(timer)
+  </script>
+</body>
+</html>

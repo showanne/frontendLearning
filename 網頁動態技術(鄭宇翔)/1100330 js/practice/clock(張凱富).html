@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #clock {
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 5px solid #333;
+      position: relative;
+    }
+
+    .scale {
+      width: 5px;
+      height: 50%;
+      background: linear-gradient(red 10%, transparent 10%, transparent 100%) no-repeat center;
+      position: absolute;
+      left: calc(50% - 2.5px);
+      /* 因為 translate 會失效，所以用 calc 計算偏移量 */
+      /* transform: translateX(-50%); */
+      transform-origin: bottom center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="clock">
+  </div>
+  <script>
+    const clock = document.getElementById('clock')
+    for (let i = 0; i < 60; i++) {
+      clock.insertAdjacentHTML('afterbegin', `<div class="scale" style=" transform: rotate(${i * 6}deg)"></div>`)
+    }
+
+  </script>
+</body>
+
+</html>
