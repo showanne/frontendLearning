@@ -8,7 +8,7 @@
     <title>Youtube Copy</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./css/fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
     <link rel="stylesheet" href="./css/style.css">
 
@@ -22,13 +22,21 @@
             <i class="fas fa-bars"></i>
             <img src="./images/YouTube_Logo.png" alt="YouTube_Logo" title="YouTube_Logo" class="m-3">
         </div>
-        <div id="search" class="w-70 h-25 float-L p-5 m-3 border-box">
+        <!-- 上方中間搜尋 -->
+        <div id="search" class="w-70  float-L p-5 m-3 border-box">
+            <!--                      class     h-25 -->
             <form action="">
-                <input type="text" size="50" value="搜尋">
+                <input type="search" size="50" value="&nbsp;&nbsp;搜尋">
                 <button>
+                    <!-- 搜尋 -->
+                    <!-- <input type="button" value=""> 純按鈕-->
+                    <!-- <input type="submit" value=""> 送出-->
                     <i class="fas fa-search"></i>
                 </button>
-                <i class="fas fa-microphone"></i>
+                <button>
+                    <!-- 麥克風 -->
+                    <i class="fas fa-microphone"></i>
+                </button>
             </form>
         </div>
         <div id="sign" class="w-15 h-25 float-R p-5 border-box">

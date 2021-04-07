@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>國家公園介紹網</title>
+  <style>
+    #main {
+      width: 1024px;
+      height: 768px;
+      margin: auto;
+    }
+
+    #top {
+      background-color: #0000FF;
+      width: 1000px;
+      height: 65px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #menu {
+      background-color: #00FFFF;
+      float: left;
+      margin-left: 12px;
+      width: 200px;
+      height: 683px;
+    }
+
+    #right {
+      float: right;
+      margin-right: 12px;
+      width: 800px;
+      height: 683px;
+    }
+
+    marquee {
+      width: 100%;
+      height: 29px;
+      line-height: 29px;
+      /* background-color: wheat; */
+      vertical-align: middle;
+      /* 神奇小空白就會消失，原理類似圖片對齊的狀況 */
+    }
+
+    iframe {
+      width: 100%;
+      height: 654px;
+      /* background-color: yellow; */
+    }
+
+    #footer {
+      clear: both;
+      color: #000000;
+      text-align: center;
+      font-size: 16px;
+      font-family: '標楷體';
+      width: 1000px;
+      height: 20px;
+    }
+
+    table td {
+      width: 200px;
+      height: 40px;
+      text-align: center;
+    }
+
+    table img {
+      width: 120px;
+      height: 40px;
+    }
+
+    table img:hover {
+      filter: hue-rotate(250deg);
+    }
+
+    #menu p {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <div id="top">
+      <a href="./index.html">
+        <img src="./images/park.gif" alt="">
+      </a>
+    </div>
+    <div id="menu">
+      <table>
+        <tr>
+          <td>
+            <a href="./park/yangmingshan.html" target="content">
+              <img src="./images/park0302.jpg" alt="陽明山國家公園" title="陽明山國家公園">
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <a href="./park/sheipa.html" target="content">
+              <img src="./images/park0303.jpg" alt="雪霸國家公園" title="雪霸國家公園">
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./images/park0304.jpg" alt="太魯閣國家公園" title="太魯閣國家公園">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./images/park0305.jpg" alt="玉山國家公園" title="玉山國家公園">
+          </td>
+        </tr>
+      </table>
+      <p>
+        <a href="./others/park.mp3" download>檔案下載</a>
+      </p>
+    </div>
+    <div id="right">
+      <marquee>歡迎進入國家公園介紹網，本網站有詳細的國家公園介紹哦！</marquee>
+      <iframe src="./others/main.html" frameborder="0" name="content"></iframe>
+    </div>
+    <div id="footer">網頁設計及維護：XX○○○、近更新日期： yyyy/mm/dd</div>
+  </div>
+
+</body>
+
+</html>

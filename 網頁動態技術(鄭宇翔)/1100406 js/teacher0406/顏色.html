@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     }
   </style>
 </head>
+
 <body>
   <div id="preview"></div>
   紅色
@@ -37,20 +39,21 @@
     const randoms = document.getElementsByClassName('random')
     const preview = document.getElementById('preview')
 
-    for(const i in colors) {
+    for (const i in colors) {
       colors[i].oninput = () => {
         preview.style.background = `rgb(${colors[0].value}, ${colors[1].value}, ${colors[2].value})`
         texts[i].innerText = colors[i].value
       }
     }
 
-    for(const i in randoms) {
+    for (const i in randoms) {
       randoms[i].onclick = () => {
-        colors[i].value = Math.round(Math.random()*255)
+        colors[i].value = Math.round(Math.random() * 255)
         preview.style.background = `rgb(${colors[0].value}, ${colors[1].value}, ${colors[2].value})`
         texts[i].innerText = colors[i].value
       }
     }
   </script>
 </body>
+
 </html>

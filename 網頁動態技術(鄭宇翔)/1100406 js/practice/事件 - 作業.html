@@ -31,6 +31,14 @@
     input {
       box-sizing: border-box;
       margin: 6px;
+
+      vertical-align: middle;
+      /* 解決對不齊的問題 */
+    }
+
+    .number {
+      width: 3.9rem;
+      /* <input type="number">不支持像size之類的調整大小屬性。必須通過 CSS 來更改。 */
     }
   </style>
 </head>
@@ -64,20 +72,45 @@
     const randoms = document.getElementsByClassName('random')
 
 
-    console.log(bars[0]);
-    console.log(bars[0].value);
-    console.log(numbers[0].value);
+    // console.log(bars[0]);
+    // console.log(bars[0].value);
+    // console.log(numbers[0].value);
 
     for (const x in bars) {
       // console.log(bars[x].value);
-      bars[x].oninput = () => {
-        color.style.backgroundColor = `${bars[0].value}, ${bars[1].value}, ${bars[2].value}`
+      // console.log(bars.length);
 
-        numbers[x].setAttribute("value", "bars[X].value");
+      bars[x].oninput = () => {
+        color.style.backgroundColor = `rgb(${bars[0].value}, ${bars[1].value}, ${bars[2].value})`
+        // console.log(bars[x].value);
+
+        numbers[x].setAttribute("value", `${bars[x].value}`);
+        numbers[x].value = bars[x].value
+      }
+      // console.log(numbers[x].value);
+    }
+    for (const x in numbers) {
+      numbers[x].oninput = () => {
+        color.style.backgroundColor = `rgb(${numbers[0].value}, ${numbers[1].value}, ${numbers[2].value})`
+        bars[x].setAttribute("value", `${numbers[x].value}`);
+        bars[x].value = numbers[x].value
       }
     }
 
+    // 若分別單獨移動 bars 或 numbers，都可以成功改變顏色，
+    // 但若是同時調整，則顏色還是會改變，但 bars 和 numbers 的數值則不會再變化
 
+
+    for (const x in randoms) {
+      // console.log(randoms[x].value);
+
+      randoms[x].onclick = () => {
+        bars[x].value = Math.floor(Math.random() * 255)
+        color.style.backgroundColor = `rgb(${bars[0].value}, ${bars[1].value}, ${bars[2].value})`
+
+        numbers[x].setAttribute("value", `${bars[x].value}`);
+      }
+    }
 
   </script>
 </body>

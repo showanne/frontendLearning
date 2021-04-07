@@ -66,8 +66,39 @@
 #top {
   background-color: crimson;
 }
+/* 上方中間搜尋 */
 #search {
   background-color: yellowgreen;
+  vertical-align: middle;
+}
+/* #search form {
+  vertical-align: middle;
+} */
+
+#search input {
+  border-radius: 2px 0 0 2px;
+  border-color: gainsboro;
+  border-width: 0.7px;
+  padding: 2px 0;
+  margin-right: 0;
+}
+/* html消除button之間的間距 */
+#search button:nth-child(1) {
+  border-radius: 0 25px 25px 0;
+}
+#search button:nth-child(2) {
+  border-radius: 0 2px 2px 0;
+  border-color: gray;
+  border-width: 0.7px;
+  background-color: gainsboro;
+  /* border: unset; */
+  padding: 2px 17px;
+  margin-left: 0;
+}
+#search button:nth-child(3) {
+  border: unset;
+  background-color: transparent;
+  padding: 2px 7px;
 }
 
 #logo,
