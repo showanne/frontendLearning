@@ -56,28 +56,40 @@
       width: 3.9rem;
       /* <input type="number">不支持像size之類的調整大小屬性。必須通過 CSS 來更改。 */
     }
+
+    /* 選取 */
+
+    /* 先隱藏資料 */
+    /* #color-box>div {
+      display: none;
+    } */
+
+    /* 被checked到的，隔壁的div顯示 */
+    #color-box input:checked+div {
+      display: inline-block;
+    }
   </style>
 </head>
 
 <body>
+  <div class="label">
+    <label for="color"><input type="radio" name="label" id="" checked> 一般顏色選擇器</label>
+    <label for="color-linear"><input type="radio" name="label" id=""> 線性漸層顏色選擇器</label>
+    <label for="color-radial"><input type="radio" name="label" id=""> 放射漸層顏色選擇器</label>
+  </div>
   <div id="color-box">
     <!-- 一般顏色選擇器 -->
+    <input type="radio" name="box" id="box1" checked>
     <div id="color" style="background-color: rgb(134, 70, 219);"></div>
 
     <!-- 線性漸層顏色選擇器 -->
-    <div id="color-linear" style="background-image: linear-gradient(125deg, rgb(253, 252, 71), rgb(36, 254, 65));">
+    <input type="radio" name="box" id="box2">
+    <div id="color-linear" style="background-image: linear-gradient(129deg, rgb(253, 252, 71), rgb(36, 254, 65) 59%);">
     </div>
 
     <!-- 放射漸層顏色選擇器 -->
-    <div id="color-radial" style="background-image: radial-gradient(rgb(252, 176, 69), rgb(253, 29, 29));"></div>
-  </div>
-
-  <!-- 隨機角度 -->
-  <div>
-    角度：
-    <input type="range" min="0" max="360" step="1" value="19" onchange="" class="bar-deg">
-    <input type="number" min="0" max="360" step="1" value="19" class="number-deg">
-    <input type="button" value="隨機" class="random-deg">
+    <input type="radio" name="box" id="box3">
+    <div id="color-radial" style="background-image: radial-gradient(rgb(252, 176, 69), rgb(253, 29, 29) 59%);"></div>
   </div>
 
   <!-- 第一組 RGB -->
@@ -119,9 +131,24 @@
     <input type="number" min="0" max="255" step="1" value="219" class="number">
     <input type="button" value="隨機" class="random">
 
+    <!-- 隨機角度 -->
+    <div>
+      角度：
+      <input type="range" min="0" max="360" step="1" value="129" onchange="" class="bar">
+      <input type="number" min="0" max="360" step="1" value="129" class="number">
+      <!-- <input type="button" value="隨機" class="random-deg"> -->
+    </div>
+
+    <!-- 百分比 -->
+    <div>
+      百分比：
+      <input type="range" min="0" max="100" step="1" value="59" onchange="" class="bar">
+      <input type="number" min="0" max="100" step="1" value="59" class="number">
+      <!-- <input type="button" value="隨機" class="random-deg"> -->
+    </div>
 
     <script>
-      // 作業 - 製作有隨機功能的顏色選擇器
+      // 挑戰 - 延伸作業內容，製作兩色漸層顏色選擇器
       const color = document.getElementById('color')
       const colorLinear = document.getElementById('color-linear')
       const colorRadial = document.getElementById('color-radial')
@@ -130,9 +157,9 @@
       const numbers = document.getElementsByClassName('number')
       const randoms = document.getElementsByClassName('random')
 
-      const barDeg = document.getElementsByClassName('bar-deg')
-      const numberDeg = document.getElementsByClassName('number-deg')
-      const randomDeg = document.getElementsByClassName('random-deg')
+      // const barDeg = document.getElementsByClassName('bar-deg')
+      // const numberDeg = document.getElementsByClassName('number-deg')
+      // const randomDeg = document.getElementsByClassName('random-deg')
 
       // console.log(bars[0]);
       // console.log(bars[0].value);
@@ -151,14 +178,14 @@
             `rgb(${bars[0].value}, ${bars[1].value}, ${bars[2].value})`
 
           colorLinear.style.backgroundImage =
-            `linear-gradient(125deg, 
+            `linear-gradient(${bars[6].value}deg, 
            rgb(${bars[0].value}, ${bars[1].value}, ${bars[2].value}), 
-           rgb(${bars[3].value}, ${bars[4].value}, ${bars[5].value}))`
+           rgb(${bars[3].value}, ${bars[4].value}, ${bars[5].value}) ${bars[7].value}%)`
 
           colorRadial.style.backgroundImage =
             `radial-gradient(
            rgb(${bars[0].value}, ${bars[1].value}, ${bars[2].value}), 
-           rgb(${bars[3].value}, ${bars[4].value}, ${bars[5].value}))`
+           rgb(${bars[3].value}, ${bars[4].value}, ${bars[5].value}) ${bars[7].value}%)`
 
           // numbers[x].setAttribute("value", `${bars[x].value}`);
           numbers[x].value = bars[x].value
@@ -173,15 +200,14 @@
             `rgb(${numbers[0].value}, ${numbers[1].value}, ${numbers[2].value})`
 
           colorLinear.style.backgroundImage =
-            `linear-gradient(125deg, 
+            `linear-gradient(${numbers[6].value}deg, 
            rgb(${numbers[0].value}, ${numbers[1].value}, ${numbers[2].value}), 
-           rgb(${numbers[3].value}, ${numbers[4].value}, ${numbers[5].value}))`
+           rgb(${numbers[3].value}, ${numbers[4].value}, ${numbers[5].value}) ${numbers[7].value}%)`
 
           colorRadial.style.backgroundImage =
             `radial-gradient(
            rgb(${numbers[0].value}, ${numbers[1].value}, ${numbers[2].value}), 
-           rgb(${numbers[3].value}, ${numbers[4].value}, ${numbers[5].value}))`
-
+           rgb(${numbers[3].value}, ${numbers[4].value}, ${numbers[5].value}) ${numbers[7].value}%)`
           // bars[x].setAttribute("value", `${numbers[x].value}`);
           bars[x].value = numbers[x].value
         }
@@ -211,20 +237,21 @@
         }
       }
 
+      // 老師的範例沒有做角度及百分比的隨機，可以問問看
       // 角度隨機按鈕
-      for (const y in randomDeg) {
-        console.log(randomDeg[y].value);
+      // for (const y in randomDeg) {
+      //   console.log(randomDeg[y].value);
 
-        randomDeg[y].onclick = () => {
-          barDeg[y].value = Math.floor(Math.random() * 360)
+      //   randomDeg[y].onclick = () => {
+      //     barDeg[y].value = Math.floor(Math.random() * 360)
 
-          colorLinear.style.backgroundImage =
-            `linear-gradient(${barDeg[0].value}deg, 
-             rgb(253, 252, 71), rgb(36, 254, 65))`
+      //     colorLinear.style.backgroundImage =
+      //       `linear-gradient(${barDeg[0].value}deg, 
+      //        rgb(253, 252, 71), rgb(36, 254, 65))`
 
-          numberDeg[y].setAttribute("value", `${barDeg[y].value}`);
-        }
-      }
+      //     numberDeg[y].setAttribute("value", `${barDeg[y].value}`);
+      //   }
+      // }
 
     </script>
 </body>
