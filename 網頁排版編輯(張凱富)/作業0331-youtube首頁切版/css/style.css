@@ -1,6 +1,5 @@
 * {
-  padding: 0;
-  margin: 0;
+  font-family: '微軟正黑體', 'Montserrat';
 }
 
 /* .w-100 {
@@ -123,10 +122,10 @@
 
 /*  左側釘住的導覽列 */
 #dashboard {
-  background-color: springgreen;
+  background-color: rgb(181, 233, 253);
 }
 
 /* 中間影片資訊區 */
 #content {
-  background-color: sandybrown;
+  background-color: rgb(250, 204, 163);
 }

@@ -1,0 +1,98 @@
+body {
+  /* box-sizing: border-box; */
+  font-family: '微軟正黑體', 'Montserrat';
+}
+a {
+  text-decoration: unset;
+  color: gray;
+}
+.float-L {
+  float: left;
+}
+.float-R {
+  float: right;
+}
+.float-C {
+  clear: both;
+}
+.font0 {
+  font-size: 0;
+  /* 處理幽靈空白(inline) 將父層字體大小設為 font-size: 0; */
+}
+.dash {
+  border-bottom: 4px lightgrey solid;
+}
+
+#navbar {
+  width: 15%;
+}
+#navbar a {
+  display: block;
+  padding: 10px 5px;
+  box-sizing: border-box;
+}
+#navbar .dash {
+  border-bottom: 1px lightgrey solid;
+}
+
+#content {
+  width: 85%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* 音樂卡片 */
+.card {
+  width: 25%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1rem;
+  /* 處理幽靈空白(inline) 將子層字體大小設回 font-size: 1rem; */
+}
+.card .card_img {
+  position: relative;
+}
+
+.card .card_img img {
+  width: 100%;
+}
+
+.card .card_img span {
+  background-color: black;
+  color: aliceblue;
+  box-sizing: border-box;
+  padding: 1px;
+  margin: 0 5px 5px 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.card .card_info {
+  display: inline-block;
+  margin: 7px 0 0 0;
+}
+.card .card_info img {
+  width: 10%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 3px;
+}
+.card .card_info div {
+  /* display: inline; */
+  width: 90%;
+  box-sizing: border-box;
+  padding: 3px 10px 3px 7px;
+}
+.card .card_info div p {
+  line-height: 19px;
+  margin: 5px 0;
+}
+.card .card_info div p i {
+  font-size: small;
+  color: darkgrey;
+  margin: 0 0 0 2px;
+}
+.card .card_info div a:nth-child(1) {
+  color: black;
+}
