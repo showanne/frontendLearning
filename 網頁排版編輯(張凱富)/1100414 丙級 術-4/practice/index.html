@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>網路行銷購物網</title>
+</head>
+<style>
+  #main {
+    width: 1024px;
+    height: 768px;
+    margin: auto;
+  }
+
+  #top {
+    width: 1024px;
+    height: 120px;
+  }
+
+  #top a {
+    background-image: url(./images/0401.jpg);
+    display: block;
+    line-height: 120px;
+    text-align: center;
+    font-size: 52px;
+    font-family: '標楷體';
+    color: #FFFFFF;
+    text-decoration: none;
+    text-shadow: 10px 10px 15px #333333;
+  }
+
+  marquee {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 19px;
+    font-family: '標楷體';
+    color: #0000FF;
+    vertical-align: middle;
+    background-image: url(./images/0402.jpg);
+  }
+
+  iframe {
+    width: 1024px;
+    height: 540px;
+    vertical-align: middle;
+
+    background-image: url(./images/0402.jpg);
+  }
+
+  #footer {
+    width: 1024px;
+    height: 78px;
+    background-color: #666600;
+    color: #FFFFFF;
+    font-family: '標楷體';
+    line-height: 2;
+  }
+
+  #footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  #footer a:visited {
+    color: #FF9999;
+  }
+</style>
+
+<body>
+
+  <embed src="./music/0401.mp3" type="" hidden="true" autostart="true" loop="true"></embed>
+
+  <div id="main">
+    <div id="top">
+      <a href="./index.html">流行精品購物網站</a>
+    </div>
+    <marquee behavior="" direction="">大家來購物網！精品商品特價大拍賣！要買要快！</marquee>
+    <iframe src="./main.html" name="content" frameborder="0"></iframe>
+    <div id="footer">
+      <a href="./results/message.html" target="content">訪客留言版</a>
+      <br>
+      網頁設計及維護：XX○○○、最近更新日期：yyyy/mm/dd
+    </div>
+  </div>
+</body>
+
+</html>
