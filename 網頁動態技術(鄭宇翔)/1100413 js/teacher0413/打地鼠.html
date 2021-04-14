@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .holes {
+      width: 75px;
+      height: 75px;
+      border: 1px solid black;
+      background: white;
+    }
+    .red {
+      background: red;
+    }
+    .blue {
+      background: blue;
+    }
+    #game {
+      cursor: url(./cursor_black.png) 50 50, auto;
+    }
+  </style>
+</head>
+<body>
+  <table id="game">
+    <tr>
+      <td class="holes" id="hole7"></td>
+      <td class="holes" id="hole8"></td>
+      <td class="holes" id="hole9"></td>
+    </tr>
+    <tr>
+      <td class="holes" id="hole4"></td>
+      <td class="holes" id="hole5"></td>
+      <td class="holes" id="hole6"></td>
+    </tr>
+    <tr>
+      <td class="holes" id="hole1"></td>
+      <td class="holes" id="hole2"></td>
+      <td class="holes" id="hole3"></td>
+    </tr>
+  </table>
+  <input type="button" value="開始遊戲" id="btn-start">
+  <br>
+  還剩 <span id="text-countdown">10</span> 秒
+  <br>
+  目前分數: <span id="text-score">0</span>
+  <hr>
+  最高紀錄:
+  <br>
+  玩家: <span id="highscore-player">-</span>
+  <br>
+  分數: <span id="highscore-score">-</span>
+  <script>
+    const btnStart = document.getElementById('btn-start')
+    const holes = document.getElementsByClassName('holes')
+    const textScore = document.getElementById('text-score')
+    const textHighscorePlayer = document.getElementById('highscore-player')
+    const textHighscore = document.getElementById('highscore-score')
+    const textCountdown = document.getElementById('text-countdown')
+
+    const audio = new Audio()
+    audio.src = './rihai.mp3'
+
+    let score = 0
+    let timer = 0
+    let countdown = 10
+    let highscore = { name:'', score: 0 }
+    const highStorage = JSON.parse(localStorage.getItem('wam'))
+    if (highStorage !== null) {
+      highscore = highStorage
+      textHighscorePlayer.innerText = highscore.name
+      textHighscore.innerText = highscore.score
+    }
+
+    btnStart.onclick = () => {
+      btnStart.disabled = true
+      score = 0
+      textScore.innerText = score
+
+      countdown = 10
+      textCountdown.innerText = countdown
+
+      timer = setInterval(game, 1000)
+      game()
+    }
+
+    const game = () => {
+      for (const hole of holes) {
+        hole.classList.remove('red')
+        hole.classList.remove('blue')
+      }
+      for(let i=0;i<3;i++) {
+        const random = Math.floor(Math.random()*9)
+        holes[random].classList.add('red')
+      }
+      countdown--
+      textCountdown.innerText = countdown
+      if (countdown <= 0) {
+        clearInterval(timer)
+        alert(`你得到 ${score} 分`)
+        btnStart.disabled = false
+        for (const hole of holes) {
+          hole.classList.remove('red')
+          hole.classList.remove('blue')
+        }
+
+        if (score > highscore.score) {
+          audio.play()
+          highscore.score = score
+          highscore.name = prompt('最高分! 請輸入名字')
+          if (highscore.name === null || highscore.name.length === 0) {
+            highscore.name = '路人'
+          }
+          textHighscorePlayer.innerText = highscore.name
+          textHighscore.innerText = highscore.score
+          localStorage.setItem('wam', JSON.stringify(highscore))
+        }
+      }
+    }
+
+    for (const hole of holes) {
+      hole.onclick = () => {
+        if (hole.classList.contains('red')) {
+          hole.classList.replace('red', 'blue')
+
+          score++
+          textScore.innerText = score
+        }
+      }
+    }
+
+    document.onkeydown = (event) => {
+      if (!isNaN(event.key) && event.code.includes('Numpad')) {
+        const target = document.getElementById(`hole${event.key}`)
+        if (target !== null && target.classList.contains('red')) {
+          target.classList.replace('red', 'blue')
+          score++
+          textScore.innerText = score
+        }
+      }
+    }
+  </script>
+</body>
+</html>

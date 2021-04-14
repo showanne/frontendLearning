@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamster</title>
+
+  <style>
+    .hole {
+      width: 119px;
+      height: 119px;
+      border: 1px lavender solid;
+      border-radius: 3px;
+
+    }
+
+    .colorA {
+      background-color: lightpink;
+    }
+
+    .colorB {
+      background-color: lightgoldenrodyellow;
+    }
+
+    #game {
+      /*                                            更改滑鼠中央位置 */
+      cursor: url(./cursor_black.png) 50 50, auto;
+      /*  若要更改滑鼠圖案，圖片大小限150*150px內  */
+    }
+  </style>
+</head>
+
+<body>
+  <table id="game">
+    <tr>
+      <td class="hole" id="hole7"></td>
+      <td class="hole" id="hole8"></td>
+      <td class="hole" id="hole9"></td>
+    </tr>
+    <tr>
+      <td class="hole" id="hole4"></td>
+      <td class="hole" id="hole5"></td>
+      <td class="hole" id="hole6"></td>
+    </tr>
+    <tr>
+      <td class="hole" id="hole1"></td>
+      <td class="hole" id="hole2"></td>
+      <td class="hole" id="hole3"></td>
+    </tr>
+  </table>
+  <input type="button" value="開始遊戲" id="btn-start">
+  <br>
+  還剩：<span id="text-countdown">10</span>秒
+  <br>
+  目前分數：<span id="text-score">0</span>
+  <br>
+  <br>
+  最高紀錄：
+  <br>
+  玩家：<span id="highscore-player"> - </span>
+  <br>
+  分數：<span id="highscore-score"> - </span>
+  <br>
+
+
+  <script>
+    const btnStart = document.getElementById('btn-start')
+    const holes = document.getElementsByClassName('hole')
+    const textCountdown = document.getElementById('text-countdown')
+    const textScore = document.getElementById('text-score')
+    const highscorePlayer = document.getElementById('highscore-player')
+    const highscoreScore = document.getElementById('highscore-score')
+
+    const audio = new Audio()
+    audio.src = './yay.mp3'
+
+    let score = 0
+    let timer = 0
+    let countdown = 10
+    let highscore = { name: '', score: 0 }
+    const highStorage = JSON.parse(localStorage.getItem('wam'))
+
+    if (highStorage !== null) {
+      highscore = highStorage
+      highscorePlayer.innerText = highscore.name
+      highscoreScore.innerText = highscore.score
+    }
+
+    btnStart.onclick = () => {
+      btnStart.disabled = true //遊戲開始後不能點擊
+      score = 0
+      textScore.innerText = score
+
+      countdown = 10
+      textCountdown.innerText = countdown
+
+      timer = setInterval(game, 1000)
+      game()
+    }
+
+    const game = () => {
+      for (const hole of holes) {
+        hole.classList.remove('colorA')
+        hole.classList.remove('colorB')
+      }
+      for (let i = 0; i < 3; i++) {
+        const random = Math.floor(Math.random() * 9)
+        holes[random].classList.add('colorA')
+      }
+      countdown--
+      textCountdown.innerText = countdown
+      if (countdown <= 0) {
+        clearInterval(timer)
+        alert(`你得到 ${score} 分`)
+        btnStart.disabled = false //重設開始按鈕
+
+        for (const hole of holes) {
+          hole.classList.remove('colorA')
+          hole.classList.remove('colorB')
+        }
+
+        if (score > highscore.score) {
+          audio.play()
+          highscore.score = score
+          highscore.name = prompt('最高分！請輸入名字')
+
+          if (highscore.name === null || highscore.name.length === 0) {
+            highscore.name = '路人'
+          }
+          highscorePlayer.innerText = highscore.name
+          highscoreScore.innerText = highscore.score
+          localStorage.setItem('wam', JSON.stringify(highscore))
+        }
+      }
+    }
+
+    for (const hole of holes) {
+      hole.onclick = () => {
+        if (hole.classList.contains('colorA')) {
+          hole.classList.replace('colorA', 'colorB')
+
+          score++
+          textScore.innerText = score
+        }
+      }
+    }
+
+    // https://keycode.info/   按鍵事件
+    document.onkeydown = (event) => {
+      // event.code  Numpad 是鍵盤右側的數字區  Digit 是鍵盤上方的數字區
+      if (!isNaN(event.key) && event.code.includes('Numpad')) {
+        const target = document.getElementById(`hole${event.key}`)
+        if (target !== null && target.classList.contains('colorA')) {
+          target.classList.replace('colorA', 'colorB')
+          score++
+          textScore.innerText = score
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

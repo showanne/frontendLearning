@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keyboard</title>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+</head>
+<style>
+  body {
+    padding: 5rem;
+
+  }
+
+  table {
+    margin: auto;
+    font-family: 'Pangolin', cursive;
+    font-size: 2.7rem;
+  }
+
+  table td {
+    width: 90px;
+    height: 90px;
+    text-align: center;
+  }
+
+  table td:hover {
+    background-color: rgba(255, 250, 205, 0.555);
+  }
+
+  .colorA {
+    background-color: slateblue;
+    color: lemonchiffon;
+  }
+
+  .colorB {
+    background-color: darkorange;
+    color: lightgreen;
+  }
+
+  button {
+    background: rgba(218, 195, 255, 0.50);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+</style>
+
+<body>
+  <button id="start">開始</button>
+  <button id="stop">暫停</button>
+  <button id="end">結束</button>
+  <br>
+  <p>Key(目前點擊)：<span id="key-score"> - </span></p>
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>0</td>
+      <td></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Q</td>
+      <td>W</td>
+      <td>E</td>
+      <td>R</td>
+      <td>T</td>
+      <td>Y</td>
+      <td>U</td>
+      <td>I</td>
+      <td>O</td>
+      <td>P</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>A</td>
+      <td>S</td>
+      <td>D</td>
+      <td>F</td>
+      <td>G</td>
+      <td>H</td>
+      <td>J</td>
+      <td>K</td>
+      <td>L</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Z</td>
+      <td>X</td>
+      <td>C</td>
+      <td>V</td>
+      <td>B</td>
+      <td>N</td>
+      <td>M</td>
+    </tr>
+  </table>
+
+  <script>
+    const btnStart = document.getElementById('start')
+    const btnStop = document.getElementById('stop')
+    const btnEnd = document.getElementById('end')
+    const tds = document.getElementsByTagName('td')
+    // console.log(tds);
+
+    const keyScore = document.getElementById('key-score')
+
+    let key = 0 //按到的鍵數
+
+    btnStart.onclick = () => {
+      key = 0
+      keyScore.innerText = key
+
+      timer = setInterval(typing, 1000)
+      typing()
+    }
+
+    btnEnd.onclick = () => {
+      clearInterval(timer)
+    }
+
+    const typing = () => {
+      for (const td of tds) {
+        td.classList.remove('colorA')
+        td.classList.remove('colorB')
+      }
+      for (let i = 0; i < 4; i++) {
+        const random = Math.floor(Math.random() * 37)
+        tds[random].classList.add('colorA')
+      }
+      key++
+    }
+
+    document.onkeydown = (event) => {
+      if (event.code.includes('Key') || event.code.includes('Digit')) {
+        const type = document.getElementsByTagName(`td${even.key}`)
+        //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫?
+        if (type !== null && type.classList.contains('colorA')) {
+          type.classList.replace('colorA', 'colorB')
+          key++
+          keyScore.innerText = key
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>
