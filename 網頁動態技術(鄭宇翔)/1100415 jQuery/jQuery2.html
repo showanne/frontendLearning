@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <input type="button" value="點我" id="btn1">
+  <br><br>
+  <input type="button" value="產生新按鈕" id="btn2">
+  <div id="btns"></div>
+
+
+
+
+
+  <script src="./jquery-3.6.0.min.js"></script>
+  <script>
+    // $(document).ready(function () { })  簡寫 $(function () { })
+    // 載入完 html 後，再跑 JQ 程式碼，意思是可以將 script 位置往前移到 head 或 html 的前面
+
+    $(document).ready(function () {
+
+      // jquery 不要使用箭頭函式，盡量使用原本的 function
+      $('#btn1').click(function (event) {
+        $(this).val(new Date().toLocaleString())
+        console.log(event);
+      })
+
+      $('#btn2').click(function () {
+        $('#btns').append('<input type="button" value="點我" class="btn-new">')
+      })
+
+      // log 會沒有東西，因為 .btn-new 是後面才新增的
+      $('.btn-new').click(function () {
+        console.log('a');
+      })
+
+      // 解決方式 .on('事件', '重複確認指定哪一個' ,function () { })
+      // 但 $('#btns') 不能直接放入 on('', '這裡',function) ，要多寫一個 class，或是不寫也可以
+      // 當點 #btns 時，且點到的是 .btn-new 就做 function 的內容
+      $('#btns').on('click', '.btn-new', function () {
+        console.log('D');
+      })
+
+    })
+
+
+
+  </script>
+</body>
+
+</html>

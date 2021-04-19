@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 1.9rem;
+    }
+
+    button {
+      border: none;
+      background-color: paleturquoise;
+      vertical-align: middle;
+      padding: 0.3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="" id="text" value="輸入待辦事項">
+  <input type="submit" value="新增" id="btn">
+
+  <p>
+  <h1>待辦事項清單</h1>
+  <ul>
+    <li></li>
+
+  </ul>
+
+  </p>
+
+  <script src="./jquery-3.6.0.min.js"></script>
+
+  <script>
+    // 練習 -  製作待辦清單
+    // 一個文字輸入欄位，一個新增按鈕和一個清單
+    // 在欄位輸入文字後，點按鈕會將輸入欄位的字新增到清單
+    // 每一項都有刪除按鈕，點擊時可以刪除那個按鈕的項目
+
+    $('#btn').click(function () {
+      console.log($('#text').val());
+      // const Text = $('#text').val()
+      // console.log(Text);
+
+      $('ul').append('<li>' + $('#text').val() + ' ' + '<button  class="btnX">' + 'X' + '</button></li>')
+
+      // 新增後把欄位清空
+      $('#text').val('')
+    })
+
+    $('ul').on('click', '.btnX', function () {
+      // console.log($('button'));
+
+      $(this).parent().remove()
+      // console.log(0);
+      alert('確定要刪除嗎?')
+    })
+
+
+  </script>
+</body>
+
+</html>

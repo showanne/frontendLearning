@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <button id="btn1">A</button>
+  <button id="btn2">B</button>
+  <button id="btn3">C</button>
+  <button id="btn4">D</button>
+  <div>
+    <p id="p1">A Lorem ipsum dtur adipisicing euta molestias cumqut vel?</p>
+    <p id="p2">B Loreat vel?</p>
+    <p id="p3">C Lorem ipsectetur adipisicing elit. Soluta molestias cuvel?</p>
+    <p id="p4">D Loreum dolor sit amoribex officia nectatibus aliqaerat vel?</p>
+  </div>
+
+  <script src="./jquery-3.6.0.min.js"></script>
+
+  <script>
+    // 練習 -  製作丙級第二題健康天地標籤面板，點按鈕時切換顯示內容
+
+    // 可能會用到函式:
+    // .show() 顯示div
+    // .hide() 隱藏div
+    // .text() 更換標籤內容文字
+    // .index() 可以取得元素是同一層的第幾個
+
+    // 兩種做法:
+    // 點按鈕換文字
+    // 四個div，點按鈕換顯示的div
+
+    // 按按鈕做動作
+    $('button').click(function () {
+      // 先將所有文字都隱藏
+      $('p').hide()
+      // 按到第幾個按鈕，就第幾個文字顯示
+      // $(this).index() 索引第幾個
+      $('p').eq($(this).index()).show()
+    })
+
+    // 先將所有文字都隱藏
+    $('p').hide()
+
+    // 預設第1個文字是顯示狀態
+    $('p').eq(0).show()
+
+    // 或是老師是用 第一個按鈕是點擊的
+    // $('button').eq(0).click()
+
+  </script>
+</body>
+
+</html>

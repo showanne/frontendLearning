@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .color {
+      background-color: lawngreen;
+    }
+
+    .big {
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>文字A</h1>
+  <h1>文字B</h1>
+  <h1>文字C</h1>
+
+  <h1>
+    <a href="https://fb.com">Facebook</a>
+  </h1>
+
+  <h1></h1>
+
+  <img id="myimg" src="https://picsum.photos/190/190/?random=1">
+
+  <input type="text" name="" id="text">
+
+  <p id="myp">1594872630</p>
+
+
+  <ul id="ul1">
+    <li>1</li>
+    <li>1</li>
+    <li>
+      <a href="https://fb.com">Facebook</a>
+    </li>
+    <li>1</li>
+    <li>1</li>
+  </ul>
+
+  <ul id="ul2">
+    <li>1</li>
+    <li>1</li>
+    <li>
+      <a href="https://fb.com" id="ul2link">Facebook</a>
+    </li>
+    <li>1</li>
+    <li>1</li>
+  </ul>
+
+  <p id="p1">p1</p>
+  <p id="p2">p2</p>
+  <script src="./jquery-3.6.0.min.js"></script>
+  <script>
+    // $(CSS 選擇器)
+    // .text() 文字， ()內沒東西是取值，有東西是改值
+    const h1text = $('h1').text()
+    console.log(h1text); //文字A文字B文字C
+
+    // .eq() 取第幾個，跟陣列一樣 0 是第一個
+    const h1text2 = $('h1').eq(1).text()
+    console.log(h1text2);
+
+    // .text() 文字改值
+    $('h1').eq(1).text('ASD')
+
+    // .html() Html， ()內沒東西是取值，有東西是改值
+    const h1html = $('h1').eq(3).html()
+    console.log(h1html);
+
+    // .html() Html改值
+    $('h1').eq(4).html(`<a href="https://google.com">Google</a>`)
+
+    // .attr(屬性, 值) 沒給值是取值，有給值是改值
+    console.log($('#myimg').attr('src'));
+    $('#myimg').attr('title', 'ABCD')
+
+    // .val() 輸入欄位的值   沒東西是取值，有東西是改值
+    $('#text').val('aaa')
+    console.log($('#text').val('aaa'));
+
+    // .css(樣式, 值) CSS 沒給值是取值，有給值是改值
+    // 一次改多個樣式可以 {樣式:'值', 樣式:'值'}
+    $('h1').css('border', '5px dashed brown')
+    $('h1').css({ color: 'blue', backgroundColor: 'grey' })
+    console.log($('h1').css('border'));
+
+    // .addClass() 新增class ，多個以空白分隔
+    $('#myp').addClass('color big')
+
+    // .removeClass() 刪除class ，多個以空白分隔
+    $('#myp').removeClass('big')
+
+    // .find() 選擇器  在$()裡面尋找符合的東西
+    $('#ul1').find('a').text('FB')
+
+    const midli = $('#ul1').find('li').eq(2)
+    //     相同寫法 $('#ul1 li').eq(2)
+
+    // .prev() 同一層的上一個，( )裡面可以放選擇器篩選
+    midli.prev().css('color', 'yellowgreen')
+    // .prevAll() 同一層的上面所有，( )裡面可以放選擇器篩選
+    midli.prevAll().css('backgroundColor', 'lightgrey')
+    // .next() 同一層的下一個，( )裡面可以放選擇器篩選
+    midli.next().css('color', 'blue')
+    // .nextAll() 同一層的下面所有，( )裡面可以放選擇器篩選
+    midli.nextAll().css('backgroundColor', 'lightblue')
+    // .siblings() 同一層的除了自己以外的其他，( )裡面可以放選擇器篩選
+    midli.siblings().css('border', '3px dashed yellowgreen')
+
+    const ul2link = $('#ul2link')
+    // .parent() 上一層
+    ul2link.parent().css('color', 'orange')
+    // .parents() 上面所有的，不包含目前的， ()裡面可以放選擇器篩選
+    ul2link.parents().css('backgroundColor', 'lightblue')
+    // .closest() 最近的，包含目前的， ()裡面一定放選擇器篩選
+    ul2link.closest('li').css('border', '10px solid purple')
+
+    // .append() 同 beforeend 在指定的東西裡面的結尾放東西
+    $('#ul2').append('<li>後面</li>')
+    // .prepend()  同 afterbegin 在指定的東西裡面的開頭放東西
+    $('#ul2').prepend('<li>前面</li>')
+    // 在指定的東西前面放東西
+    $('<p>前面</p>').insertBefore('#ul2')
+    // 在指定的東西後面放東西
+    $('<p>後面</p>').insertAfter('#ul2')
+
+    // .empty()  清空內容 (整個標籤刪除)
+    $('#p1').empty()
+    // .remove()  刪除元素
+    $('#p2').remove()
+
+  </script>
+</body>
+
+</html>

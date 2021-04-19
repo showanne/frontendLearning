@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="btns">
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <input type="button" value="4">
+  </div>
+  <div id="tabs">
+    <div class="tab">11</div>
+    <div class="tab">22</div>
+    <div class="tab">33</div>
+    <div class="tab">44</div>
+  </div>
+  <script src="../jquery-3.6.0.min.js"></script>
+  <script>
+    $('#btns input').click(function () {
+      $('.tab').hide()
+      $('.tab').eq($(this).index()).show()
+    })
+
+    $('.tab').hide()
+    $('#btns input').eq(0).click()
+  </script>
+</body>
+
+</html>

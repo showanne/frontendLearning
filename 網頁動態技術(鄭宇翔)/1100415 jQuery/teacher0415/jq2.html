@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="點我" id="btn1">
+  <hr>
+  <input type="button" value="產生新按鈕" id="btn2">
+  <div id="btns">
+  </div>
+  <script src="../jquery-3.6.0.min.js"></script>
+  <script>
+    // $(document).ready(function(){})
+    // 載入完 HTML 後再跑 JQ 程式碼
+    // 也可以簡寫為
+    // $(function(){})
+    $(document).ready(function () {
+      $('#btn1').click(function (event) {
+        // $(this) 代表觸發事件的東西
+        $(this).val(new Date().toLocaleString())
+        console.log(event)
+      })
+
+      $('#btn2').click(function () {
+        $('#btns').append('<input type="button" value="按鈕" class="btn-new">')
+      })
+
+      // 沒有效，因為 .btn-new 後面才出現
+      $('.btn-new').click(function () {
+        console.log('a')
+      })
+
+      // 當點 #btns 時，且點到的是 .btn-new
+      // 原生 js 可以用 #btns 的 event.target 和 event.currentTarget 處理
+      $('#btns').on('click', '.btn-new', function () {
+        console.log('b')
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d-none {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="我是按鈕，點我換圖" id="btn0">
+  <p>
+    <img src="https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png" alt="">
+    <!-- <img src="https://picsum.photos/190/190/?random=2" alt="" id="img02" class="img "> -->
+  </p>
+
+  <br><br>
+  <input type="button" value="我是1號" id="btn1">
+  <input type="button" value="我是2號" id="btn2">
+  <br><br>
+  <img src="https://picsum.photos/190/190/?random=1" id="img1" class="">
+  <img src="https://picsum.photos/190/190/?random=2" id="img2" class="d-none">
+
+  <br><br>
+
+  <input type="button" value="我是3號" id="btn3">
+  <input type="button" value="我是4號" id="btn4">
+  <br><br>
+  <img src="" id="img3" class="">
+  <img src="" id="img4" class="">
+
+
+
+  <script src="./jquery-3.6.0.min.js"></script>
+
+  <script>
+    // 練習 -  點按鈕換圖片
+    // console.log($('p img'));
+
+    // $('h1').eq(4).html(`<a href="https://google.com">Google</a>`)
+
+
+    // console.log($('p img'));
+    // console.log($('p img').html());
+    // console.log($('p img').attr('src'));
+
+    $('#btn0').click(function () {
+      // $('p').html(`<img src="https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png">`)
+      console.log($('p img').attr('src'));
+      const ImgA = "https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png"
+
+      // $('p img').siblings().addClass('d-none')
+      // $('#img01').attr('src', 'https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png')
+      // $('p').html(`<img src="https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png">`)
+      if ($('p img').attr('src') == ImgA) {
+        // $('img').remove()
+
+        $('p').html(`<img src="https://i.pinimg.com/originals/8f/dc/3e/8fdc3eed2e3d07ddae8cb82a46ad468b.png">`)
+        console.log(2);
+      } else {
+        // $('img').remove()
+
+        $('p').html(`<img src="https://i.pinimg.com/originals/46/b2/12/46b2127649fb8d52d0ed3d670658153f.png">`)
+        console.log(1);
+
+      }
+    })
+
+    $('#btn1').click(function () {
+      $('#img2').addClass('d-none')
+      $('#img1').removeClass('d-none')
+    })
+
+    $('#btn2').click(function () {
+      $('#img1').addClass('d-none')
+      $('#img2').removeClass('d-none')
+    })
+
+    $('#btn3').click(function () {
+      $('#img3').attr('src', 'https://picsum.photos/190/190/?random=1')
+
+      $('#btn3').on('click', '#img4', function () {
+        $('#img4').empty()
+      })
+    })
+    $('#btn4').click(function () {
+      $('#img3').empty()
+      $('#img4').attr('src', 'https://picsum.photos/190/190/?random=2')
+    })
+
+
+
+  </script>
+</body>
+
+</html>
