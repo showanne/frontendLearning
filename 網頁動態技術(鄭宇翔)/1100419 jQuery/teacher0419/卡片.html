@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #imgs {
+      height: 100px;
+      overflow: hidden;
+    }
+
+    #imgs img {
+      height: 100px;
+      margin-top: 50px;
+      display: block;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="imgs">
+    <img src="./0551.jpg" alt="">
+    <img src="./0552.jpg" alt="">
+    <img src="./0553.jpg" alt="">
+    <img src="./0554.jpg" alt="">
+    <img src="./0555.jpg" alt="">
+  </div>
+  <script src="../jquery-3.6.0.min.js"></script>
+  <script>
+    // .hover(mouseIn, mouseOut)
+    $('#imgs img').hover(function () {
+      $(this).stop().animate({ marginTop: 0 })
+      $(this).prev().stop().animate({ marginTop: 25 })
+      $(this).next().stop().animate({ marginTop: 25 })
+    }, function () {
+      $(this).stop().animate({ marginTop: 50 })
+      $(this).prev().stop().animate({ marginTop: 50 })
+      $(this).next().stop().animate({ marginTop: 50 })
+    })
+  </script>
+</body>
+
+</html>

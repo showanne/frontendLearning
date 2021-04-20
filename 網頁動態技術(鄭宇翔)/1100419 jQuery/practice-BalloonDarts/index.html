@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balloon Darts</title>
+  <style>
+    .inline {
+      display: inline-block;
+      /* float: left; */
+    }
+
+    #turntable {
+      width: 706px;
+      height: 700px;
+      background-color: paleturquoise;
+      overflow: hidden;
+    }
+
+    #circle {
+      margin: 25px;
+      width: 500px;
+      height: 500px;
+      background-color: rgb(171, 95, 247);
+      /* background-image: url('https://i.pinimg.com/564x/cb/16/bb/cb16bb284a2a80c75041c80ba63e62d3.jpg'); */
+      border-radius: 50%;
+      position: relative;
+
+      transition: transform 2s;
+    }
+
+    #circle:nth-child(2) {
+
+      width: 250px;
+      height: 250px;
+      /* position: relative; */
+
+    }
+
+    #circle .balloon {
+      width: 130px;
+      height: 250px;
+      text-align: center;
+
+      position: absolute;
+      left: calc(50% - 65px);
+      bottom: 50%;
+      /* background-color: yellow; */
+
+      transform: rotate(0deg);
+      /* js有寫旋轉 */
+      transform-origin: bottom center;
+    }
+
+    #circle .balloon-svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    #straight {
+      margin: 25px 25px 25px 0;
+      width: 125px;
+      height: 500px;
+      background-color: springgreen;
+      overflow: hidden;
+    }
+
+    #straight .track {
+      background-color: goldenrod;
+      width: 60px;
+      height: 800px;
+      margin: 0 1.25px;
+
+      /* display: inline-block; */
+      float: right;
+    }
+
+    /* #straight div {
+      height: 60px;
+      margin: 5px 0;
+      background-color: seagreen;
+      box-sizing: border-box;
+    } */
+
+    #straight .track svg {
+      width: 60px;
+      height: 60px;
+      /* margin: 10px 0; */
+      transform: rotateX(180deg);
+    }
+
+    #horizontal {
+      margin: 0 65px 25px 65px;
+      width: 570px;
+      height: 125px;
+      background-color: sandybrown;
+      overflow: hidden;
+    }
+
+    #horizontal .track {
+      height: 60px;
+      width: 900px;
+      margin: 1.5px 0;
+      background-color: seagreen;
+    }
+
+    #horizontal .track svg {
+      width: 60px;
+      height: 60px;
+      margin: 0 5px;
+      float: left;
+      /* 為什麼要用 float ，明明純 css 排版時可以自己排成一橫排 */
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="button" value="開始" id="start">
+  <div id="turntable">
+    <!-- 10顆內隨機氣球 轉圓 -->
+    <div id="circle" class="inline">
+      <div class="balloon">
+        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24">
+          <path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z"
+                fill="#ca8af8" />
+          <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z"
+                fill="#ca8af8" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- <div id="circle" class="inline">
+      <div class="balloon">
+        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24">
+          <path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z"
+                fill="#ca8af8" />
+          <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z"
+                fill="#ca8af8" />
+        </svg>
+      </div>
+    </div> -->
+
+    <!-- 5顆內隨機 直走 -->
+    <div id="straight" class="inline">
+      <div class="track"></div>
+      <div class="track"></div>
+    </div>
+
+    <!-- 5顆內隨機 橫走 -->
+    <div id="horizontal" class="inline">
+      <div class="track"></div>
+      <div class="track"></div>
+    </div>
+  </div>
+
+
+  <!-- jquery js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+    // 隨機 1~10 數字
+    const random = () => {
+      return Math.floor(Math.random() * 10) + 1
+    }
+    // console.log(random);  
+
+    // console.log($('#circle .balloon'));
+
+    // 為容器內加 氣球svg
+    for (i = 1; i < 10; i++) {
+      // 轉盤區
+      $('#circle').append(`
+      <div class="balloon">
+        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
+        <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
+        </svg>
+      </div>`)
+      $('#circle .balloon').eq(i).css('transform', `rotate(${i * 36}deg)`)
+      // console.log(i);
+      // console.log(`${i * 36}`);
+      // console.log($('#circle .balloon').eq(i));
+
+
+      // 直走區
+      $('#straight .track svg').eq(i).css({
+        // transform: `rotate(${i * 36}deg)`,
+        // marginTop: `${random() * 45} px`,
+        // marginBottom: `${random() * 30} px`,
+        marginTop: `${random() * 10}px`
+      }
+      )
+      $('#straight .track').append(`
+      <div class="balloon">
+        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
+        <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
+        </svg>
+      </div>`)
+
+      // console.log($('#straight svg').length);
+      // console.log(`${random() * 30}`);
+
+
+      // 橫走區
+      $('#horizontal .track').append(`
+      <div class="balloon">
+        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
+        <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
+        </svg>
+      </div>`)
+      // $('#horizontal .track').eq(i).css('transform', `rotate(${i * 36}deg)`)
+
+    }
+
+    // 轉盤隨機角度變換
+    timer = setInterval(() => {
+      $('#circle').attr('style', `transform:rotate(${random() * 36}deg)`)
+      // console.log(random * 36);
+    }, 1000)
+
+    // 轉盤依照現在的秒數一直轉圈，缺點是60秒與1秒切換時，會轉回原點
+    // timer = setInterval(() => {
+    //   const sec = new Date().getSeconds()
+    //   // const deg = Math.floor(Math.random() * 10)   --好像不能用 random 會抽動
+    //   console.log(sec);
+    //   $('#circle').attr('style', `transform:rotate(${sec * 60}deg)`)
+    // }, 10)
+
+    // https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js
+    // https://jqueryrotate.com/
+    // var angle = 0;
+    //   setInterval(function () {
+    //     angle += 3;
+    //     $("#img").rotate(angle);
+    //   }, 50);
+
+    timerStraight = setInterval(() => {
+      // console.log(`${random() * 45}`);
+      // 直走區
+      $('#straight .track').eq(0).css({ marginTop: `-${random() * 25}px` })
+      $('#straight .track').eq(1).css({ marginTop: `-${random() * 40}px` })
+      // 橫走區
+      $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 30}px` })
+      $('#horizontal .track').eq(1).css({ marginLeft: `-${random() * 35}px` })
+
+    }, 1000)
+
+
+    // fill="#5b5b5b"  svg顏色隨機
+
+  </script>
+</body>
+
+</html>

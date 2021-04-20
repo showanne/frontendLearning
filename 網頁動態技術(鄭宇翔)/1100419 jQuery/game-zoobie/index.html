@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- sweetalert2  css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
+
+  <style>
+    #game {
+      width: 500px;
+      height: 500px;
+      background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #game img {
+      height: 150px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+</body>
+<div id="game"></div>
+<input type="button" value="開始" id="start">
+<br>
+<p>分數：<span id="text-score"> - </span></p>
+<p>剩餘：<span id="text-time"> - </span>秒</p>
+
+<!-- jquery -->
+<script src="../jquery-3.6.0.min.js"></script>
+
+<!-- sweetalert2  js-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+  // 分數
+  let score = 0
+
+  // 遊戲時間
+  let countdown = 30
+
+  // 倒數計時
+  let timer = 0
+
+  // 設定位移路線的 遞迴(重複隨機做)
+  const move = (zoobie) => {
+    zoobie.stop().animate({
+      // 隨機產生的範圍限在區域內，不設100是怕超過範圍
+      left: Math.round(Math.random() * 70) + '%',
+      top: Math.round(Math.random() * 70) + '%'
+    }, 2000, function () {
+      move(zoobie)
+    })
+  }
+
+  $('#start').click(function () {
+    $(this).attr('disabled', true)
+
+    // 重設
+    score = 0
+    $('#text-score').text(score)
+    countdown = 30
+    $('#text-time').text(countdown)
+
+    timer = setInterval(() => {
+      // 倒數
+      countdown--
+      $('#text-time').text(countdown)
+
+      // 隨機產生殭屍
+      let rand = Math.round(Math.random() * 10)
+      // 隨機機率大於5時 且 總數小於10 (--缺點總數只有10)
+      if (rand > 5 && $('#game img').length < 10) {
+        console.log(`${rand}`);
+        const zoobie = $(`<img src="./Z.gif" style="left:${move}% ;top:${move}% ;">`)
+        $('#game').append(zoobie)
+        move(zoobie)
+      }
+      // 時間到
+      if (countdown <= 0) {
+        clearInterval(timer)
+        Swal.fire({
+          icon: 'info',
+          title: '時間到',
+          text: `你得到${score}分`
+        })
+        $('#game img').remove()
+        $(this).attr('disabled', false)
+      }
+    }, 1000)
+  })
+
+  $('#game').on('click', 'img', function () {
+    $(this).attr('src', './blood.png')
+    $(this).stop()
+
+    // 忽略點擊事件
+    $(this).css({
+      // 無法被選取
+      'user-select': 'none',
+      // 無法被拖動
+      '-webkit-user-drag': 'none',
+      // 點擊穿透 (忽略這塊)
+      'pointer-events': 'none'
+    })
+    score++
+    $('#text-score').text(score)
+
+  })
+</script>
+
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #image {
+      position: relative;
+      width: 190px;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" value="變大" id="big">
+  <input type="button" value="移動" id="move">
+  <input type="button" value="淡入" id="fadein">
+  <input type="button" value="淡出" id="fadeout">
+  <input type="button" value="半透明" id="fadeto">
+  <input type="button" value="切換淡入淡出" id="fadetoggle">
+  <input type="button" value="滑入" id="slidedown">
+  <input type="button" value="滑出" id="slideup">
+  <input type="button" value="切換滑入滑出" id="slidetoggle">
+
+  <br><br>
+  <img src="https://picsum.photos/190/190/?random=1" id="image">
+  <br><br>
+
+  <input type="button" value="停止" id="stop">
+  <input type="button" value="重製" id="reset">
+
+
+
+  <script src="../1100415 jQuery/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#big').click(function () {
+      // 動畫 .animate(CSS, ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // CSS
+      // ms/slow/normal/fast
+      // linear/swing 要加 ' ' ，否則會變變數
+      // jQuery animate 僅支援與數字相關的 css 樣式，若要使用顏色等其他屬性，需載 jQuery 提供的其他功能
+      $('#image').animate({
+        width: '+=90px',
+        height: '+=90px'
+      }, 2000, 'linear', function () {
+        console.log('變大了！');
+      })
+    })
+
+    $('#move').click(function () {
+      // .animate() 可以一直串起來，且可以持續動作
+      // 若要使用移動屬性，需對 image 加 position: relative;
+      $('#image').animate({ left: '+=190px' }).animate({ top: '+=90px' })
+    })
+
+    $('#stop').click(function () {
+      // 停止動畫 .stop( 是否停止之後的動畫，是否跳到動畫結束)
+      //  如果跳到動畫結束的話，停止之後的動畫必須是 true 
+      $('#image').stop(true, true)
+    })
+
+    $('#fadein').click(function () {
+      // 淡入 .fadeIn( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      $('#image').fadeIn('slow')
+    })
+
+    $('#fadeout').click(function () {
+      // 淡出 .fadeOut( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // 淡出結束時，會 display:none
+      $('#image').fadeOut('slow')
+    })
+
+    $('#fadeto').click(function () {
+      // 半透明 .fadeTo( ms/slow/normal/fast, 透明度, linear/swing, 完成時的 function () {} )
+      // 若有設過 .fadeTo() 則之後的動作都會是半透明狀態
+      $('#image').fadeTo('slow', 0.5)
+    })
+
+    $('#fadetoggle').click(function () {
+      // 切換淡入淡出 .fadeToggle( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // 正常時淡出，消失時淡入
+      $('#image').fadeToggle('slow')
+    })
+
+    $('#slidedown').click(function () {
+      // 滑入 .slideDown( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // 只會不停修改 height ，若 image 有設寬度 width，則會產生折疊的效果
+      $('#image').slideDown('slow')
+    })
+
+    $('#slideup').click(function () {
+      // 滑出 .slideUp( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // 滑出結束時，會 display:none
+      // 只會不停修改 height ，若 image 有設寬度 width，則會產生折疊的效果
+      $('#image').slideUp('slow')
+    })
+
+
+    $('#slidetoggle').click(function () {
+      // 切換滑入滑出 .slideToggle( ms/slow/normal/fast, linear/swing, 完成時的 function () {} )
+      // 正常時滑出，消失時滑入
+      $('#image').slideToggle('slow')
+    })
+
+    $('#reset').click(function () {
+      // 單純重設 style 屬性，若原本有寫行內樣式，則也會一起清除
+      // $('#image').removeAttr('style')
+
+      // 缺點是若當下有其他動畫效果，則會失效
+      // 所以要先加一個暫停動畫，再重設才會有效果
+      $('#image').stop().removeAttr('style')
+
+    })
+  </script>
+</body>
+
+</html>

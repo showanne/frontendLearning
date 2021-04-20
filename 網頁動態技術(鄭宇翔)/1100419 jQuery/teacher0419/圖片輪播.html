@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #carousel {
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #imgs {
+      position: absolute;
+    }
+
+    #imgs>img {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="carousel">
+    <div id="imgs">
+      <img src="./0551.jpg" alt="">
+      <img src="./0552.jpg" alt="">
+      <img src="./0553.jpg" alt="">
+      <img src="./0554.jpg" alt="">
+      <img src="./0555.jpg" alt="">
+    </div>
+  </div>
+  <input type="button" value="&lt;" id="left">
+  <input type="button" value="&gt;" id="right">
+  <script src="../jquery-3.6.0.min.js"></script>
+  <script>
+    // 紀錄目前第幾張
+    let now = 0
+
+    // 調整長度
+    const total = $('#imgs img').length
+    $('#imgs').css('width', total * 400)
+
+    $('#right').click(function () {
+      if (now < total - 1) {
+        now++
+        const move = now * 400
+        $('#imgs').stop().animate({ left: `-${move + 25}px` }).animate({ left: `-${move}px` })
+      }
+    })
+
+    $('#left').click(function () {
+      if (now > 0) {
+        now--
+        const move = now * 400
+        if (move === 0) {
+          $('#imgs').stop().animate({ left: `${move + 25}px` }).animate({ left: `-${move}px` })
+        } else {
+          $('#imgs').stop().animate({ left: `-${move - 25}px` }).animate({ left: `-${move}px` })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

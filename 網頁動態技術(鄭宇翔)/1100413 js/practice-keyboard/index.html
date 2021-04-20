@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keyboard</title>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+  <!-- PaperCSS - the less formal CSS framework -->
+  <!-- https://www.getpapercss.com/ -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css"> -->
+
+</head>
+<style>
+  body {
+    padding: 1.5rem 0.5rem;
+
+  }
+
+  /* .center {
+    text-align: center;
+  } */
+
+  table {
+    margin: auto;
+    font-family: 'Pangolin', cursive;
+    font-size: 2.7rem;
+  }
+
+  table td {
+    width: 90px;
+    height: 90px;
+    text-align: center;
+  }
+
+  table td:hover {
+    background-color: rgba(214, 205, 255, 0.555);
+  }
+
+  .colorOrign {
+    background-color: slateblue;
+    color: lemonchiffon;
+  }
+
+  .colorOn {
+    background-color: darkorange;
+    color: lightgreen;
+  }
+
+  button {
+    background-color: white;
+    color: #350452;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 235ms ease-in-out 0s;
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+
+    /* border-radius: 5px; */
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  }
+
+  /* 神奇不規則線條 */
+  .paper-border {
+    border-color: #350452;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+  }
+
+  button:hover {
+    /* background: rgba(255, 246, 195, 0.5); */
+
+    background-color: rgba(218, 195, 255, 0.50);
+    box-shadow: 0 5px 15px 0 rgba(31, 38, 135, 0.37);
+
+    /* box-shadow: 0 8px 32px 0 rgba(135, 102, 31, 0.37); */
+  }
+
+  .inline {
+    display: inline-block;
+  }
+
+  .info {
+    width: 17%;
+  }
+
+  .game {
+    width: 72%;
+  }
+</style>
+
+<body>
+  <div class="center">
+    <!-- 觸發按鈕及資訊區 -->
+    <div class="info inline">
+      <button class="paper-border mode" id="start">開始</button>
+      <!-- <button class="paper-border" id="stop">暫停</button> -->
+      <button class="paper-border" id="end">結束</button>
+      <button class="paper-border" id="switch">中英切換</button>
+      <br>
+      <button class="paper-border mode" id="key-four">隨機 <b>4鍵</b> 模式</button>
+      <button class="paper-border mode" id="key-eight">隨機 <b>8鍵</b> 模式</button>
+      <button class="paper-border mode" id="key-twelve">隨機 <b>12鍵</b> 模式</button>
+      <button class="paper-border mode" id="key-random">
+        隨機 <b>隨機鍵</b> 模式
+        <br><small>本次隨機到<span id="key-R"> - </span>鍵</small>
+      </button>
+
+      <br>
+      <p>Key(目前點擊)：<span id="key-score"> - </span>鍵</p>
+      <p>Time(持續時間)：<span id="time-score"> - </span>秒</p>
+      <p>Player(遊戲紀錄)：<span id="player-score"> - </span>
+      <ul id="list-score">
+        <li>等級 - 姓名 - 鍵數 - 時間</li>
+      </ul>
+      </p>
+      <!-- Window.localStorage
+          https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage
+          https://andy6804tw.github.io/2018/03/04/browser-localstorage/#%E5%88%AA%E9%99%A4%E6%95%B4%E5%80%8B-storage
+          https://ithelp.ithome.com.tw/articles/10195522
+          -->
+    </div>
+
+    <!-- 遊戲區 -->
+    <div class="game inline">
+      <table>
+        <tr>
+          <td id="Digit1">1</td>
+          <td id="Digit2">2</td>
+          <td id="Digit3">3</td>
+          <td id="Digit4">4</td>
+          <td id="Digit5">5</td>
+          <td id="Digit6">6</td>
+          <td id="Digit7">7</td>
+          <td id="Digit8">8</td>
+          <td id="Digit9">9</td>
+          <td id="Digit0">0</td>
+          <td></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td id="KeyQ">Q</td>
+          <td id="KeyW">W</td>
+          <td id="KeyE">E</td>
+          <td id="KeyR">R</td>
+          <td id="KeyT">T</td>
+          <td id="KeyY">Y</td>
+          <td id="KeyU">U</td>
+          <td id="KeyI">I</td>
+          <td id="KeyO">O</td>
+          <td id="KeyP">P</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td id="KeyA">A</td>
+          <td id="KeyS">S</td>
+          <td id="KeyD">D</td>
+          <td id="KeyF">F</td>
+          <td id="KeyG">G</td>
+          <td id="KeyH">H</td>
+          <td id="KeyJ">J</td>
+          <td id="KeyK">K</td>
+          <td id="KeyL">L</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td id="KeyZ">Z</td>
+          <td id="KeyX">X</td>
+          <td id="KeyC">C</td>
+          <td id="KeyV">V</td>
+          <td id="KeyB">B</td>
+          <td id="KeyN">N</td>
+          <td id="KeyM">M</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- sweetalert2  js-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <script>
+
+    const btn = document.getElementsByTagName('button')
+    const btnStart = document.getElementById('start')
+    const btnStop = document.getElementById('stop')
+    const btnEnd = document.getElementById('end')
+    const tds = document.getElementsByTagName('td')
+    // console.log(tds);
+    const modes = document.getElementsByClassName('mode')
+    // console.log(modes);
+
+    const keyFour = document.getElementById('key-four')
+    const keyEight = document.getElementById('key-eight')
+    const keyTwelve = document.getElementById('key-twelve')
+    const keyRandom = document.getElementById('key-random')
+    const keyR = document.getElementById('key-R')
+
+    const Switch = document.getElementById('switch')
+
+    const keyScore = document.getElementById('key-score')
+    const TimeScore = document.getElementById('time-score')
+    const PlayerScore = document.getElementById('player-score')
+    const ListScore = document.getElementById('list-score')
+
+    let key = 0 //按到的鍵數
+    let time = 0 //持續的時間
+
+    // 計算用 function
+    const calc = () => {
+
+      key = 0
+      keyScore.innerText = key
+
+      time = 0
+      TimeScore.innerText = time
+    }
+
+
+    //遊戲開始後所有模式不能點擊 --無效中
+    // btn.on('click','.mode')
+    for (const mode of modes) {
+      modes.disabled = true
+      // console.log(00);
+    }
+
+    // 製作隨機按鍵的 function
+    const keyValue = (k) => {
+      for (const td of tds) {
+        td.classList.remove('colorOrign')
+        td.classList.remove('colorOn')
+      }
+      for (let i = 0; i < k; i++) {
+        const random = Math.floor(Math.random() * 37)
+        tds[random].classList.add('colorOrign')
+
+        // 判斷隨機數字如果為 tds[10] 則跳過
+        if (random == 10) {
+          i--
+        }
+
+        // 判斷不能有重複的隨機數字
+        // while (tds.includes(random)) {
+        //   i--
+        // }
+      }
+      //因為現在預設計時器為 1秒更新，所以 time++可以寫在這裡，如果預設不是1秒要另外寫
+      time++
+      TimeScore.innerText = time
+    }
+
+
+
+    // 開始 按鍵
+    btnStart.onclick = () => {
+      // modes.disabled = true //遊戲開始後不能點擊
+      console.log(modes);
+      calc()
+
+      timer = setInterval(keyValue, 1000, 2)
+      keyValue(2)  //初始二鍵模式
+    }
+
+    // 暫停 按鍵 --好像可以不需要...或再增加繼續按鈕?
+    // btnStop.onclick = () => {
+    //   console.log('stop');
+    //   clearInterval(timer)
+    // }
+
+    // 結束 按鍵
+    btnEnd.onclick = () => {
+      console.log('end');
+      clearInterval(timer)
+
+      for (const td of tds) {
+        td.classList.remove('colorOrign')
+        td.classList.remove('colorOn')
+      }
+
+      Swal.fire({
+        title: `恭喜你成功按到 ${key} 個鍵，加油<br>路過請留下大名`,
+        input: 'text',
+        // inputAttributes: {
+        //   autocapitalize: 'off'
+        // },
+        // showCancelButton: true,
+        confirmButtonText: 'OK',
+        // showLoaderOnConfirm: true,
+        allowOutsideClick: () => !Swal.isLoading()
+      }).then((result) => {
+        console.log(result.value);
+        ListScore.insertAdjacentHTML('beforeend', `<li>測試 - ${result.value} - ${key}鍵 - ${time}秒</li>`);
+      })
+
+      // if (key < 5) {
+      //   const Lv1 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 鐵人，加油`)
+      //   ListScore.insertAdjacentHTML('beforeend', `<li>鐵人 - ${Lv1} - ${key}鍵 - ${time}秒</li>`);
+      // } else if (key >= 5 && key < 10) {
+      //   const Lv2 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 青銅，加油`)
+      //   ListScore.insertAdjacentHTML('beforeend', `<li>青銅 - ${Lv2} - ${key}鍵 - ${time}秒</li>`);
+
+      // } else if (key >= 10 && key < 15) {
+      //   const Lv3 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 白銀，加油`)
+      //   ListScore.insertAdjacentHTML('beforeend', `<li>白銀 - ${Lv3} - ${key}鍵 - ${time}秒</li>`);
+      // } else if (key >= 15 && key < 20) {
+      //   const Lv4 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 黃金，加油`)
+      //   ListScore.insertAdjacentHTML('beforeend', `<li>黃金 - ${Lv4} - ${key}鍵 - ${time}秒</li>`);
+      // } else {
+      //   const Lv5 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 鑽石，加油`)
+      //   ListScore.insertAdjacentHTML('beforeend', `<li>鑽石 - ${Lv5} - ${key}鍵 - ${time}秒</li>`);
+      // }
+      // 鑽石 黃金 白銀 青銅 鐵人
+      // key = 0
+      // keyScore.innerText = key
+    }
+
+
+
+
+    keyFour.onclick = () => {
+      // modes.disabled = true //遊戲開始後不能點擊
+      calc()
+
+      timer = setInterval(keyValue, 1000, 4)
+      keyValue(4)
+    }
+
+    keyEight.onclick = () => {
+      // modes.disabled = true //遊戲開始後不能點擊
+      calc()
+
+      timer = setInterval(keyValue, 1000, 8)
+      keyValue(8)
+    }
+
+    keyTwelve.onclick = () => {
+      // modes.disabled = true //遊戲開始後不能點擊
+      calc()
+
+      timer = setInterval(keyValue, 1000, 12)
+      keyValue(12)
+    }
+
+    keyRandom.onclick = () => {
+      // modes.disabled = true //遊戲開始後不能點擊
+      calc()
+
+      let R = Math.floor(Math.random() * 37)
+      console.log(`${R}`);
+      keyR.innerText = R
+
+      timer = setInterval(keyValue, 1000, R)
+      keyValue(R)
+    }
+
+
+    // 每個 td 的滑鼠點擊事件 --這個遊戲不需要
+    // for (const td of tds) {
+    //   td.onclick = () => {
+    //     if (td.classList.contains('colorOrign')) {
+    //       td.classList.replace('colorOrign', 'colorOn')
+
+    //       key++
+    //       keyScore.innerText = key
+
+    //       time++
+    //       TimeScore.innerText = time
+    //     }
+    //   }
+    // }
+
+    // 每個 td 的按鍵事件 --偵測按到哪個鍵
+    document.onkeydown = (event) => {
+      if (event.code.includes('Key') || event.code.includes('Digit')) {
+        const type = document.getElementById(`${event.code}`)
+        console.log(window.event.code);
+        //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫?
+        if (type !== null && type.classList.contains('colorOrign')) {
+          type.classList.replace('colorOrign', 'colorOn')
+          key++
+          keyScore.innerText = key
+        }
+      }
+    }
+
+    // 打字 事件(初始二鍵) --這個是多的~~
+    // const typing = () => {
+    //   for (const td of tds) {
+    //     td.classList.remove('colorOrign')
+    //     td.classList.remove('colorOn')
+    //   }
+    //   for (let i = 0; i < 2; i++) {
+    //     const random = Math.floor(Math.random() * 37)
+    //     tds[random].classList.add('colorOrign')
+    //   }
+    //   // key++
+    //   time++
+    //   TimeScore.innerText = time
+
+    // }
+
+
+    // console.log(`${key}`);
+    // key 值會奇怪的增加 --0415解決
+    // 最後 alert 的 key 值與頁面顯示的不同 --0415解決
+     // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css
+    // 結束按鈕失靈...  --0416解決
+    // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
+    // 判斷按鍵隨機時不重複，且不要隨機到空白那格
+    // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用
+
+
+  </script>
+</body>
+
+</html>

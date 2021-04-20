@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #imgs {
+      height: 100px;
+      /* 超出範圍隱藏 */
+      overflow: hidden;
+    }
+
+    #imgs img {
+      height: 100px;
+      margin-top: 50px;
+
+      display: block;
+      float: left;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div id="imgs">
+    <img src="https://picsum.photos/190/190/?random=1">
+    <img src="https://picsum.photos/190/190/?random=2">
+    <img src="https://picsum.photos/190/190/?random=3">
+    <img src="https://picsum.photos/190/190/?random=4">
+    <img src="https://picsum.photos/190/190/?random=5">
+  </div>
+
+  <script src="../1100415 jQuery/jquery-3.6.0.min.js"></script>
+  <script>
+    // .hover(滑鼠移入mouseIn, 滑鼠移出mouseOut)
+    $('#imgs img').hover(function () {
+      $(this).stop().animate({ marginTop: 0 })
+      $(this).prev().stop().animate({ marginTop: 25 })
+      $(this).next().stop().animate({ marginTop: 25 })
+    }, function () {
+      $(this).stop().animate({ marginTop: 50 })
+      $(this).prev().stop().animate({ marginTop: 50 })
+      $(this).next().stop().animate({ marginTop: 50 })
+    })
+  </script>
+</body>
+
+</html>

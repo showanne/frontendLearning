@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #principal {
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./0104.jpg" alt="" id="principal">
+  <br>
+  <input type="button" value="變大" id="big">
+  <input type="button" value="移動" id="move">
+  <input type="button" value="淡入" id="fadein">
+  <input type="button" value="淡出" id="fadeout">
+  <input type="button" value="半透明" id="fadeto">
+  <input type="button" value="切換淡入淡出" id="fadetoggle">
+  <input type="button" value="滑入" id="slidedown">
+  <input type="button" value="滑出" id="slideup">
+  <input type="button" value="切換滑入滑出" id="slidetoggle">
+  <input type="button" value="停止" id="stop">
+  <input type="button" value="重置" id="reset">
+  <script src="../jquery-3.6.0.min.js"></script>
+  <script>
+    $('#big').click(function () {
+      // .animate(CSS, slow/normal/fast/ms, linear/swing, 完成時的 function)
+      // CSS 可以用 += 和 -= 作相對的動畫
+      // 除了 CSS 外都是可加可不加
+      // linear/swing 預設是 swing
+      $('#principal').animate({
+        width: '+=100px',
+        height: '+=100px'
+      }, 2000, function () {
+        console.log('變大了')
+      })
+    })
+
+    $('#move').click(function () {
+      // .animate() 可以串在一起
+      $('#principal').animate({ left: '+=100px' }, 2000).animate({ top: '+=100px' }, 2000)
+    })
+
+    $('#stop').click(function () {
+      // .stop(是否停止之後的動畫, 是否跳到動畫結束)
+      // 如果跳到動畫結束的話，停止之後的動畫必須是 true
+      $('#principal').stop(true, true)
+    })
+
+    $('#fadein').click(function () {
+      // .fadeIn(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      $('#principal').fadeIn('slow')
+    })
+
+    $('#fadeout').click(function () {
+      // .fadeOut(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      // fadeout 結束會 display none
+      $('#principal').fadeOut('slow')
+    })
+
+    $('#fadetoggle').click(function () {
+      // .fadeToggle(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      // 正常時淡出 消失時淡入
+      $('#principal').fadeToggle('slow')
+    })
+
+    $('#fadeto').click(function () {
+      // .fadeTo(slow/normal/fast/ms, 透明度, linear/swing, 完成時的 function)
+      $('#principal').fadeTo('slow', 0.5)
+    })
+
+    $('#slidedown').click(function () {
+      // .slideDown(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      // slideDown 結束會 display none
+      // 不停修改東西的 height
+      $('#principal').slideDown('slow')
+    })
+
+    $('#slideup').click(function () {
+      // .slideUp(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      $('#principal').slideUp('slow')
+    })
+
+    $('#slidetoggle').click(function () {
+      // .slideToggle(slow/normal/fast/ms, linear/swing, 完成時的 function)
+      $('#principal').slideToggle('slow')
+    })
+
+    $('#reset').click(function () {
+      $('#principal').stop().removeAttr('style')
+    })
+  </script>
+</body>
+
+</html>

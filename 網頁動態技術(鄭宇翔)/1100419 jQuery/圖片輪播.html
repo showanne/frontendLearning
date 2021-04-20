@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>image carousel</title>
+  <style>
+    #carousel {
+      /* 可視範圍寬高 */
+      width: 190px;
+      height: 190px;
+      /* 超過可視範圍的隱藏 */
+      overflow: hidden;
+      position: relative;
+    }
+
+    #imgs {
+      position: absolute;
+    }
+
+    #imgs>img {
+      float: left;
+    }
+
+    #test>img {
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test">
+    <img src="https://picsum.photos/190/190/?random=1">
+    <img src="https://picsum.photos/190/190/?random=2">
+    <img src="https://picsum.photos/190/190/?random=3">
+    <img src="https://picsum.photos/190/190/?random=4">
+    <img src="https://picsum.photos/190/190/?random=5">
+  </div>
+  <br>
+  <hr><br>
+  <div id="carousel">
+    <div id="imgs">
+      <img src="https://picsum.photos/190/190/?random=1">
+      <img src="https://picsum.photos/190/190/?random=2">
+      <img src="https://picsum.photos/190/190/?random=3">
+      <img src="https://picsum.photos/190/190/?random=4">
+      <img src="https://picsum.photos/190/190/?random=5">
+    </div>
+  </div>
+
+  <!-- &lt; >  /  &gt; <-->
+  <input type="button" value="&lt;" id="left">
+  <input type="button" value="&gt;" id="right">
+
+  <script src="../1100415 jQuery/jquery-3.6.0.min.js"></script>
+  <script>
+    // 計算圖片總共有幾張，並且給予總寬度容納所有 img
+    const totalImage = $('#imgs img').length
+    $('#imgs').css('width', totalImage * 190)
+    console.log($('#imgs img'));
+
+    // 紀錄目前第幾張
+    let now = 0
+    $('#right').click(function () {
+
+      if (now < totalImage - 1) {
+        now++
+        const move = now * 190
+
+        //                                     超過一點，再變回原本的，製造彈跳效果
+        $('#imgs').stop().animate({ left: `-${move + 25}px` }).animate({ left: `-${move}px` })
+
+
+      } else if (now = totalImage - 1) {
+        console.log(totalImage);
+        now = 0
+        // 當現在的照片等於最後一張照片時
+        $('#imgs').stop().animate({ left: `0px` })
+        // $('#imgs').stop().removeAttr('style')
+        console.log(00);
+      }
+    })
+
+    $('#left').click(function () {
+      if (now > 0) {
+        now--
+        const move = now * 190
+        if (move === 0) {
+          // 設定回到第一張時，還是會位移一點點，再變回原本的，製造彈跳效果
+          $('#imgs').stop().animate({ left: `${move + 25}px` }).animate({ left: `-${move}px` })
+        } else {
+          //                                     超過一點，再變回原本的，製造彈跳效果
+          $('#imgs').stop().animate({ left: `-${move - 25}px` }).animate({ left: `-${move}px` })
+
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>poker</title>
+
+  <style>
+    #game {
+      width: 300px;
+    }
+
+    .card {
+      width: 50px;
+      height: 90px;
+      position: relative;
+      /* 設定子元素在 3D 空間內 */
+      transform-style: preserve-3d;
+      /* 讓翻卡片有個慢慢翻過去的動畫 */
+      transition: transform 0.5s;
+
+      /* 排版 */
+      float: left;
+      margin: 10px;
+    }
+
+    .card-open {
+      transform: rotateY(180deg);
+    }
+
+    .card-front {
+      width: 100%;
+      height: 100%;
+      background-image: url(./poker/1H.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+      /* 先翻轉180度倒貼在另一張卡片的背面 */
+      transform: rotateY(180deg);
+    }
+
+    .card-back {
+      width: 100%;
+      height: 100%;
+      background-image: url(./poker/Red_back.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      position: absolute;
+
+      /* 翻過來隱藏背面  瀏覽器支援 IOS */
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game">
+    <!-- <div class="card">
+      <div class="card-back"></div>
+      <div class="card-front"></div>
+    </div> -->
+  </div>
+
+  <!-- jquery js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- sweetalert2  js-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <!-- canvas-confetti js -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // 產生 16 張卡片
+    for (let i = 0; i < 16; i++) {
+      $('#game').append(`
+      <div class="card">
+        <div class="card-back"></div>
+        <div class="card-front"></div>
+    </div>
+      `)
+    }
+    // 決定數字，隨機產生
+    for (let i = 0; i < 16; i++) {
+      // 決定數字-卡片除8的餘數(每1組2張共8組)    +1是因為迴圈從0開始
+      let number = i % (16 / 2) + 1
+      $('.card').eq(i).find('.card-front').css('background-image', `url(./poker/${number}H.jpg)`)
+      $('.card').eq(i).attr('data-card', number)
+
+      // 隨機打散 .card 排列  --可以看 data-card 數值
+      let target = Math.floor(Math.random() * 16)
+      $('.card').eq(target).insertAfter($('.card').eq(i))
+    }
+
+    $('#game').on('click', '.card', function () {
+      // 需同時做判斷，所以用2個 if，不能用 else if
+
+      // 最多只能翻2張牌  且  翻的牌沒有 .card-open 這個 class
+      if ($('.card-open').length < 2 && !$(this).hasClass('card-open')) {
+        $(this).addClass('card-open')
+      }
+
+      // 如果已經翻開2張了
+      if ($('.card-open').length === 2) {
+        // 如果2張卡片 data-card 數字相同
+        if ($('.card-open').eq(0).attr('data-card') === $('.card-open').eq(1).attr('data-card')) {
+          // 相同的話，卡片淡出，並使用 .card-clear 標記已解決
+          $('.card-open').fadeTo(1000, 0.2).addClass('card-clear')
+        }
+        // 不管一不一樣都翻回來
+        setTimeout(() => {
+          $('.card-open').removeClass('card-open')
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }, 1000);
+      }
+
+      // 如果全都翻完 -- 判斷 .card-clear 有16個
+      if ($('.card-clear').length === 16) {
+        Swal.fire({
+          title: '恭喜過關'
+        })
+
+      }
+    })
+
+  </script>
+</body>
+
+</html>
