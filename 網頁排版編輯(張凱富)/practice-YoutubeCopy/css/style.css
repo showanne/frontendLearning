@@ -1,0 +1,213 @@
+body {
+  /* box-sizing: border-box; */
+  font-family: '微軟正黑體', 'Montserrat';
+}
+a {
+  text-decoration: unset;
+  color: gray;
+}
+.float-L {
+  float: left;
+}
+.float-R {
+  float: right;
+}
+/* .float-M {
+  float: center; 
+  text-align: center;
+} */
+.float-C {
+  clear: both;
+}
+.font0 {
+  font-size: 0;
+  /* 處理幽靈空白(inline) 將父層字體大小設為 font-size: 0; */
+}
+.dash {
+  border-bottom: 4px lightgrey solid;
+}
+
+/* 上方 logo 搜尋區 top */
+#top {
+  height: 56px;
+  /* background-color: antiquewhite; */
+  padding: 0 1rem;
+}
+/* #top div {
+  padding: 1rem 0;
+} */
+
+#top i {
+  font-size: 1rem;
+  padding: 0 1rem;
+  /* text-align: center; */
+}
+
+#topL,
+#topR {
+  width: 15%;
+  padding: 1rem 0;
+}
+
+#topM {
+  width: 70%;
+  margin: auto;
+  /* background-color: burlywood; */
+  padding: 1rem 5rem;
+  box-sizing: border-box;
+}
+
+#topM input {
+  vertical-align: middle;
+  height: 24px;
+  border: solid 1px gray;
+  border-radius: 2px 0 0 2px;
+}
+
+#topM button {
+  vertical-align: middle;
+  padding: 0 0.8rem;
+  width: 65px;
+  height: 24px;
+  background-color: gainsboro;
+  border: solid 1px gray;
+  border-radius: 0 2px 2px 0;
+  color: gray;
+}
+#topM i {
+  padding: 0;
+}
+
+#topM .fa-microphone {
+  vertical-align: middle;
+  font-size: 24px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  color: black;
+}
+
+#topL img {
+  /* width: 80px; */
+  height: 24px;
+  /* display: inline-block; */
+  /* line-height: 56px; */
+  /* padding: 1rem; */
+  vertical-align: middle;
+}
+#topL i {
+  /* text-align: center; */
+  padding: 0.5rem 1rem;
+  /* line-height: 56px; */
+  vertical-align: middle;
+}
+
+/* 左側導覽列 navbar */
+#navbar {
+  width: 15%;
+  height: calc(100vh - 56px);
+  overflow: scroll;
+}
+
+/* navbar 滾動條 */
+/* 滾動條整體部分 */
+#navbar::-webkit-scrollbar {
+  width: 8px;
+  background-color: white;
+}
+/* 滾動條裡面可以拖動的那條 */
+#navbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: gray;
+}
+/* 滾動條外層的軌道 */
+/* #navbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+} */
+
+#navbar a {
+  display: block;
+  padding: 10px 5px;
+  box-sizing: border-box;
+}
+#navbar .dash {
+  border-bottom: 1px lightgrey solid;
+}
+
+/* 網頁內容區 content */
+#content {
+  width: 85%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* 音樂卡片 */
+.card {
+  width: 25%;
+  padding: 8px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1rem;
+  /* 處理幽靈空白(inline) 將子層字體大小設回 font-size: 1rem; */
+}
+.card .card_img {
+  position: relative;
+}
+
+.card .card_img img {
+  width: 100%;
+}
+
+.card .card_img span {
+  background-color: black;
+  color: aliceblue;
+  box-sizing: border-box;
+  padding: 1px;
+  margin: 0 5px 5px 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.card .card_info {
+  display: inline-block;
+  margin: 7px 0 0 0;
+}
+.card .card_info img {
+  width: 10%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 3px;
+}
+.card .card_info div {
+  /* display: inline; */
+  width: 90%;
+  box-sizing: border-box;
+  padding: 3px 10px 3px 7px;
+}
+.card .card_info div p {
+  line-height: 19px;
+  margin: 5px 0;
+}
+.card .card_info div p i {
+  font-size: small;
+  color: darkgrey;
+  margin: 0 0 0 2px;
+}
+.card .card_info div a:nth-child(1) {
+  color: black;
+}
+
+.card .card_info div p:nth-child(1) {
+  /* display: block; // 如果不是區塊元素的話，要加這一行 */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* // N 填入要顯示的行數 */
+  /* 讓標題過長的多行文字自動省略 */
+
+  /* 若為 webkit 以外的瀏覽器，需再加入這2行
+  line-height: X; // X 填入行高 px 值
+  height: X * N; // 限定高度為 X * N 的 px 值 */
+}
