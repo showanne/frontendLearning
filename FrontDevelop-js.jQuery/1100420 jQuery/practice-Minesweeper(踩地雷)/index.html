@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper(踩地雷)</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  <style>
+    #game {
+      /* width: 432px;
+      height: 432px; */
+      /* cube*12 + margin*2*12 */
+
+      margin: auto;
+      /* 處理幽靈空白 */
+      font-size: 0;
+    }
+
+    .cube {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      text-align: center;
+      color: rgb(234, 218, 255);
+      line-height: 30px;
+      vertical-align: middle;
+      margin: 3px;
+
+      /* 處理幽靈空白 */
+      font-size: 1.1rem;
+    }
+
+    .cube:nth-child(odd) {
+      background-color: rgb(193, 186, 250);
+    }
+
+    .cube:nth-child(even) {
+      background-color: rgb(170, 160, 253);
+    }
+
+    input[type="number"] {
+      /* 輸入框樣式更改 */
+      width: 3.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="number" value="9" step="2" placeholder="" list="NumberList">
+  <datalist id="NumberList">
+    <option value="23">
+    <option value="33">
+    <option value="55">
+    <option value="77">
+    <option value="99">
+  </datalist>
+  <br><br>
+  <div id="game"></div>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+          integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <script>
+    const num = parseInt($('input').val())
+    const Cube = Math.pow(num, 2) //num的2次
+
+    const bomb = <i class="fas fa-bomb"></i>
+
+    const width = (30 + 3 * 2) * num  // 30=cube.width  3*2=cube.margin
+    // console.log(`${width}`);
+    $('#game').css({
+      width: `${width}px`,
+      height: `${width}px`,
+    })
+
+    const rand = (r) => {
+      // 1 ~ r 的隨機
+      return Math.floor(Math.random() * r) + 1
+      // 要設定數字間隔需大於3--或許不用會比較有趣
+    }
+
+    for (let i = 0; i < Cube; i++) {
+      // <div class="cube"></div>
+      $('#game').append('<div class="cube"></div>')
+      $('.cube').eq(i).attr('data-cube', i)
+    }
+
+    for (let i = 0; i < num; i++) {
+      // console.log(i);
+      const bombNum = rand(Cube)
+      // console.log(rand(Cube));
+      $('.cube').eq(bombNum).attr('data-bomb', i)
+      $('.cube').eq(bombNum).css('backgroundColor', 'rgba(255, 20, 145, 0.3)')
+      $('.cube').eq(bombNum).prev().text('1')
+      $('.cube').eq(bombNum).next().text('1')
+
+      $('.cube').eq(bombNum - num).text('1')
+      $('.cube').eq(bombNum - num).prev().text('1')
+      $('.cube').eq(bombNum - num).next().text('1')
+
+      $('.cube').eq(bombNum + num).text('1')
+      $('.cube').eq(bombNum + num).prev().text('1')
+      $('.cube').eq(bombNum + num).next().text('1')
+      // + 可以算數學或連變數  - 只能算數學
+
+
+      // 要設判斷式，判斷有重疊的話數字要相加
+      // 如果剛好炸彈在邊邊就只須給另半邊的數字
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
