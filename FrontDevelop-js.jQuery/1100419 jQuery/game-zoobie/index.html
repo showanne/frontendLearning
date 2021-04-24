@@ -54,7 +54,8 @@
   // 設定位移路線的 遞迴(重複隨機做)
   const move = (zoobie) => {
     zoobie.stop().animate({
-      // 隨機產生的範圍限在區域內，不設100是怕超過範圍
+      // 隨機產生的範圍限在 #game區域 內，不設100是怕超過範圍
+      // 70的來由應該是大約估算img的寬高，避免出現卡在界線處的狀況
       left: Math.round(Math.random() * 70) + '%',
       top: Math.round(Math.random() * 70) + '%'
     }, 2000, function () {
@@ -81,8 +82,11 @@
       // 隨機機率大於5時 且 總數小於10 (--缺點總數只有10)
       if (rand > 5 && $('#game img').length < 10) {
         console.log(`${rand}`);
+        // 設 zoobie   為要出現的東西，          並且於隨機位置出現
         const zoobie = $(`<img src="./Z.gif" style="left:${move}% ;top:${move}% ;">`)
+        // 在 #game 內新增 zoobie
         $('#game').append(zoobie)
+        // zoobie 的移動設定
         move(zoobie)
       }
       // 時間到

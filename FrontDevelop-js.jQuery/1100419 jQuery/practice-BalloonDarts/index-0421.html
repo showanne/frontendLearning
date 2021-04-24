@@ -19,9 +19,16 @@
       overflow: hidden;
     }
 
-    .balloon-svg {
-      width: 60px;
-      height: 60px;
+    #circle {
+      margin: 25px;
+      width: 500px;
+      height: 500px;
+      background-color: rgb(171, 95, 247);
+      /* background-image: url('https://i.pinimg.com/564x/cb/16/bb/cb16bb284a2a80c75041c80ba63e62d3.jpg'); */
+      border-radius: 50%;
+      position: relative;
+
+      transition: transform 2s;
     }
 
     #circle .balloon {
@@ -39,51 +46,40 @@
       transform-origin: bottom center;
     }
 
-    #circle {
-      margin: 25px;
-      position: relative;
+    #circle .balloon-svg {
+      width: 60px;
+      height: 60px;
     }
 
-    .circleL {
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
+    #circle-inside {
+      display: block;
 
-      background-color: rgb(171, 95, 247);
-      /* background-image: url('https://i.pinimg.com/564x/cb/16/bb/cb16bb284a2a80c75041c80ba63e62d3.jpg'); */
-      transition: transform 2s;
-    }
-
-    .circleM {
       width: 300px;
       height: 300px;
       border-radius: 50%;
+      background-color: rgba(0, 9, 128, 0.199);
 
+      position: absolute;
       left: calc(50% - 150px);
       top: calc(50% - 150px);
-      position: absolute;
-
-      background-color: rgba(0, 9, 128, 0.199);
-      /* background-image: url(./balloon.png); */
-      /* display: block; */
-      /* transform-origin: center; */
+      transform-origin: center;
+      transform: rotate(30deg);
       transition: transform 3.5s;
     }
 
-    .circleS {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
+    #circle-inside .balloon {
+      width: 70px;
+      height: 170px;
+      left: calc(50% - 35px);
+      /* background-color: rgba(0, 26, 255, 0.425); */
+      transform: rotate(19deg);
+      /* 不知為何小圓的0度不會對到外面的0度 */
+      /* js有寫旋轉 */
+    }
 
-      left: calc(50% - 50px);
-      top: calc(50% - 50px);
-      position: absolute;
-
-      background-color: rgb(138, 89, 253);
-      /* background-image: url(./balloon.png); */
-      /* display: block; */
-      /* transform-origin: center; */
-      transition: transform 1.5s;
+    #circle .balloon-svg {
+      width: 60px;
+      height: 60px;
     }
 
     #straight {
@@ -104,7 +100,16 @@
       float: right;
     }
 
-    #straight .track .balloon-svg {
+    /* #straight div {
+      height: 60px;
+      margin: 5px 0;
+      background-color: seagreen;
+      box-sizing: border-box;
+    } */
+
+    #straight .track svg {
+      width: 60px;
+      height: 60px;
       /* margin: 10px 0; */
       transform: rotateX(180deg);
     }
@@ -122,32 +127,37 @@
       width: 900px;
       margin: 1.5px 0;
       background-color: seagreen;
-      /* display: flex; */
-      /* flex-wrap: nowrap; */
     }
 
-    #horizontal .track .balloon {
-      display: inline-block;
-    }
-
-    #horizontal .track .balloon-svg {
-      transform: rotate(45deg);
-      /* float: left; */
-      /* 因為現在是 div 會占滿一整排，所以排列起來會變一直排，若不想用 float ，也可以給父元素inline-block 就會變一橫排 */
+    #horizontal .track svg {
+      width: 60px;
+      height: 60px;
+      margin: 0 5px;
+      float: left;
+      /* 為什麼要用 float ，明明純 css 排版時可以自己排成一橫排 */
     }
   </style>
 </head>
 
 <body>
-  <input type="button" value="開始" id="start">
 
+  <input type="button" value="開始" id="start">
   <div id="turntable">
     <!-- 10顆內隨機氣球 轉圓 -->
-    <div id="circle" class="inline circleL">
-      <div class="circleM">
-        <div class="circleS"></div>
+    <div id="circle" class="inline">
+      <div id="circle-inside" class="">
+        <div class="balloon">
+          <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24">
+            <path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z"
+                  fill="#ca8af8" />
+            <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z"
+                  fill="#ca8af8" />
+          </svg>
+        </div>
       </div>
     </div>
+
+
 
     <!-- 5顆內隨機 直走 -->
     <div id="straight" class="inline">
@@ -162,7 +172,7 @@
     </div>
   </div>
 
-  </div>
+
   <!-- jquery js -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -188,44 +198,59 @@
     }
     // console.log(random);  
 
-    // 圓區 加 氣球svg
-    for (i = 0; i < 21; i++) {
-      if (i > 10) {
-        // 轉盤區 - 大圓(11~20) 共10顆
+
+    // 為容器內加 氣球svg
+    for (i = 1; i < 19; i++) {
+      // 從1開始是因為上面 html 已經有寫一個
+
+      if (i < 8) {
+        // 轉盤區 - 小圓
+        Balloon('#circle-inside')
+        $('#circle-inside .balloon').eq(i).css('transform', `rotate(${i * 45 + 19}deg)`)
+        // console.log(`${i * 40 + 19}`);
+      } else if (i > 9 || i < 19) {
+        // 轉盤區 - 大圓
         Balloon('#circle')
         $('#circle .balloon').eq(i).css('transform', `rotate(${i * 36}deg)`)
-      } else if (i >= 3 && i <= 10) {
-        // 轉盤區 - 中圓(3~10) 共8顆
-        Balloon(' .circleM')
-        $('#circle .balloon').eq(i).css({
-          transform: `rotate(${i * 45 + 19}deg)`,
-          height: '160px',
-          // backgroundColor: 'rgba(255, 255, 0, 0.425)',
-        })
-        // console.log(i);
-        // 正確寫法為(#circle .balloon)，而不能用(.circleM .balloon)及(#circle .circleM .balloon)，因為是後來添加的，所以會呼叫不到
-      } else {
-        // 轉盤區 - 小圓(0~2) 共3顆
-        Balloon('.circleS')
-        $('#circle .balloon').eq(i).css({
-          transform: `rotate(${i * 119}deg)`,
-          height: '70px',
-          // backgroundColor: 'rgba(255, 255, 0, 0.425)',
-        })
-        // console.log(i);
+
+        console.log(i); //結果為何有 8
+        // console.log(`${i * 36}`);
+        // console.log($('#circle .balloon').eq(i));
+      } else if (i === 8) {
+        $('#circle .balloon').eq(i).css()
+        console.log(i);
+        // 第8個氣球上面 html 已經有寫一個，js不想重複出現 -0421解決-把上面的刪掉
       }
+
     }
 
-    // 直走、橫走區 加 氣球svg
+    // 為容器內加 氣球svg
     for (i = 0; i < 10; i++) {
 
       // 直走區
+      $('#straight .track svg').eq(i).css({
+        // transform: `rotate(${i * 36}deg)`,
+        // marginTop: `${random() * 45} px`,
+        // marginBottom: `${random() * 30} px`,
+        marginTop: `${random() * 10}px`
+      }
+      )
       Balloon('#straight .track')
+      // console.log($('#straight svg').length);
+
+      // 沒辦法新增每個 balloon 的 marginBottom --想要隨機間距
+      // $('#straight .track .balloon').eq(i).css({ marginBottom: `${random}px` })
+      // console.log($('#straight .track .balloon').eq(i));
+
       // $('#straight .track .balloon').eq(i).attr('data-svg', i)
+
       console.log(`${random()}`);
+
 
       // 橫走區
       Balloon('#horizontal .track')
+      // $('#horizontal .track').eq(i).css('transform', `rotate(${i * 36}deg)`)
+
     }
 
     $('#start').click(function () {
@@ -233,44 +258,35 @@
 
       // 直走、橫走區 軌道隨機位移
       timerTrack1 = setInterval(() => {
+        // console.log(`${random() * 45}`);
         // 直走區
         $('#straight .track').eq(0).css({ marginTop: `-${random() * 25}px` })
+        // 嘗試隨機給每個 balloon 間距位移
+        for (i = 0; i < 10; i++) {
+          $('#straight .track .balloon').eq(i).css({ marginBottom: `${random}px` })
+        }
+        // $('#straight .track').eq(1).css({ marginTop: `-${random() * 40}px`})
         // 橫走區
+        // $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 30}px`})
         $('#horizontal .track').eq(1).css({ marginLeft: `-${random() * 35}px` })
       }, 500)
       timerTrack2 = setInterval(() => {
+        // console.log(`${random() * 45}`);
         // 直走區
+        // $('#straight .track').eq(0).css({ marginTop: `-${random() * 25}px`})
         $('#straight .track').eq(1).css({ marginTop: `-${random() * 40}px` })
         // 橫走區
         $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 30}px` })
+        // $('#horizontal .track').eq(1).css({ marginLeft: `-${random() * 35}px`})
       }, 1200)
-
-      // 隨機給每個 balloon 間距位移
-      timerTrackBalloon = setInterval(() => {
-        for (i = 0; i < 20; i++) {
-          random()
-          // 直走區內氣球隨機間距
-          $('#straight .track .balloon').eq(i).css({ marginBottom: `${random() * 5}px` })
-          // console.log(i);
-
-          // 橫走區內氣球隨機間距
-          $('#horizontal .track .balloon').eq(i).css({
-            marginRight: `${random() * 5}px`
-          })
-        }
-      }, 2000)
 
       // 轉盤隨機角度變換
-      timerCircleL = setInterval(() => {
-        $('.circleL').attr('style', `transform:rotate(${random() * 36}deg)`)
+      timerCircle1 = setInterval(() => {
+        $('#circle-inside').attr('style', `transform:rotate(${random() * (-36)}deg)`)
       }, 900)
-      timerCircleM = setInterval(() => {
-        $('.circleM').attr('style', `transform:rotate(-${random() * 36}deg)`)
+      timerCircle2 = setInterval(() => {
+        $('#circle').attr('style', `transform:rotate(${random() * 36}deg)`)
       }, 1500)
-      timerCircleS = setInterval(() => {
-        $('.circleS').attr('style', `transform:rotate(${random() * 36}deg)`)
-      }, 1200)
-
 
       // 轉盤依照現在的秒數一直轉圈，缺點是60秒與1秒切換時，會轉回原點
       // timer = setInterval(() => {
@@ -317,10 +333,11 @@
     })
 
 
+
     // fill="#5b5b5b"  svg顏色隨機
     // 轉圈使用 jqueryrotate 沒辦法轉完一整圈
+    // 大圈的第一個汽球為全部的第8個氣球，上面 html 已經有寫一個，js不想重複出現
 
-    // 分解gif  https://dribbble.com/shots/3388942-Water-drop
   </script>
 </body>
 

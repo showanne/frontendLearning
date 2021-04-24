@@ -30,6 +30,10 @@
     margin: auto;
     font-family: 'Pangolin', cursive;
     font-size: 2.7rem;
+    box-sizing: border-box;
+
+    /* 按鍵間距 */
+    border-spacing: 17px;
   }
 
   table td {
@@ -38,9 +42,9 @@
     text-align: center;
   }
 
-  table td:hover {
+  /* table td:hover {
     background-color: rgba(214, 205, 255, 0.555);
-  }
+  } */
 
   .colorOrign {
     background-color: slateblue;
@@ -66,7 +70,7 @@
     /* border: 1px solid rgba(255, 255, 255, 0.18); */
   }
 
-  /* 神奇不規則線條 */
+  /* 神奇不規則線條 PaperCSS framework */
   .paper-border {
     border-color: #350452;
     border-style: solid;
@@ -92,22 +96,78 @@
 
   .info {
     width: 17%;
+    /* text-align: center; */
   }
 
   .game {
     width: 72%;
   }
+
+  /* 按鍵樣式效果 https://codepen.io/veronicadev/pen/GyGLyN */
+  .key {
+    text-decoration: none;
+    /* color: #000; */
+    margin: auto;
+    /* width: 150px; */
+    /* display: inline-block; */
+    /* line-height: 40px; */
+    /* font-size: 12px; */
+    /* font-weight: 900; */
+    /* letter-spacing: 2px; */
+    text-transform: uppercase;
+    /* background-color: #fff; */
+    border: 3px solid #303030;
+    box-shadow:
+      1px 1px 0 #303030a2,
+      2px 2px 0 #303030a2,
+      3px 3px 0 #303030a2,
+      4px 4px 0 #303030a2,
+      5px 5px 0 #303030a2;
+    position: relative;
+
+    /* transition: 0.5s; */
+    /* 加了後，按按鍵的效果會變很怪 */
+  }
+
+  .key:hover {
+    background-color: #3030301e;
+  }
+
+  .key:active {
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 0 0;
+  }
+
+  /* .key:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: #fff;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  } 
+  .key:hover:after {
+    background-color: #f6d51e;
+  } 
+  */
 </style>
 
 <body>
   <div class="center">
-    <!-- 觸發按鈕及資訊區 -->
-    <div class="info inline">
+    <!-- 觸發按鈕 -->
+    <div>
       <button class="paper-border mode" id="start">開始</button>
       <!-- <button class="paper-border" id="stop">暫停</button> -->
       <button class="paper-border" id="end">結束</button>
       <button class="paper-border" id="switch">中英切換</button>
-      <br>
+      <!-- <br> -->
       <button class="paper-border mode" id="key-four">隨機 <b>4鍵</b> 模式</button>
       <button class="paper-border mode" id="key-eight">隨機 <b>8鍵</b> 模式</button>
       <button class="paper-border mode" id="key-twelve">隨機 <b>12鍵</b> 模式</button>
@@ -115,20 +175,6 @@
         隨機 <b>隨機鍵</b> 模式
         <br><small>本次隨機到<span id="key-R"> - </span>鍵</small>
       </button>
-
-      <br>
-      <p>Key(目前點擊)：<span id="key-score"> - </span>鍵</p>
-      <p>Time(持續時間)：<span id="time-score"> - </span>秒</p>
-      <p>Player(遊戲紀錄)：<span id="player-score"> - </span>
-      <ul id="list-score">
-        <li>等級 - 姓名 - 鍵數 - 時間</li>
-      </ul>
-      </p>
-      <!-- Window.localStorage
-          https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage
-          https://andy6804tw.github.io/2018/03/04/browser-localstorage/#%E5%88%AA%E9%99%A4%E6%95%B4%E5%80%8B-storage
-          https://ithelp.ithome.com.tw/articles/10195522
-          -->
     </div>
 
     <!-- 遊戲區 -->
@@ -141,9 +187,9 @@
           <td id="Digit4">4</td>
           <td id="Digit5">5</td>
           <td id="Digit6">6</td>
-          <td id="Digit7">7</td>
-          <td id="Digit8">8</td>
-          <td id="Digit9">9</td>
+          <td id="Digit7" class="key">7</td>
+          <td id="Digit8" class="key">8</td>
+          <td id="Digit9" class="key">9</td>
           <td id="Digit0">0</td>
           <td></td>
         </tr>
@@ -186,6 +232,22 @@
           <td id="KeyM">M</td>
         </tr>
       </table>
+    </div>
+
+    <!-- 資訊區 -->
+    <div class="info inline">
+      <p>Key(目前點擊)：<span id="key-score"> - </span>鍵</p>
+      <p>Time(持續時間)：<span id="time-score"> - </span>秒</p>
+      <p>Player(遊戲紀錄)：<span id="player-score"> - </span>
+      <ul id="list-score">
+        <li>等級 - 姓名 - 鍵數 - 時間</li>
+      </ul>
+      </p>
+      <!-- Window.localStorage
+          https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage
+          https://andy6804tw.github.io/2018/03/04/browser-localstorage/#%E5%88%AA%E9%99%A4%E6%95%B4%E5%80%8B-storage
+          https://ithelp.ithome.com.tw/articles/10195522
+          -->
     </div>
   </div>
 
@@ -417,7 +479,7 @@
     // console.log(`${key}`);
     // key 值會奇怪的增加 --0415解決
     // 最後 alert 的 key 值與頁面顯示的不同 --0415解決
-     // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css
+     // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
     // 結束按鈕失靈...  --0416解決
     // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
     // 判斷按鍵隨機時不重複，且不要隨機到空白那格
