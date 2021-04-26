@@ -21,7 +21,7 @@
 
     #turntable {
       width: 706px;
-      height: 700px;
+      height: 715px;
       background-color: paleturquoise;
       overflow: hidden;
     }
@@ -55,7 +55,7 @@
     }
 
     .bomb {
-      fill: rgb(250, 74, 156);
+      /* fill: rgb(250, 74, 156); */
 
       /* 原始尺寸 115*178 */
       width: 52.27px;
@@ -146,19 +146,19 @@
     }
 
     #straight .track .balloon-svg {
-      transform: rotateX(180deg);
+      transform: rotateX(30deg);
     }
 
     #horizontal {
       margin: 0 65px 25px 65px;
       width: 570px;
-      height: 125px;
+      height: 140px;
       background-color: sandybrown;
       overflow: hidden;
     }
 
     #horizontal .track {
-      height: 60px;
+      height: 68px;
       /* width: 900px; */
       margin: 1.5px 0;
       background-color: seagreen;
@@ -320,15 +320,16 @@
 
       // 隨機顯示汽球
       for (let i = 0; i < Random(9, 15); i++) {
-        $('#circle .balloon .balloon-svg').eq(Random(0, 21)).addClass('color')
+        $('#circle .balloon .balloon-svg').eq(Random(0, 21)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
         // console.log(`${Random(0, 21)}`);
       }
 
       for (let i = 0; i < Random(8, 13); i++) {
-        $('#straight .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color')
+        $('#straight .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
+        // console.log(`rgb(${Random(0, 255)},${Random(0, 255)},${Random(0, 255)})`);
         // console.log(`${Random(0, 20)}`);
 
-        $('#horizontal .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color')
+        $('#horizontal .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
         // console.log(`${Random(0, 20)}`);
       }
 

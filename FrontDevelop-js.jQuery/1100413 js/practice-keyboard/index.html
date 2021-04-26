@@ -303,6 +303,18 @@
 
     let key = 0 //按到的鍵數
     let time = 0 //持續的時間
+    let highScore = { name: '', key: 0, time: 0 }
+    const highStorage = JSON.parse(localStorage.getItem('Keyboard-Play'))
+    if (highStorage !== null) {
+      // highScore = highStorage
+      // highScore.name = result.value
+
+      keyScore.innerText = highScore.key
+      TimeScore.innerText = highScore.time
+
+    }
+
+
 
     // 計算用 function
     const calc = () => {
@@ -386,9 +398,18 @@
         // showLoaderOnConfirm: true,
         allowOutsideClick: () => !Swal.isLoading()
       }).then((result) => {
-        console.log(result.value);
+        // console.log(result.value);
         ListScore.insertAdjacentHTML('beforeend', `<li>測試 - ${result.value} - ${key}鍵 - ${time}秒</li>`);
+
+        highScore.key = key
+        highScore.time = time
+        highScore.name = result.value
+
+        keyScore.innerText = highScore.key
+        TimeScore.innerText = highScore.time
+        localStorage.setItem('Keyboard-Play', JSON.stringify(highScore))
       })
+      // console.log(result.value);
 
       // if (key < 5) {
       //   const Lv1 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 鐵人，加油`)
@@ -504,9 +525,9 @@
      // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
     // 結束按鈕失靈...  --0416解決
     // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
-    // 判斷按鍵隨機時不重複，且不要隨機到空白那格
+    // 判斷按鍵隨機時不重複，且不要隨機到空白那格 -0424就沒了
     // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用
-
+    // 成績不能一筆一筆一直存嗎?
 
   </script>
 </body>
