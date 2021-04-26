@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table th {
+      height: 50px;
+      /* line-height: 30px; */
+      font-size: 1.5rem;
+      background-color: blanchedalmond;
+    }
+
+    table td {
+      width: 190px;
+    }
+
+    table td:nth-child(5) {
+      width: 490px;
+    }
+
+    table td:nth-child(odd) {
+      background-color: antiquewhite;
+    }
+
+    table td:nth-child(even) {
+      background-color: azure;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>title</th>
+      <th>published</th>
+      <th>content</th>
+      <th>name</th>
+      <th>summary</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // 練習 -  以上面任一種方式連接 kktix API，並用表格顯示資料
+
+    $.get('https://kktix.com/events.json', function (response) {
+      // console.log(response.entry[0].published)
+      console.log(response.entry.length);
+      for (let i = 1; i < response.entry.length; i++) {
+        $('table').append(`
+        <tr>
+          <td>`+ response.entry[i].published + `</td>
+          <td>`+ response.entry[i].title + `</td>
+          <td>`+ response.entry[i].content + `</td>
+          <td>`+ response.entry[i].author.name + `</td>
+          <td>`+ response.entry[i].summary + `</td>
+        </tr>`)
+      }
+    }, 'json')
+  </script>
+</body>
+
+</html>

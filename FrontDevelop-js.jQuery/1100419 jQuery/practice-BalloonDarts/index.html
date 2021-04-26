@@ -9,7 +9,14 @@
   <style>
     .inline {
       display: inline-block;
-      /* float: left; */
+    }
+
+    .none {
+      display: none;
+    }
+
+    .block {
+      display: block;
     }
 
     #turntable {
@@ -20,8 +27,40 @@
     }
 
     .balloon-svg {
-      width: 60px;
-      height: 60px;
+      /* width: 60px;
+      height: 60px; */
+      fill: transparent;
+
+      /* 原始尺寸 117*154 */
+      width: 53.18px;
+      height: 70px;
+      /* background-image: url(./WaterDrop-6.gif); */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      /* 不能被選取 */
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    #circle .balloon-svg {
+      transform: rotate(180deg);
+    }
+
+    .color {
+      /* fill: rgb(203, 250, 74); */
+      filter: hue-rotate(150deg);
+      background-image: url(./WaterDrop-6.gif);
+    }
+
+    .bomb {
+      fill: rgb(250, 74, 156);
+
+      /* 原始尺寸 115*178 */
+      width: 52.27px;
+      height: 80.9px;
+      background-image: url(./WaterDrop-9.gif);
     }
 
     #circle .balloon {
@@ -62,6 +101,7 @@
       left: calc(50% - 150px);
       top: calc(50% - 150px);
       position: absolute;
+      z-index: 9;
 
       background-color: rgba(0, 9, 128, 0.199);
       /* background-image: url(./balloon.png); */
@@ -78,6 +118,7 @@
       left: calc(50% - 50px);
       top: calc(50% - 50px);
       position: absolute;
+      z-index: 19;
 
       background-color: rgb(138, 89, 253);
       /* background-image: url(./balloon.png); */
@@ -97,7 +138,7 @@
     #straight .track {
       background-color: goldenrod;
       width: 60px;
-      height: 800px;
+      /* height: 800px; */
       margin: 0 1.25px;
 
       /* display: inline-block; */
@@ -105,7 +146,6 @@
     }
 
     #straight .track .balloon-svg {
-      /* margin: 10px 0; */
       transform: rotateX(180deg);
     }
 
@@ -119,7 +159,7 @@
 
     #horizontal .track {
       height: 60px;
-      width: 900px;
+      /* width: 900px; */
       margin: 1.5px 0;
       background-color: seagreen;
       /* display: flex; */
@@ -127,6 +167,7 @@
     }
 
     #horizontal .track .balloon {
+      /* 為了隨機出現的效果，先暫時拿掉 */
       display: inline-block;
     }
 
@@ -176,17 +217,22 @@
     const Balloon = (container) => {
       $(container).append(`
       <div class="balloon">
-        <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
-        <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
-        </svg>
+      <div class="balloon-svg"></div>
       </div>`)
     }
+
+    // <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
+    //     <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
+    //     </svg>
 
     // 隨機 1~10 數字
     const random = () => {
       return Math.floor(Math.random() * 10) + 1
     }
     // console.log(random);  
+    const Random = (r, R) => {
+      return Math.floor(Math.random() * R) + r
+    }
 
     // 圓區 加 氣球svg
     for (i = 0; i < 21; i++) {
@@ -222,12 +268,13 @@
       // 直走區
       Balloon('#straight .track')
       // $('#straight .track .balloon').eq(i).attr('data-svg', i)
-      console.log(`${random()}`);
+      // console.log(`${random()}`);
 
       // 橫走區
       Balloon('#horizontal .track')
     }
 
+    // 開始按鈕事件
     $('#start').click(function () {
       $(this).attr('disabled', true)
 
@@ -245,7 +292,7 @@
         $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 30}px` })
       }, 1200)
 
-      // 隨機給每個 balloon 間距位移
+      // 隨機給每個 直走、橫走區 balloon 間距位移
       timerTrackBalloon = setInterval(() => {
         for (i = 0; i < 20; i++) {
           random()
@@ -271,6 +318,19 @@
         $('.circleS').attr('style', `transform:rotate(${random() * 36}deg)`)
       }, 1200)
 
+      // 隨機顯示汽球
+      for (let i = 0; i < Random(9, 15); i++) {
+        $('#circle .balloon .balloon-svg').eq(Random(0, 21)).addClass('color')
+        // console.log(`${Random(0, 21)}`);
+      }
+
+      for (let i = 0; i < Random(8, 13); i++) {
+        $('#straight .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color')
+        // console.log(`${Random(0, 20)}`);
+
+        $('#horizontal .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color')
+        // console.log(`${Random(0, 20)}`);
+      }
 
       // 轉盤依照現在的秒數一直轉圈，缺點是60秒與1秒切換時，會轉回原點
       // timer = setInterval(() => {
@@ -316,11 +376,21 @@
       // rotation2();
     })
 
+    $('#turntable').on('click', '.color', function () {
+      $(this).addClass('bomb').fadeTo(1250, 0)
+      console.log(0);
+    })
 
-    // fill="#5b5b5b"  svg顏色隨機
+
+    // 有問題
     // 轉圈使用 jqueryrotate 沒辦法轉完一整圈
+    // 小圓及中圓內的汽球無法點擊，就算設$('#circle .balloon')也一樣 --4/26解決
+    // 橫走區汽球移動時有的會疊在一起 -- 4/26 老師建議用 position
 
+    // 待作效果
     // 分解gif  https://dribbble.com/shots/3388942-Water-drop
+    // fill="#5b5b5b"  svg顏色隨機
+    // 設置飛鏢數量及倒數時間，並計算爆掉汽球顆數
   </script>
 </body>
 

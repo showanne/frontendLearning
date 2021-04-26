@@ -22,39 +22,25 @@
 
   }
 
-  /* .center {
-    text-align: center;
+  .inline {
+    display: inline-block;
+  }
+
+  .info {
+    width: 265px;
+    /* background-color: orange; */
+    /* text-align: center; */
+    vertical-align: top;
+  }
+
+  /* .game {
+    width: calc(90% - 200px);
   } */
 
-  table {
-    margin: auto;
-    font-family: 'Pangolin', cursive;
-    font-size: 2.7rem;
-    box-sizing: border-box;
-
-    /* 按鍵間距 */
-    border-spacing: 17px;
-  }
-
-  table td {
-    width: 90px;
-    height: 90px;
+  .center {
     text-align: center;
   }
 
-  /* table td:hover {
-    background-color: rgba(214, 205, 255, 0.555);
-  } */
-
-  .colorOrign {
-    background-color: slateblue;
-    color: lemonchiffon;
-  }
-
-  .colorOn {
-    background-color: darkorange;
-    color: lightgreen;
-  }
 
   button {
     background-color: white;
@@ -90,24 +76,57 @@
     /* box-shadow: 0 8px 32px 0 rgba(135, 102, 31, 0.37); */
   }
 
-  .inline {
+
+  table {
+    margin: auto;
+    font-family: 'Pangolin', cursive;
+    font-size: 2.7rem;
+    box-sizing: border-box;
+
+    /* 按鍵間距 */
+    /* border-spacing: 17px; */
+    border-spacing: 20px 7px;
+    border-collapse: separate;
+
+    /* 不能被選取 */
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  table td {
     display: inline-block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    margin: 0 7px;
   }
 
-  .info {
-    width: 17%;
-    /* text-align: center; */
+  /* table td:hover {
+    background-color: rgba(214, 205, 255, 0.555);
+  } */
+
+  .colorOrign {
+    background-color: slateblue;
+    color: lemonchiffon;
   }
 
-  .game {
-    width: 72%;
+  .colorOn {
+    background-color: #f6d51e;
+    color: #744802;
+
+    /* 樣式同 .key:active */
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 0 0;
   }
+
 
   /* 按鍵樣式效果 https://codepen.io/veronicadev/pen/GyGLyN */
   .key {
     text-decoration: none;
     /* color: #000; */
-    margin: auto;
+    /* margin: auto; */
     /* width: 150px; */
     /* display: inline-block; */
     /* line-height: 40px; */
@@ -117,6 +136,7 @@
     text-transform: uppercase;
     /* background-color: #fff; */
     border: 3px solid #303030;
+    border-radius: 5px;
     box-shadow:
       1px 1px 0 #303030a2,
       2px 2px 0 #303030a2,
@@ -130,7 +150,7 @@
   }
 
   .key:hover {
-    background-color: #3030301e;
+    background-color: #b4a4fb1e;
   }
 
   .key:active {
@@ -152,17 +172,17 @@
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
-  } 
+  }
+
   .key:hover:after {
     background-color: #f6d51e;
-  } 
-  */
+  } */
 </style>
 
 <body>
-  <div class="center">
+  <div class="">
     <!-- 觸發按鈕 -->
-    <div>
+    <div class="center">
       <button class="paper-border mode" id="start">開始</button>
       <!-- <button class="paper-border" id="stop">暫停</button> -->
       <button class="paper-border" id="end">結束</button>
@@ -177,62 +197,65 @@
       </button>
     </div>
 
+
     <!-- 遊戲區 -->
     <div class="game inline">
       <table>
         <tr>
-          <td id="Digit1">1</td>
-          <td id="Digit2">2</td>
-          <td id="Digit3">3</td>
-          <td id="Digit4">4</td>
-          <td id="Digit5">5</td>
-          <td id="Digit6">6</td>
+          <td id="Digit1" class="key">1</td>
+          <td id="Digit2" class="key">2</td>
+          <td id="Digit3" class="key">3</td>
+          <td id="Digit4" class="key">4</td>
+          <td id="Digit5" class="key">5</td>
+          <td id="Digit6" class="key">6</td>
           <td id="Digit7" class="key">7</td>
           <td id="Digit8" class="key">8</td>
           <td id="Digit9" class="key">9</td>
-          <td id="Digit0">0</td>
+          <td id="Digit0" class="key">0</td>
           <td></td>
         </tr>
       </table>
       <table>
         <tr>
-          <td id="KeyQ">Q</td>
-          <td id="KeyW">W</td>
-          <td id="KeyE">E</td>
-          <td id="KeyR">R</td>
-          <td id="KeyT">T</td>
-          <td id="KeyY">Y</td>
-          <td id="KeyU">U</td>
-          <td id="KeyI">I</td>
-          <td id="KeyO">O</td>
-          <td id="KeyP">P</td>
+          <td id="KeyQ" class="key">Q</td>
+          <td id="KeyW" class="key">W</td>
+          <td id="KeyE" class="key">E</td>
+          <td id="KeyR" class="key">R</td>
+          <td id="KeyT" class="key">T</td>
+          <td id="KeyY" class="key">Y</td>
+          <td id="KeyU" class="key">U</td>
+          <td id="KeyI" class="key">I</td>
+          <td id="KeyO" class="key">O</td>
+          <td id="KeyP" class="key">P</td>
         </tr>
       </table>
       <table>
         <tr>
-          <td id="KeyA">A</td>
-          <td id="KeyS">S</td>
-          <td id="KeyD">D</td>
-          <td id="KeyF">F</td>
-          <td id="KeyG">G</td>
-          <td id="KeyH">H</td>
-          <td id="KeyJ">J</td>
-          <td id="KeyK">K</td>
-          <td id="KeyL">L</td>
+          <td id="KeyA" class="key">A</td>
+          <td id="KeyS" class="key">S</td>
+          <td id="KeyD" class="key">D</td>
+          <td id="KeyF" class="key">F</td>
+          <td id="KeyG" class="key">G</td>
+          <td id="KeyH" class="key">H</td>
+          <td id="KeyJ" class="key">J</td>
+          <td id="KeyK" class="key">K</td>
+          <td id="KeyL" class="key">L</td>
         </tr>
       </table>
       <table>
         <tr>
-          <td id="KeyZ">Z</td>
-          <td id="KeyX">X</td>
-          <td id="KeyC">C</td>
-          <td id="KeyV">V</td>
-          <td id="KeyB">B</td>
-          <td id="KeyN">N</td>
-          <td id="KeyM">M</td>
+          <td id="KeyZ" class="key">Z</td>
+          <td id="KeyX" class="key">X</td>
+          <td id="KeyC" class="key">C</td>
+          <td id="KeyV" class="key">V</td>
+          <td id="KeyB" class="key">B</td>
+          <td id="KeyN" class="key">N</td>
+          <td id="KeyM" class="key">M</td>
+          <td></td>
         </tr>
       </table>
     </div>
+
 
     <!-- 資訊區 -->
     <div class="info inline">
@@ -251,7 +274,6 @@
     </div>
   </div>
 
-
   <!-- sweetalert2  js-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -262,7 +284,7 @@
     const btnStop = document.getElementById('stop')
     const btnEnd = document.getElementById('end')
     const tds = document.getElementsByTagName('td')
-    // console.log(tds);
+    console.log(tds);
     const modes = document.getElementsByClassName('mode')
     // console.log(modes);
 
@@ -310,8 +332,8 @@
         const random = Math.floor(Math.random() * 37)
         tds[random].classList.add('colorOrign')
 
-        // 判斷隨機數字如果為 tds[10] 則跳過
-        if (random == 10) {
+        // 判斷隨機數字如果為 tds[10]或[38] 則跳過
+        if (random == 10 || random == 38) {
           i--
         }
 

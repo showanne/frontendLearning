@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./jquery-3.6.0.min.js"></script>
+  <script>
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      method: 'GET',
+      // 回來的資料型態
+      dataType: 'json',
+      success: function (response) {
+        console.log(response)
+      },
+      error: function (error) {
+        console.log(error)
+        console.log('錯誤')
+      }
+    })
+
+    // 簡寫版，只有 .get() 和 .post()
+    $.get('https://jsonplaceholder.typicode.com/posts', function (response) {
+      console.log(response)
+    }, 'json')
+
+    /******************************************************/
+
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      method: 'POST',
+      data: JSON.stringify({
+        title: 'aaa',
+        body: 'asdasd'
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      },
+      // 回來的資料型態
+      dataType: 'json',
+      success: function (response) {
+        console.log(response)
+      },
+      error: function (error) {
+        console.log(error)
+        console.log('錯誤')
+      }
+    })
+
+    $.post('https://jsonplaceholder.typicode.com/posts', {
+      title: 'aaa',
+      body: 'asdasd'
+    }, function (response) {
+      console.log(response)
+    }, 'json')
+  </script>
+</body>
+
+</html>

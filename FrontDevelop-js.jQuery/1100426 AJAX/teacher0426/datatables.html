@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+  <table id="table">
+    <thead>
+      <tr>
+        <th>名稱</th>
+        <th>時間</th>
+        <th>內容</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script src="./jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script>
+    $.get('https://kktix.com/events.json', function (response) {
+      for (let data of response.entry) {
+        $("#table tbody").append(`
+          <tr>
+            <td>${data.title}</td>
+            <td>${new Date(data.published).toLocaleString()}</td>
+            <td>${data.summary}</td>
+          </tr>
+        `)
+      }
+      $("#table").DataTable({
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Chinese-traditional.json'
+        },
+        // 欄位預設值
+        columnDefs: [
+          {
+            // 目標欄位，從 0 開始
+            targets: [2],
+            // 關閉排序
+            orderable: false
+          }
+        ],
+        // 一頁幾筆
+        lengthMenu: [
+          // 數值，-1 是全部
+          [5, 10, 20, -1],
+          // 顯示文字
+          [5, 10, 20, '全部']
+        ]
+      })
+    })
+  </script>
+</body>
+
+</html>

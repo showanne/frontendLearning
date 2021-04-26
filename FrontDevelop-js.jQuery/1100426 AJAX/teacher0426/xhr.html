@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 建立一個新的 XHR
+    let xhr = new XMLHttpRequest()
+    // 設定請求方式與網址
+    xhr.open('get', 'https://jsonplaceholder.typicode.com/posts')
+    // 當請求成功時
+    xhr.onload = () => {
+      // xhr.responseText 是文字，用 JSON.parse 轉成可用的變數
+      const json = JSON.parse(xhr.responseText)
+      console.log(json)
+    }
+    // 當請求失敗時
+    xhr.onerror = (error) => {
+      console.log(error)
+    }
+    // 送出
+    xhr.send()
+
+    //****************************************************************//
+
+    let xhr2 = new XMLHttpRequest()
+    // 設定請求方式與網址
+    xhr2.open('post', 'https://jsonplaceholder.typicode.com/posts')
+    // 設定傳出去的內容類型是 JSON
+    xhr2.setRequestHeader('Content-type', 'application/json')
+    // 當請求成功時
+    xhr2.onload = () => {
+      // xhr.responseText 是文字，用 JSON.parse 轉成可用的變數
+      const json = JSON.parse(xhr2.responseText)
+      console.log(json)
+    }
+    // 當請求失敗時
+    xhr2.onerror = (error) => {
+      console.log(error)
+    }
+    // 送出
+    xhr2.send(JSON.stringify({
+      title: 'aaa',
+      body: 'aasdasd'
+    }))
+  </script>
+</body>
+</html>

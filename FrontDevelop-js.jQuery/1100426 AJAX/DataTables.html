@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- datatables css -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+  <style>
+
+  </style>
+</head>
+<table id="table">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>時間</th>
+      <th>內容</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+
+<body>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- datatables js -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script>
+    $.get('https://kktix.com/events.json', function (response) {
+      // 用 DataTable 一定要設 thead 及 tbody
+      for (let data of response.entry) {
+        $('#table tbody').append(`
+        <tr>
+          <td>${data.title}</td>
+          <td>${new Date(data.published).toLocaleString()}</td>   
+          <td>${data.summary}</td>
+        </tr>`)
+      }
+
+      // 盡量放在新增的資料後，避免DataTable抓不到值
+      $('#table').DataTable({
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Chinese-traditional.json'
+        },
+        // 欄位預設值
+        columnDefs: [
+          {
+            // 目標欄位，從0開始
+            targets: [2],
+            // 關閉排序
+            orderable: false,
+          }
+        ],
+        // 一頁幾筆
+        lengthMenu: [
+          // 數值，-1是全部
+          [5, 10, 20, -1],
+          // 顯示文字
+          [5, 10, 20, '全部']
+        ]
+      })
+    })
+  </script>
+</body>
+
+</html>

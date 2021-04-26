@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="chart"></canvas>
+  <canvas id="chart2"></canvas>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous"></script>
+  <script>
+    // .getContext('2d') 取得 canvas 的 2d 繪圖參數
+    const ctx = document.getElementById('chart').getContext('2d')
+    const ctx2 = document.getElementById('chart2').getContext('2d')
+
+    const chart = new Chart(ctx, {
+      // 折線圖
+      type: 'line',
+      data: {
+        // X 軸名稱
+        labels: ['一心', '二聖', '三多', '四維', '五福', '六合', '七賢', '八德', '九如', '十全'],
+        // 資料集
+        datasets: [
+          {
+            // 名稱
+            label: 'test',
+            // 資料
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            // 邊框顏色
+            borderColor: '#f00',
+            // 填滿顏色
+            backgroundColor: '#faa',
+            // 邊框粗細
+            borderWidth: 5,
+            // 彎曲程度，0 是直線
+            lineTension: 0
+          }
+        ]
+      },
+      options: {
+        // 設定圖表標題
+        plugins: {
+          title: {
+            text: '高雄路名',
+            display: true
+          }
+        },
+        // 設定是否從 0 開始
+        scales: {
+          yAxes: {
+            beginAtZero: true
+          }
+        },
+        // 不會自動縮放
+        // responsive: false
+      }
+    })
+  
+    const chart2 = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['一心', '二聖', '三多', '四維', '五福', '六合', '七賢', '八德', '九如', '十全'],
+        datasets: [
+          {
+            label: '高雄路名',
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            // 邊框顏色
+            borderColor: [
+              'rgba(255,0,0,1.0)',
+              'rgba(255,0,0,0.9)',
+              'rgba(255,0,0,0.8)',
+              'rgba(255,0,0,0.7)',
+              'rgba(255,0,0,0.6)',
+              'rgba(255,0,0,0.5)',
+              'rgba(255,0,0,0.4)',
+              'rgba(255,0,0,0.3)',
+              'rgba(255,0,0,0.2)',
+              'rgba(255,0,0,0.1)'
+            ],
+            // 填滿顏色
+            backgroundColor: ['#faa'],
+            // 邊框粗細
+            borderWidth: 5,
+            // 彎曲程度，0 是直線
+            lineTension: 0
+          }
+        ]
+      },
+      options: {
+        // 設定圖表標題
+        plugins: {
+          title: {
+            text: '高雄路名',
+            display: true
+          }
+        },
+        // 設定是否從 0 開始
+        scales: {
+          yAxes: {
+            beginAtZero: true
+          }
+        },
+        // 不會自動縮放
+        // responsive: false
+      }
+    })
+  </script>
+</body>
+</html>

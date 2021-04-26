@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="chart"></canvas>
+
+  <!-- axios.js -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+          integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+          crossorigin="anonymous"></script>
+
+  <script>
+    const ctx = document.getElementById('chart').getContext('2d')
+
+    axios.get('https://apiservice.mol.gov.tw/OdService/download/A17000000J-030243-WSk')
+      .then(({ data }) => {
+        const month = []
+        const year = []
+        for (const d of data) {
+          year.push(d.年度)
+          month.push(d['基本工資（元）-月薪'])
+          // 因為名稱有減號，所以需用 [] 及 '' 將名稱包起來
+        }
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: year,
+            datasets: [
+              {
+                // 名稱
+                label: '基本月薪',
+                // 資料
+                data: month,
+                // 邊框顏色
+                borderColor: 'purple',
+                // 填滿顏色
+                backgroundColor: '#aca',
+                // 邊框粗細
+                borderWidth: 5,
+                // 彎曲程度，0是直線
+                lineTension: 0,
+              }
+            ]
+          }
+        })
+      })
+  </script>
+</body>
+
+</html>

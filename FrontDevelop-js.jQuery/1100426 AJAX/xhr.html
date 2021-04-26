@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 建立一個新的 xhr
+    let xhr = new XMLHttpRequest()
+    // 設定請求方式與網址  方式：get/post/...
+    xhr.open('get', 'https://jsonplaceholder.typicode.com/posts')
+    // 
+    xhr.onload = () => {
+      // 
+      const json = JSON.parse(xhr.responseText)
+      console.log(json);
+    }
+    // 
+    xhr.onerror = (error) => {
+      console.log(error);
+    }
+    // 
+    xhr.send()
+
+    //****************************************************************//
+
+
+    let xhr2 = new XMLHttpRequest()
+    // 設定請求方式與網址  方式：get/post/...
+    xhr2.open('post', 'https://jsonplaceholder.typicode.com/posts')
+    // 
+    xhr2.setRequestHeader('Content-type', 'application/json')
+    // 設定傳出去的內容類型是 JSON
+    xhr2.onload = () => {
+      // 
+      const json = JSON.parse(xhr2.responseText)
+      console.log(json);
+    }
+    // 
+    xhr2.onerror = (error) => {
+      console.log(error);
+    }
+    // 
+    xhr2.send()
+  </script>
+</body>
+
+</html>

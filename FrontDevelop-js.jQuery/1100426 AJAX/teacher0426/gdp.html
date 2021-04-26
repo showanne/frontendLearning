@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="chart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+    integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+    crossorigin="anonymous"></script>
+  <script>
+    const ctx = document.getElementById('chart').getContext('2d')
+
+    axios.get('https://apiservice.mol.gov.tw/OdService/download/A17000000J-030243-WSk')
+      .then(({ data }) => {
+        const month = []
+        const year = []
+        for (const d of data) {
+          year.push(d.年度)
+          month.push(parseInt(d['基本工資（元）-月薪']))
+        }
+        new Chart(ctx, {
+          type: 'line',
+          labels: year,
+          data: {
+            datasets: [
+              {
+                label: '基本月薪',
+                data: month,
+                borderColor: '#f00',
+                // 填滿顏色
+                backgroundColor: '#faa',
+                // 邊框粗細
+                borderWidth: 5,
+                // 彎曲程度，0 是直線
+                lineTension: 0
+              }
+            ]
+          }
+        })
+      })
+  </script>
+</body>
+
+</html>
