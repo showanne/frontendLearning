@@ -14,17 +14,17 @@
     let xhr = new XMLHttpRequest()
     // 設定請求方式與網址  方式：get/post/...
     xhr.open('get', 'https://jsonplaceholder.typicode.com/posts')
-    // 
+    // 當請求成功時
     xhr.onload = () => {
-      // 
+      // 會回傳 xhr.responseText ，但需用 JSON.parse() 將文字轉成可用的變數
       const json = JSON.parse(xhr.responseText)
       console.log(json);
     }
-    // 
+    // 當請求失敗時
     xhr.onerror = (error) => {
       console.log(error);
     }
-    // 
+    // 送出
     xhr.send()
 
     //****************************************************************//
@@ -33,20 +33,23 @@
     let xhr2 = new XMLHttpRequest()
     // 設定請求方式與網址  方式：get/post/...
     xhr2.open('post', 'https://jsonplaceholder.typicode.com/posts')
-    // 
-    xhr2.setRequestHeader('Content-type', 'application/json')
     // 設定傳出去的內容類型是 JSON
+    xhr2.setRequestHeader('Content-type', 'application/json')
+    // 當請求成功時
     xhr2.onload = () => {
-      // 
+      // 會回傳 xhr.responseText ，但需用 JSON.parse() 將文字轉成可用的變數
       const json = JSON.parse(xhr2.responseText)
       console.log(json);
     }
-    // 
+    // 當請求失敗時 
     xhr2.onerror = (error) => {
       console.log(error);
     }
-    // 
-    xhr2.send()
+    // 送出
+    xhr2.send(JSON.stringify({
+      title: 'AAA',
+      body: 'ngbuiopsdeh '
+    }))
   </script>
 </body>
 

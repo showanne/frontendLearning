@@ -1,0 +1,3 @@
+https://quality.data.gov.tw/dq_download_json.php?nid=11549&md5_url=bb878d47ffbe7b83bfc1b41d0b24946e
+
+http://www.twse.com.tw/exchangeReport/STOCK_DAY_ALL?response=open_data

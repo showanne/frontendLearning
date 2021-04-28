@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const wait = (delay) => {
+      return new Promise((resolve, reject) => {
+        if (isNaN(delay)) {
+          reject(new Error('不是數字'))
+        }
+        setTimeout(() => {
+          resolve(`過了 ${delay} 毫秒`)
+        }, delay)
+      })
+    }
+
+    // async function main () {
+    // }
+    const main = async () => {
+      await wait(1000).then(result => {
+        console.log(result)
+      })
+      await wait(2000).then(result => {
+        console.log(result)
+      })
+      console.log('abc')
+    }
+
+    const main2 = async () => {
+      try {
+        // 如果用 try catch 包 await 的 promise 的話
+        // 可以直接將 resolve 的結果代入變數
+        // 原本的 reject 會直接跳到 try catch 的 catch
+        const msg1 = await wait(1000)
+        console.log(msg1)
+
+        const msg2 = await wait('abc')
+        console.log(msg2)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+
+    const main3 = async () => {
+      try {
+        const response = await axios.get('https://kktix.com/events.json')
+        console.log(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    main3()
+  </script>
+</body>
+</html>

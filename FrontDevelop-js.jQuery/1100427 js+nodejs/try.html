@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // try catch 避免程式掛掉
+    // 試著執行一段程式碼
+    // try {
+    //   alertt('hi')
+    //   console.log('hi');
+    // }
+    // 如果有錯誤，直接執行下面的程式
+    // catch (error) {
+    //   console.log(error);
+    // }
+
+    const validate = (input) => {
+      // if (isNaN(input)) return '不是數字'
+      // else if (input < 0) return '數字太小'
+      // else if (input > 100) return '數字太大'
+      // else return '成功'
+
+      try {
+        if (isNaN(input)) throw new Error('不是數字')
+        else if (input < 0) throw new Error('數字太小')
+        else if (input > 100) throw new Error('數字太大')
+        return '成功'
+      } catch (error) {
+        return error.message
+        console.log(error.message);
+      }
+    }
+
+  </script>
+</body>
+
+</html>

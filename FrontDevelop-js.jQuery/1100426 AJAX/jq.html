@@ -15,6 +15,7 @@
     $.ajax({
       url: 'https://jsonplaceholder.typicode.com/posts',
       method: 'GET',
+      // 傳回來的資料型態
       dataType: 'json',
       success: function (response) {
         console.log(response);
@@ -25,7 +26,7 @@
       }
     })
 
-    // 
+    // 簡寫版，只有 .get() 和 .post()
     $.get('https://jsonplaceholder.typicode.com/posts', function (response) {
       console.log(response);
     }, 'json')

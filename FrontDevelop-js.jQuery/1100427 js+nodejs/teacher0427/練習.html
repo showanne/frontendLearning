@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list"></ul>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const list = document.getElementById('list')
+
+    const main = async () => {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+        // let id = 0
+        // for (const data of response.data) {
+        //   if (data.name === 'Leanne Graham') {
+        //     id = data.id
+        //     break
+        //   }
+        // }
+        //
+        // const id = response.data.filter(data => {
+        //   return data.name === 'Leanne Graham'
+        // })[0].id
+        //
+        // .find() 找陣列裡符合判斷式的第一筆
+        const id = response.data.find(data => {
+          return data.name === 'Leanne Graham'
+        }).id
+        //
+        // .findIndex() 找陣列裡符合判斷式的第一筆的索引
+        // const idx = response.data.findIndex(data => {
+        //   return data.name === 'Leanne Graham'
+        // })
+        const response2 = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+        for(const data of response2.data) {
+          list.insertAdjacentHTML('beforeend', `<li>${data.title}</li>`)
+        }
+      } catch (error) {
+        list.insertAdjacentHTML('beforeend', `<li>錯誤</li>`)
+      }
+    }
+
+    main()
+  </script>
+</body>
+</html>

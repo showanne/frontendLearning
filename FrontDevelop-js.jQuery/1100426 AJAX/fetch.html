@@ -11,16 +11,21 @@
 <body>
   <script>
     fetch('https://jsonplaceholder.typicode.com/posts')
+      // 處理回來的資料，轉成 JSON
+      // .blob()  .json()  .text()
       .then(response => {
         return response.json()
       })
+      // 拿到 JSON 後要做的事
       .then(json => {
         console.log(json);
       })
+      // 失敗時會執行
       .catch(error => {
         console.log(error);
         console.log('錯誤');
       })
+      // 不管成功或失敗一定會跑這行
       .finally(() => {
         console.log('完成');
       })
@@ -37,16 +42,21 @@
         'Content-type': 'application/json'
       }
     })
+      // 處理回來的資料，轉成 JSON
+      // .blob()  .json()  .text()
       .then(response => {
         return response.json()
       })
+      // 拿到 JSON 後要做的事
       .then(json => {
         console.log(json);
       })
+      // 失敗時會執行
       .catch(error => {
         console.log(error);
         console.log('錯誤');
       })
+      // 不管成功或失敗一定會跑這行
       .finally(() => {
         console.log('完成');
       })

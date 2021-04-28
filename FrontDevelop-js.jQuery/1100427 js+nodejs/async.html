@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    const wait = (delay) => {
+      if (isNaN(delay)) {
+        reject(new Error('不是數字'))
+      }
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(`過了 ${delay}毫秒`)
+        }, delay)
+      })
+    }
+
+    // 非箭頭函式寫法
+    // async function main () {}
+
+    const main = async () => {
+      await wait(1000).then(result => {
+        console.log(result);
+      })
+      await wait(2000).then(result => {
+        console.log(result);
+      })
+      console.log('abc');
+    }
+
+    // 有 await 的結果
+    // 過了 1000毫秒
+    // abc
+
+    // 沒有 await 的結果
+    // abc
+    // 過了 1000毫秒
+
+    main()
+
+    const main2 = async () => {
+      try {
+        // 如果用 try catch 包 await 的 promise 的話
+        // 可以直接將 resolves 的結果代入變數
+        // 原本的 reject 會直接跳到 try catch 的 catch
+        const msg1 = await wait(1000)
+        console.log(msg1);
+
+        const msg2 = await wait('abc')
+        console.log(msg2);
+      }
+      catch (error) {
+        console.log(error.message);
+      }
+    }
+    main2()
+
+    const main3 = async () => {
+      try {
+        const response = await axios.get('https://kktix.com/events.json')
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    main3()
+
+
+    // 在使用 await 的同時，不要錯過同時執行的機會
+    // 執行這段程式碼需要 3000 毫秒
+    // const func1 = async () => {
+    //   const wait1 = await wait(1500);
+    //   const wait2 = await wait(1500);
+    //   return wait1 + wait2;
+    // }
+    // func1()
+
+    // 但是執行這段程式碼只需要 1500 毫秒，因為兩個 wait 同時發生
+    // const func2 = async () => {
+    //   let wait1 = wait(1500);
+    //   let wait2 = wait(1500);
+    //   wait1 = await wait1;
+    //   wait2 = await wait2;
+    //   return wait1 + wait2;
+    // }
+    // func2()
+  </script>
+</body>
+
+</html>

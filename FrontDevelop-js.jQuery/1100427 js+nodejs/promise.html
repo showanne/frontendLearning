@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 有沒有通過丙級
+    const pass = true
+    // 通過丙級就吃披薩的承諾
+    const pizza = new Promise((resolve, reject) => {
+      // 如果通過
+      if (pass) {
+        // 承諾達成
+        resolve('ya !')
+      } else {
+        // 承諾拒絕
+        reject(new Error('no~'))
+      }
+    })
+
+    // .then()  承諾達成時執行
+    // .catch() 承諾拒絕時，和 .then() 發生錯誤時執行
+
+    pizza.then(result => {
+      // result 會是 resolve 的結果
+      console.log(result);
+    }).catch(error => {
+      // error 會是 reject 的錯誤訊息
+      console.log('發生錯誤');
+      console.log(error.message);
+    }).finally(() => {
+      console.log('不管成功或失敗一定會跑');
+    })
+
+    // 把 Promise 包成 Function
+    const pizza2 = (pass) => {
+      return new Promise((resolve, reject) => {
+        if (pass) {
+          // 承諾達成
+          resolve('ya !')
+        } else {
+          // 承諾拒絕
+          reject(new Error('no~'))
+        }
+      })
+    }
+
+    pizza2(false).then(result => {
+      // result 會是 resolve 的結果
+      console.log(result);
+    }).catch(error => {
+      // error 會是 reject 的錯誤訊息
+      console.log('發生錯誤');
+      console.log(error.message);
+    }).finally(() => {
+      console.log('不管成功或失敗一定會跑');
+    })
+
+  </script>
+</body>
+
+</html>
