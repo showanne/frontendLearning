@@ -120,65 +120,149 @@
         // <div class="cube"></div>
         $('#game').append('<div class="cube"></div>')
         $('.cube').eq(i).attr('data-cube', i)
+       
+      // console.log($('.cube').data()); // 測試取得 data的值
       }
 
+      // 隨機給炸彈
       for (let i = 0; i < num; i++) {
         // console.log(i);
-        const bombNum = rand(Cube)
         // console.log(rand(Cube));
-        $('.cube').eq(bombNum).attr('data-bomb', i)
-        $('.cube').eq(bombNum).addClass('fas fa-bomb')
+
+        // 有炸彈的那格
+        let BombCube = rand(Cube)
+
+        // 炸彈周圍初始值
+        let BombNum = ''
+
+
+        $('.cube').eq(BombCube).attr('data-bomb', i)
+        $('.cube').eq(BombCube).addClass('fas fa-bomb')
         // css('backgroundColor', 'rgba(255, 20, 145, 0.3)').
 
         // 要設判斷式，判斷有重疊的話數字要相加
+        $('.fa-bomb').each(function () {
+        let BombNum = 0
+
+        if ($(this).hasClass('fa-bomb')) {
+          // $(this).addClass('fas fa-bomb')
+          console.log($(this).index())
+          let BombCube = $(this).index()
+
+          BombNum++
+          console.log(BombNum);
+
+          $(this).prev().addClass('font').text(BombNum)
+          $(this).next().addClass('font').text(BombNum)
+          // console.log($(this).siblings());
+          // $(this).siblings().eq(num).prev().addClass('font').text(BombNum)
+
+            $('.cube').eq(BombCube - num).addClass('font').text(BombNum)
+            $('.cube').eq(BombCube - num).prev().addClass('font').text(BombNum)
+            $('.cube').eq(BombCube - num).next().addClass('font').text(BombNum)
+
+            $('.cube').eq(BombCube + num).addClass('font').text(BombNum)
+            $('.cube').eq(BombCube + num).prev().addClass('font').text(BombNum)
+            $('.cube').eq(BombCube + num).next().addClass('font').text(BombNum)
+
+          
+        }})
+        // for (let j = 0; j < num; j++) {
+        //   let BombNum = 0
+        //   if ($('.cube').hasClass('fa-bomb')) {
+        //     BombNum++
+        //     console.log(BombNum);
+        //     $('this').prev().addClass('font').text(BombNum)
+        //     $('this').next().addClass('font').text(BombNum)
+
+            // $('.cube').eq(BombCube - num).addClass('font').text('1')
+            // $('.cube').eq(BombCube - num).prev().addClass('font').text('1')
+            // $('.cube').eq(BombCube - num).next().addClass('font').text('1')
+
+            // $('.cube').eq(BombCube + num).addClass('font').text('1')
+            // $('.cube').eq(BombCube + num).prev().addClass('font').text('1')
+            // $('.cube').eq(BombCube + num).next().addClass('font').text('1')
+            //   // + 可以算數學或連變數  - 只能算數學
+          // }
+        // }
+
         // 如果剛好炸彈在邊邊就只須給另半邊的數字
       }
-      $('.fa-bomb').each(function name(params) {
-        $(this).prev().addClass('font').text('1')
-        $(this).next().addClass('font').text('1')
-      })
+
+
+
+
+      // 由上而下的直欄位由 i 控制，由左而右的橫欄位由 j 控制
+      for (let i = 0; i < num; i++) {
+
+        for (let j = 0; j < num; j++) { 
+          let BombNum = 0
+          // console.log(num*i+j);
+          if ($(this).hasClass('fa-bomb')) {
+
+            BombNum++
+            // 1 10
+            // let i =3
+            // let j =5
+
+            $(this).prev().addClass('font').text(BombNum)
+            $(this).next().addClass('font').text(BombNum)
+
+            // $('.cube').eq(num*i+j).prev().addClass('font').text(BombNum)
+            // $('.cube').eq(num*i+j).next().addClass('font').text(BombNum)
+
+            // $('.cube').eq(num*(i-1)+j).addClass('font').text(BombNum)
+            // $('.cube').eq(num*(i-1)+j).prev().addClass('font').text(BombNum)
+            // $('.cube').eq(num*(i-1)+j).next().addClass('font').text(BombNum)
+
+            // $('.cube').eq(num*(i+1)+j).addClass('font').text(BombNum)
+            // $('.cube').eq(num*(i+1)+j).prev().addClass('font').text(BombNum)
+            // $('.cube').eq(num*(i+1)+j).next().addClass('font').text(BombNum)
+          }
+        }
+        
+      }
     })
-    // $('input[type="number"]').trigger('change')
 
 
 
     // for (let i = 0; i < Cube; i++) {
-    //   $('.cube').eq(bombNum).prev().addClass('font').text('1')
-    //   $('.cube').eq(bombNum).next().addClass('font').text('1')
+    //   $('.cube').eq(BombCube).prev().addClass('font').text('1')
+    //   $('.cube').eq(BombCube).next().addClass('font').text('1')
 
-    //   $('.cube').eq(bombNum - num).addClass('font').text('1')
-    //   $('.cube').eq(bombNum - num).prev().addClass('font').text('1')
-    //   $('.cube').eq(bombNum - num).next().addClass('font').text('1')
+    //   $('.cube').eq(BombCube - num).addClass('font').text('1')
+    //   $('.cube').eq(BombCube - num).prev().addClass('font').text('1')
+    //   $('.cube').eq(BombCube - num).next().addClass('font').text('1')
 
-    //   $('.cube').eq(bombNum + num).addClass('font').text('1')
-    //   $('.cube').eq(bombNum + num).prev().addClass('font').text('1')
-    //   $('.cube').eq(bombNum + num).next().addClass('font').text('1')
+    //   $('.cube').eq(BombCube + num).addClass('font').text('1')
+    //   $('.cube').eq(BombCube + num).prev().addClass('font').text('1')
+    //   $('.cube').eq(BombCube + num).next().addClass('font').text('1')
     //   // + 可以算數學或連變數  - 只能算數學
     // }
 
     // 如果有.fa-bomb，要移除格子內.font及text('1')
     // for (const cube of $('.cube')) {
-    if ($('.cube').hasClass('fa-bomb') && $('.cube').hasClass('font')) {
-      // $(this).css('backgroundColor', 'red')
-      $(this.inner).replaceWith(`< class="cube fas fa-bomb"></>`)
-      // $(this).replaceWith($(".cube .fas .fa-bomb"))
+    // if ($('.cube').hasClass('fa-bomb') && $('.cube').hasClass('font')) {
+    // $(this).css('backgroundColor', 'red')
+    // $(this.inner).replaceWith(`< class="cube fas fa-bomb"></>`)
+    // $(this).replaceWith($(".cube .fas .fa-bomb"))
 
-      // .removeClass('font')
-      // $('.cube').fadeTo(1000, 0.2).removeClass('font')
-      // let test = ($('.cube').hasClass('fa-bomb') && $('.cube').hasClass('font'))
-      console.log($(this).length);
-      // console.log(test);
-    }
+    // .removeClass('font')
+    // $('.cube').fadeTo(1000, 0.2).removeClass('font')
+    // let test = ($('.cube').hasClass('fa-bomb') && $('.cube').hasClass('font'))
+    // console.log($(this).length);
+    // console.log(test);
+    // }
     // }
 
 
 
     // 如果有.font，格子內的text('')值要相加或改值
     // for (const cube of $('.cube')) {
-    if ($('.cube').hasClass('font')) {
-      $('.cube').eq(this).text('2')
-      console.log($('.font').length);
-    }
+    // if ($('.cube').hasClass('font')) {
+    //   $('.cube').eq(this).text('2')
+    //   console.log($('.font').length);
+    // }
     // }
 
     $('#game').on('click', '.fa-bomb', function () {
@@ -194,7 +278,7 @@
         imageAlt: 'Bomb image',
       })
 
-      // 忽略點擊事件
+      // 忽略點擊事件 - 炸彈只能按一次
       $(this).css({
         // 無法被選取
         'user-select': 'none',

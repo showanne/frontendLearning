@@ -34,7 +34,7 @@
   }
 
   /* .game {
-    width: calc(90% - 200px);
+    width: calc(96% - 265px);
   } */
 
   .center {
@@ -77,7 +77,7 @@
   }
 
 
-  table {
+  .game table {
     margin: auto;
     font-family: 'Pangolin', cursive;
     font-size: 2.7rem;
@@ -93,7 +93,7 @@
     -webkit-user-drag: none;
   }
 
-  table td {
+  .game table td {
     display: inline-block;
     width: 90px;
     height: 90px;
@@ -106,20 +106,7 @@
     background-color: rgba(214, 205, 255, 0.555);
   } */
 
-  .colorOrign {
-    background-color: slateblue;
-    color: lemonchiffon;
-  }
 
-  .colorOn {
-    background-color: #f6d51e;
-    color: #744802;
-
-    /* 樣式同 .key:active */
-    top: 5px;
-    left: 5px;
-    box-shadow: 0 0 0 0;
-  }
 
 
   /* 按鍵樣式效果 https://codepen.io/veronicadev/pen/GyGLyN */
@@ -157,6 +144,22 @@
     top: 5px;
     left: 5px;
     box-shadow: 0 0 0 0;
+  }
+
+  .colorOrign {
+    background-color: slateblue;
+    color: lemonchiffon;
+  }
+
+  .colorOn {
+    background-color: #f6d51e;
+    color: #744802;
+
+    /* 樣式同 .key:active */
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 0 0;
+    /* 有被其他屬性蓋過去 */
   }
 
   /* .key:after {
@@ -262,9 +265,17 @@
       <p>Key(目前點擊)：<span id="key-score"> - </span>鍵</p>
       <p>Time(持續時間)：<span id="time-score"> - </span>秒</p>
       <p>Player(遊戲紀錄)：<span id="player-score"> - </span>
-      <ul id="list-score">
+      <!-- <ul id="list-score">
         <li>等級 - 姓名 - 鍵數 - 時間</li>
-      </ul>
+      </ul> -->
+      <table id="list-score">
+        <tr>
+          <th>等級</th>
+          <th>姓名</th>
+          <th>鍵數</th>
+          <th>時間</th>
+        </tr>
+      </table>
       </p>
       <!-- Window.localStorage
           https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage
@@ -327,12 +338,13 @@
     }
 
 
-    //遊戲開始後所有模式不能點擊 --無效中
-    // btn.on('click','.mode')
-    for (const mode of modes) {
-      modes.disabled = true
-      // console.log(00);
+    //遊戲開始後所有模式不能點擊 function
+    const modeDisabled = (D) => {
+      for (const mode of modes) {
+        mode.disabled = D
+      }
     }
+    // console.log(modes); //5  
 
     // 製作隨機按鍵的 function
     const keyValue = (k) => {
@@ -340,15 +352,21 @@
         td.classList.remove('colorOrign')
         td.classList.remove('colorOn')
       }
+
       for (let i = 0; i < k; i++) {
-        const random = Math.floor(Math.random() * 37)
-        tds[random].classList.add('colorOrign')
+        const random = Math.floor(Math.random() * 38)
 
         // 判斷隨機數字如果為 tds[10]或[38] 則跳過
-        if (random == 10 || random == 38) {
+        if (random === 10) {
           i--
+          console.log(10);
+        } else if (random === 37) {
+          i--
+          console.log(37);
+        } else {
+          tds[random].classList.add('colorOrign')
         }
-
+      
         // 判斷不能有重複的隨機數字
         // while (tds.includes(random)) {
         //   i--
@@ -363,11 +381,12 @@
 
     // 開始 按鍵
     btnStart.onclick = () => {
-      // modes.disabled = true //遊戲開始後不能點擊
-      console.log(modes);
+
+      modeDisabled(true)
       calc()
 
-      timer = setInterval(keyValue, 1000, 2)
+      timer = setInterval(keyValue, 3000, 2)
+      setInterval(timer, 3000, 2)
       keyValue(2)  //初始二鍵模式
     }
 
@@ -381,6 +400,9 @@
     btnEnd.onclick = () => {
       console.log('end');
       clearInterval(timer)
+      modeDisabled(false)
+
+      console.log('end2');
 
       for (const td of tds) {
         td.classList.remove('colorOrign')
@@ -399,7 +421,15 @@
         allowOutsideClick: () => !Swal.isLoading()
       }).then((result) => {
         // console.log(result.value);
-        ListScore.insertAdjacentHTML('beforeend', `<li>測試 - ${result.value} - ${key}鍵 - ${time}秒</li>`);
+        ListScore.insertAdjacentHTML('beforeend', `
+        <tr>
+          <td>測試</td>
+          <td>${result.value}</td>
+          <td>${key}鍵</td>
+          <td>${time}秒</td>
+        </tr>
+        `);
+// <li>測試 - ${result.value} - ${key}鍵 - ${time}秒</li>
 
         highScore.key = key
         highScore.time = time
@@ -433,42 +463,39 @@
       // keyScore.innerText = key
     }
 
-
-
-
     keyFour.onclick = () => {
-      // modes.disabled = true //遊戲開始後不能點擊
+      modeDisabled()
       calc()
 
-      timer = setInterval(keyValue, 1000, 4)
+      setInterval(timer, 3000, 4)
       keyValue(4)
     }
 
     keyEight.onclick = () => {
-      // modes.disabled = true //遊戲開始後不能點擊
+      modeDisabled()
       calc()
 
-      timer = setInterval(keyValue, 1000, 8)
+      setInterval(timer, 3000, 8)
       keyValue(8)
     }
 
     keyTwelve.onclick = () => {
-      // modes.disabled = true //遊戲開始後不能點擊
+      modeDisabled()
       calc()
 
-      timer = setInterval(keyValue, 1000, 12)
+      setInterval(timer, 3000, 12)
       keyValue(12)
     }
 
     keyRandom.onclick = () => {
-      // modes.disabled = true //遊戲開始後不能點擊
+      modeDisabled()
       calc()
 
-      let R = Math.floor(Math.random() * 37)
+      let R = Math.floor(Math.random() * 38)
       console.log(`${R}`);
       keyR.innerText = R
 
-      timer = setInterval(keyValue, 1000, R)
+      setInterval(timer, 3000, R)
       keyValue(R)
     }
 
@@ -493,7 +520,7 @@
       if (event.code.includes('Key') || event.code.includes('Digit')) {
         const type = document.getElementById(`${event.code}`)
         console.log(window.event.code);
-        //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫?
+
         if (type !== null && type.classList.contains('colorOrign')) {
           type.classList.replace('colorOrign', 'colorOn')
           key++
@@ -515,19 +542,22 @@
     //   // key++
     //   time++
     //   TimeScore.innerText = time
-
     // }
 
 
+    //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫? --只能單獨命名ID
     // console.log(`${key}`);
     // key 值會奇怪的增加 --0415解決
     // 最後 alert 的 key 值與頁面顯示的不同 --0415解決
-     // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
+    // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
     // 結束按鈕失靈...  --0416解決
     // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
-    // 判斷按鍵隨機時不重複，且不要隨機到空白那格 -0424就沒了
-    // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用
+    // 判斷按鍵隨機時不重複，且不要隨機到空白那格 -0424就沒了，0427還是有，0429修好
+    // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用 --0427解決
     // 成績不能一筆一筆一直存嗎?
+    // 按鍵效果css 要有按鍵被壓扁的感覺 (.key:active 有效)  --0429解決，原來是因為權重及先後順序問題
+    //                                 (.colorOn 沒效)
+    // 按結束遊戲不會停止
 
   </script>
 </body>
