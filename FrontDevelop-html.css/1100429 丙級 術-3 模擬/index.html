@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>國家公園介紹網</title>
+    <style>
+    #main{
+        width: 1024px;height: 768px;margin: auto;
+    }
+    #top{
+        width: 1000px;height: 65px;margin: auto;
+		background-color:#0000ff;
+		text-align:center;
+    }
+	#top img{
+		height: 65px;
+	}
+    #menu{
+        float: left; width: 200px;height: 683px;margin-left: 12px;
+		background-color:#00ffff;
+		text-align:center;
+    }
+	#menu table img{
+		width: 120px;height: 40px;
+	}
+	#menu table img:hover{
+		filter:hue-rotate(234deg);
+	}
+    #content{
+        float: right; width: 800px;height: 683px;margin-right: 12px;
+    }
+	marquee{
+		width:800px;height:20px;
+		vertical-align:middle;
+	}
+	iframe{
+		vertical-align:middle;
+	}
+    #footer{
+        clear: both; width: 1000px;height: 20px;margin: auto;
+		font-family:'標楷體';
+		color:#000000;
+		text-align:center;
+		font-size:16px;
+		line-height:20px;
+    }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="top"> 
+         <a href="index.html"><img src="images/park.gif"></a> 
+        </div>
+        <div id="menu">
+        <table width="200" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr align="center" valign="middle">
+                <td><a href="park/yangmingshan.html" target="content"><img src="images/park0302.jpg" width="327" height="71" alt="陽明山國家公園" title="陽明山國家公園"></a></td>
+            </tr>
+            <tr align="center" valign="middle">
+                    <td>&nbsp;</td>
+            </tr>
+            <tr align="center" valign="middle">
+                <td><a href="park/sheipa.html" target="content"><img src="images/park0303.jpg" width="327" height="71" alt="雪霸國家公園" title="雪霸國家公園"></a></td>
+            </tr>
+            <tr align="center" valign="middle">
+                <td>&nbsp;</td>
+            </tr>
+            <tr align="center" valign="middle">
+                <td><img src="images/park0304.jpg" width="327" height="71" alt="太魯閣國家公園" title="太魯閣國家公園"></td>
+            </tr>
+            <tr align="center" valign="middle">
+                <td>&nbsp;</td>
+            </tr>
+            <tr align="center" valign="middle">
+                <td><img src="images/park0305.jpg" width="327" height="71" alt="玉山國家公園" title="玉山國家公園"></td>
+            </tr>
+        </table>
+        <a href="./others/park.mp3" download>檔案下載</a>
+      </div>
+        <div id="content">
+            <marquee>歡迎進入國家公園介紹網，本網站有詳細的國家公園介紹哦！</marquee>
+            <iframe src="others/main.html" name="content" width="800" height="663" scrolling="auto" frameborder="0"></iframe>
+      </div>
+        <div id="footer">
+        網頁設計及維護：18詹琇安、最近更新日期：2021/04/29
+        </div>
+    </div>
+</body>
+</html>
