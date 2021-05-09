@@ -19,7 +19,11 @@
 <style>
   body {
     padding: 1.5rem 0.5rem;
-
+    /* overflow: scroll; */
+    background-image: url('./images/watercolor.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   .inline {
@@ -27,20 +31,24 @@
   }
 
   .info {
-    width: 265px;
+    width: 275px;
     /* background-color: orange; */
     /* text-align: center; */
     vertical-align: top;
+    box-sizing: border-box;
+    padding: 51px 19px;
   }
 
-  /* .game {
-    width: calc(96% - 265px);
-  } */
+  .game {
+    /* width: calc(96% - 265px); */
+    /* background-color: rgb(234, 255, 239); */
+    box-sizing: border-box;
+    padding: 59px 39px;
+  }
 
   .center {
     text-align: center;
   }
-
 
   button {
     background-color: white;
@@ -58,7 +66,7 @@
 
   /* 神奇不規則線條 PaperCSS framework */
   .paper-border {
-    border-color: #350452;
+    border-color: #e3b3ff8c;
     border-style: solid;
     border-width: 2px;
     border-bottom-left-radius: 15px 255px;
@@ -68,14 +76,9 @@
   }
 
   button:hover {
-    /* background: rgba(255, 246, 195, 0.5); */
-
-    background-color: rgba(218, 195, 255, 0.50);
+    background-color: rgb(245, 239, 255);
     box-shadow: 0 5px 15px 0 rgba(31, 38, 135, 0.37);
-
-    /* box-shadow: 0 8px 32px 0 rgba(135, 102, 31, 0.37); */
   }
-
 
   .game table {
     margin: auto;
@@ -102,12 +105,21 @@
     margin: 0 7px;
   }
 
-  /* table td:hover {
-    background-color: rgba(214, 205, 255, 0.555);
-  } */
+  table#list-score {
+    border: solid 1px rgb(236, 255, 61);
+    padding: 8px;
+  }
 
+  table#list-score td,
+  th {
+    text-align: center;
+    width: 45px;
+  }
 
-
+  table#list-score td:nth-child(2),
+  th:nth-child(2) {
+    width: 50px;
+  }
 
   /* 按鍵樣式效果 https://codepen.io/veronicadev/pen/GyGLyN */
   .key {
@@ -121,15 +133,15 @@
     /* font-weight: 900; */
     /* letter-spacing: 2px; */
     text-transform: uppercase;
-    /* background-color: #fff; */
-    border: 3px solid #303030;
+    background-color: rgb(247, 255, 241);
+    border: 3px solid #193520;
     border-radius: 5px;
     box-shadow:
-      1px 1px 0 #303030a2,
-      2px 2px 0 #303030a2,
-      3px 3px 0 #303030a2,
-      4px 4px 0 #303030a2,
-      5px 5px 0 #303030a2;
+      1px 1px 0 #193520a2,
+      2px 2px 0 #193520a2,
+      3px 3px 0 #193520a2,
+      4px 4px 0 #193520a2,
+      5px 5px 0 #193520a2;
     position: relative;
 
     /* transition: 0.5s; */
@@ -137,7 +149,7 @@
   }
 
   .key:hover {
-    background-color: #b4a4fb1e;
+    background-color: #a4fbb248;
   }
 
   .key:active {
@@ -147,12 +159,12 @@
   }
 
   .colorOrign {
-    background-color: slateblue;
-    color: lemonchiffon;
+    background-color: rgba(111, 216, 50, 0.555);
+    color: rgb(119, 133, 81);
   }
 
   .colorOn {
-    background-color: #f6d51e;
+    background-color: #f6d61e2d;
     color: #744802;
 
     /* 樣式同 .key:active */
@@ -160,6 +172,10 @@
     left: 5px;
     box-shadow: 0 0 0 0;
     /* 有被其他屬性蓋過去 */
+  }
+
+  .colorError {
+    background-color: #f61e1e7e;
   }
 
   /* .key:after {
@@ -263,25 +279,22 @@
     <!-- 資訊區 -->
     <div class="info inline">
       <p>Key(目前點擊)：<span id="key-score"> - </span>鍵</p>
+      <p>Error(目前點擊)：<span id="error-score"> - </span>鍵</p>
       <p>Time(持續時間)：<span id="time-score"> - </span>秒</p>
       <p>Player(遊戲紀錄)：<span id="player-score"> - </span>
-      <!-- <ul id="list-score">
+        <!-- <ul id="list-score">
         <li>等級 - 姓名 - 鍵數 - 時間</li>
       </ul> -->
       <table id="list-score">
         <tr>
           <th>等級</th>
           <th>姓名</th>
-          <th>鍵數</th>
+          <th>按到鍵數</th>
+          <th>錯誤鍵數</th>
           <th>時間</th>
         </tr>
       </table>
       </p>
-      <!-- Window.localStorage
-          https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage
-          https://andy6804tw.github.io/2018/03/04/browser-localstorage/#%E5%88%AA%E9%99%A4%E6%95%B4%E5%80%8B-storage
-          https://ithelp.ithome.com.tw/articles/10195522
-          -->
     </div>
   </div>
 
@@ -295,7 +308,7 @@
     const btnStop = document.getElementById('stop')
     const btnEnd = document.getElementById('end')
     const tds = document.getElementsByTagName('td')
-    console.log(tds);
+    // console.log(tds);
     const modes = document.getElementsByClassName('mode')
     // console.log(modes);
 
@@ -307,36 +320,55 @@
 
     const Switch = document.getElementById('switch')
 
-    const keyScore = document.getElementById('key-score')
+    const KeyScore = document.getElementById('key-score')
+    const ErrorScore = document.getElementById('error-score')
     const TimeScore = document.getElementById('time-score')
     const PlayerScore = document.getElementById('player-score')
     const ListScore = document.getElementById('list-score')
 
-    let key = 0 //按到的鍵數
-    let time = 0 //持續的時間
-    let highScore = { name: '', key: 0, time: 0 }
-    const highStorage = JSON.parse(localStorage.getItem('Keyboard-Play'))
-    if (highStorage !== null) {
-      // highScore = highStorage
-      // highScore.name = result.value
+    let key = 0     //按到的鍵數
+    let error = 0   //按錯的鍵數
+    let time = 0    //持續的時間
 
-      keyScore.innerText = highScore.key
-      TimeScore.innerText = highScore.time
+    // 將要存入 Storage 的資料命名成變數 ScoreHistory (JSON 物件) 包起來
+    let ScoreHistory = { level: '', name: '', key: 0, error: 0, time: 0 }
 
+    // 問號運算子 - 條件 ? 成立時執行的程式  : 否定時執行的程式
+    // 宣告一個容器為陣列，StorageArr 代表儲存多筆資料，先判斷瀏覽器是否存在資料，若無我們就初始化並新增一個容器，反之若有則使用 getItem() 方法將值從瀏覽器中撈出來。
+    // 將資料 Storage 取出         JSON.parse()：JSON 變物件
+    const ScoreStorage = (localStorage.getItem('Keyboard-Play')) ? JSON.parse(localStorage.getItem('Keyboard-Play')) : { StorageArr: [] };
+
+    // 將值新增進 html 裡
+    //   KeyScore.innerText = ScoreHistory.key
+    //   ErrorScore.innerText = ScoreHistory.error
+    //   TimeScore.innerText = ScoreHistory.time
+
+
+    // 假如資料庫內有內容，將內容加到 ListScore
+    for (let S in ScoreStorage.StorageArr) {
+      if (ScoreStorage !== 0) {
+        ListScore.insertAdjacentHTML('beforeend', `
+        <tr>
+          <td align="center">${ScoreStorage.StorageArr[S].level}</td>
+          <td align="center">${ScoreStorage.StorageArr[S].name}</td>
+          <td align="center">${ScoreStorage.StorageArr[S].key}鍵</td>
+          <td align="center">${ScoreStorage.StorageArr[S].error}鍵</td>
+          <td align="center">${ScoreStorage.StorageArr[S].time}秒</td>
+        </tr>
+        `)
+      }
     }
-
 
 
     // 計算用 function
     const calc = () => {
 
       key = 0
-      keyScore.innerText = key
+      KeyScore.innerText = key
 
       time = 0
       TimeScore.innerText = time
     }
-
 
     //遊戲開始後所有模式不能點擊 function
     const modeDisabled = (D) => {
@@ -351,6 +383,7 @@
       for (const td of tds) {
         td.classList.remove('colorOrign')
         td.classList.remove('colorOn')
+        td.classList.remove('colorError')
       }
 
       for (let i = 0; i < k; i++) {
@@ -366,7 +399,7 @@
         } else {
           tds[random].classList.add('colorOrign')
         }
-      
+
         // 判斷不能有重複的隨機數字
         // while (tds.includes(random)) {
         //   i--
@@ -377,16 +410,36 @@
       TimeScore.innerText = time
     }
 
+    // 判斷獲得等級
+    const level = () => {
+      // 設變數-總出現鍵數；計算 key/總出現鍵數的%  /  error/總出現鍵數的%
 
+      if (key < 5) {
+        return '鐵人'
+        //    ${key} 鍵，鐵人
+      } else if (key >= 5 && key < 10) {
+        return '青銅'
+        //    ${key} 鍵，青銅
+      } else if (key >= 10 && key < 15) {
+        return '白銀'
+        //    ${key} 鍵，白銀
+      } else if (key >= 15 && key < 20) {
+        return '黃金'
+        //    ${key} 鍵，黃金
+      } else {
+        return '鑽石'
+        //    ${key} 鍵，鑽石
+      }
+      // 鑽石 黃金 白銀 青銅 鐵人
+    }
 
     // 開始 按鍵
     btnStart.onclick = () => {
-
       modeDisabled(true)
       calc()
 
-      timer = setInterval(keyValue, 3000, 2)
-      setInterval(timer, 3000, 2)
+      // timer = setInterval(keyValue, 3000, 2)
+      setInterval(keyValue, 3000, 2)
       keyValue(2)  //初始二鍵模式
     }
 
@@ -399,10 +452,8 @@
     // 結束 按鍵
     btnEnd.onclick = () => {
       console.log('end');
-      clearInterval(timer)
+      clearInterval(keyValue)
       modeDisabled(false)
-
-      console.log('end2');
 
       for (const td of tds) {
         td.classList.remove('colorOrign')
@@ -410,11 +461,14 @@
       }
 
       Swal.fire({
-        title: `恭喜你成功按到 ${key} 個鍵，加油<br>路過請留下大名`,
+        title: `恭喜你成功按到 ${key} 個鍵，加油
+                <br>目前等級為 ${level()}
+                <br>路過請留下大名，謝謝`,
         input: 'text',
-        // inputAttributes: {
-        //   autocapitalize: 'off'
-        // },
+        inputAttributes: {
+          maxlength: 3, //控制字數
+          //   autocapitalize: 'off'
+        },
         // showCancelButton: true,
         confirmButtonText: 'OK',
         // showLoaderOnConfirm: true,
@@ -423,79 +477,70 @@
         // console.log(result.value);
         ListScore.insertAdjacentHTML('beforeend', `
         <tr>
-          <td>測試</td>
-          <td>${result.value}</td>
-          <td>${key}鍵</td>
-          <td>${time}秒</td>
+          <td align="center">${level()}</td>
+          <td align="center">${result.value}</td>
+          <td align="center">${key}鍵</td>
+          <td align="center">${error}鍵</td>
+          <td align="center">${time}秒</td>
         </tr>
         `);
-// <li>測試 - ${result.value} - ${key}鍵 - ${time}秒</li>
 
-        highScore.key = key
-        highScore.time = time
-        highScore.name = result.value
+        ScoreHistory.level = level()
+        ScoreHistory.key = key
+        ScoreHistory.error = error
+        ScoreHistory.time = time
+        ScoreHistory.name = result.value
 
-        keyScore.innerText = highScore.key
-        TimeScore.innerText = highScore.time
-        localStorage.setItem('Keyboard-Play', JSON.stringify(highScore))
+        KeyScore.innerText = ScoreHistory.key
+        ErrorScore.innerText = ScoreHistory.error
+        TimeScore.innerText = ScoreHistory.time
+
+        // 把 ScoreHistory 放進 ScoreStorage 裡，會是陣列型態
+        ScoreStorage.StorageArr.push(ScoreHistory)
+
+        // 將資料存入 Storage                            JSON.stringify() 將物件變 JSON
+        localStorage.setItem('Keyboard-Play', (JSON.stringify(ScoreStorage)))
+        // console.log(StorageArr);
+        // console.log(ScoreHistory);
+
+        // 每次結束後，都重新整理，讓 ScoreHistory 可以重新儲存新的變數
+        window.location.reload();
       })
-      // console.log(result.value);
-
-      // if (key < 5) {
-      //   const Lv1 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 鐵人，加油`)
-      //   ListScore.insertAdjacentHTML('beforeend', `<li>鐵人 - ${Lv1} - ${key}鍵 - ${time}秒</li>`);
-      // } else if (key >= 5 && key < 10) {
-      //   const Lv2 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 青銅，加油`)
-      //   ListScore.insertAdjacentHTML('beforeend', `<li>青銅 - ${Lv2} - ${key}鍵 - ${time}秒</li>`);
-
-      // } else if (key >= 10 && key < 15) {
-      //   const Lv3 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 白銀，加油`)
-      //   ListScore.insertAdjacentHTML('beforeend', `<li>白銀 - ${Lv3} - ${key}鍵 - ${time}秒</li>`);
-      // } else if (key >= 15 && key < 20) {
-      //   const Lv4 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 黃金，加油`)
-      //   ListScore.insertAdjacentHTML('beforeend', `<li>黃金 - ${Lv4} - ${key}鍵 - ${time}秒</li>`);
-      // } else {
-      //   const Lv5 = prompt(`恭喜你成功按到 ${key} 個鍵，目前等級為 鑽石，加油`)
-      //   ListScore.insertAdjacentHTML('beforeend', `<li>鑽石 - ${Lv5} - ${key}鍵 - ${time}秒</li>`);
-      // }
-      // 鑽石 黃金 白銀 青銅 鐵人
-      // key = 0
-      // keyScore.innerText = key
     }
 
     keyFour.onclick = () => {
-      modeDisabled()
+      modeDisabled(true)
       calc()
 
-      setInterval(timer, 3000, 4)
+      setInterval(keyValue, 3000, 4)
       keyValue(4)
     }
 
     keyEight.onclick = () => {
-      modeDisabled()
+      modeDisabled(true)
       calc()
 
-      setInterval(timer, 3000, 8)
+      setInterval(keyValue, 3000, 8)
       keyValue(8)
     }
 
     keyTwelve.onclick = () => {
-      modeDisabled()
+      modeDisabled(true)
       calc()
 
-      setInterval(timer, 3000, 12)
+      setInterval(keyValue, 3000, 12)
       keyValue(12)
     }
 
     keyRandom.onclick = () => {
-      modeDisabled()
+      modeDisabled(true)
       calc()
 
       let R = Math.floor(Math.random() * 38)
       console.log(`${R}`);
       keyR.innerText = R
 
-      setInterval(timer, 3000, R)
+      setInterval(keyValue, 3000, R)
       keyValue(R)
     }
 
@@ -507,7 +552,7 @@
     //       td.classList.replace('colorOrign', 'colorOn')
 
     //       key++
-    //       keyScore.innerText = key
+    //       KeyScore.innerText = key
 
     //       time++
     //       TimeScore.innerText = time
@@ -518,35 +563,29 @@
     // 每個 td 的按鍵事件 --偵測按到哪個鍵
     document.onkeydown = (event) => {
       if (event.code.includes('Key') || event.code.includes('Digit')) {
+        // 按到的那個鍵
         const type = document.getElementById(`${event.code}`)
         console.log(window.event.code);
 
         if (type !== null && type.classList.contains('colorOrign')) {
+          // 如果按到的鍵是正確的鍵，會加分
           type.classList.replace('colorOrign', 'colorOn')
           key++
-          keyScore.innerText = key
+          KeyScore.innerText = key
+        } else {
+          // 如果按到錯誤的鍵，錯誤鍵數會增加，並且改色
+          type.classList.add('colorError')
+          // type.classList.replace('colorOrign', 'colorError')
+          // type.setAttribute("background-color", "#f61e1e")
+          error++
+          ErrorScore.innerText = error
         }
       }
     }
 
-    // 打字 事件(初始二鍵) --這個是多的~~
-    // const typing = () => {
-    //   for (const td of tds) {
-    //     td.classList.remove('colorOrign')
-    //     td.classList.remove('colorOn')
-    //   }
-    //   for (let i = 0; i < 2; i++) {
-    //     const random = Math.floor(Math.random() * 37)
-    //     tds[random].classList.add('colorOrign')
-    //   }
-    //   // key++
-    //   time++
-    //   TimeScore.innerText = time
-    // }
-
 
     //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫? --只能單獨命名ID
-    // console.log(`${key}`);
+
     // key 值會奇怪的增加 --0415解決
     // 最後 alert 的 key 值與頁面顯示的不同 --0415解決
     // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
@@ -554,11 +593,14 @@
     // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
     // 判斷按鍵隨機時不重複，且不要隨機到空白那格 -0424就沒了，0427還是有，0429修好
     // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用 --0427解決
-    // 成績不能一筆一筆一直存嗎?
-    // 按鍵效果css 要有按鍵被壓扁的感覺 (.key:active 有效)  --0429解決，原來是因為權重及先後順序問題
-    //                                 (.colorOn 沒效)
-    // 按結束遊戲不會停止
+    // 成績不能一筆一筆一直存嗎? --0429解決
+    // 按鍵效果css 要有按鍵被壓扁的感覺 (.key:active 有效)(.colorOn 沒效)  --0428解決，原來是因為權重及先後順序問題
+    // 按結束遊戲不會停止 --OK
 
+    // 計算總出現的鍵，設變數 ++，並計算錯誤率及正確率
+    // 判斷不能有重複的隨機數字
+    // 按結束按鈕，到輸入名字完成時，這段時間按鍵還是會繼續跑
+    // sweetalert 更改 font-size
   </script>
 </body>
 

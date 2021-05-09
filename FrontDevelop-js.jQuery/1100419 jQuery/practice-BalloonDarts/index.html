@@ -1,12 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Balloon Darts</title>
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+
   <style>
+    body {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      /* cursor: url(./cursor-+.png) 50 50, auto; */
+    }
+
+    #wellcome {
+      width: 100%;
+      height: 100%;
+
+      position: fixed;
+      z-index: 99;
+      /* transition: opacity 10s; */
+
+      /* 設定子元素在 3D 空間內 */
+      transform-style: preserve-3d;
+      /* 父元素設定 3D 透視距離 */
+      perspective: 1000px;
+      /* 讓翻卡片有個慢慢翻過去的動畫 */
+      /* transition: transform 5s; */
+      /* 排版 */
+      /* float: left; */
+    }
+
+    #wellcome .imgW-L {
+      /* width: 445px; */
+      width: 49.44%;
+      float: left;
+      /* position: absolute; */
+      /* transform: rotateY(180deg); */
+      transform-origin: left top;
+      transition: transform 3s;
+
+    }
+
+    #wellcome .imgW-R {
+      /* width: 455px; */
+      width: 50.55%;
+      float: right;
+      /* position: absolute; */
+      /* transform: rotateY(180deg); */
+      transform-origin: right top;
+      transition: transform 3s;
+
+    }
+
+    #container {
+      width: 1085.6px;
+      height: 1064.8px;
+      margin: auto;
+
+      background-image: url('./images/halloween_carnival_balloon_darts_new.jpg');
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .inline {
       display: inline-block;
     }
@@ -19,22 +82,92 @@
       display: block;
     }
 
-    #turntable {
-      width: 706px;
-      height: 715px;
-      background-color: paleturquoise;
-      overflow: hidden;
+
+    #title {
+      text-align: right;
+      font-family: 'New Tegomin', serif;
+      font-size: 99px;
+      letter-spacing: 5px;
+      color: rgb(46, 33, 28);
+      margin: 0px 65px 9px 0;
+    }
+
+    #info {
+      float: left;
+      width: 185px;
+    }
+
+    #start {
+      height: 50px;
+      width: 50px;
+      margin: auto 60px;
+      /* position: relative; */
+      /* background: #eca100; */
+      background: radial-gradient(hsl(37, 100%, 65%), hsl(37, 100%, 50%));
+      text-shadow: 0 -1px 0 #c3af07;
+      color: rgb(46, 33, 28);
+      border: 1px solid hsl(54, 100%, 20%);
+      border-radius: 100%;
+      /* z-index: 4; */
+      /* outline: none; */
+
+      box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+        0 2px 0 hsl(54, 100%, 20%),
+        0 3px 0 hsl(54, 100%, 18%),
+        0 4px 0 hsl(54, 100%, 16%),
+        0 5px 0 hsl(54, 100%, 14%),
+        0 6px 0 hsl(54, 100%, 12%),
+        0 7px 0 hsl(54, 100%, 10%),
+        0 8px 0 hsl(54, 100%, 8%),
+        0 9px 0 hsl(54, 100%, 6%);
+    }
+
+    #start:active {
+      top: 2px;
+      box-shadow: inset 0 1px 0 hsl(54, 100%, 50%),
+        0 2px 0 hsl(54, 100%, 16%),
+        0 3px 0 hsl(54, 100%, 14%),
+        0 4px 0 hsl(54, 100%, 12%),
+        0 5px 0 hsl(54, 100%, 10%),
+        0 6px 0 hsl(54, 100%, 8%),
+        0 7px 0 hsl(54, 100%, 6%);
+    }
+
+    #life {
+      width: 150px;
+      height: 89px;
+      /*飛鏢區高度*/
+      margin: 39px 0px 19px 19px;
+      color: rgb(255, 238, 192);
+    }
+
+    .dart {
+      display: inline-block;
+      width: 20.6px;
+      height: 39px;
+      margin: 1px 2px;
+      /*用 js 長的 .dart 居然沒有幽靈空白*/
+      background-color: orange;
+    }
+
+    #score {
+      width: 150px;
+      margin: 9px;
+      color: rgb(255, 238, 192);
+      text-align: center;
     }
 
     .balloon-svg {
       /* width: 60px;
       height: 60px; */
-      fill: transparent;
+      /* fill: transparent; */
 
       /* 原始尺寸 117*154 */
       width: 53.18px;
       height: 70px;
-      /* background-image: url(./WaterDrop-6.gif); */
+      filter: hue-rotate(197deg);
+      /* 顏色改橘色 */
+
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -44,38 +177,26 @@
       -webkit-user-drag: none;
     }
 
-    #circle .balloon-svg {
-      transform: rotate(180deg);
+    .balloon-img {
+      background-image: url(./images/WaterDrop-6.gif);
+
+      /* 加了之後水滴在轉動時會怪怪的抽動 */
+      /* filter: drop-shadow(2px 2px 2px black); */
+      /* 用 filter: drop-shadow() 可以沿著透明的部分作陰影
+          而不是像 box-shadow 一樣繞 div 外圍*/
+
     }
 
-    .color {
-      /* fill: rgb(203, 250, 74); */
-      filter: hue-rotate(150deg);
-      background-image: url(./WaterDrop-6.gif);
-    }
+    /* 圓區 */
+    #turntable {
+      float: right;
+      margin: 10px 0;
+      width: 730px;
+      height: 730px;
+      /* background-color: paleturquoise; */
+      overflow: hidden;
+      cursor: url(./images/cursor-+.png) 50 50, auto;
 
-    .bomb {
-      /* fill: rgb(250, 74, 156); */
-
-      /* 原始尺寸 115*178 */
-      width: 52.27px;
-      height: 80.9px;
-      background-image: url(./WaterDrop-9.gif);
-    }
-
-    #circle .balloon {
-      width: 130px;
-      height: 250px;
-      text-align: center;
-
-      position: absolute;
-      left: calc(50% - 65px);
-      bottom: 50%;
-      /* background-color: rgba(255, 255, 0, 0.425); */
-
-      transform: rotate(0deg);
-      /* js有寫旋轉 */
-      transform-origin: bottom center;
     }
 
     #circle {
@@ -88,8 +209,10 @@
       height: 500px;
       border-radius: 50%;
 
-      background-color: rgb(171, 95, 247);
-      /* background-image: url('https://i.pinimg.com/564x/cb/16/bb/cb16bb284a2a80c75041c80ba63e62d3.jpg'); */
+      /* background-color: rgb(171, 95, 247); */
+      background-image: url('./images/wooden.png');
+      background-position: center;
+      background-size: contain;
       transition: transform 2s;
     }
 
@@ -103,8 +226,10 @@
       position: absolute;
       z-index: 9;
 
-      background-color: rgba(0, 9, 128, 0.199);
-      /* background-image: url(./balloon.png); */
+      /* background-color: rgba(0, 9, 128, 0.199); */
+      background-image: url('./images/wooden.png');
+      background-position: center;
+      background-size: contain;
       /* display: block; */
       /* transform-origin: center; */
       transition: transform 3.5s;
@@ -120,27 +245,66 @@
       position: absolute;
       z-index: 19;
 
-      background-color: rgb(138, 89, 253);
-      /* background-image: url(./balloon.png); */
+      /* background-color: rgb(138, 89, 253); */
+      background-image: url('./images/wooden.png');
+      background-position: center;
+      background-size: contain;
       /* display: block; */
       /* transform-origin: center; */
       transition: transform 1.5s;
     }
 
+    #circle .balloon {
+      width: 60px;
+      height: 250px;
+      text-align: center;
+
+      position: absolute;
+      left: calc(50% - 30px);
+      bottom: 50%;
+      /* background-color: rgba(255, 255, 0, 0.425); */
+
+      transform: rotate(0deg);
+      /* js有寫旋轉 */
+      transform-origin: bottom center;
+    }
+
+    #circle .balloon-svg {
+      transform: rotate(180deg);
+    }
+
+    .color {
+      /* fill: rgb(203, 250, 74);  */
+      filter: hue-rotate(150deg);
+      /* background-image: url(./images/WaterDrop-6.gif);  */
+    }
+
+    .bomb {
+      /* fill: rgb(250, 74, 156); */
+
+      /* 原始尺寸 115*178 */
+      width: 52.27px;
+      height: 80.9px;
+      background-image: url(./images/WaterDrop-9.gif);
+
+    }
+
+    /* 直走區 */
     #straight {
       margin: 25px 25px 25px 0;
-      width: 125px;
+      width: 140px;
       height: 500px;
-      background-color: springgreen;
+      /* background-color: rgb(171, 95, 247); */
       overflow: hidden;
     }
 
     #straight .track {
-      background-color: goldenrod;
       width: 60px;
-      /* height: 800px; */
-      margin: 0 1.25px;
-
+      height: 800px;
+      margin: 0 5px;
+      background-image: url('./images/trackS.jpg');
+      background-size: contain;
+      /* background-color: goldenrod; */
       /* display: inline-block; */
       float: right;
     }
@@ -149,30 +313,35 @@
       transform: rotateX(30deg);
     }
 
+    /* 橫走區 */
     #horizontal {
-      margin: 0 65px 25px 65px;
-      width: 570px;
-      height: 140px;
-      background-color: sandybrown;
+      margin: 33px 65px;
+      width: 625px;
+      height: 152.5px;
+      /* background-color: rgb(171, 95, 247); */
       overflow: hidden;
     }
 
     #horizontal .track {
       height: 68px;
-      /* width: 900px; */
-      margin: 1.5px 0;
-      background-color: seagreen;
+      width: 900px;
+      margin: 5.5px 0;
+      background-image: url('./images/trackH.jpg');
+      background-size: contain;
+      /* background-color: seagreen; */
       /* display: flex; */
       /* flex-wrap: nowrap; */
     }
 
     #horizontal .track .balloon {
-      /* 為了隨機出現的效果，先暫時拿掉 */
+      /* 為了排成一橫排 */
       display: inline-block;
+      margin-left: 9px;
+      margin-right: 9px;
     }
 
     #horizontal .track .balloon-svg {
-      transform: rotate(45deg);
+      transform: rotate(10deg);
       /* float: left; */
       /* 因為現在是 div 會占滿一整排，所以排列起來會變一直排，若不想用 float ，也可以給父元素inline-block 就會變一橫排 */
     }
@@ -180,32 +349,47 @@
 </head>
 
 <body>
-  <input type="button" value="開始" id="start">
+  <div id="wellcome">
+    <img src="./images/Halloween-Carnival_01.gif" class="imgW-L">
+    <img src="./images/Halloween-Carnival_02.gif" class="imgW-R">
+  </div>
+  <div id="container">
 
-  <div id="turntable">
-    <!-- 10顆內隨機氣球 轉圓 -->
-    <div id="circle" class="inline circleL">
-      <div class="circleM">
-        <div class="circleS"></div>
+    <h1 id="title">Balloon Darts</h1>
+
+    <div id="info">
+      <input type="button" value="開始" id="start">
+      <div id="life"></div>
+      <div id="score">獲得&nbsp;<span> - </span>&nbsp;分</div>
+    </div>
+
+    <div id="turntable" class="">
+      <!-- 圓區 -->
+      <div id="circle" class="inline circleL">
+        <div class="circleM">
+          <div class="circleS"></div>
+        </div>
+      </div>
+
+      <!-- 直走區 -->
+      <div id="straight" class="inline">
+        <div class="track"></div>
+        <div class="track"></div>
+      </div>
+
+      <!-- 橫走區 -->
+      <div id="horizontal" class="inline">
+        <div class="track"></div>
+        <div class="track"></div>
       </div>
     </div>
-
-    <!-- 5顆內隨機 直走 -->
-    <div id="straight" class="inline">
-      <div class="track"></div>
-      <div class="track"></div>
-    </div>
-
-    <!-- 5顆內隨機 橫走 -->
-    <div id="horizontal" class="inline">
-      <div class="track"></div>
-      <div class="track"></div>
-    </div>
-  </div>
 
   </div>
   <!-- jquery js -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- sweetalert2  js-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- jqueryrotate -->
   <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
@@ -213,17 +397,31 @@
   <!-- <script src="./jQueryRotateCompressed.js"></script> -->
   <script>
 
+    // 開場動畫
+    window.onload = () => {
+      console.log('window onload');
+      // $('.imgW-L')
+      //   .animate({
+      //     width: '39%',
+      //     height: '39%'
+      //   }, 2000)
+      // .css('transform', 'rotate3d(1,1,1,120deg)')
+      $('.imgW-L').css('transform', ' rotateY(-180deg)')
+      $('.imgW-R').css('transform', ' rotateY(180deg)')
+      setTimeout(() => {
+        $('#wellcome').css('display', 'none')
+        $('body').css('overflow', 'unset')
+      }, 3000);
+      // ↑ 跟著前面 transition 的秒數
+    }
+
     // 將氣球svg成變數，方便隨時呼叫
     const Balloon = (container) => {
       $(container).append(`
       <div class="balloon">
-      <div class="balloon-svg"></div>
+        <div class="balloon-svg balloon-img"></div>
       </div>`)
     }
-
-    // <svg class="balloon-svg" data-name="balloon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 287.54 377.24"><path d="M285,118C273,50.4,212.82.58,143.91,0c-8.59.91-17.28,1.24-25.74,2.81C46.34,16.1-4.58,81.17.33,153.29Q4,207.42,42,245.77c29.16,29.5,58.62,58.72,88,88,9,9,18.54,8.94,27.53,0,29.34-29.32,59-58.35,87.92-88.08C280.18,210,293.69,167.17,285,118Z" />
-    //     <path d="M149.28,348.54c-3.3-4.32-6.84-4.38-10.12-.1-5,6.45-9.88,12.94-14.54,19.6-1.08,1.54-2,4.43-1.26,5.68.95,1.59,3.58,2.84,5.6,3,4.95.42,10,.14,14.94.14,5.15,0,10.32.27,15.44-.14,2-.16,4.6-1.41,5.59-3,.76-1.21,0-4.12-1.09-5.61C159.18,361.46,154.22,355,149.28,348.54Z" />
-    //     </svg>
 
     // 隨機 1~10 數字
     const random = () => {
@@ -234,67 +432,78 @@
       return Math.floor(Math.random() * R) + r
     }
 
-    // 圓區 加 氣球svg
-    for (i = 0; i < 21; i++) {
-      if (i > 10) {
-        // 轉盤區 - 大圓(11~20) 共10顆
-        Balloon('#circle')
-        $('#circle .balloon').eq(i).css('transform', `rotate(${i * 36}deg)`)
-      } else if (i >= 3 && i <= 10) {
-        // 轉盤區 - 中圓(3~10) 共8顆
-        Balloon(' .circleM')
-        $('#circle .balloon').eq(i).css({
-          transform: `rotate(${i * 45 + 19}deg)`,
-          height: '160px',
-          // backgroundColor: 'rgba(255, 255, 0, 0.425)',
-        })
-        // console.log(i);
-        // 正確寫法為(#circle .balloon)，而不能用(.circleM .balloon)及(#circle .circleM .balloon)，因為是後來添加的，所以會呼叫不到
-      } else {
-        // 轉盤區 - 小圓(0~2) 共3顆
-        Balloon('.circleS')
-        $('#circle .balloon').eq(i).css({
-          transform: `rotate(${i * 119}deg)`,
-          height: '70px',
-          // backgroundColor: 'rgba(255, 255, 0, 0.425)',
-        })
-        // console.log(i);
+    function add() {
+      // 圓區 加 氣球svg
+      for (i = 0; i < 21; i++) {
+        if (i > 10) {
+          // 轉盤區 - 大圓(11~20) 共10顆
+          Balloon('#circle')
+          $('#circle .balloon').eq(i).css('transform', `rotate(${i * 36}deg)`)
+        } else if (i >= 3 && i <= 10) {
+          // 轉盤區 - 中圓(3~10) 共8顆
+          Balloon(' .circleM')
+          $('#circle .balloon').eq(i).css({
+            transform: `rotate(${i * 45 + 19}deg)`,
+            height: '160px',
+            // backgroundColor: 'rgba(255, 255, 0, 0.425)',
+          })
+          // console.log(i);
+          // 正確寫法為(#circle .balloon)，而不能用(.circleM .balloon)及(#circle .circleM .balloon)，因為是後來添加的，所以會呼叫不到
+        } else {
+          // 轉盤區 - 小圓(0~2) 共3顆
+          Balloon('.circleS')
+          $('#circle .balloon').eq(i).css({
+            transform: `rotate(${i * 119}deg)`,
+            height: '70px',
+            // backgroundColor: 'rgba(255, 255, 0, 0.425)',
+          })
+          // console.log(i);
+        }
       }
+
+      // 直走、橫走區 加 氣球svg
+      for (i = 0; i < 8; i++) {
+
+        // 直走區
+        Balloon('#straight .track')
+        // $('#straight .track .balloon').eq(i).attr('data-svg', i)
+        // console.log(`${random()}`);
+
+        // 橫走區
+        Balloon('#horizontal .track')
+      }
+
+      // 生命區 加 飛鏢
+      for (let i = 0; i < 12; i++) {
+        $('#life').append('<div class="dart"></div>')
+      }
+      // console.log($('.dart').length);
     }
 
-    // 直走、橫走區 加 氣球svg
-    for (i = 0; i < 10; i++) {
-
-      // 直走區
-      Balloon('#straight .track')
-      // $('#straight .track .balloon').eq(i).attr('data-svg', i)
-      // console.log(`${random()}`);
-
-      // 橫走區
-      Balloon('#horizontal .track')
-    }
 
     // 開始按鈕事件
     $('#start').click(function () {
       $(this).attr('disabled', true)
 
+      // 加氣球、生命
+      add()
       // 直走、橫走區 軌道隨機位移
       timerTrack1 = setInterval(() => {
         // 直走區
         $('#straight .track').eq(0).css({ marginTop: `-${random() * 25}px` })
         // 橫走區
-        $('#horizontal .track').eq(1).css({ marginLeft: `-${random() * 35}px` })
-      }, 500)
+        $('#horizontal .track').eq(1).css({ marginLeft: `-${random() * 10}px` })
+      }, 3000)
       timerTrack2 = setInterval(() => {
         // 直走區
-        $('#straight .track').eq(1).css({ marginTop: `-${random() * 40}px` })
+        $('#straight .track').eq(1).css({ marginTop: `-${random() * 20}px` })
         // 橫走區
-        $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 30}px` })
-      }, 1200)
+        $('#horizontal .track').eq(0).css({ marginLeft: `-${random() * 5}px` })
+      }, 2500)
 
       // 隨機給每個 直走、橫走區 balloon 間距位移
       timerTrackBalloon = setInterval(() => {
-        for (i = 0; i < 20; i++) {
+        for (i = 0; i < 16; i++) {
           random()
           // 直走區內氣球隨機間距
           $('#straight .track .balloon').eq(i).css({ marginBottom: `${random() * 5}px` })
@@ -310,28 +519,28 @@
       // 轉盤隨機角度變換
       timerCircleL = setInterval(() => {
         $('.circleL').attr('style', `transform:rotate(${random() * 36}deg)`)
-      }, 900)
+      }, 1700)
       timerCircleM = setInterval(() => {
         $('.circleM').attr('style', `transform:rotate(-${random() * 36}deg)`)
-      }, 1500)
+      }, 1900)
       timerCircleS = setInterval(() => {
         $('.circleS').attr('style', `transform:rotate(${random() * 36}deg)`)
-      }, 1200)
+      }, 1600)
 
       // 隨機顯示汽球
-      for (let i = 0; i < Random(9, 15); i++) {
-        $('#circle .balloon .balloon-svg').eq(Random(0, 21)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
+      for (let i = 0; i < Random(2, 5); i++) {
+        $('#circle .balloon .balloon-svg').eq(Random(0, 20)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
         // console.log(`${Random(0, 21)}`);
       }
-
-      for (let i = 0; i < Random(8, 13); i++) {
-        $('#straight .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
+      for (let i = 0; i < Random(2, 3); i++) {
+        $('#straight .track .balloon .balloon-svg').eq(Random(0, 15)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
         // console.log(`rgb(${Random(0, 255)},${Random(0, 255)},${Random(0, 255)})`);
-        // console.log(`${Random(0, 20)}`);
+        // console.log(`${Random(0, 15)}`);
 
-        $('#horizontal .track .balloon .balloon-svg').eq(Random(0, 20)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
-        // console.log(`${Random(0, 20)}`);
+        $('#horizontal .track .balloon .balloon-svg').eq(Random(0, 15)).addClass('color').css({ filter: `hue-rotate(${Random(0, 255)}deg)` })
+        // console.log(`${Random(0, 15)}`);
       }
+
 
       // 轉盤依照現在的秒數一直轉圈，缺點是60秒與1秒切換時，會轉回原點
       // timer = setInterval(() => {
@@ -377,9 +586,57 @@
       // rotation2();
     })
 
-    $('#turntable').on('click', '.color', function () {
-      $(this).addClass('bomb').fadeTo(1100, 0)
-      console.log(0);
+    // 先讓分數歸0
+    let score = 0
+    // 滑鼠按鍵事件
+    $('#turntable').on('click', '.balloon-img', function () {
+      // 先移除原本的Class('balloon-img')避免一直加分，再新增消失動畫的 .bomb，最後讓整個動畫淡出
+      $(this).removeClass('balloon-img').addClass('bomb').fadeTo(900, 0)
+
+      // 按到任一氣球會
+      if ($(this).hasClass('bomb')) {
+        // 讓飛鏢消失一個
+        $('.dart').eq(0).remove()
+        // 且讓分數增加
+        score++
+        $('#score span').text(score)
+      }
+      // 這樣同時含 .bomb 及 .color 會加2分
+      // 按到有顏色的氣球會
+      if ($(this).hasClass('color')) {
+        // 讓分數再加1分
+        score++
+        $('#score span').text(score)
+      }
+
+      // 當生命數量為 0 時，發生的事情
+      // console.log($('.dart').length);
+      if ($('.dart').length <= 0) {
+        Swal.fire({
+          title: `恭喜獲得${score}分`,
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          },
+          allowOutsideClick: false,
+          // showCancelButton: true,
+          confirmButtonText: '繼續玩 ^^',
+          // showLoaderOnConfirm: true,
+
+          timer: 3000,
+          timerProgressBar: true,
+        }).then((result) => {
+
+          // 開始按鈕結束遊戲後可以被點擊
+          // $('#start').attr('disabled', false)
+
+
+          // 每次結束後，都重新整理
+          window.location.reload();
+        })
+      }
     })
 
 
@@ -387,11 +644,22 @@
     // 轉圈使用 jqueryrotate 沒辦法轉完一整圈
     // 小圓及中圓內的汽球無法點擊，就算設$('#circle .balloon')也一樣 --4/26解決
     // 橫走區汽球移動時有的會疊在一起 -- 4/26 老師建議用 position
+    // 汽球可以重複計分... --5/5解決
+    // 圓圈區旋轉有時好像會一起旋轉
+    // 判斷圓圈區旋轉角度下次與這次相差在一個範圍，不要一次轉太多
+
 
     // 待作效果
-    // 分解gif  https://dribbble.com/shots/3388942-Water-drop
-    // fill="#5b5b5b"  svg顏色隨機
-    // 設置飛鏢數量及倒數時間，並計算爆掉汽球顆數
+    // 分解gif  https://dribbble.com/shots/3388942-Water-drop  --ok
+    // fill="#5b5b5b"  svg顏色隨機  --ok
+    // 設置飛鏢，點按到正確的氣球，飛鏢數量會減少 --ok
+    // 軌道區顏色調整 --ok
+    // 倒數時間
+    // 計算爆掉汽球顆數 --ok
+    // 設置增加飛鏢數量的事件
+    // 有開場歡迎動畫背景，從中間掀開頁面 --ok，效果待調整
+    // 遊戲規則??
+
   </script>
 </body>
 

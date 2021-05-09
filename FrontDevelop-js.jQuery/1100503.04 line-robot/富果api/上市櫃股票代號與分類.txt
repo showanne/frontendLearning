@@ -1,0 +1,4 @@
+取得上市櫃股票代號與分類，網頁是：
+http://isin.twse.com.tw/isin/C_public.jsp?strMode=2
+
+其中strMode=2就是上市，而strMode=4就是上櫃

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 
 <head>
   <meta charset="UTF-8">
@@ -120,42 +120,44 @@
         // <div class="cube"></div>
         $('#game').append('<div class="cube"></div>')
         $('.cube').eq(i).attr('data-cube', i)
-       
-      // console.log($('.cube').data()); // 測試取得 data的值
+
+        // console.log($('.cube').data()); // 測試取得 data的值
       }
 
       // 隨機給炸彈
       for (let i = 0; i < num; i++) {
         // console.log(i);
-        // console.log(rand(Cube));
 
-        // 有炸彈的那格
-        let BombCube = rand(Cube)
+        // 隨機炸彈的那格
+        let RandCube = rand(Cube)
+        // console.log(rand(Cube));
 
         // 炸彈周圍初始值
         let BombNum = ''
-
-
-        $('.cube').eq(BombCube).attr('data-bomb', i)
-        $('.cube').eq(BombCube).addClass('fas fa-bomb')
+        $('.cube').eq(RandCube).attr('data-bomb', i)
+        $('.cube').eq(RandCube).addClass('fas fa-bomb')
         // css('backgroundColor', 'rgba(255, 20, 145, 0.3)').
 
         // 要設判斷式，判斷有重疊的話數字要相加
         $('.fa-bomb').each(function () {
-        let BombNum = 0
+          let BombNum = 0
 
-        if ($(this).hasClass('fa-bomb')) {
-          // $(this).addClass('fas fa-bomb')
-          console.log($(this).index())
+          // 取炸彈那格的索引值
           let BombCube = $(this).index()
+          // console.log($(this).index())
+          if ($(this).hasClass('fa-bomb')) {
+            console.log(BombCube)
 
-          BombNum++
-          console.log(BombNum);
+            // $('.cube').eq(BombCube).attr('data-bomb', i)
+            // $(this).addClass('fas fa-bomb')
+            // } else {
+            BombNum++
+            console.log(BombNum);
 
-          $(this).prev().addClass('font').text(BombNum)
-          $(this).next().addClass('font').text(BombNum)
-          // console.log($(this).siblings());
-          // $(this).siblings().eq(num).prev().addClass('font').text(BombNum)
+            $('.cube').eq(BombCube).prev().addClass('font').text(BombNum)
+            $('.cube').eq(BombCube).next().addClass('font').text(BombNum)
+            // console.log($(this).siblings());
+            // $(this).siblings().eq(num).prev().addClass('font').text(BombNum)
 
             $('.cube').eq(BombCube - num).addClass('font').text(BombNum)
             $('.cube').eq(BombCube - num).prev().addClass('font').text(BombNum)
@@ -164,64 +166,38 @@
             $('.cube').eq(BombCube + num).addClass('font').text(BombNum)
             $('.cube').eq(BombCube + num).prev().addClass('font').text(BombNum)
             $('.cube').eq(BombCube + num).next().addClass('font').text(BombNum)
-
-          
-        }})
-        // for (let j = 0; j < num; j++) {
-        //   let BombNum = 0
-        //   if ($('.cube').hasClass('fa-bomb')) {
-        //     BombNum++
-        //     console.log(BombNum);
-        //     $('this').prev().addClass('font').text(BombNum)
-        //     $('this').next().addClass('font').text(BombNum)
-
-            // $('.cube').eq(BombCube - num).addClass('font').text('1')
-            // $('.cube').eq(BombCube - num).prev().addClass('font').text('1')
-            // $('.cube').eq(BombCube - num).next().addClass('font').text('1')
-
-            // $('.cube').eq(BombCube + num).addClass('font').text('1')
-            // $('.cube').eq(BombCube + num).prev().addClass('font').text('1')
-            // $('.cube').eq(BombCube + num).next().addClass('font').text('1')
-            //   // + 可以算數學或連變數  - 只能算數學
-          // }
-        // }
+            // + 可以算數學或連變數  - 只能算數學
+          }
+        })
 
         // 如果剛好炸彈在邊邊就只須給另半邊的數字
+
       }
-
-
-
 
       // 由上而下的直欄位由 i 控制，由左而右的橫欄位由 j 控制
-      for (let i = 0; i < num; i++) {
+      // for (let i = 0; i < num; i++) {
+      //   for (let j = 0; j < num; j++) {
+      //     let BombNum = 0
+      // console.log(num * i + j);
+      // console.log($(this).index())
+      // let BombCube = $(this).index() = num * i + j
+      //       if ($(this).hasClass('fa-bomb')) {
+      //         BombNum++
 
-        for (let j = 0; j < num; j++) { 
-          let BombNum = 0
-          // console.log(num*i+j);
-          if ($(this).hasClass('fa-bomb')) {
+      //         let i =3
+      //         let j =5
 
-            BombNum++
-            // 1 10
-            // let i =3
-            // let j =5
-
-            $(this).prev().addClass('font').text(BombNum)
-            $(this).next().addClass('font').text(BombNum)
-
-            // $('.cube').eq(num*i+j).prev().addClass('font').text(BombNum)
-            // $('.cube').eq(num*i+j).next().addClass('font').text(BombNum)
-
-            // $('.cube').eq(num*(i-1)+j).addClass('font').text(BombNum)
-            // $('.cube').eq(num*(i-1)+j).prev().addClass('font').text(BombNum)
-            // $('.cube').eq(num*(i-1)+j).next().addClass('font').text(BombNum)
-
-            // $('.cube').eq(num*(i+1)+j).addClass('font').text(BombNum)
-            // $('.cube').eq(num*(i+1)+j).prev().addClass('font').text(BombNum)
-            // $('.cube').eq(num*(i+1)+j).next().addClass('font').text(BombNum)
-          }
-        }
-        
-      }
+      //         $('.cube').eq(num*i+j).prev().addClass('font').text(BombNum)
+      //         $('.cube').eq(num*i+j).next().addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i-1)+j).addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i-1)+j).prev().addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i-1)+j).next().addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i+1)+j).addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i+1)+j).prev().addClass('font').text(BombNum)
+      //         $('.cube').eq(num*(i+1)+j).next().addClass('font').text(BombNum)
+      //       }
+      //   }
+      // }
     })
 
 

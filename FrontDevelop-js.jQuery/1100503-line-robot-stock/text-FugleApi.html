@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+
+    const text = prompt('請輸入股票代號')
+
+    const stock = async () => {
+      // console.log(event)
+      // if (event.message.type === 2884) {
+
+      try {
+        const responseChart = await axios.get(
+          `https://api.fugle.tw/realtime/v0.2/intraday/chart?symbolId=${encodeURI(text)}&apiToken=bcb3f1d25b0a8e5d3ad0e7acbdbe10b0`
+        )
+        const responseMeta = await axios.get(
+          `https://api.fugle.tw/realtime/v0/intraday/meta?symbolId=${encodeURI(text)}&apiToken=bcb3f1d25b0a8e5d3ad0e7acbdbe10b0`
+        )
+        const responseQuote = await axios.get(
+          `https://api.fugle.tw/realtime/v0/intraday/quote?symbolId=${encodeURI(text)}&apiToken=bcb3f1d25b0a8e5d3ad0e7acbdbe10b0`
+        )
+        const responseDealts = await axios.get(
+          `https://api.fugle.tw/realtime/v0.2/intraday/dealts?symbolId=${encodeURI(text)}&apiToken=bcb3f1d25b0a8e5d3ad0e7acbdbe10b0&limit=5`
+        )
+
+        // document.write(`<br> ${new Date('2021-05-06T09:01:00.000+08:00').getMonth() + 1}月 ${new Date('2021-05-06T09:01:00.000+08:00').getDate()}日`);
+        // Thu May 06 2021 09:01:00 GMT+0800 (台北標準時間)
+        const now = new Date()
+        document.write('<br>股票中文簡稱：' + responseMeta.data.data.meta.nameZhTw);
+        document.write('<br>股票代號：' + responseMeta.data.data.info.symbolId);
+        document.write('<br>今日參考價：' + responseMeta.data.data.meta.priceReference);
+        document.write('<br>漲停價：' + responseMeta.data.data.meta.priceHighLimit);
+        document.write('<br>跌停價：' + responseMeta.data.data.meta.priceLowLimit);
+        document.write('<br>最新一筆成交時間：' + new Date(responseQuote.data.data.quote.total.at).toLocaleString('zh-tw'));
+        // document.write('<br>當日股價之漲跌：' + responseQuote.data.data.quote.change);  //undefined
+        document.write('<br><br><br>dealts：<br>' + JSON.stringify(responseDealts.data.data.dealts));
+        document.write('<br><br><br>chart：<br>' + JSON.stringify(responseChart.data.data.chart));
+        // document.write('<br>此分鐘的：' + responseChart.data.data.chart);
+        // document.write('<br>此分鐘的開盤價：' + responseChart.data.data.chart.now.open);
+        // document.write('<br>此分鐘的最高價：' + responseChart.data.data.chart.now.high);
+        // document.write('<br>此分鐘的最低價：' + responseChart.data.data.chart.now.low);
+        // document.write('<br>此分鐘的收盤價：' + responseChart.data.data.chart.now.close);
+
+        //   event.reply(reply)
+      } catch (error) {
+        console.log(error)
+        event.reply('發生錯誤QQ')
+      }
+      // }
+    }
+    stock()
+  </script>
+</body>
+
+</html>
