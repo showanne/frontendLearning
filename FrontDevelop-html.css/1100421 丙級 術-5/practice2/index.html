@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>書曼的旅遊相簿</title>
+  <style>
+    body {
+      background-color: #333333;
+    }
+
+    #main {
+      background-color: #FFFFCC;
+      width: 1024px;
+      height: 768px;
+      margin: auto;
+    }
+
+    #menu {
+      float: left;
+      width: 150px;
+      height: 768px;
+    }
+
+    #menu table span {
+      font-size: 12px;
+      font-family: '新細明體';
+      font-weight: bolder;
+      color: #ff0000;
+    }
+
+    #contemt {
+      float: right;
+      width: 874px;
+      height: 768px;
+    }
+
+    marquee {
+      width: 874px;
+      height: 50px;
+      vertical-align: middle;
+      font-size: 24px;
+      font-family: '標楷體';
+      font-weight: bolder;
+      color: #ff0000;
+    }
+
+    iframe {
+      width: 874px;
+      height: 718px;
+    }
+  </style>
+  <script type="text/javascript">
+    function MM_swapImgRestore() { //v3.0
+      var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+    }
+    function MM_preloadImages() { //v3.0
+      var d = document; if (d.images) {
+        if (!d.MM_p) d.MM_p = new Array();
+        var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+          if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+      }
+    }
+
+    function MM_findObj(n, d) { //v4.01
+      var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+        d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+      }
+      if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+      for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+      if (!x && d.getElementById) x = d.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
+        if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+    }
+  </script>
+</head>
+
+<body onLoad="MM_preloadImages('images/0501r.gif')">
+  <div id="main">
+    <div id="menu">
+      <table align="center">
+        <tr>
+          <td align="center" valign="middle">
+            <img src="./images/0508.gif" alt="書曼的旅遊相簿" title="書曼的旅遊相簿" width="120" height="20">
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <img src="./images/0507.jpg" alt="書曼" title="書曼" width="120" height="120">
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle"></td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','images/0501r.gif',1)">
+              <img src="images/0501b.gif" width="120" height="30" alt="金門逍遙遊" title="金門逍遙遊" id="Image1">
+            </a>
+            <!-- <img src="./images/0501b.gif" alt="金門逍遙遊" title="金門逍遙遊"> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','images/0502r.gif',1)">
+              <img src="images/0502b.gif" width="120" height="30" alt="卡蹓到馬祖" title="卡蹓到馬祖" id="Image2">
+            </a>
+            <!-- <img src="./images/0502b.gif" alt="卡蹓到馬祖" title="卡蹓到馬祖"> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/0503r.gif',1)">
+              <img src="images/0503b.gif" width="120" height="30" alt="踏浪澎湖行" title="踏浪澎湖行" id="Image3">
+            </a>
+            <!-- <img src="./images/0503b.gif" alt="踏浪澎湖行" title="踏浪澎湖行"> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','images/0504r.gif',1)">
+              <img src="images/0504b.gif" width="120" height="30" alt="綠島唱夜曲" title="綠島唱夜曲" id="Image4">
+            </a>
+            <!-- <img src="./images/0504b.gif" alt="綠島唱夜曲" title="綠島唱夜曲"> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/0505r.gif',1)">
+              <img src="images/0505b.gif" width="120" height="30" alt="蘭嶼賞魚去" title="蘭嶼賞魚去" id="Image5">
+            </a>
+            <!-- <img src="./images/0505b.gif" alt="蘭嶼賞魚去" title="蘭嶼賞魚去"> -->
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle"></td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <span>日期：yyyy/mm/dd<br>維護：XX○○○</span>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle"></td>
+        </tr>
+        <tr>
+          <td align="center" valign="middle">
+            <a href="./index.html" onMouseOut="MM_swapImgRestore()"
+               onMouseOver="MM_swapImage('Image6','','images/0506r.gif',1)">
+              <img src="images/0506b.gif" width="120" height="30" alt="回首頁" title="回首頁" id="Image6">
+              <!-- <img src="./images/0506b.gif" alt="回首頁" title="回首頁"> -->
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="contemt">
+      <marquee behavior="" direction="">歡迎來到書曼的旅遊相簿，本網站有我的旅遊影像紀錄介紹耶！</marquee>
+      <iframe src="./main.html" name="content" frameborder="0"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>
