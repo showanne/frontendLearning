@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /* list-style: none; */
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: whitesmoke;
+      background-color: dimgrey;
+      margin: 2rem 0 0 0;
+      padding: 1rem;
+    }
+
+    hr {
+      margin: 2% 0;
+    }
+
+    .container {
+      width: 75%;
+      margin: 1% auto;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      color: whitesmoke;
+      background-color: darkslategrey;
+      margin: 20px auto;
+
+      position: relative;
+    }
+
+    /* 預設是 inline */
+    /* position: absolute / fixed  / float  
+        都會將東西區塊化，所以不用再加 display: block; */
+    /* 一定要加 content */
+
+    .box::before {
+      content: '';
+      /* display: block; */
+      width: 50px;
+      height: 50px;
+      background-color: deepskyblue;
+
+      position: absolute;
+      left: -100px;
+      /* top: 0; */
+    }
+
+    .box::after {
+      content: 'World';
+      /* display: block; */
+      width: 70px;
+      height: 70px;
+      background-color: dodgerblue;
+
+      position: absolute;
+      right: -100px;
+      /* top: 0; */
+    }
+
+    .col {
+      width: 45%;
+      margin: 2.5%;
+      float: left;
+    }
+
+    .col img {
+      width: 100%;
+    }
+
+    .bg-color {
+      background-color: lightcyan;
+    }
+
+    /* 當作清除浮動 */
+    /* 相當於在所有內容最後加上 <div style="clear: both"></div> */
+    .clearfix::after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    /* 當作背景容器使用 */
+    .bg {
+      color: lightgoldenrodyellow;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* ::before會被背景蓋住，所以要設rgba半透明 */
+      position: relative;
+    }
+
+    .bg::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      bottom: 10px;
+      background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+      z-index: -1;
+    }
+
+    .bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    /* 摸到主體，讓分身做事情 */
+
+    .box1 {
+      width: 150px;
+      height: 150px;
+      background: url("https://picsum.photos/150/150/?random=1") no-repeat center/cover;
+      margin: auto;
+      transition: 0.5s;
+
+      position: relative;
+    }
+
+    .box1::before {
+      content: '';
+      width: 150px;
+      height: 150px;
+
+      position: absolute;
+      top: 0;
+      left: -110%;
+      background: url("https://picsum.photos/150/150/?random=2") no-repeat center/cover;
+      transition: 0.5s;
+    }
+
+    .box1::after {
+      content: '';
+      width: 150px;
+      height: 150px;
+
+      position: absolute;
+      top: 0;
+      right: -110%;
+      background: url("https://picsum.photos/150/150/?random=3") no-repeat center/cover;
+    }
+
+    .box1:hover::before {
+      left: 110%;
+    }
+
+    .box1:hover::after {
+      right: 110%;
+    }
+
+    .box2 {
+      width: 400px;
+      height: 150px;
+      margin: auto;
+      border: 5px solid greenyellow;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .box2::before {
+      content: '';
+      position: absolute;
+
+      /* CSS三角形產生器  http://apps.eky.hk/css-triangle-generator/zh-hant */
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 0 15px 19.5px;
+      border-color: transparent transparent transparent greenyellow;
+
+      right: -25px;
+      top: 90%;
+      transform: translateY(-90%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>偽元素 ::after ::before</h1>
+
+    <div class="box">
+      <div class="content">~0~ ~0~</div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>啟動條件與功用特性</h1>
+    <ol>
+      <li>要有 content: '' 才會有作用，content 可以放內容</li>
+      <li>建立時為 inline</li>
+      <li>結構上，::after 會在內容區前方， ::before 會在內容區後方</li>
+      <li>偽元素不能再建立偽元素， ::before::before 是不行的</li>
+      <li>無法使用在 input img iframe 上，這種叫置換元素(replaced element)</li>
+      <li>通常會搭配定位使用，所以要注意父元素有沒有設定定位點(relative / absolute / fixed)</li>
+    </ol>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>1.當作清除浮動</h1>
+  </div>
+  <div class="container bg-color clearfix">
+    <!--style="overflow: auto;" 也可以清除浮動 -->
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=1">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, temporibus rerum, ea maxime quo nobis
+        explicabo veniam quam fugiat odit molestiae porro hic nihil sit aliquam. Maxime laudantium modi illo!</p>
+    </div>
+
+    <div class="col">
+      <img src="https://picsum.photos/600/400/?random=2">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, temporibus rerum, ea maxime quo nobis
+        explicabo
+        veniam quam fugiat odit molestiae porro hic nihil sit aliquam. Maxime laudantium modi illo!</p>
+    </div>
+    <!-- <div style="clear: both"></div> 可以清除浮動 -->
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>2.當作背景容器使用</h1>
+  </div>
+  <div class="container">
+    <div class="bg">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, adipisci! Nihil earum placeat distinctio,
+      exercitationem expedita maxime aliquid officiis nobis doloribus non quo, numquam modi porro id, quasi maiores
+      voluptatum.
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>3.摸到主體，讓分身做事情</h1>
+  </div>
+  <div class="container">
+    <div class="box1"></div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>4.對話框</h1>
+  </div>
+  <div class="container">
+    <div class="box2"></div>
+  </div>
+</body>
+
+</html>

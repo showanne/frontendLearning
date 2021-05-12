@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      list-style: none;
+      box-sizing: border-box;
+      transition: 0.5s;
+    }
+
+    .panel-group {
+      width: 800px;
+    }
+
+    .tab-group label {
+      display: inline-block;
+      padding: 10px 30px;
+      border: 1px solid #ccc;
+      background-color: #ccc;
+    }
+
+    .content-group {
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+
+    /* 使用 radio 唯一性 + 同層全體選擇器切換 */
+    /* :not() 只要不是裡面的條件，就全部隱藏起來，也就是裡面的條件顯示 */
+    #radio1:checked~.content-group :not(.content1) {
+      display: none;
+    }
+
+    #radio2:checked~.content-group :not(.content2) {
+      display: none;
+    }
+
+    #radio3:checked~.content-group :not(.content3) {
+      display: none;
+    }
+
+    #radio4:checked~.content-group :not(.content4) {
+      display: none;
+    }
+
+    #radio5:checked~.content-group :not(.content5) {
+      display: none;
+    }
+
+    .panel-controler {
+      opacity: 0;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="panel-group">
+    <input type="radio" name="panel" id="radio1" class="panel-controler" checked>
+    <input type="radio" name="panel" id="radio2" class="panel-controler">
+    <input type="radio" name="panel" id="radio3" class="panel-controler">
+    <input type="radio" name="panel" id="radio4" class="panel-controler">
+    <input type="radio" name="panel" id="radio5" class="panel-controler">
+
+    <div class="tab-group">
+      <label for="radio1">tab1</label>
+      <label for="radio2">tab2</label>
+      <label for="radio3">tab3</label>
+      <label for="radio4">tab4</label>
+      <label for="radio5">tab5</label>
+    </div>
+
+    <div class="content-group">
+      <div class="content1">
+        最後未來相機時間如下，各類案例女朋友上午要在能學到作家平靜研究所半年百度本類精靈，你怎不來這樣孤獨加速容量先進教育代表完美動作程度只不過，可見西方來看請問官員本帖出台從來沒彩色主人，他對能不能男子本週，那麼本類，姓名態度，條件簡歷，聯盟留學，用途看了，光。
+      </div>
+      <div class="content2">
+        遭遇主義職業，進入信譽指揮升級身邊臺中推廣統計平方米三年情節，空氣培養公佈博士說了留言過了農村榮譽尋求，寬頻仍然，難以結果意味着模組居然留學手指社會主義，靈魂模組大大隨後，跟着退出管理系統，風景有了站內好友訊息學會是從室內電子一切軟體，所屬現象我不顯示定。
+      </div>
+      <div class="content3">
+        用戶名交給成長味道網咖版本而是其實，靜靜筆記本英國瀏覽器我想至今民間文明插入腦袋激情尷尬，以來身後符合涉及通訊面前十二郵件本地下載以及達到起來營養，小時控制還有售價裝置配合神秘一張，實在說到形式大連或是資金發揮電視溫州生存現金，威脅無聊以後用途螢幕，導航。
+      </div>
+      <div class="content4">
+        物品原始碼，背景好評金屬姑娘一半有人女朋友一聲趕緊，台北懷疑活力不久，網際另一我的信譽一番一笑科學回到本網站，給我聯繫不明白別的辦理，規模主人，那時警察導致各類演唱會翻譯可用複製病毒涉及一週義務深刻還要，堅決複製開關植物無派歲月物品授權檢測某種，所需認定。
+      </div>
+      <div class="content5">
+        部分擔任動漫也想電視台遺憾每次，健康環境告訴你查詢，商標然而玩具鈴聲知道心裡關鍵字模樣騎士安徽，提示功夫實在，手術重新最重要，另外回頭中間不管一致金融那位請大家標誌，漸漸電子以為物理二十機關最快不管討論攻擊不明白，住房這樣有什麼一家重量你想開發者大會，一。
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

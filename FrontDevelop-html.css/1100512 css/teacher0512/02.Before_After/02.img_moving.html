@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+      font-size: 3rem;
+      border: 1px solid #333;
+      background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .text {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 400px;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      left: 0;
+      transition: 1s;
+    }
+
+    .box::before {
+      content: '燒肉吃到飽';
+      color: white;
+      text-align: center;
+      line-height: 400px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: -400px;
+      background: rgba(0, 0, 0, 0.5);
+      transition: 1s;
+    }
+
+    .box:hover .text {
+      left: 100%;
+    }
+
+    .box:hover::before {
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="text">今晚你想來點...</div>
+  </div>
+</body>
+
+</html>

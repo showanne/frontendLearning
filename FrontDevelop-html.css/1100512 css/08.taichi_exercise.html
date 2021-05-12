@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .taichi {
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, black, black 50%, white 50%, white 100%);
+
+      box-shadow: 0 0 30px black;
+      /* overflow: hidden; */
+      position: relative;
+    }
+
+    .yin {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: black;
+      position: absolute;
+      top: 0;
+      left: calc(50% - 150px);
+      z-index: 1;
+    }
+
+
+    .yang {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 150px);
+    }
+
+    .yin::before {
+      content: '';
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      top: calc(50% - 35px);
+      left: calc(50% - 35px);
+    }
+
+    .yang::before {
+      content: '';
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: black;
+      position: absolute;
+      bottom: calc(50% - 35px);
+      left: calc(50% - 35px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="taichi">
+    <div class="yin"></div>
+    <div class="yang"></div>
+  </div>
+</body>
+
+</html>

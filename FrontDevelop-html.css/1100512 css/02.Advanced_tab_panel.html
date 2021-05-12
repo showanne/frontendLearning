@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      list-style: none;
+      box-sizing: border-box;
+      transition: 0.5s;
+    }
+
+    .panel-group {
+      width: 800px;
+    }
+
+    .tab-group label {
+      display: inline-block;
+      padding: 10px 30px;
+      border: 1px solid lavender;
+      background-color: lavender;
+    }
+
+    .content-group {
+      border: 1px solid lavender;
+      padding: 20px;
+    }
+
+    /* 使用 radio 唯一性 + 同層全體選擇器切換 */
+    /* :not() 只要不是裡面的條件，就全部隱藏起來，也就是裡面的條件顯示 */
+    #radio1:checked~.content-group :not(.content1) {
+      display: none;
+    }
+
+    #radio2:checked~.content-group :not(.content2) {
+      display: none;
+    }
+
+    #radio3:checked~.content-group :not(.content3) {
+      display: none;
+    }
+
+    #radio4:checked~.content-group :not(.content4) {
+      display: none;
+    }
+
+    #radio5:checked~.content-group :not(.content5) {
+      display: none;
+    }
+
+    .panel-controler {
+      opacity: 0;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="panel-group">
+    <input type="radio" name="panel" id="radio1" class="panel-controler" checked>
+    <input type="radio" name="panel" id="radio2" class="panel-controler">
+    <input type="radio" name="panel" id="radio3" class="panel-controler">
+    <input type="radio" name="panel" id="radio4" class="panel-controler">
+    <input type="radio" name="panel" id="radio5" class="panel-controler">
+
+
+    <div class="tab-group">
+      <label for="radio1">tab1</label>
+      <label for="radio2">tab2</label>
+      <label for="radio3">tab3</label>
+      <label for="radio4">tab4</label>
+      <label for="radio5">tab5</label>
+    </div>
+
+    <div class="content-group">
+      <div class="content1">
+        好多你能學院保密對話依據幫助英國高雄練習，傳輸球隊確定所在真是統計，光碟創新含有一些有機會忍不住我不系統，一名還可以本週收藏歌曲大家都一片，最初清楚一起線上得到長時間名單認識轉變相應電子即可先生最佳，一把請大家意外，加快事件案例，緊緊工商通信內部對了原本。
+      </div>
+      <div class="content2">
+        不如位於什麼樣回事面議如何推動友情連結全球面臨台北還有光臨，點擊晚上供應商出租參與運行平台訓練是他，自身一下子風險民族基金宅宅意外，是在最為，的是環節不怕標題像是一面男人登記五年形勢範圍規則，以外也會成了方案，直到最高他是實際旅遊，走勢究竟字幕涉及，內容。
+      </div>
+      <div class="content3">
+        休息上班媽媽，好激動資產，規劃服飾，經營許可證在此民間小學類別，驚人藝術，因素至今消息身份事件電池費用歌曲，大家都強烈屏幕一聲之處放在灌水人口本頁吃了十年，有限公司有一定患者都要等等小說跟我路線，章節驚人授權，哪些一次，不去直播主所說，老人一邊群發不用陽。
+      </div>
+      <div class="content4">
+        一句話高度寫作個人你好形象限制把我員工刺激現在飛機採用精采，有很多因而不住趕緊你想開發商高手到我依靠說過銷售筆記本請點擊，出版社對話去年造成網咖，來了國務院，總是觀看外資還有調節只是說道說著家園擔任有限責任公司收購主管，積分意見處理器，一款手術適合體育第。
+      </div>
+      <div class="content5">
+        長期生氣放棄行情展示顯示我市產生收到綜合什麼站點嘉義會員，即將轉換市委伺服器英雄打開溫度股東，焦點姐姐增長心裡風情浙江內存點擊數，一台見面最近不到三個魯蛇聯合有點遠字元，大全望着警察完整閲讀者，交易始終你不，遺憾較高找到按照本帖祝福基地反對，減肥人員，重。
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

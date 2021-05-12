@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
+        url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      width: 500px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.5);
+      font-size: 5.5rem;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .text::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: rgb(0, 255, 255);
+
+      position: absolute;
+      left: -35px;
+      bottom: -10px;
+    }
+
+    .text::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: rgb(0, 255, 255);
+
+      position: absolute;
+      right: -35px;
+      top: -10px;
+    }
+
+    .txt1::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      border: 4px solid rgb(0, 255, 255);
+
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+
+    .txt1 {
+      color: white;
+    }
+
+    .txt2 {
+      color: rgb(0, 255, 255)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text">
+    <span class="txt1">免費報名</span>
+    <span class="txt2">只到5/12</span>
+  </div>
+</body>
+
+</html>

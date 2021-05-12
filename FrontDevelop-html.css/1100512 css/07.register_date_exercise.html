@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("https://picsum.photos/1920/1080/?random=1") no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      width: 450px;
+      height: 250px;
+      padding: 25px 0;
+      background-color: rgba(255, 245, 238, 0.438);
+      text-align: center;
+      position: relative;
+    }
+
+    .txt1 {
+      line-height: 100px;
+      font-size: 4.5rem;
+      color: whitesmoke;
+    }
+
+    .txt2 {
+      line-height: 100px;
+      font-size: 4rem;
+      color: springgreen;
+    }
+
+    .text::before {
+      content: '';
+      width: 450px;
+      height: 250px;
+      border: 5px solid springgreen;
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+
+    .txt1::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: springgreen;
+      box-shadow: 0px 0px 10px springgreen;
+      position: absolute;
+      right: -47px;
+      top: -7px;
+    }
+
+    .txt2::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: springgreen;
+      box-shadow: 0px 0px 10px springgreen;
+      position: absolute;
+      left: -35px;
+      bottom: -12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="text">
+    <span class="txt1">免費報名</span>
+    <br>
+    <span class="txt2">只到5/12</span>
+  </div>
+</body>
+
+</html>
