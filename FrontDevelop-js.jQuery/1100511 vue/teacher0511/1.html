@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red
+    }
+    .border {
+      border: 1px solid black
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ myText }}</h1>
+    <h1 v-text="myText"></h1>
+
+    <h1>{{ myHTMLText }}</h1>
+    <h1 v-text="myHTMLText"></h1>
+    <h1 v-html="myHTMLText"></h1>
+
+    <!-- v-if 不符合條件時不見 -->
+    <h1 v-if="myNumber === 1">數字是 1</h1>
+    <h1 v-else-if="myNumber === 2">數字是 2</h1>
+    <h1 v-else>數字是其他</h1>
+    <!-- v-show 不符合條件時 display none -->
+    <h1 v-show="myNumber === 1">數字是 1</h1>
+
+    <ul>
+      <!-- v-for="(值, 索引) in 陣列" -->
+      <li v-for="(fruit, index) in fruits">{{ fruit }}</li>
+    </ul>
+
+    <a v-bind:href="url">{{ url }}</a>
+    <a :href="url">{{ url }}</a>
+    <img :src="img" width="100">
+
+    <!-- 綁定 style 時要寫成 {}，key 是 CSS 樣式，value 是 data -->
+    <p :style="{color: colorText, background: colorBG}">文字</p>
+    <p :style="textStyle">文字</p>
+
+    <!-- 綁定 class 時要寫成 {}，key 是 class 名，value 是 true/false -->
+    <p :class="{red: true, border: hasBorder}">文字</p>
+    <p :class="textClass">文字</p>
+
+    <input type="text" v-model="input.text"> {{ input.text }}
+    <br>
+    <!--
+      .number 可將欄位資料型態轉為數字
+      .trim 可以自動執行 .trim()
+    -->
+    <input type="text" v-model.number="input.number"> {{ input.number }}
+    <br>
+    <input type="checkbox" v-model="input.check" value="1"> 1
+    <input type="checkbox" v-model="input.check" value="2"> 2
+    <input type="checkbox" v-model="input.check" value="3"> 3
+    {{ input.check }}
+    <br>
+    <input type="checkbox" v-model="input.check2" v-for="(fruit, index) in fruits" :value="fruit">
+    {{ input.check2 }}
+    <br>
+    <input type="radio" v-model="input.radio" value="購買">
+    <input type="radio" v-model="input.radio" value="不購買">
+    {{ input.radio }}
+    <br>
+    <select v-model="input.select">
+      <option>1</option>
+      <option>2</option>
+    </select>
+    {{ input.select }}
+    <br>
+    <select v-model="input.select2">
+      <option v-for="(fruit, index) in fruits" :value="index">{{ fruit }}</option>
+    </select>
+    {{ input.select2 }}
+    <br>
+    <input type="button" value="點" v-on:click="sayHi">
+    <!-- 
+      .prevent = preventDefault
+      .stop = 停止冒泡
+    -->
+    <a href="https://fb.com" @click.prevent.stop="sayHi">點</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      // 將 vue 對應到 #app 
+      el: '#app',
+      data () {
+        return {
+          myText: 'Hi',
+          myHTMLText: '<a href="https://fb.com">FB</a>',
+          myNumber: 1,
+          fruits: ['香蕉', '鳳梨', '蘋果', '芭樂'],
+          url: 'https://fb.com',
+          img: 'https://dinbendon.kento520.tw/assets/img/background.jpg',
+          colorText: 'white',
+          colorBG: 'black',
+          textStyle: {
+            color: 'red',
+            background: 'black'
+          },
+          hasBorder: true,
+          textClass: {
+            red: true,
+            border: false
+          },
+          input: {
+            text: '',
+            check: [],
+            check2: [],
+            radio: '購買',
+            select: '',
+            select2: '',
+            number: 0
+          }
+        }
+      },
+      methods: {
+        sayHi (event) {
+          // 如果要在 Vue 的 methods 呼叫 data 的話使用 this.data名
+          console.log(this.myText)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <mybtn>
+      <i>你好</i>
+      <del>123</del>
+    </mybtn>
+    <product>
+      <template v-slot:name>
+        太師傅雞腿便當
+      </template>
+      <template v-slot:price>
+        $80
+      </template>
+      <template v-slot:description>
+        很好吃
+      </template>
+    </product>
+    <hr>
+    <product v-for="product in products">
+      <template v-slot:name>
+        {{ product.name }}
+      </template>
+      <!-- data 指的是 template 收到的資料 -->
+      <template v-slot:price="data">
+        <!-- 不能直接用 {{ }} 取得使用元件內的資料 -->
+        <!-- {{ product.price }} * {{ discount }} -->
+        {{ product.price }} * {{ data.discount }}
+      </template>
+      <template v-slot:description>
+        {{ product.description }}
+      </template>
+    </product>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/x-template" id="template-mybtn">
+    <button>
+      <slot></slot>
+    </button>
+  </script>
+  <script type="text/x-template" id="template-product">
+    <div>
+      <h1>
+        <slot name="name"></slot>
+      </h1>
+      <h2>
+        <!-- 若要在 slot 使用元件資料必須把要用的資料傳給 template -->
+        <!-- 綁定一個叫 discount 的資料給 slot 內容，資料為元件的 discount -->
+        <slot name="price" :discount="discount"></slot>
+      </h2>
+      <p>
+        <slot name="description"></slot>
+      </p>
+    </div>
+  </script>
+  <script>
+    Vue.component('mybtn', {
+      template: '#template-mybtn'
+    })
+    Vue.component('product', {
+      template: '#template-product',
+      data () {
+        return {
+          discount: 0.5
+        }
+      }
+    })
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          products: [
+            {name: '排骨', price: 60, description: '就是排骨'},
+            {name: '雞排', price: 80, description: '很大的雞排'}
+          ]
+        }
+      }
+    })
+  </script>
+</body>
+</html>

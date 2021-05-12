@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1 ref="title" id="title">清單</h1>
+    <input type="text" v-model="newitem" @keydown.enter="add" :style="{border: inputBorder}">
+    <input type="button" value="新增" @click="add">
+    <ul>
+      <li v-for="(item, index) in items">
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{ item.name }}</del>
+        <span v-else>{{ item.name }}</span>
+        <input type="button" value="x" @click="del(index)">
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          items: [],
+          newitem: ''
+        }
+      },
+      methods: {
+        add () {
+          if (this.newitem.length >= 2) {
+            this.items.push({ name: this.newitem, done: false})
+            this.newitem = ''
+          }
+        },
+        del (index) {
+          this.items.splice(index, 1)
+        }
+      },
+      computed: {
+        inputBorder () {
+          let color = ''
+          if (this.newitem.length === 0) {
+            color = 'black'
+          } else if (this.newitem.length < 2) {
+            color = 'red'
+          } else if (this.newitem.length >= 2) {
+            color = 'green'
+          }
+          return '5px solid ' + color
+        }
+      },
+      watch: {
+        // watch 預設只偵測陣列長度改變
+        // 如果要偵測內容變化必須設定 deep: true
+        // items (newValue, oldValue) {
+        //   localStorage.setItem('vue-todo', JSON.stringify(newValue))
+        // }
+        items: {
+          handler (newValue, oldValue) {
+            localStorage.setItem('vue-todo', JSON.stringify(newValue))
+          },
+          deep: true
+        }
+      },
+      mounted () {
+        const data = localStorage.getItem('vue-todo')
+        if (data) {
+          this.items = JSON.parse(data)
+        }
+
+        console.log(this.$refs.title.innerText)
+        // $el 只能用 querySelector 和 querySelectorAll
+        console.log(this.$el.querySelectorAll('#title')[0].innerText)
+      },
+      created () {
+        // 錯誤，因為 created 時東西還沒放到 DOM
+        // console.log(this.$refs.title.innerText)
+      }
+    })
+  </script>
+</body>
+</html>

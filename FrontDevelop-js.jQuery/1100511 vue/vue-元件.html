@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .post {
+      display: inline-block;
+      margin: 9px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <counter></counter>
+    <counter></counter>
+    <hr>
+    <br>
+    總共按了 {{ goods }} 個讚
+    <br>
+    <post title="標題" text="hguhugjk" @good="onPostGood"></post>
+    <post v-for="post in posts" :title="post.title" :text="post.text"></post>
+    <hr>
+    <editor></editor>
+  </div>
+  <!-- vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/x-template" id="template-post">
+    <!-- 元件內只能有一個元素，若想顯示兩樣東西，可以用 div 包起來 -->
+  <div class="post">
+    <h1>{{title}}</h1>
+    <p>{{text}}</p>
+    <input type="button" :value="good ? '收回讚':'讚'" @click="clickGood">
+  </div>
+  </script>
+  <script>
+    // 如果宣告元件寫在 script 上，不能引用到別處
+
+    Vue.component('counter', {
+      template: '<button @click="number++">{{number}}</button>',
+      data() {
+        return {
+          number: 0
+        }
+      }
+    })
+
+    Vue.component('post', {
+      template: '#template-post',
+      props: {
+        title: String,
+        text: String,
+        // 設定傳進來的資料型態
+      },
+      data() {
+        return {
+          good: false
+        }
+      },
+      methods: {
+        clickGood() {
+          this.good = !this.good
+          // 
+          // 把目前按讚狀態傳出，$emit如有多個值，以 {} 包起來
+          this.$emit('good', this.good)
+        }
+      }
+    })
+
+    Vue.component('editor', {
+      template: '#template-editor',
+      props: {
+        data: String
+      },
+      data() {
+        return {
+          textToEdit: ''
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          posts: [
+            { title: 'fuh', text: '8eok' },
+            { title: 'ykmh', text: '6gn' },
+            { title: 'zfhys', text: '3mgklnmfk' },
+          ],
+          goods: 0, //預設為0
+          text: 'abc'
+        }
+      },
+      methods: {
+        onPostGood(data) {
+          if (data) this.goods++
+          else this.goods--
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

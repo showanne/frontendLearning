@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="newitem" @keydown.enter="add" :style="{ border }">
+    <input type="button" value="新增" @click="add">
+    <br>
+    <input type="button" value="全部刪除" @click="items = []">
+    <input type="button" value="全部完成" @click="all(true)">
+    <input type="button" value="全部未完成" @click="all(false)">
+    <ul>
+      <li v-for="(item, index) in items">
+        <input type="checkbox" v-model="item.done">
+        <del v-if="item.done">{{ item.name }}</del>
+        <span v-else>{{ item.name }}</span>
+        <input type="button" value="x" @click="del(index)">
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          newitem: '',
+          items: []
+        }
+      },
+      methods: {
+        add () {
+          if (this.newitem.length >= 2) {
+            this.items.push({name: this.newitem, done: false})
+            this.newitem = ''
+          }
+        },
+        del (index) {
+          this.items.splice(index, 1)
+        },
+        all (value) {
+          this.items = this.items.map(item => {
+            item.done = value
+            return item
+          })
+        }
+      },
+      computed: {
+        border () {
+          const text = this.newitem
+          return text.length === 0 ? '5px solid black' : text.length < 2 ? '5px solid red' : '5px solid blue'
+        }
+      },
+      watch: {
+        items: {
+          handler () {
+            localStorage.setItem('vue-todo', JSON.stringify(this.items))
+          },
+          deep: true
+        }
+      },
+      mounted() {
+        const data = localStorage.getItem('vue-todo')
+        if (data) {
+          this.items = JSON.parse(data)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

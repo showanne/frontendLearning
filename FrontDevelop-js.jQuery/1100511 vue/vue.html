@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .red {
+    color: red;
+  }
+
+  .border {
+    border: 1px solid #eee;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <!-- vue 語法只在這個區域內有用，語法內 el 設定 -->
+
+    <!-- v-text -->
+    <h1>{{myText}}</h1>
+    <h1 v-text="myText"></h1>
+
+    <!-- v-html -->
+    <h1>{{myHTMLText}}</h1>
+    <h1 v-text="myHTMLText"></h1>
+    <h1 v-html="myHTMLText"></h1>
+
+    <!-- v-if 符合條件才會顯示，不符合條件時不見 v-if=" "內是 js 規則  -->
+    <h1 v-if="myNumber===1">數字是1</h1>
+    <h1 v-else-if="myNumber===2">數字是2</h1>
+    <h1 v-else>數字是其他</h1>
+    <!-- v-show 不符合條件時 display:none -->
+    <h1 v-show="myNumber===1">數字是1</h1>
+    <!-- v-for="(值,索引) in 陣列" 
+         值 只能出現在 v-for 那行，陣列有多少值就會跑多少個 標籤(li) -->
+    <ul>
+      <li v-for="(en,index) in enArr">{{en}}</li>
+    </ul>
+
+    <!-- 綁定 v-bind: 簡寫 : 把 html 的資料綁在屬性上    -->
+    <!-- 可綁定屬性 a:href img:src ...幾乎都可以使用
+      除了 value style class 要注意特別寫法 -->
+    <!-- 若在 vue dev 工具上，直接修改 url 的網址，網頁上所有用到 href 的地方都會被修改 -->
+    <a v-bind:href="url">{{url}}</a>
+    <a :href="url">{{url}}</a>
+    <img :src="img" alt="">
+    <!-- 綁定 style 時要寫成 {}，key 是 css 樣式，value 是 data -->
+    <p :style="{color:colorText, background:colorBG}">文字</p>
+    <p :style="textStyle">文字</p>
+
+    <!-- 綁定 style 時要寫成 {}，key 是 class 名，value 是 true/false 會/不會 套用屬性 -->
+    <p :class="{red: true,border:hasBorder}">文字</p>
+    <p :class="textClass">文字</p>
+
+    <!-- v-model 與輸入值綁定，但是 v-model 不等於 v-bind:value -->
+    <input type="text" v-model="input.text">{{input.text}}
+    <br><br>
+    <input type="text" v-model.number="input.number">{{input.number}}
+    <br><br>
+
+
+    <input type="checkbox" v-model="input.check" value="1">1
+    <input type="checkbox" v-model="input.check" value="2">2
+    <input type="checkbox" v-model="input.check" value="3">3
+    {{input.check}}
+    <br><br>
+    <!-- 結合 v-for 做出表單 -->
+    <input type="checkbox" v-model="input.check2" v-for="(en,index) in enArr" :value="en">
+    {{input.check2}}
+    <br><br>
+
+    <!-- 若要有預設值，就在 script 的 input.radio 裡先打上相對應的value -->
+    <input type="radio" v-model="input.radio" value="購買">
+    <input type="radio" v-model="input.radio" value="不購買">
+    {{input.radio}}
+
+    <br><br>
+
+    <select v-model="input.select">
+      <option>wo</option>
+      <option>ya</option>
+    </select>
+    {{input.select}}
+
+    <br><br>
+
+    <select v-model="input.select2">
+      <option v-for="(en,index) in enArr" :value="index">{{en}}</option>
+    </select>
+    {{input.select2}}
+
+    <br><br>
+
+    <input type="button" value="點" v-on:click="sayHi">
+
+    <!-- 冒泡 -->
+    <a href="fb.com" @click.prevent.stop="sayHi">點</a>
+  </div>
+
+  <!-- vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      // 將 vue 對應到 #app
+      el: '#app',
+      data() {
+        return {
+          myText: 'Hi',
+          myHTMLText: '<a href="fb.com">FB</a>',
+          myNumber: 3,
+          enArr: ['a', 'bb', 'vvv', 'awf'],
+          url: 'google.com',
+          img: 'https://picsum.photos/300/300/?random=1',
+          colorText: 'white',
+          colorBG: 'purple',
+          textStyle: {
+            color: 'yellow',
+            background: 'pink'
+          },
+          hasBorder: true,
+          textClass: {
+            red: true,
+            border: false
+            // true/false 會/不會 套用屬性
+          },
+          input: {
+            text: '',
+            number: 0,
+            check: [],
+            check2: [],
+            radio: '購買',
+            select: '',
+            select2: ''
+
+          }
+        }
+      },
+      methods: {
+        sayHi(event) {
+          // 要
+          console.log(this.myText);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

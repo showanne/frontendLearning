@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .post {
+      display: inline-block;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <counter></counter>
+    <counter></counter>
+    <counter></counter>
+    <hr>
+    總共按了 {{ goods }} 個讚
+    <br>
+    <post title="標題" text="內文內文內文" @good="onPostGood"></post>
+    <post v-for="post in posts" :title="post.title" :text="post.text" @good="onPostGood"></post>
+    <hr>
+    {{ text }}
+    <editor :data="text" @save="text = $event"></editor>
+    <hr>
+    {{ text2 }}
+    <!-- 同步資料要加 .sync -->
+    <editor2 :data.sync="text2"></editor2>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/x-template" id="template-post">
+    <div class="post">
+      <h1>{{ title }}</h1>
+      <p>{{ text }}</p>
+      <input type="button" :value="good ? '收回讚' : '讚'" @click="clickGood">
+    </div>
+  </script>
+  <script type="text/x-template" id="template-editor">
+    <div class="editor">
+      <input type="text" v-model="textToEdit">
+      <input type="button" value="存檔" @click="save">
+    </div>
+  </script>
+  <script type="text/x-template" id="template-editor2">
+    <div class="editor">
+      <input type="text" v-model="textToEdit">
+    </div>
+  </script>
+  <script>
+    Vue.component('counter', {
+      template: '<button @click="number++">{{ number }}</button>',
+      data () {
+        return {
+          number: 0
+        }
+      }
+    })
+
+    Vue.component('post', {
+      template: '#template-post',
+      props: {
+        title: String,
+        text: String
+      },
+      data () {
+        return {
+          good: false
+        }
+      },
+      methods: {
+        clickGood () {
+          this.good = !this.good
+          // 子元件觸發一個叫做 good 的自訂事件
+          // 並把目前按讚的狀態傳出
+          this.$emit('good', this.good)
+        }
+      },
+    })
+
+    Vue.component('editor', {
+      template: '#template-editor',
+      props: {
+        data: String
+      },
+      data () {
+        return {
+          textToEdit: ''
+        }
+      },
+      mounted () {
+        this.textToEdit = this.data
+      },
+      methods: {
+        save () {
+          this.$emit('save', this.textToEdit)
+        }
+      },
+    })
+
+    Vue.component('editor2', {
+      template: '#template-editor2',
+      props: {
+        data: String
+      },
+      computed: {
+        textToEdit: {
+          get () {
+            return this.data
+          },
+          set (value) {
+            // 觸發的事件名稱必須是 update:props資料名
+            this.$emit('update:data', value)
+          }
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          posts: [
+            {title: 'abc', text: '123123123'},
+            {title: 'def', text: '456456456'},
+            {title: 'ghi', text: '789789789'}
+          ],
+          goods: 0,
+          text: 'abc',
+          text2: 'def'
+        }
+      },
+      methods: {
+        onPostGood (data) {
+          if (data) this.goods++
+          else this.goods--
+        }
+      }
+    })
+  </script>
+</body>
+</html>
