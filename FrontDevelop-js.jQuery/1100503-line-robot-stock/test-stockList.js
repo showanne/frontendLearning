@@ -33,7 +33,9 @@ const test = async () => {
   } catch (error) {
     console.log(error)
   }
-  return arrSymbolId
+  // return arrSymbolId
 }
 test()
-console.log(arrSymbolId)
+setTimeout(() => {
+  console.log(arrSymbolId)
+}, 1000)

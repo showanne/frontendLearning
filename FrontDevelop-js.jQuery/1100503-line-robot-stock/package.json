@@ -15,7 +15,8 @@
     "dotenv": "^8.2.0",
     "iconv-lite": "^0.4.24",
     "linebot": "^1.6.1",
-    "ngrok": "^4.0.1"
+    "ngrok": "^4.0.1",
+    "twstockjs": "^0.5.0"
   },
   "devDependencies": {
     "eslint": "^7.25.0",
