@@ -53,17 +53,19 @@
     <p :style="{color:colorText, background:colorBG}">文字</p>
     <p :style="textStyle">文字</p>
 
-    <!-- 綁定 style 時要寫成 {}，key 是 class 名，value 是 true/false 會/不會 套用屬性 -->
+    <!-- 綁定 class 時要寫成 {}，key 是 class 名，value 是 true/false 會/不會 套用屬性 -->
     <p :class="{red: true,border:hasBorder}">文字</p>
     <p :class="textClass">文字</p>
 
     <!-- v-model 與輸入值綁定，但是 v-model 不等於 v-bind:value -->
     <input type="text" v-model="input.text">{{input.text}}
     <br><br>
+    <!-- 修飾符
+         .number 可將欄位型態轉為數字
+         .trim 可以自動執行 .trim() 自動過濾用戶輸入的首尾空白字符
+     -->
     <input type="text" v-model.number="input.number">{{input.number}}
     <br><br>
-
-
     <input type="checkbox" v-model="input.check" value="1">1
     <input type="checkbox" v-model="input.check" value="2">2
     <input type="checkbox" v-model="input.check" value="3">3
@@ -89,6 +91,9 @@
 
     <br><br>
 
+    <!-- v-for 下在哪裡，標籤就會出現幾次
+         再用 v-bind:value 綁定  (可以不限顯示陣列文字，也可以顯示索引值)
+        {{ }} 模板語法顯示文字 -->
     <select v-model="input.select2">
       <option v-for="(en,index) in enArr" :value="index">{{en}}</option>
     </select>
@@ -96,9 +101,14 @@
 
     <br><br>
 
+    <!-- v-on:click="事件名稱" 事件寫在data()後，同層的 methods 內 -->
     <input type="button" value="點" v-on:click="sayHi">
+    <!-- v-on:click 簡寫 @click -->
 
-    <!-- 冒泡 -->
+    <!-- Vue 事件修飾符
+         .prevent = preventDefault
+         .stop = 停止冒泡
+         兩個冒泡語法可連在一起使用 -->
     <a href="fb.com" @click.prevent.stop="sayHi">點</a>
   </div>
 
@@ -107,6 +117,7 @@
   <script>
     new Vue({
       // 將 vue 對應到 #app
+      // el = element 元素
       el: '#app',
       data() {
         return {
@@ -134,6 +145,7 @@
             check: [],
             check2: [],
             radio: '購買',
+            // 若要有預設值，就在這裡先打上相對應的value值，打到不存在的值不會預先勾選
             select: '',
             select2: ''
 
@@ -142,7 +154,7 @@
       },
       methods: {
         sayHi(event) {
-          // 要
+          // 如果要在 Vue 的 methods 內呼叫 data 的話，使用 this.data名 
           console.log(this.myText);
         }
       }

@@ -11,14 +11,18 @@
 <body>
   <div id="app">
     <h1 ref="title" id="title">清單</h1>
+    <!-- @keydown 按鍵修飾符 -->
     <input type="text" v-model="newitem" @keydown.enter="add" :style="{border:inputBorder}">
     <input type="button" value="新增" @click="add">
 
     <ul>
       <li v-for="(item,index) in items">
+        <!-- 在此處 v-model 為 checkbox 的狀態，true代表已勾選，並用 if 判斷式綁定完成後執行 <del>，若狀態為 false 則是執行 <span> -->
+        <!-- 此處亦可用 :class 回 true/false -->
         <input type="checkbox" v-model="item.done">
         <del v-if="item.done">{{item.name}}</del>
         <span v-else>{{item.name}}</span>
+        <!-- @click del()事件 與 v-for的索引值連動，方便判斷刪除項目  -->
         <input type="button" value="X" @click="del(index)">
       </li>
     </ul>
@@ -34,20 +38,32 @@
           newitem: ''
         }
       },
+      // methods 與 computed 的差異：單純做事情的 function()
       methods: {
         add() {
           if (this.newitem.length >= 2) {
             // 將打的訊息放入 items 的清單內
             this.items.push({ name: this.newitem, done: false })
+            // 訊息放入 items 清單後，清空輸入欄位
             this.newitem = ''
           }
         },
         del(index) {
+          // 刪除陣列索引 .splice(開始數字, 刪除數量)
           this.items.splice(index, 1)
         },
       },
+      // methods 與 computed 的差異：function() 可以直接拿來用的 data
+      // * methods、Computed 差異
+      //  * Computed 無法直接在html設參數，methods 可以
+      //  * 不確定每次都會更新，請用 Computed
+      //  * 確定每次都會更新，就用 metdos
+      //  * Computed 具有資料緩存的功能
+
       computed: {
-        // 以現有的資訊去運算呈現新資料
+        // 以現有的data去運算呈現新data
+        // 必須寫成 function() ，且一定要有 return
+        // function名稱 同時也是 變數名稱，可直接來當 Vue 的 data 使用
         inputBorder() {
           let color = ''
           if (this.newitem.length === 0) {
@@ -62,11 +78,17 @@
         }
       },
       watch: {
-        // watch 預設只偵測改變
+        // 將監聽的值作為 function() 名稱
+        // 監聽的值 (新值，舊值) 從什麼變什麼
+        // watch(監聽) 預設只偵測陣列長度改變
+        // 新增和刪除會在localStorage即時進行，但是打勾不會馬上刪除
         // items (newValue,oldValue){
         // localStorage.setItem('vue-todo', JSON.stringify(newValue))
         // }
+
+        // 如果要偵測內容變化，必須設 deep: true
         items: {
+          // handler 放入需要處理的程序
           handler(newValue, oldValue) {
             localStorage.setItem('vue-todo', JSON.stringify(newValue))
           },
@@ -74,16 +96,25 @@
         }
       },
       mounted() {
+        // 當 el:'#app' 的內容準備好時，執行以下 function()
         const data = localStorage.getItem('vue-todo')
         if (data) {
           this.items = JSON.parse(data)
         }
 
+        // $refs 有點類似 js .getElementById
+        // 直接抓取標籤有 ref值 的那個
         console.log(this.$refs.title.innerText)
+
+        // $el 抓取 el:'#app' 內的所有東西
         console.log(this.$el.querySelectorAll('#title')[0].innerText);
+        // $el 只能用 querySelector 和 querySelectorAll
       },
       created() {
-        // 錯誤
+        // 會出現錯誤，因為 created 時，東西還沒放到 DOM
+        // 資料 $data 以可取得，但 $el 還未被建立
+        // console.log(this.$refs.title.innerText)
+        // console.log(this.$el.querySelectorAll('#title')[0].innerText);
       }
     })
   </script>

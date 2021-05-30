@@ -196,6 +196,12 @@
   .key:hover:after {
     background-color: #f6d51e;
   } */
+
+  /* sweetalert 框 的標題 */
+  .swal2-title {
+    font-size: 1.5em !important;
+    line-height: 0.9;
+  }
 </style>
 
 <body>
@@ -438,8 +444,8 @@
       modeDisabled(true)
       calc()
 
-      // timer = setInterval(keyValue, 3000, 2)
-      setInterval(keyValue, 3000, 2)
+      timer = setInterval(keyValue, 3000, 2)
+      // setInterval(keyValue, 3000, 2)
       keyValue(2)  //初始二鍵模式
     }
 
@@ -452,7 +458,9 @@
     // 結束 按鍵
     btnEnd.onclick = () => {
       console.log('end');
-      clearInterval(keyValue)
+      clearInterval(timer)
+      // clearInterval(keyValue)
+
       modeDisabled(false)
 
       for (const td of tds) {
@@ -512,7 +520,7 @@
       modeDisabled(true)
       calc()
 
-      setInterval(keyValue, 3000, 4)
+      timer = setInterval(keyValue, 3000, 4)
       keyValue(4)
     }
 
@@ -520,7 +528,7 @@
       modeDisabled(true)
       calc()
 
-      setInterval(keyValue, 3000, 8)
+      timer = setInterval(keyValue, 3000, 8)
       keyValue(8)
     }
 
@@ -528,7 +536,7 @@
       modeDisabled(true)
       calc()
 
-      setInterval(keyValue, 3000, 12)
+      timer = setInterval(keyValue, 3000, 12)
       keyValue(12)
     }
 
@@ -540,7 +548,7 @@
       console.log(`${R}`);
       keyR.innerText = R
 
-      setInterval(keyValue, 3000, R)
+      timer = setInterval(keyValue, 3000, R)
       keyValue(R)
     }
 
@@ -596,11 +604,11 @@
     // 成績不能一筆一筆一直存嗎? --0429解決
     // 按鍵效果css 要有按鍵被壓扁的感覺 (.key:active 有效)(.colorOn 沒效)  --0428解決，原來是因為權重及先後順序問題
     // 按結束遊戲不會停止 --OK
+    // sweetalert 更改 font-size --OK
 
     // 計算總出現的鍵，設變數 ++，並計算錯誤率及正確率
     // 判斷不能有重複的隨機數字
-    // 按結束按鈕，到輸入名字完成時，這段時間按鍵還是會繼續跑
-    // sweetalert 更改 font-size
+    // 按結束按鈕，到輸入名字完成時，這段時間按鍵還是會繼續跑  --0519解決，clearInterval 變數設錯
   </script>
 </body>
 

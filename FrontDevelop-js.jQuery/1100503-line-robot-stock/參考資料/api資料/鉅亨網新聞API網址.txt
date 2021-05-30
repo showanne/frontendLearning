@@ -1,0 +1,8 @@
+https://api.cnyes.com/media/api/v1/search?q=0050
+
+q=0050 改股票代號抓新聞
+
+api內資料 data.newsId=4631208
+
+到下面網址可跳轉至新聞頁面
+https://news.cnyes.com/news/id/4631208

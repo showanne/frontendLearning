@@ -145,9 +145,12 @@
       display: inline-block;
       width: 20.6px;
       height: 39px;
+      background-image: url('./images/syringe_P.png');
+      background-size: contain;
+      background-repeat: no-repeat;
       margin: 1px 2px;
       /*用 js 長的 .dart 居然沒有幽靈空白*/
-      background-color: orange;
+      /* background-color: orange; */
     }
 
     #score {
@@ -541,49 +544,6 @@
         // console.log(`${Random(0, 15)}`);
       }
 
-
-      // 轉盤依照現在的秒數一直轉圈，缺點是60秒與1秒切換時，會轉回原點
-      // timer = setInterval(() => {
-      //   const sec = new Date().getSeconds()
-      //   // const deg = Math.floor(Math.random() * 10)   --好像不能用 random 會抽動
-      //   console.log(sec);
-      //   $('#circle').attr('style', `transform:rotate(${sec * 60}deg)`)
-      // }, 10)
-
-      // 使用 jqueryrotate 轉圈--沒辦法轉完一整圈
-      // https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js
-      // https://jqueryrotate.com/
-
-      // var angle = 0;
-      // setInterval(function () {
-      //   angle += 3;
-      //   $("#circle").rotate(angle);
-      //   console.log(angle);
-      // }, 100);
-
-      // var rotation = function () {
-      //   $('#circle').rotate({
-      //     angle: 0,
-      //     animateTo: 360,
-      //     callback: rotation
-      //   })
-      // }
-      // rotation();
-
-      // https://www.jq22.com/jquery-info375
-      // var rotation2 = function () {
-      //   $('#circle').rotate({
-      //     angle: 0,//初始旋轉的角度數，並且立即執行
-      //     animateTo: 360,
-      //     duration: 8000,//指定使用animateTo的動畫執行持續時間
-      //     callback: rotation2,
-      //     easing: function (x, t, b, c, d) {
-      //       // t: current time, b: begInnIng value, c: change In value, d: duration
-      //       return c * (t / d) + b;
-      //     }
-      //   });
-      // }
-      // rotation2();
     })
 
     // 先讓分數歸0
@@ -641,7 +601,7 @@
 
 
     // 有問題
-    // 轉圈使用 jqueryrotate 沒辦法轉完一整圈
+    // 轉圈使用 jqueryrotate 沒辦法轉完一整圈 --5/19 刪除註解起來的程式碼
     // 小圓及中圓內的汽球無法點擊，就算設$('#circle .balloon')也一樣 --4/26解決
     // 橫走區汽球移動時有的會疊在一起 -- 4/26 老師建議用 position
     // 汽球可以重複計分... --5/5解決

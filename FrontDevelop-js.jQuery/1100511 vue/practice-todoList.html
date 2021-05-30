@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 10rem;
+      background-color: #ade0ff;
+    }
+
+    ul>li {
+      background-color: #e6f0fa;
+      margin: 0.3rem;
+    }
+
+    ul>li>input,
+    ul>li>span,
+    ul>li>del {
+      vertical-align: middle;
+    }
+
+    input[type="text"] {
+      margin: 0;
+      text-align: center;
+      outline: 0;
+      border-radius: 5px;
+      font-size: 40px;
+      box-shadow: 0 0 5px rgb(0 0 0 / 12%), inset 0 0 2px rgb(0 0 0 / 19%);
+    }
+
+    input[type="checkbox"] {
+      /* appearance: none; */
+      /* 預設按鈕的樣式 取消後自訂樣式 */
+      /* border: 1px solid orange; */
+      margin: 20px;
+      width: 19px;
+      height: 19px;
+      /* background: url('https://images.vexels.com/media/users/3/157931/isolated/preview/604a0cadf94914c7ee6c6e552e9b4487-curved-check-mark-circle-icon-by-vexels.png'); */
+    }
+
+    input[type="checkbox"]+span,
+    input[type="checkbox"]+del {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      /* font-family: 'helvetica neue'; */
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+  </style>
+</head>
+<!-- 
+  作業 - 製作進階待辦清單，必須要有下列功能：
+
+    新增功能，兩個字以上才能新增
+    小於兩個字時輸入欄位邊框是紅色，成功時是藍色，空白時是黑色
+    每個項目有 checkbox 可以打勾標記已完成或未完成，完成的項目文字必須要有刪除線
+    可以個別刪除清單項目
+    可以將清單資料保存到 localStorage
+    可以點兩下清單項目開啟編輯欄位
+    在編輯欄位按 ENTER 可以儲存編輯
+    在編輯欄位可以按 ESC 鍵可以取消編輯
+    可以點按鈕過濾顯示全部項目、已完成項目、未完成項目
+    可以顯示目前過濾的方式及過濾後的項目總數
+    可以點按鈕一次刪除全部項目、已完成項目、未完成項目
+    可以點按鈕將所有項目標記為已完成
+    可以點按鈕將所有項目標記為未完成
+    
+   提示：
+    點兩下的事件為 @dblclick
+    按 ESC 鍵的，事件為 @keydown.esc
+    過濾可以使用 computed 搭配 .filter()
+ -->
+
+<body>
+  <div id="app">
+    <input type="text" v-model="newTodo" @keydown.enter="addTodo" :style="{border}">
+    <input type="button" value="新增" @click="addTodo">
+    <br><br>
+    <!-- @click 內為 JS 區域，可將程式碼寫入，但不利於閱讀及維護 -->
+    <!-- <input type="button" value="全部刪除" @click="todos = []"> -->
+    <input type="button" value="全部刪除" @click="delAllTodo">
+    <input type="button" value="全部完成" @click="completedTodo(true)">
+    <input type="button" value="全部未完成" @click="completedTodo(false)">
+
+
+    <ul>
+      <!-- todo 及 index 只活在這個 v-for -->
+      <li v-for="(todo,index) in todos">
+        <input type="checkbox" v-model="todo.completed">
+        <del v-if="todo.completed">{{ todo.list }}</del>
+        <span v-else>{{ todo.list }}</span>
+        <input type="button" value="X" @click="delTodo(index)">
+      </li>
+    </ul>
+  </div>
+
+  <!-- vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          newTodo: '',  //輸入欄位用
+          todos: [], //代辦清單用
+        }
+      },
+      methods: {
+        addTodo() {
+          if (this.newTodo.length >= 2) {
+            // 將打的訊息 (this.newTodo) 放入 todos 的清單內
+            this.todos.push({ list: this.newTodo, completed: false })
+            // 訊息放入 todos 清單後，清空輸入欄位
+            this.newTodo = ''
+          }
+        },
+        delTodo(index) {
+          // 將 todos 的該筆 (index) 資料刪除
+          this.todos.splice(index, 1)
+        },
+        delAllTodo() {
+          // 將 todos 清單清空
+          this.todos = []
+        },
+        completedTodo(done) {
+          this.todos = this.todos.map(todo => {
+            todo.completed = done
+            return todo
+          })
+        }
+      },
+      computed: {
+        border() {
+          // 老師版簡寫 三元運算子
+          // return this.newTodo.length === 0 ? '5px solid black' : this.newTodo.length < 2 ? '5px solid red' : '5px solid blue'
+
+          // 正常寫法
+          let color = ''
+          if (this.newTodo.length === 0) {
+            color = '#F7F7F7'
+          } else if (this.newTodo.length < 2) {
+            color = 'orange'
+          } else if (this.newTodo.length >= 2) {
+            color = 'yellowgreen'
+          }
+          return '10px solid ' + color
+          // 注意 style 寫法，該有的空格都要有
+        }
+      },
+      watch: {
+        todos: {
+          handler() {
+            localStorage.setItem('vue-todolist', JSON.stringify(this.todos))
+          },
+          deep: true
+          // 如果要偵測內容變化，必須設 deep: true
+        }
+      },
+      mounted() {
+        if (localStorage.getItem('vue-todolist')) {
+          this.todos = JSON.parse(localStorage.getItem('vue-todolist'))
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
