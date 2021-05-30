@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .menu {
+      border: 1px solid #333;
+      display: flex;
+      position: relative;
+      height: 100px;
+    }
+
+    .menu-item {
+      width: 100px;
+    }
+
+    .logo {
+      margin-left: auto;
+    }
+
+    div.menu-item:nth-of-type(1) {
+      background: lemonchiffon;
+    }
+
+    div.menu-item:nth-of-type(2) {
+      background: lightblue;
+      margin-right: auto;
+    }
+
+    div.menu-item:nth-of-type(3) {
+      background: lightcoral;
+    }
+
+    div.menu-item:nth-of-type(4) {
+      background: lightgreen;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -25px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <div class="menu-item">flex-item 1</div>
+    <div class="menu-item">flex-item 2</div>
+    <div class="menu-item">flex-item 3</div>
+    <div class="menu-item">flex-item 4</div>
+    <span class="logo"><img src="https://picsum.photos/150/150/?random=1"></span>
+  </div>
+</body>
+
+</html>

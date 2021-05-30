@@ -6,6 +6,10 @@ a {
   text-decoration: unset;
   color: gray;
 }
+.fixed {
+  position: fixed;
+  z-index: 9;
+}
 .float-L {
   float: left;
 }
@@ -24,13 +28,14 @@ a {
   /* 處理幽靈空白(inline) 將父層字體大小設為 font-size: 0; */
 }
 .dash {
-  border-bottom: 4px lightgrey solid;
+  border-bottom: 4px #dddddd solid;
 }
 
 /* 上方 logo 搜尋區 top */
 #top {
+  width: 100%;
   height: 56px;
-  /* background-color: antiquewhite; */
+  background-color: white;
   padding: 0 1rem;
 }
 /* #top div {
@@ -52,6 +57,7 @@ a {
 #topM {
   width: 70%;
   margin: auto;
+  text-align: center;
   /* background-color: burlywood; */
   padding: 1rem 5rem;
   box-sizing: border-box;
@@ -59,8 +65,9 @@ a {
 
 #topM input {
   vertical-align: middle;
-  height: 24px;
-  border: solid 1px gray;
+  height: 30px;
+  padding: 1px 10px;
+  border: solid 1px #b6b6b6;
   border-radius: 2px 0 0 2px;
 }
 
@@ -68,19 +75,20 @@ a {
   vertical-align: middle;
   padding: 0 0.8rem;
   width: 65px;
-  height: 24px;
-  background-color: gainsboro;
-  border: solid 1px gray;
+  height: 30px;
+  background-color: #ebebeb;
+  border: solid 1px #b6b6b6;
   border-radius: 0 2px 2px 0;
-  color: gray;
+  color: #999999;
 }
 #topM i {
   padding: 0;
+  font-size: 1rem;
 }
 
 #topM .fa-microphone {
   vertical-align: middle;
-  font-size: 24px;
+  /* font-size: 24px; */
   padding: 0 1rem;
   box-sizing: border-box;
   color: black;
@@ -100,11 +108,30 @@ a {
   /* line-height: 56px; */
   vertical-align: middle;
 }
+#topL span {
+  font-size: 0.5rem;
+  position: relative;
+  top: -10px;
+}
+
+.login {
+  color: #3142dd;
+  border: solid 1px #3142dd;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  padding: 7px;
+}
+.login i {
+  font-size: 1.3rem;
+  padding: 0;
+  margin-right: 7px;
+}
 
 /* 左側導覽列 navbar */
 #navbar {
   width: 15%;
   height: calc(100vh - 56px);
+  margin-top: 56px;
   overflow: scroll;
 }
 
@@ -128,17 +155,54 @@ a {
 
 #navbar a {
   display: block;
-  padding: 10px 5px;
+  line-height: 30px;
+  padding: 10px 0;
   box-sizing: border-box;
+}
+#navbar a:hover {
+  background-color: #ebebeb66;
+}
+
+#navbar i {
+  margin: auto 30px;
 }
 #navbar .dash {
   border-bottom: 1px lightgrey solid;
 }
 
+#navbar .login {
+  display: inline-block;
+  margin: 15px 30px;
+  padding: 5px 15px;
+  font-size: 1rem;
+}
+#navbar .login i {
+  margin: auto 7px auto 0px;
+}
+
+#navbar .login:hover {
+  background-color: #ffffff;
+}
+
+#navbar .dash p {
+  font-size: 0.9rem;
+  padding: 5px 5px 5px 30px;
+  line-height: 19px;
+}
+#guide {
+  padding: 24px 24px 24px 24px;
+}
+#guide a {
+  display: inline-block;
+  font-size: small;
+  padding: 2px;
+  line-height: 1;
+}
+
 /* 網頁內容區 content */
 #content {
   width: 85%;
-  padding: 0 8px;
+  padding: 56px 8px 0 8px;
   box-sizing: border-box;
 }
 
@@ -210,4 +274,91 @@ a {
   /* 若為 webkit 以外的瀏覽器，需再加入這2行
   line-height: X; // X 填入行高 px 值
   height: X * N; // 限定高度為 X * N 的 px 值 */
+}
+
+/* 廣告 ad */
+#content #ad {
+  background-color: black;
+  height: 210px;
+  padding: 2rem;
+  position: relative;
+}
+#content #ad img {
+  width: 380px;
+  margin-bottom: 0.7rem;
+}
+#content #ad div {
+  margin-bottom: 4rem;
+  width: 500px;
+  color: white;
+  font-size: 1.9rem;
+}
+
+#content #ad .buy {
+  border: solid 2px white;
+  border-radius: 3px;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+#content #ad .exit {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 2rem;
+  border: solid 1px black;
+  border-radius: unset;
+  box-sizing: border-box;
+  padding: 0.2px;
+  align-items: center;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+}
+
+/* COVID */
+#content #COVID {
+  height: 210px;
+  padding: 2rem 0;
+  position: relative;
+}
+#content #COVID img {
+  width: 180px;
+  margin-bottom: 0.7rem;
+}
+#content #COVID div {
+  margin-bottom: 4rem;
+  width: 500px;
+  color: white;
+  font-size: 1.9rem;
+}
+
+#content #COVID .buy {
+  border: solid 2px white;
+  border-radius: 3px;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+#content #COVID .exit {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 2rem;
+  color: #999999;
+  background-color: transparent;
+  border: none;
+  border-radius: unset;
+  box-sizing: border-box;
+  padding: 0.2px;
+  align-items: center;
+  position: absolute;
+  right: 13px;
+  top: 13px;
 }

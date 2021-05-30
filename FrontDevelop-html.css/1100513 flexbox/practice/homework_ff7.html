@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      /* background-image: url('./images-ff7/bg-full.jpg'); */
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('./images-ff7/bg-full.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Franklin Gothic', sans-serif;
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    .container {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left {
+      width: 50%;
+      height: 100%;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('./images-ff7/main.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      /* background-color: #000000; */
+      text-align: center;
+      box-sizing: border-box;
+      padding: 75px;
+    }
+
+    .left img {
+      width: 164px;
+      height: 252px;
+    }
+
+    .right {
+      width: 50%;
+      height: 100%;
+    }
+
+    .cloud {
+      width: 100%;
+      height: 50%;
+      background-color: #CCC;
+      box-sizing: border-box;
+      padding: 55px 180px 55px 35px;
+      position: relative;
+    }
+
+    .cloud img {
+      /* width: 412px;
+      height: 473px; */
+      height: 90%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    .tifa {
+      width: 100%;
+      height: 50%;
+      background-color: #000;
+      box-sizing: border-box;
+      padding: 55px 35px 55px 230px;
+      position: relative;
+    }
+
+    .tifa img {
+      height: 90%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .font-w {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="./images-ff7/ps4-ff7.png" alt="">
+      <h1 class="font-w">AVAILABLE NOW</h1>
+      <p class="font-w">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque explicabo perspiciatis
+        provident, a officia
+        officiis cupiditate harum recusandae praesentium inventore sapiente, odit libero delectus consequatur quidem
+        voluptatum dignissimos vero dolores.</p>
+    </div>
+    <div class="right">
+      <div class="cloud">
+        <img src="./images-ff7/cloud.png" alt="">
+        <h1>Cloud</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque explicabo perspiciatis provident, a officia
+          officiis cupiditate harum recusandae praesentium inventore sapiente, odit libero delectus consequatur quidem
+          voluptatum dignissimos vero dolores.</p>
+      </div>
+      <div class="tifa">
+        <img src="./images-ff7/tifa.png" alt="">
+        <h1 class="font-w">Tifa</h1>
+        <p class="font-w">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque explicabo perspiciatis
+          provident, a officia
+          officiis cupiditate harum recusandae praesentium inventore sapiente, odit libero delectus consequatur quidem
+          voluptatum dignissimos vero dolores.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework_bear</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .face {
+      width: 350px;
+      height: 350px;
+      background-color: black;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .nose {
+      width: 130px;
+      height: 85px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .nose-dot {
+      width: 30px;
+      height: 20px;
+      background-color: black;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(50% - 20px);
+    }
+
+    .mouse {
+      width: 70px;
+      height: 30px;
+      background-color: black;
+      border-radius: 50%;
+      position: absolute;
+      bottom: calc(50% - 45px);
+
+    }
+
+    /* .v {
+      width: 70px;
+      font-size: 7rem;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: 900;
+      color: white;
+      position: absolute;
+      bottom: calc(50% - 165px);
+    } */
+
+    /* 耳朵 */
+    .face::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      border: 13px solid black;
+      position: absolute;
+      left: 12px;
+    }
+
+    .face::before {
+      content: '';
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      border-radius: 50%;
+      border: 13px solid black;
+      position: absolute;
+      right: 12px;
+    }
+
+    /* 腮紅 */
+    .nose::after {
+      content: '';
+      width: 85px;
+      height: 85px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      left: -130px;
+    }
+
+    .nose::before {
+      content: '';
+      width: 85px;
+      height: 85px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      right: -130px;
+    }
+
+    /* 眼睛 */
+    .mouse::after {
+      content: '';
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      border: 12px solid white;
+      position: absolute;
+      left: -80px;
+      top: -105px;
+    }
+
+    .mouse::before {
+      content: '';
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      border: 12px solid white;
+      position: absolute;
+      right: -80px;
+      top: -105px;
+    }
+
+    /* 扁 V */
+    .nose-dot::after {
+      content: '';
+      width: 35px;
+      height: 60px;
+      background-color: white;
+      transform: skew(45deg);
+      position: absolute;
+      left: -32.5px;
+      bottom: -160px;
+    }
+
+    .nose-dot::before {
+      content: '';
+      width: 35px;
+      height: 60px;
+      background-color: white;
+      transform: skew(-45deg);
+      position: absolute;
+      right: -32.5px;
+      bottom: -160px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="face"></div>
+  <div class="nose"></div>
+  <div class="nose-dot"></div>
+  <div class="mouse"></div>
+  <!-- <div class="v">V</div> -->
+</body>
+
+</html>

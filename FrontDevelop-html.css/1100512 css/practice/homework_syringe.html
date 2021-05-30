@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework_syringe</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* position: relative; */
+    }
+
+    .box {
+      /* position: absolute; */
+      /* top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; */
+
+      display: flex;
+      align-items: center;
+      width: 1000px;
+      height: 160px;
+      font-size: 0;
+    }
+
+    .body1 {
+      width: 70px;
+      height: 160px;
+      border: solid 1px #AAA;
+      border-radius: 10px;
+      background: linear-gradient(#FFF, #CCC 65%, #FFF);
+      display: inline-block;
+    }
+
+    .body2 {
+      width: 80px;
+      height: 120px;
+      border: solid 1px #AAA;
+      background: linear-gradient(#FFF, #CCC 65%, #FFF);
+      display: inline-block;
+    }
+
+    .body3 {
+      width: 599px;
+      height: 160px;
+      border: solid 1px #AAA;
+      background: linear-gradient(#FFF, #CCC 65%, #FFF);
+      display: inline-block;
+      position: relative;
+    }
+
+    .body3 span {
+      font-size: 1rem;
+      color: #AAA;
+      font-weight: bold;
+      font-family: '微軟正黑體';
+    }
+
+    .body3::before {
+      content: 'Made in Taiwan';
+      font-size: 1.3rem;
+      color: #AAA;
+      font-weight: bold;
+      font-family: '微軟正黑體';
+      bottom: 0;
+      position: absolute;
+    }
+
+    .body3::after {
+      content: '';
+      width: 365px;
+      height: 160px;
+      background: linear-gradient(90deg, #000 18%, #fffc4e56 18%, #fffc4e56);
+      right: 0;
+      position: absolute;
+    }
+
+    .body4 {
+      width: 80px;
+      height: 120px;
+      border: solid 1px #AAA;
+      border-radius: 0 10px 10px 0;
+      background: linear-gradient(#FFF, #CCC 65%, #FFF);
+      display: inline-block;
+    }
+
+    .head {
+      width: 150px;
+      height: 1px;
+      border: solid 1px #AAA;
+      background-color: #555;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="body1"></div>
+    <div class="body2"></div>
+    <div class="body3">
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+      <span>　|</span>
+    </div>
+    <div class="body4"></div>
+    <div class="head"></div>
+  </div>
+</body>
+
+</html>

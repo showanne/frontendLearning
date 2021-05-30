@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework_chinese_chess</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: '標楷體';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .j-between {
+      justify-content: space-between;
+    }
+
+    .j-around {
+      justify-content: space-around;
+    }
+
+    /* .container {} */
+    table {
+      border: 1px solid darkgray;
+      border-spacing: unset;
+    }
+
+    table td {
+      width: 70px;
+      height: 70px;
+      border: 1px solid gray;
+    }
+
+    .text {
+      position: absolute;
+      writing-mode: vertical-lr;
+      font-size: 2.1rem;
+      line-height: 50vw;
+    }
+
+    .river {
+      width: 650px;
+      position: absolute;
+      justify-content: space-around;
+      font-size: 2.5rem;
+    }
+
+    .checkerboard {
+      width: 650px;
+      height: 100vh;
+      position: absolute;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chess {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid black;
+      background-color: white;
+
+      line-height: 52px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .chess-space {
+      width: 50px;
+      height: 50px;
+    }
+
+    .font-B {
+      color: black;
+    }
+
+    .font-R {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <table>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="8"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  <div class="text">
+    <p>圖畫裡，龍不吟，虎不嘯，小小書童可笑可笑</p>
+    <p>棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</p>
+  </div>
+  <div class="river d-flex">
+    <span>楚河</span>
+    <span>漢界</span>
+  </div>
+  <div class="checkerboard d-flex">
+    <div class="d-flex j-between font-B">
+      <div class="chess">車</div>
+      <div class="chess">馬</div>
+      <div class="chess">象</div>
+      <div class="chess">士</div>
+      <div class="chess">將</div>
+      <div class="chess">士</div>
+      <div class="chess">象</div>
+      <div class="chess">馬</div>
+      <div class="chess">車</div>
+    </div>
+    <div class="">
+      <div class="chess-space"></div>
+    </div>
+    <div class="d-flex j-between font-B">
+      <div class="chess-space"></div>
+      <div class="chess">包</div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess">包</div>
+      <div class="chess-space"></div>
+    </div>
+    <div class="d-flex j-between font-B">
+      <div class="chess">卒</div>
+      <div class="chess">卒</div>
+      <div class="chess">卒</div>
+      <div class="chess">卒</div>
+      <div class="chess">卒</div>
+    </div>
+    <div class="">
+      <div class="chess-space"></div>
+    </div>
+    <div class="">
+      <div class="chess-space"></div>
+    </div>
+    <div class="d-flex j-between font-R">
+      <div class="chess">兵</div>
+      <div class="chess">兵</div>
+      <div class="chess">兵</div>
+      <div class="chess">兵</div>
+      <div class="chess">兵</div>
+    </div>
+    <div class="d-flex j-between font-R">
+      <div class="chess-space"></div>
+      <div class="chess">炮</div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess-space"></div>
+      <div class="chess">炮</div>
+      <div class="chess-space"></div>
+    </div>
+    <div class="">
+      <div class="chess-space"></div>
+    </div>
+    <div class="d-flex j-between font-R">
+      <div class="chess">俥</div>
+      <div class="chess">傌</div>
+      <div class="chess">相</div>
+      <div class="chess">仕</div>
+      <div class="chess">帥</div>
+      <div class="chess">仕</div>
+      <div class="chess">相</div>
+      <div class="chess">傌</div>
+      <div class="chess">俥</div>
+    </div>
+  </div>
+</body>
+
+</html>
