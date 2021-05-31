@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 960px;
+      margin: auto;
+      background-color: cadetblue;
+
+      /* 可把不見的寬度變回來，稱為BFC */
+      /* 法1 */
+      overflow: hidden;
+
+      /* 法2 */
+      /* position: absolute; */
+      /* top: 150px; */
+
+      /* 法3 */
+      /* display: table-cell; */
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: darkkhaki;
+      border: 1px solid aqua;
+      float: left;
+    }
+
+    .img {
+      float: left;
+    }
+
+    .content {
+      overflow: auto;
+    }
+
+    .container {
+      width: 1200px;
+      padding: 1rem;
+      margin: 0 auto;
+      border: 1px dashed darkred;
+    }
+
+
+    .item {
+      background-color: deeppink;
+      overflow: hidden;
+    }
+
+    .item p {
+      background-color: darkseagreen;
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>父元素面的 float</h1>
+  <div class="wrap">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+
+  <br><br>
+
+  <div class="wrap">
+    <div class="img">
+      <img src="https://picsum.photos/200/200/?random=1">
+    </div>
+    <div class="content">
+      <p>
+        您現在，加拿大一系列落實有很多十大依據那些篇文章效果然後眾人天空感興趣，所有人請教說出付款施工坐在吸收分享醫藥，上去處於阿宅人民共和國眼光關西發表而在今後元素現在發貼，萬元開通跟我一樣激情資訊網實際情形概念您現在，專門女士評論畢竟，搜尋引擎身體施工淡淡運動隨時隨着事務並非，革命專題競爭力阿摩斯，太多我這雙手身體，好了玄幻筆記本四周重要地球古代幹部計劃世界盃自從高雄，哈哈一聲種。
+      </p>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="container">
+    <div class="item">
+      <p>TOP</p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est iure, officiis distinctio expedita voluptatem,
+        quos libero placeat at ipsa aperiam consequuntur maxime molestiae aut ex. Asperiores rem vero necessitatibus
+        modi.
+      </p>
+      <p>BOTTOM</p>
+    </div>
+  </div>
+</body>
+
+</html>

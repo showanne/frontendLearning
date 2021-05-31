@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>object-fit</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1rem solid #ade;
+    }
+
+    .bg {
+      background: url('./img\ \(2\).jpg') no-repeat center/cover;
+    }
+
+    .object-fit {
+      /* 調整 img 的位置，同 background-size: cover; */
+      width: 100%;
+      height: 100%;
+      /*  */
+      object-fit: cover;
+      /*  */
+      object-position: 15% 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>背景圖 background-size</h1>
+  <p>調整背景與容器一樣大小，可以設定 background-size: cover; </p>
+  <div class="box bg"></div>
+
+  <h1>圖片 object-fit</h1>
+  <p>將圖片放入一個容器時，圖片</p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <div class="box">
+    <img class="object-fit" src="./img (1).jpg">
+  </div>
+</body>
+
+</html>

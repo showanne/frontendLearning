@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework_media_query</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1rem;
+      align-items: center;
+    }
+
+    img {
+      width: 19%;
+    }
+
+    @media (min-width:576px) {
+      .card p {
+        display: none;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .card img[src*="Workforce"] {
+        position: absolute;
+        top: 100px;
+        left: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/ROC_Workforce_Development_Agency_Logo.svg/1200px-ROC_Workforce_Development_Agency_Logo.svg.png"
+           alt="">
+      <h1>泰山職訓局</h1>
+      <h2>從零開始的網頁設計課程</h2>
+      <p>
+        轉職網頁開發人員　掌握就業必備職能 <br>
+        由淺入深學習技術　強化職場的競爭力
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/HTML5.png" alt="">
+      <h1>HTML5</h1>
+      <p>
+        超文本標記語⾔（英語：HyperText Markup Language，簡稱：HTML）是⼀種⽤於建立網⾴的標準標記語⾔。HTML 是⼀種基礎技術，常與 CSS、JavaScript
+        ⼀起被眾多網站⽤於設計賞⼼悅⽬的網⾴、網⾴應⽤程式以及⾏動應⽤程式的使⽤者介⾯。網⾴瀏覽器可以讀取 HTML 檔案，並將其彩現成視覺化網⾴。HTML 描述了⼀個網站的結構語意隨著線索的呈現，使之成為⼀種標記語⾔⽽非程式語⾔。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/CSS3.png" alt="">
+      <h1>CSS3</h1>
+      <p>
+        層疊樣式表（英語：Cascading Style Sheets，簡寫CSS），⼜稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表，⼀種⽤來為結構化文件（如 HTML 文件或 XML
+        應⽤）添加樣式（字型、間距和顏⾊等）的電腦語⾔，由W3C
+        定義和維護。⽬前最新版本是 CSS2.1，為 W3C 的推薦標準。CSS3 現在已被⼤部分現代瀏覽器⽀援，⽽下⼀版的 CSS4 仍在開發中。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/Javascript.png" alt="">
+      <h1>Javascript</h1>
+      <p>
+        JavaScript，通常縮寫為 JS，是⼀種進階直譯語⾔的程式語⾔。JavaScript 是⼀⾨基於原型、函式先⾏的語⾔，是⼀⾨多範式的語⾔，它⽀援物件導向編程，指令式程式設計，以及函式語⾔程式設計。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/jQuery.png" alt="">
+      <h1>jQuery</h1>
+      <p>
+        jQuery 是⼀套跨瀏覽器的 JavaScript 函式庫，簡化 HTML 與 JavaScript 之間的操作。全球前 10,000 個存取最⾼的網站中，有 65% 使⽤了jQuery，是⽬前最受歡迎的
+        JavaScript 函式庫。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/Bootstrap5.png" alt="">
+      <h1>Bootstrap5</h1>
+      <p>
+        Bootstrap 是⼀組⽤於網站和網路應⽤程式開發的開源前端（所謂「前端」，指的是展現給終端使⽤者的介⾯。與之對應的「後端」是在伺服器上⾯執⾏的程式碼）框架，包括 HTML、CSS及JavaScript
+        的框架，提供字體排印、表單、按鈕、導航及其他各種元件及 Javascript 擴充套件，旨在使動態網⾴和 Web 應⽤的開發更加容易。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/Sass.png" alt="">
+      <h1>Sass</h1>
+      <p>
+        Sass是一個將指令碼解析成CSS的手稿語言，即SassScript。Sass包括兩套語法。最開始的語法叫做「縮排語法」，與Haml類似，使用縮排來區分代碼塊，並且用換行將不同規則分隔開。而較新的語法叫做「SCSS」，使用和CSS一樣的塊語法，即使用大括號將不同的規則分開，使用分號將具體的樣式分開。通常情況下，這兩套語法通過.sass和.scss兩個副檔名區分開。
+      </p>
+    </div>
+    <div class="card">
+      <img src="./img/Vue.png" alt="">
+      <h1>Vue</h1>
+      <p>
+        Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

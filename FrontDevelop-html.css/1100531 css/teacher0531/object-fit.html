@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object-fit</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      border: 1rem solid #ffee90;
+    }
+
+    .bg {
+      background: url('./01.jpg') no-repeat center/cover;
+    }
+
+    .object-fit {
+      width: 100%;
+      height: 100%;
+      /* 設置 object-fir */
+      object-fit: cover;
+      /* 設置 objecy-position，第一個數值水平，第二個數值垂直 */
+      object-position: 75% 50%;
+      /* 只設定一個數值，另一個數值會被設定成 center (50%) */
+      object-position: 75%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>背景圖 background-size</h1>
+  <p>調整背景與容器一樣大小時，可以設定 background-size:cover。</p>
+  <div class="box bg"></div>
+
+  <h1>圖片 Object-fit</h1>
+  <p>將圖片放入一個容器時，圖片太大又不想用影響處理軟體調整比例。</p>
+  <p>Object-fit 使用時機：</p>
+  <p>1. 設定圖片 width、height 100% 佔滿容器，但可能圖片與容器尺寸比例不對，會造圖片變形。</p>
+  <p>2. 對圖片使用 object-fit:cover，再使用 object-position 調整位置。</p>
+  <div class="box">
+    <img class="object-fit" src="03.jpg">
+  </div>
+</body>
+
+</html>

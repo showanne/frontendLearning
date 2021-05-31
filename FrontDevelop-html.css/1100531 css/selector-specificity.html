@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>選擇器權重 selector-specificity</title>
+  <style>
+    div {
+      color: cornflowerblue;
+    }
+
+    p {
+      color: darkorchid;
+    }
+
+    span {
+      color: khaki;
+
+    }
+
+    /* 
+      1.優先權最高 inline style 1,0,0,0
+      2.ID 選擇器 0,1,0,0
+      3.class 選擇器、屬性選擇器[]、偽類 0,0,1,0
+      4.標籤、偽元素 0,0,0,1
+     */
+
+    /* 第一組 */
+    /* 0 1 0 1 */
+    #box1 p {
+      color: orchid;
+    }
+
+    /* 0 0 1 1 */
+    .box p {
+      color: violet;
+    }
+
+    /* 第二組 inline */
+    /* 0 1 1 2 */
+    #box2 .box h1+p {
+      color: forestgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>階層屬性繼承</h1>
+  <p>1.文字、顏色相關會繼承，font-系列、color、line-height</p>
+  <p>2.背景、定位、盒模型(padding: ; margin: ; border: ;)不會繼承</p>
+  <p>例如：color，內層元素沒有 color，可以根據外層元素繼承 color</p>
+  <div>
+    <h1>標題</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing
+      <span>elit. Amet</span>
+      porro veritatis iste obcaecati deleniti eaque!
+    </p>
+  </div>
+
+  <br>
+  <hr><br>
+
+  <h1>階層權重 - 優先權</h1>
+  <p>1.優先權最高 inline style 1,0,0,0</p>
+  <p>2.ID 選擇器 0,1,0,0</p>
+  <p>3.class 選擇器、屬性選擇器[]、偽類 0,0,1,0</p>
+  <p>4.標籤、偽元素 0,0,0,1</p>
+  <p>以下不計分：連接符號 ex:空白 後代選擇器、> 子代選擇器、~ 同層全體選擇器、 + 同層相鄰選擇器、|| 或、^ 開頭、$ 結尾、* 通用選擇器、:not()</p>
+  <p>:not(selector)</p>
+  <br>
+  <p>舉例</p>
+  <p><small>* => 0000</small></p>
+  <p><small>h1 => 0001</small></p>
+  <p><small>h1 => 0001</small></p>
+  <p><small>a:not([ref]) => 0011 (a 0001 :hover 0010)</small></p>
+  <p><small>h1 => 0001</small></p>
+  <p><small>a:hover => 0011 (a 0001 :hover 0010)</small></p>
+
+  <h2>樣式外觀先比較權重，如果權重分數一樣，再去看順序 (後者會蓋掉前者)</h2>
+  <p>舉例</p>
+  <p><small>#section .container .row .col .card a:hover</small></p>
+  <p style="color: brown;"><small>→權重分數雖然最高，但是打和讀都太麻煩</small></p>
+  <p><small>#section .card a:hover</small>較佳</p>
+  <p><small>.card a:hover</small></p>
+  <p style="color: brown;"><small>→大概率會選到很多不需要的</small></p>
+
+
+  <div id="box1">
+    <div class="box">
+      <h1>標題</h1>
+      <p>Lorem ipsum dolor sit amet <a href=""><em>consectetur Voluptates</em></a> adipisicing elit. Obcaecati quos
+        dicta quo atque harum.
+        quam veritatis numquam, deleniti incidunt repudiandae reprehenderit eaque consequatur architecto quos ipsum
+        rerum asperiores quaerat.</p>
+
+    </div>
+  </div>
+
+  <div id="box2">
+    <div class="box">
+      <h1>標題</h1>
+      <p style="color: greenyellow;">Lorem ipsum dolor sit amet consectetur Voluptates adipisicing elit. <a
+           href=""><em>Obcaecati quos</em></a>
+        dicta quo atque harum.
+        quam veritatis numquam, deleniti incidunt repudiandae reprehenderit eaque consequatur architecto quos ipsum
+        rerum asperiores quaerat.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>

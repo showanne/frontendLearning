@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>選擇器權重（selector-specificity）</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="style4.css">
+  <link rel="stylesheet" href="style5.css">
+  <style>
+    /*
+      1. 文字、顏色相關會繼承 font- 系列、color、line-height
+      2. 背景、定位、盒模型(padding、border、margin) 不會繼承 
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: '微軟正黑體', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-size: 1rem;
+    }
+
+    div {
+      color: red;
+    }
+
+    p {
+      color: green;
+    }
+
+    span {
+      color: blue;
+    }
+
+    hr {
+      margin: 1rem 0;
+    }
+
+    /*
+      大老二遊戲
+      1. inline style(黑桃): 1,0,0,0
+      2. ID 選擇器 (愛心): 0,1,0,0
+      3. class 選擇器、屬性選擇器[]、偽類（方塊）:0,0,1,0
+      4. 標籤、偽元素(梅花): 0,0,0,1
+
+      以下不計分
+      連接符號例如 空白 後代選擇器, > (子代選擇器), ~ (同層全體), + (同層相鄰)
+      ||(或),^(開頭),$(結尾),通用選擇器(*)，:not() 
+      :not(selector) 括號內部的 selector 會計算分數
+     */
+
+    /* 第一組 */
+    /* 0 1 0 1 */
+    #box1 p {
+      color: green;
+    }
+
+    /* 0 0 1 1 */
+    .box p {
+      color: Red;
+    }
+
+    /* 第二組 inline 行內樣式 */
+    /* 0 1 1 2 */
+    #box2 .box h1+p {
+      color: yellow;
+    }
+
+    /*
+      * => 0000
+      h1 => 0001
+      ul > li => 0002
+      li > ol + ol => 0003
+      .foo => 0010
+      a:not([rel='nofollow']) => 0011 (a元素0001，:not不計分，括號內屬性選擇器 0010)
+      ol li.foo => 0012
+      a:hover => 0011
+      #foo .bar p => 0111
+    */
+
+    /* 樣式外觀先比較權重，如果權重分數一樣，再去看順序(後者會蓋掉前者) */
+
+    /*
+      #section01 .container .row .col .card a:hover
+      #section01 .card a:hover (第二個會比較好的方式)
+      .card a:hover
+    */
+  </style>
+</head>
+
+<body>
+  <h1>階層屬性繼承</h1>
+  <p>例如 color，內層元素沒有 color，可以根據外層元素繼承 color。</p>
+  <div>
+    <h1>標題</h1>
+    <p>Lorem, ipsum dolor sit amet <span>consectetur adipisicing</span> elit. Odio, dolore?</p>
+  </div>
+
+  <hr>
+
+  <h1>階層權重 - 為選擇器打分數</h1>
+  <div id="box1">
+    <div class="box">
+      <h1>標題</h1>
+      <p>Lorem ipsum dolor sit amet consectetur <a href="#"><em>adipisicing elit</em></a>. Fugiat aperiam molestiae illum at architecto? Quidem, illo corporis
+        voluptatibus nobis maxime
+        ipsum dolorum asperiores incidunt in, eveniet laboriosam, reiciendis modi reprehenderit.</p>
+    </div>
+  </div>
+
+  <div id="box2">
+    <div class="box">
+      <h1>標題</h1>
+      <p style="color:purple">
+        Lorem ipsum dolor sit <a href="#"><em>amet consectetur</em></a> adipisicing elit. Iure, vitae reprehenderit dolore recusandae illo mollitia labore.
+        Dicta ipsum,
+        quam adipisci eligendi corrupti provident ipsa repellat quibusdam. Quos fugiat amet aliquam?
+      </p>
+    </div>
+  </div>
+
+</body>
+
+</html>

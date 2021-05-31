@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .container {
+      width: 75%;
+      height: 75%;
+      margin: auto;
+      border: 1px solid #555;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .flex-column {
+      flex-direction: column;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .justify-content-end {
+      justify-content: flex-end;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .w-25 {
+      width: 25%;
+    }
+
+    .w-40 {
+      width: 40%;
+    }
+
+    .w-50 {
+      width: 50%;
+    }
+
+    .w-75 {
+      width: 75%;
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .h-25 {
+      height: 25%;
+    }
+
+    .h-50 {
+      height: 50%;
+    }
+
+    .h-75 {
+      height: 75%;
+    }
+
+    .h-100 {
+      height: 100%;
+    }
+
+    .text-white {
+      color: white
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .bg-full {
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)), url(./images/bg-full.jpg) no-repeat center/cover;
+    }
+
+    .bg-main {
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(./images/main.jpg) center center/cover;
+    }
+
+    .bg-cloud {
+      background: #aaa url(./images/cloud.png) no-repeat right bottom/40%;
+    }
+
+    .bg-tifa {
+      background: #000 url(./images/tifa.png) no-repeat 10px bottom/40%;
+    }
+
+    .box-shadow {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .p-1 {
+      padding: 0 4rem 0 2rem;
+    }
+
+    .p-2 {
+      padding: 0 2rem 0 4rem;
+    }
+  </style>
+</head>
+
+<body class="d-flex justify-content-center align-items-center bg-full">
+  <div class="container d-flex box-shadow">
+    <!-- 左側 -->
+    <div class="d-flex justify-content-center align-items-center w-50 bg-main">
+      <div class="d-flex flex-column justify-content-center align-items-center w-75 text-white text-center">
+        <div class="w-40">
+          <img class="w-100" src="./images/ps4-ff7.png" alt="">
+        </div>
+        <h1>AVAILABLE NOW</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, amet culpa ad velit quam odit ratione? Iure, temporibus deleniti quidem
+          officia
+          officiis a in, enim et iusto omnis, autem molestiae.</p>
+      </div>
+    </div>
+
+    <!-- 右側 -->
+    <div class="d-flex flex-column w-50">
+      <!-- cloud -->
+      <div class="d-flex align-items-center h-50 bg-cloud">
+        <div class="w-75 p-1">
+          <h1>cloud</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id eligendi necessitatibus corporis temporibus error quasi dolore ducimus totam,
+            praesentium
+            odio ab et voluptatum consequatur autem voluptates, cumque optio modi ratione?</p>
+        </div>
+      </div>
+      <!-- tifa -->
+      <div class="d-flex justify-content-end align-items-center  h-50 text-white bg-tifa">
+        <div class="w-75 p-2">
+          <h1>Tifa</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis obcaecati culpa possimus, eos cum sequi eaque. Qui eaque, reprehenderit magni
+            fugit
+            adipisci, corrupti sequi est consequuntur unde excepturi optio ducimus!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
