@@ -1,0 +1,7 @@
+h1
+  color purple
+
+a
+  color pink
+  &:hover
+    color wheat

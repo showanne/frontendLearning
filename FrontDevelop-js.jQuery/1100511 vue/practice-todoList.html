@@ -88,7 +88,14 @@
     <input type="button" value="全部刪除" @click="delAllTodo">
     <input type="button" value="全部完成" @click="completedTodo(true)">
     <input type="button" value="全部未完成" @click="completedTodo(false)">
-
+    <br>
+    <input type="button" value="顯示全部" @click="">
+    <input type="button" value="顯示已完成" @click="">
+    <input type="button" value="顯示未完成" @click="">
+    <br>
+    <input type="button" value="清除全部" @click="">
+    <input type="button" value="清除已完成" @click="">
+    <input type="button" value="清除未完成" @click="">
 
     <ul>
       <!-- todo 及 index 只活在這個 v-for -->
@@ -107,18 +114,29 @@
     new Vue({
       el: '#app',
       data() {
+        // 若要用元件，一定要有 return
         return {
+          id: 1,//預設的身分證字號
           newTodo: '',  //輸入欄位用
           todos: [], //代辦清單用
+          displayText: ['未完成', '已完成', '全部'],//目前顯示的狀態
+          display: 2//目前顯示的 displayText []
+
         }
       },
       methods: {
         addTodo() {
           if (this.newTodo.length >= 2) {
             // 將打的訊息 (this.newTodo) 放入 todos 的清單內
-            this.todos.push({ list: this.newTodo, completed: false })
-            // 訊息放入 todos 清單後，清空輸入欄位
-            this.newTodo = ''
+            this.todos.push({
+              id: this.id, //每筆資訊的身分證字號
+              list: this.newTodo, //輸入訊息
+              completed: false, //是否已完成
+              edit: false,  // 編輯狀態
+              modal: this.newTodo //該欄位編輯訊息，也方便取消訊息時回復
+            })
+            this.id++  //每次新增都要+1
+            this.newTodo = '' // 訊息放入 todos 清單後，清空輸入欄位
           }
         },
         delTodo(index) {
@@ -134,9 +152,21 @@
             todo.completed = done
             return todo
           })
+        },
+        show(value) {
+          this.display = value
+        },
+        saveEdit(item) {
+          item.name = item.model
+          item.edit = false //編輯模式關閉
+        },
+        cancelEdit(item) {
+          item.model = item.name
+          item.edit = false //編輯模式關閉
         }
       },
       computed: {
+        // computed 一定要有 return
         border() {
           // 老師版簡寫 三元運算子
           // return this.newTodo.length === 0 ? '5px solid black' : this.newTodo.length < 2 ? '5px solid red' : '5px solid blue'
@@ -152,6 +182,14 @@
           }
           return '10px solid ' + color
           // 注意 style 寫法，該有的空格都要有
+        },
+        filteredList() {
+          return this.list.filter(item => {
+            if (this.display === 2) return true
+            else if (this.display === 0 && !item.done) return true
+            else if (this.display === 1 && item.done) return true
+            else return false
+          })
         }
       },
       watch: {
@@ -160,12 +198,14 @@
             localStorage.setItem('vue-todolist', JSON.stringify(this.todos))
           },
           deep: true
-          // 如果要偵測內容變化，必須設 deep: true
+          // 如果要偵測內容變化，必須設 deep: true (內容有改變立刻做)
         }
       },
       mounted() {
-        if (localStorage.getItem('vue-todolist')) {
-          this.todos = JSON.parse(localStorage.getItem('vue-todolist'))
+        const data = localStorage.getItem('vue-todolist')
+        if (data) {
+          this.todos = JSON.parse(data)
+          this.id = this.list[this.list.length - 1].id + 1
         }
       }
     })

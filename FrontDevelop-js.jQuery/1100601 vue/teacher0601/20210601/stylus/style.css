@@ -1,0 +1,15 @@
+h1 {
+  color: #f00;
+}
+a {
+  color: #ffc0cb;
+}
+a:hover {
+  color: #00f;
+}
+.aaa h1 {
+  color: #f00;
+}
+.aaa h2 {
+  color: #00f;
+}

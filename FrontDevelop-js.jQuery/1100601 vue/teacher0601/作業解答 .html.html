@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" name="" id="" v-model="newitem" @keydown.enter="addItem" :style="{border: inputBorder}">
+    <input type="button" value="新增" @click="addItem">
+    <hr>
+    <input type="button" value="全部標記已完成" @click="markAll(true)">
+    <input type="button" value="全部標記未完成" @click="markAll(false)">
+    <br>
+    <input type="button" value="顯示全部" @click="show(2)">
+    <input type="button" value="顯示已完成" @click="show(1)">
+    <input type="button" value="顯示未完成" @click="show(0)">
+    <br>
+    <input type="button" value="清除全部" @click="del(2)">
+    <input type="button" value="清除已完成" @click="del(1)">
+    <input type="button" value="清除未完成" @click="del(0)">
+    <hr>
+    目前顯示: {{ displayText[display] }}，共 {{ filteredList.length }} 個
+    <ul>
+      <li v-for="item in filteredList" :key="item.id">
+        <input type="checkbox" v-model="item.done">
+        <input type="text" v-model="item.model" v-if="item.edit" @keydown.enter="saveEdit(item)" @keydown.esc="cancelEdit(item)">
+        <del v-else-if="item.done" @dblclick="item.edit = true">{{ item.name }}</del>
+        <span v-else @dblclick="item.edit = true">{{ item.name }}</span>
+        <input type="button" value="x" @click="delItem(item.id)">
+      </li>
+    </ul>
+    點兩下編輯文字，ESC 取消編輯
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          list: [],
+          newitem: '',
+          displayText: ['未完成', '已完成', '全部'],
+          display: 2,
+          id: 1
+        }
+      },
+      methods: {
+        addItem () {
+          if (this.newitem.length >= 2) {
+            this.list.push({
+              id: this.id,
+              name: this.newitem,
+              done: false,
+              edit: false,
+              model: this.newitem
+            })
+            this.id++
+            this.newitem = ''
+          }
+        },
+        markAll (value) {
+          this.list = this.list.map(item => {
+            item.done = value
+            return item
+          })
+        },
+        show (value) {
+          this.display = value
+        },
+        del (value) {
+          this.list = this.list.filter(item => {
+            if (value === 2) return false
+            else if (value === 1 && item.done) return false
+            else if (value === 0 && !item.done) return false
+            else return true
+          })
+        },
+        saveEdit (item) {
+          item.name = item.model
+          item.edit = false
+        },
+        cancelEdit (item) {
+          item.model = item.name
+          item.edit = false
+        },
+        delItem (id) {
+          const idx = this.list.findIndex(item => {
+            return item.id === id
+          })
+          this.list.splice(idx, 1)
+        }
+      },
+      computed: {
+        inputBorder () {
+          return this.newitem.length === 0 ? '5px solid black' : this.newitem.length < 2 ? '5px solid red' : '5px solid blue'
+        },
+        filteredList () {
+          return this.list.filter(item => {
+            if (this.display === 2) return true
+            else if (this.display === 0 && !item.done) return true
+            else if (this.display === 1 && item.done) return true
+            else return false
+          })
+        }
+      },
+      watch: {
+        list: {
+          handler () {
+            localStorage.setItem('vue-todo', JSON.stringify(this.list))
+          },
+          deep: true
+        }
+      },
+      mounted() {
+        const data = localStorage.getItem('vue-todo')
+        if (data) {
+          this.list = JSON.parse(data)
+          this.id = this.list[this.list.length-1].id + 1
+        }
+      }
+    })
+  </script>
+</body>
+</html>
