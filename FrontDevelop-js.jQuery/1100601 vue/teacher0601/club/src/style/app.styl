@@ -1,0 +1,38 @@
+#app
+  width 1024px
+  height 768px
+  box-sizing border-box
+  border 1px solid black
+
+#top
+  width 100%
+  height 65px
+
+#mid
+  width 100%
+  height 683px
+
+  #left
+    width 215px
+    height 100%
+    display inline-block
+    position relative
+
+    #menu
+      position absolute
+      width 100%
+      top 0
+
+      td
+        background-size contain
+        background-attachment fixed
+        background-position center
+        // 這裡只能讀 src 的東西，~@ 代表 src 資料夾
+        background-image url('~@/assets/menu1.png')
+
+        &:hover
+          background-image url('~@/assets/menu2.png')
+  #right
+    width 770px
+    height 100%
+    display inline-block
