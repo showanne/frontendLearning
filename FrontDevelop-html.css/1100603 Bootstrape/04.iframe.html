@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="vh-100 bg-dark">
+    <div class="container h-100 bg-primary d-flex align-items-center">
+      <!-- 16:9 aspect ratio -->
+      <div class="embed-responsive embed-responsive-16by9">
+        <div id="player">
+          <!-- youtube 影片 -->
+        </div>
+        <br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14446.496191088803!2d121.76133581593015!3d25.14839812803243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x345d4f03ea8a9ee3%3A0x6b1b8da4be245ba8!2z6Zi_5qC557SN6YCg6Ii55bug6YG65Z2A!5e0!3m2!1szh-TW!2stw!4v1622689234216!5m2!1szh-TW!2stw"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 設定 youtube iframe API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var player
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'iehnK8x4guU', // youtube 影片 ID
+        height: '390',
+        width: '640',
+        playerVars: {
+          autoplay: 1, // 自動播放影片
+          controls: 1, // 顯示播放器
+          showinfo: 1, // 隱藏影片標題
+          modestbranding: 1, // 隱藏YouTube Logo
+          loop: 1, // 重覆播放
+          playlist: 'iehnK8x4guU', // 當使用影片要重覆播放時，需再輸入YouTube 影片ID
+          fs: 0, // 隱藏全螢幕按鈕
+          cc_load_policty: 0, // 隱藏字幕
+          iv_load_policy: 3, // 隱藏影片註解
+          autohide: 0, // 影片播放時，隱藏影片控制列
+        },
+        events: {
+          onReady: onPlayerReady,
+        },
+      })
+    }
+    function onPlayerReady(e) {
+      // 為確保瀏覽器上可以自動播放，要把影片調成靜音
+      // e.target.mute().playVideo();
+      e.target.playVideo()
+    }
+  </script>
+</body>
+
+</html>

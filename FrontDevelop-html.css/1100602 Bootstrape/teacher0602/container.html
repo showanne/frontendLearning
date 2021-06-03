@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    .row {
+      margin-top: 1rem;
+    }
+
+    p {
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
+
+    .row>div {
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .row>div:nth-child(1) {
+      background: #6f42c1;
+    }
+
+    .row>div:nth-child(2) {
+      background: #d63384;
+    }
+
+    .row>div:nth-child(3) {
+      background: #ffc107;
+    }
+
+    .row>div:nth-child(4) {
+      background: #198754;
+    }
+
+    .row>div:nth-child(4)~div {
+      background: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>容器分為固定容器與滿版容器</h1>
+  <div class="container bg-info">container</div>
+  <div class="container-fluid bg-danger">container-fluid</div>
+
+  <hr>
+
+  <div class="container">
+    <h3>欄位系統使用，通常需要一個容器(不是絕對)，列 row、欄位 col</h3>
+    <!-- row 一列 -->
+    <div class="row">
+      <!-- col 三欄 -->
+      <div class="col">1</div>
+      <div class="col">2</div>
+      <div class="col">3</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>等寬欄位</h3>
+    <p>col、col-sm、col-md、col-lg、col-xl 為欄位等寬設定，sm、md、lg、xl 為斷點(breakpoint)綴詞。</p>
+    <p>沒有綴詞，例如 col 表示最小尺寸，0 ~ 575px。</p>
+    <div class="row">
+      <div class="col-lg">1</div>
+      <div class="col-lg">2</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>設定欄位寬度</h3>
+    <p>col、col-sm、col-md、col-lg、col-xl，後面加 '-數字'，可以設定欄為寬度。</p>
+    <div class="row">
+      <div class="col">1</div>
+      <div class="col-6">2</div>
+      <div class="col">3</div>
+    </div>
+    <p>第二欄位 col-5，12 欄用掉 5 剩下 7，可以使用 col 平均分配欄寬給另外二欄。</p>
+    <div class="row">
+      <div class="col">1</div>
+      <div class="col-5">2</div>
+      <div class="col">3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>設定欄位只有內容寬度</h3>
+    <p>'-auto' 可以設定內容寬度</p>
+    <div class="row">
+      <div class="col">lorem</div>
+      <div class="col-auto">Lorem ipsum dolor sit amet.</div>
+      <div class="col">lorem</div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h3>row 為彈性盒，可以使用彈性盒屬性</h3>
+    <h4>次軸對齊</h4>
+    <div class="row align-items-start bg-dark" style="height:200px;">
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+    </div>
+    <div class="row align-items-center bg-dark" style="height:200px;">
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+    </div>
+    <div class="row align-items-end bg-dark" style="height:200px;">
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+      <div class="col">
+        One of three columns
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+
+      <!-- Force next columns to break to new line at md breakpoint and up -->
+      <div class="w-100 d-none d-md-block"></div>
+
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">1</div>
+      <div class="col">
+        <div class="row">
+          <div class="col-6 bg-success">上</div>
+          <div class="col-6 bg-info">下</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

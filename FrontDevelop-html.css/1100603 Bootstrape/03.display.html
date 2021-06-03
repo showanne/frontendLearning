@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .container {
+      margin-bottom: 1rem;
+      background-color: #000533;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>display</h2>
+  <div class="d-inline d-md-block d-lg-flex d-xl-none">
+    <span class="bg-secondary">aaa</span>
+    <span class="bg-success">sss</span>
+  </div>
+  <div class="d-inline d-md-block d-lg-flex d-xl-none">
+    <span class="bg-secondary">aaa</span>
+    <span class="bg-success">sss</span>
+  </div>
+
+  <div class="sidebar w-25 bg-warning text-muted d-none d-md-block">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ab nostrum voluptatibus sequi animi beatae velit
+    doloribus culpa voluptatum repudiandae fugiat quam non nemo dolorem ducimus, voluptatem quae dolores rem?
+  </div>
+
+  <h2>d-print</h2>
+  <div class="d-print-none">Screen Only (Hide on print only)</div>
+  <div class="d-none d-print-block">Print Only (Hide on screen only)</div>
+  <div class="d-none d-lg-block d-print-block">Hide up to large on screen, but always show on print</div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

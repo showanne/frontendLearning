@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .container {
+      margin-bottom: 1rem;
+      background-color: #000533;
+      padding: 1rem 0;
+    }
+
+    span {
+      display: inline-block;
+      width: 90px;
+      height: 50px;
+      /* background-text-primary color: #fdfde5; */
+    }
+
+    .row>div {
+      height: 100px;
+      border: 1px dashed #c8e5ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* .row>div:nth-child(2)~div {
+      border-left: none;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-warning">border</h2>
+    <div class="row">
+      <div class="text-primary col border-0">border-0</div>
+      <div class="text-primary col-2">
+        <span class="border-0">border-0</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border-top">border-top</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border-bottom">border-bottom</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border-left">border-left</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border-right">border-right</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="text-warning">border 減少</h2>
+    <div class="row">
+      <div class="text-primary col border-0">border-0</div>
+      <div class="text-primary col-2">
+        <span class="border border-0">border-0</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border border-top-0">border-top-0</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border border-bottom-0">border-bottom-0</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border border-left-0">border-left-0</span>
+      </div>
+      <div class="text-primary col-2">
+        <span class="border border-right-0">border-right-0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="text-warning">border 色彩</h2>
+    <div class="row">
+      <div class="text-primary col">
+        <span class="border border-primary">border-primary</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-secondary">border-secondary</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success">border-success</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-danger">border-danger</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-warning">border-warning</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-info">border-info</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-light">border-light</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-white">border-white</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="text-warning">border-radius 圓角</h2>
+    <div class="row">
+      <div class="text-primary col">
+        <span class="border border-success rounded">rounded</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-top">rounded-top</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-right">rounded-right</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-bottom">rounded-bottom</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-left">rounded-left</span>
+      </div>
+      <div class="text-primary col">
+        <span style="width: 50px;" class="border border-success rounded-circle">rounded-circle</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-pill">rounded-pill</span>
+      </div>
+      <div class="text-primary col">
+        <span class="border border-success rounded-0">rounded-0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

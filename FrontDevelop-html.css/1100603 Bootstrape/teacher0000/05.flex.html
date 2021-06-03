@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .container {
+      margin-top: 2rem;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-around border border-primary text-danger">
+      <div class="border border-primary p-2">item1</div>
+      <div class="border border-primary p-2">item2</div>
+      <div class="border border-primary p-2">item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="d-flex align-items-stretch border border-secondary text-white" style="height:100px;">
+      <div class="border border-white p-2 d-flex justify-content-center align-items-center bg-primary">item1</div>
+      <div class="border border-white p-2 d-flex justify-content-center align-items-center bg-info">item2</div>
+      <div class="border border-white p-2 d-flex justify-content-center align-items-center bg-success">item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>flex-fill 平均分配剩餘空間</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex border">
+      <div class="flex-fill bg-info">flex item ha ha ha ha gagagagagagagaga</div>
+      <div class="flex-fill bg-danger">flex item</div>
+      <div class="flex-fill bg-success">flex item</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>flex-grow 平均分配剩餘空間，跟 flex-fill 一樣</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex border">
+      <div class="flex-grow-1 bg-info">flex item ha ha ha ha gagagagagagagaga</div>
+      <div class="flex-grow-1 bg-danger">flex item</div>
+      <div class="flex-grow-1 bg-success">flex item</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>flex-row 與 margin</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex align-items-start bg-light border">
+      <div class="bg-info mr-auto">flex item1</div>
+      <div class="bg-danger">flex item2</div>
+      <div class="bg-success">flex item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>flex-column 與 margin</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex flex-column align-items-start bg-light border" style="height:300px;">
+      <div class="bg-info mb-auto">flex item1</div>
+      <div class="bg-danger">flex item2</div>
+      <div class="bg-success">flex item3</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>flex-nowrap、flex-wrap-reverse、flex-wrap</h3>
+  </div>
+  <div class="container">
+    <div class="d-flex flex-column flex-wrap bg-light" style="height:300px">
+      <div class="bg-info" style="height:100px;">flex item1</div>
+      <div class="bg-danger" style="height:100px;">flex item2</div>
+      <div class="bg-success" style="height:100px;">flex item3</div>
+      <div class="bg-primary" style="height:100px;">flex item4</div>
+    </div>
+  </div>
+
+  <section class="d-flex justify-content-center align-items-center vh-100 vw-100 bg-dark text-white">
+    <div>Box</div>
+  </section>
+
+  <div class="container">
+    <h3>align-content</h3>
+    <p>必須要 flex-wrap:wrap 才能使用 align-content</p>
+  </div>
+  <div class="container">
+    <div class="d-flex flex-wrap align-content-center justify-content-center border mx-auto" style="width:800px;height:300px">
+      <div class="bg-info" style="width:300px">flex item1</div>
+      <div class="bg-danger" style="width:300px">flex item2</div>
+      <div class="bg-success" style="width:300px">flex item3</div>
+      <div class="bg-primary" style="width:300px">flex item4</div>
+    </div>
+  </div>
+
+  <h1 style="text-indent: -10px;">Bootstrap</h1>
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. link bootstrap.css -->
+  <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
+  <style>
+    span {
+      display: inline-block;
+      width: 100px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- vertical-align 可以處理圖片與行內元素對齊時下方空白的問題，但是值不能 baseline，其他都可以 -->
+  <div style="border:1px solid #333">
+    <img src="https://picsum.photos/100/100/?random=1" style="vertical-align: middle;">
+    <span>lorem</span>
+    <span>lorem</span>
+    <span>lorem</span>
+  </div>
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

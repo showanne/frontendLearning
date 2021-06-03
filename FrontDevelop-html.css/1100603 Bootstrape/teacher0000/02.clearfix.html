@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    .container {
+      margin-bottom: 1rem;
+    }
+
+    span {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+
+    .row>div {
+      height: 100px;
+      border: 1px dashed #aaa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .row>div:nth-child(2)~div {
+      border-left: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>clearfix</h2>
+  </div>
+  <div class="container">
+    <div class="bg-info clearfix">
+      <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+      <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>overflow</h2>
+  </div>
+  <div class="container">
+    <div class="bg-info overflow-auto">
+      <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+      <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+    </div>
+  </div>
+
+  <!-- <div class="wrap">
+    <div style="float: left;">
+      <img src="https://picsum.photos/100/100/?random=1">
+    </div>
+    <div style="overflow:auto">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur itaque possimus deserunt assumenda, ab temporibus nihil, a odio non corporis omnis
+      atque, ipsum ratione? Culpa officia molestias voluptatum atque laborum.
+      進攻授權商家經營許可證引起進一步種類如有也想和你技術大人，臺灣進口才能，留在最好藥品專區掌握對話，郵箱試題黑暗不用，好處種類私人打開資金主要戀愛階段特點將會第二章，麻煩加工密碼味道上帝飲食法國工程師校園網易導致公佈寶寶，日月潭金幣確認，不承擔些什麼都會想到公里，維修培訓先進教育戀愛容量特別是，故障玄幻免費電影對外進一步想想自己的討論預防身後以為魅力再度，谷歌情況私人士兵患者東方按鈕最新，新手投資。
+      老人開了為了目光計算睡覺一副平均試試學院徹底兩次大陸製造考試，推薦使用文明如有同步現象回事戀愛之外密碼不多還沒有，成功美國討論醫藥變成完美聽到眾人，為此加強周邊所以都在大全紀念閲讀中間電視劇編號，下。
+    </div>
+  </div> -->
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

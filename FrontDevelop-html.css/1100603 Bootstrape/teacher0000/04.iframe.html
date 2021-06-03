@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+  </style>
+</head>
+
+<body class="vh-100" style="background:black">
+  <div class="container h-100 d-flex align-items-center">
+    <div class="embed-responsive embed-responsive-21by9">
+      <!-- <div id="player"></div> -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14458.814597305804!2d121.4195156!3d25.0441293!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1622689230070!5m2!1szh-TW!2stw"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <!-- 設定 youtube iframe API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var player;
+    function onYouTubeIframeAPIReady() {
+      // 一般使用 影片的id寫在js裡
+      player = new YT.Player('player', {
+        //  youtube 的 id
+        videoId: 'tO2auFdoFDU',
+        height: '390', // 高度預設值為390，css會調成 responsive
+        width: '640', // 寬度預設值為640，css會調成 responsive
+        playerVars: {
+          autoplay: 1,            // 自動播放影片
+          controls: 1,            // 顯示播放器
+          showinfo: 1,            // 隱藏影片標題
+          modestbranding: 1,      // 隱藏YouTube Logo
+          loop: 1,                // 重覆播放
+          playlist: 'tO2auFdoFDU', // 當使用影片要重覆播放時，需再輸入YouTube 影片ID
+          fs: 0,                  // 隱藏全螢幕按鈕
+          cc_load_policty: 0,     // 隱藏字幕
+          iv_load_policy: 3,      // 隱藏影片註解
+          autohide: 0             // 影片播放時，隱藏影片控制列
+        },
+        // 當影片 ready 的時候，就執行 onplayerReady function
+        events: {
+          onReady: onPlayerReady
+        }
+      });
+
+    }
+    function onPlayerReady(e) {
+      // 為確保瀏覽器上可以自動播放，要把影片調成靜音
+      // e.target.mute().playVideo();
+      e.target.playVideo();
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <style>
+    * {
+      transition: 1s;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      border: 1px solid #333;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .row>* {
+      margin-bottom: 0.5rem;
+    }
+
+    .bg1 {
+      background: var(--red);
+    }
+
+    .bg2 {
+      background: var(--yellow);
+    }
+
+    .bg3 {
+      background: var(--blue);
+    }
+
+    .bg4 {
+      background: var(--green);
+    }
+
+    .bg5 {
+      background: var(--cyan);
+    }
+
+    .bg6 {
+      background: var(--indigo);
+    }
+
+    .bg7 {
+      background: var(--purple);
+    }
+
+    .bg8 {
+      background: var(--dark);
+    }
+
+    .bg9 {
+      background: var(--pink);
+    }
+  </style>
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 第一列一欄 1 -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bg1">1</div>
+      </div>
+    </div>
+
+    <!-- 第二列分為兩欄，左欄 2，右欄 3 -->
+    <div class="row">
+      <div class="col-lg-6 pr-lg-0">
+        <div class="bg2">2</div>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg3">3</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- 左欄 4 -->
+      <div class="col-lg-6 pr-lg-0 mb-lg-0">
+        <div class="bg4 h-100 d-flex justify-content-center align-items-center">4</div>
+      </div>
+      <!-- 右欄 5、6、7、8、9 -->
+      <div class="col-lg-6 mb-0">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="bg5">5</div>
+          </div>
+          <div class="col-lg-6 pr-lg-0">
+            <div class="bg6">6</div>
+          </div>
+          <div class="col-lg-6">
+            <div class="bg7">7</div>
+          </div>
+          <div class="col-lg-6 pr-lg-0 mb-lg-0">
+            <div class="bg8">8</div>
+          </div>
+          <div class="col-lg-6 mb-0 mb-lg-0">
+            <div class="bg9">9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="./js/jquery-3.6.0.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
