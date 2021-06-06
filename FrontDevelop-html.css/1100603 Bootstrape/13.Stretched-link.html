@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2>連結延伸 (Stretched link)</h2>
+    <p>透過 CSS 將連結 “延伸”，令任何 HTML 元素或 Bootstrap 元件變得可點擊。</p>
+    <br>
+    <h4>Card with stretched link</h4>
+    <div class="card" style="width: 18rem;">
+      <img src="https://picsum.photos/190/190/?random=1" class="card-img-top" alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title">帶有延伸連結的卡片 (Card with stretched link)</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
+        <a href="https://www.youtube.com/channel/UCHX_XMhPrtvOmgGOnA2eTmA" class="btn btn-primary stretched-link">Go
+          somewhere</a>
+      </div>
+    </div>
+
+    <h4 class="mt-5">有延伸連結的自定義元件 (Custom component with stretched link)</h4>
+
+    <div class="d-flex position-relative">
+      <img src="https://picsum.photos/190/150/?random=1" class="mr-3 flex-shrink-0 me-3" alt="...">
+      <div>
+        <h5 class="mt-0">Custom component with stretched link</h5>
+        <p>This is some placeholder content for the custom component. It is intended to mimic what some real-world
+          content
+          would look like, and we're using it here to give the component a bit of body and size.</p>
+        <a href="#" class="stretched-link">Go somewhere</a>
+      </div>
+    </div>
+
+    <h4 class="mt-5">帶有延伸連結的 Columns (Columns with stretched link)</h4>
+    <div class="row no-gutters bg-light position-relative">
+      <div class="col-md-6 mb-md-0 p-md-4">
+        <img src="https://picsum.photos/230/90/?random=1" class="w-100" alt="...">
+      </div>
+      <div class="col-md-6 position-static p-4 pl-md-0">
+        <h5 class="mt-0">Columns with stretched link</h5>
+        <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some
+          real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
+        <a href="#" class="stretched-link">Go somewhere</a>
+      </div>
+    </div>
+
+    <h4 class="mt-5">辨別 containing block</h4>
+    <p>如果延伸連結沒有確實運作，containing block 將可能是問題所在。以下的 CSS 屬性將使一個元素成為 containing block。</p>
+    <ul>
+      <li><code>static</code> 以外的 <code>position</code> 值。</li>
+      <li><code>none</code> 以外的 <code>transform</code> 或 <code>perspective</code> 值。</li>
+      <li>在 <code>transform</code> 或 <code>perspective</code> 使用 <code>will-change</code> 作為值。</li>
+      <li><code>none</code> 以外的 <code>filter</code> 值，或是在 <code>filter</code> 使用 <code>will-change</code> 作為值 (只會在
+        Firefox
+        作用)。</li>
+    </ul>
+    <div class="card" style="width: 18rem;">
+      <img src="https://picsum.photos/150/150/?random=1" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">帶有延伸連結的卡片</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+        </p>
+        <p class="card-text">
+          <a href="#" class="stretched-link text-danger" style="position: relative;">在此延伸連結不會運作，因為
+            <code>position: relative</code> 被添加在連結上</a>
+        </p>
+        <p class="card-text bg-light" style="transform: rotate(0);">
+          此 <a href="#" class="text-warning stretched-link">延伸連結</a> 只會延伸至 <code>p</code> 標籤, 因為 <code>p</code> 標籤被添加了
+          transform。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
