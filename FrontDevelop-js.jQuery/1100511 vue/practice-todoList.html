@@ -5,11 +5,79 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>to do list</title>
   <style>
     body {
-      padding: 10rem;
+      /* padding: 10rem; */
       background-color: #ade0ff;
+    }
+
+    #app {
+      width: 100%;
+      /* height: 100vh; */
+      padding-top: 7rem;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+    }
+
+    #input {
+      width: 33%;
+    }
+
+    #input input[type="button"] {
+      background-color: #adc0ff;
+      width: 100px;
+      border: solid 1.5px #6589ff;
+      padding: 5px 2px;
+      margin: 5px;
+    }
+
+    #input input[type="button"][value="全部標記為已完成"],
+    #input input[type="button"][value="全部標記為未完成"] {
+      width: 157px;
+    }
+
+    #inputText {
+      font-size: 0;
+      margin: 0.8rem 0;
+    }
+
+    #inputText input[type="text"] {
+      width: 290px;
+      margin: 0;
+      padding: 9px;
+      vertical-align: middle;
+      text-align: center;
+      outline: 0;
+      border: 10px solid #f7f7f7;
+      border-radius: 5px 0 0 5px;
+      font-size: 1.5rem;
+      box-shadow: 0 0 5px rgb(0 0 0 / 12%), inset 0 0 2px rgb(0 0 0 / 19%);
+    }
+
+    #inputText input[type="button"][value="新增"] {
+      width: 80px;
+      padding: 9.7px;
+      margin: 0;
+      vertical-align: middle;
+      background-color: #fffef7;
+      border: 10px solid #e0e8ff;
+      outline: 0;
+      border-radius: 0 5px 5px 0;
+      font-size: 1.2rem;
+      box-shadow: 0 0 5px rgb(0 0 0 / 12%), inset 0 0 2px rgb(0 0 0 / 19%);
+    }
+
+    #list {
+      width: 55%;
+      margin-left: 3rem;
+      padding-bottom: 35px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
     }
 
     ul>li {
@@ -21,15 +89,6 @@
     ul>li>span,
     ul>li>del {
       vertical-align: middle;
-    }
-
-    input[type="text"] {
-      margin: 0;
-      text-align: center;
-      outline: 0;
-      border-radius: 5px;
-      font-size: 40px;
-      box-shadow: 0 0 5px rgb(0 0 0 / 12%), inset 0 0 2px rgb(0 0 0 / 19%);
     }
 
     input[type="checkbox"] {
@@ -51,7 +110,73 @@
       /* font-family: 'helvetica neue'; */
       font-size: 20px;
       font-weight: 200;
-      border-left: 1px solid #D1E2FF;
+      border-left: 1px solid #ade0ff;
+    }
+
+    #list .editTip {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    #list .editTip input[type="text"] {
+      width: 50%;
+      margin-bottom: 17px;
+      border-color: #adc0ff;
+    }
+
+    #list .editTip::after {
+      content: 'ESC 鍵 取消 • Enter 鍵 儲存';
+      font-size: 6px;
+      position: absolute;
+      top: 44px;
+      left: 21px;
+    }
+
+    #list .delBtn {
+      cursor: pointer;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      /* table-layout: fixed; */
+    }
+
+    #list .delBtn:hover {
+      padding: 1px 3px;
+      background-color: #ffadcc;
+      color: #4e181f;
+    }
+
+    @media (max-width:1024px) {
+      #app {
+        min-width: 440px;
+        padding: 2rem 2rem 0 2rem;
+        box-sizing: border-box;
+        justify-content: start;
+        /* align-items: center; */
+        flex-wrap: wrap;
+      }
+
+      #input {
+        width: 100%;
+        /* margin: auto; */
+      }
+
+      #list {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1.5rem;
+      }
+    }
+
+    #footer {
+      background-color: #e0e8ff;
+      padding: 7px;
+      /* margin: auto; */
+      text-align: center;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9;
     }
   </style>
 </head>
@@ -80,34 +205,50 @@
 
 <body>
   <div id="app">
-    <input type="text" v-model="newTodo" @keydown.enter="addTodo" :style="{border}">
-    <input type="button" value="新增" @click="addTodo">
-    <br><br>
-    <!-- @click 內為 JS 區域，可將程式碼寫入，但不利於閱讀及維護 -->
-    <!-- <input type="button" value="全部刪除" @click="todos = []"> -->
-    <input type="button" value="全部刪除" @click="delAllTodo">
-    <input type="button" value="全部完成" @click="completedTodo(true)">
-    <input type="button" value="全部未完成" @click="completedTodo(false)">
-    <br>
-    <input type="button" value="顯示全部" @click="">
-    <input type="button" value="顯示已完成" @click="">
-    <input type="button" value="顯示未完成" @click="">
-    <br>
-    <input type="button" value="清除全部" @click="">
-    <input type="button" value="清除已完成" @click="">
-    <input type="button" value="清除未完成" @click="">
+    <div id="input">
+      <div id="inputText">
+        <input type="text" v-model="newTodo" @keydown.enter="addTodo" :style="{border:inputborder}">
+        <input type="button" value="新增" @click="addTodo">
+      </div>
+      <!-- @click 內為 JS 區域，可將程式碼寫入，但不利於閱讀及維護 -->
+      <!-- <input type="button" value="全部刪除" @click="todos = []"> -->
+      <!-- <input type="button" value="全部刪除" @click="delTodo"> -->
+      <input type="button" value="全部標記為已完成" @click="completedTodo(true)">
+      <input type="button" value="全部標記為未完成" @click="completedTodo(false)">
+      <br>
+      <input type="button" value="顯示全部" @click="showTodo(2)">
+      <input type="button" value="顯示已完成" @click="showTodo(1)">
+      <input type="button" value="顯示未完成" @click="showTodo(0)">
+      <br>
+      <input type="button" value="清除全部" @click="delTodo(2)">
+      <input type="button" value="清除已完成" @click="delTodo(1)">
+      <input type="button" value="清除未完成" @click="delTodo(0)">
+    </div>
 
-    <ul>
-      <!-- todo 及 index 只活在這個 v-for -->
-      <li v-for="(todo,index) in todos">
-        <input type="checkbox" v-model="todo.completed">
-        <del v-if="todo.completed">{{ todo.list }}</del>
-        <span v-else>{{ todo.list }}</span>
-        <input type="button" value="X" @click="delTodo(index)">
-        ESC 鍵 取消 • Enter 鍵 儲存
-      </li>
-    </ul>
+    <div id="list">
+      <span>目前顯示：{{ displayText[display] }}，共{{ filteredList.length }}個</span>
+
+      <ul>
+        <!-- todo 及 index 只活在這個 v-for -->
+        <li v-for="todo in filteredList" :key="todo.id">
+          <!-- filteredList 是根據 display 狀態產生的新迴圈
+                              根據上面的 showTodo() click -->
+          <input type="checkbox" v-model="todo.completed">
+          <span class="editTip" v-if="todo.edit">
+            <input type="text" v-model="todo.model" @keydown.enter="saveEdit(todo)" @keydown.esc="cancelEdit(todo)">
+          </span>
+
+          <del v-else-if="todo.completed" @dblclick="todo.edit=true">{{ todo.list }}</del>
+          <span v-else @dblclick="todo.edit=true">{{ todo.list }}</span>
+          <!-- 不能直接刪除索引的那個值，因為陣列已經重新跑過 (filteredList)-->
+          <!-- <input type="button" value="X" @click="delITodo(index)"> -->
+          <span class="delBtn" @click="delITodo(todo.id)">&times;</span>
+        </li>
+      </ul>
+    </div>
+
   </div>
+  <div id="footer">Design By &copy;Anne. </div>
 
   <!-- vue.js -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -117,58 +258,75 @@
       data() {
         // 若要用元件，一定要有 return
         return {
-          id: 1,//預設的身分證字號
           newTodo: '',  //輸入欄位用
           todos: [], //代辦清單用
           displayText: ['未完成', '已完成', '全部'],//目前顯示的狀態
-          display: 2//目前顯示的 displayText []
-
+          display: 2,//目前顯示的 displayText []
+          id: 1//預設的每個欄位的身分證字號
         }
       },
       methods: {
         addTodo() {
+          // 兩個字以上才能新增
           if (this.newTodo.length >= 2) {
             // 將打的訊息 (this.newTodo) 放入 todos 的清單內
             this.todos.push({
-              id: this.id, //每筆資訊的身分證字號
               list: this.newTodo, //輸入訊息
-              completed: false, //是否已完成
+              completed: false, //是否已完成，預設未完成
               edit: false,  // 編輯狀態
-              modal: this.newTodo //該欄位編輯訊息，也方便取消訊息時回復
+              model: this.newTodo, //該欄位編輯訊息，也方便取消時訊息復原
+              id: this.id //每筆資訊的身分證字號
             })
             this.id++  //每次新增都要+1
             this.newTodo = '' // 訊息放入 todos 清單後，清空輸入欄位
           }
         },
-        delTodo(index) {
+        delITodo(id) {
           // 將 todos 的該筆 (index) 資料刪除
-          this.todos.splice(index, 1)
+          // this.todos.splice(index, 1)
+          // 不能直接刪除索引的那個值，因為陣列已經重新跑過 (filteredList)
+          const idx = this.todos.findIndex(item => {
+            return item.id === id
+          })
+          this.todos.splice(idx, 1)
         },
-        delAllTodo() {
-          // 將 todos 清單清空
-          this.todos = []
-        },
-        completedTodo(done) {
+        completedTodo(value) {
           this.todos = this.todos.map(todo => {
-            todo.completed = done
+            todo.completed = value
             return todo
           })
         },
-        show(value) {
+        showTodo(value) {
           this.display = value
         },
-        saveEdit(item) {
-          item.name = item.model
-          item.edit = false //編輯模式關閉
+        delTodo(value) {
+          // 將 todos 清單清空
+          // this.todos = []
+
+          // 針對 display 目前的狀態，去產生新的列表迴圈
+          // .filter  =  for of
+          this.todos = this.todos.filter(item => {
+            if (value === 2) return false
+            else if (value === 0 && !item.completed) return false
+            else if (value === 1 && item.completed) return false
+            else return true
+            // 跟 filteredList() 相反，符合條件的踢掉，不符的留著
+          })
         },
-        cancelEdit(item) {
-          item.model = item.name
-          item.edit = false //編輯模式關閉
+        saveEdit(todo) {
+          todo.list = todo.model
+          todo.edit = false //編輯模式關閉
+        },
+        // 做的事相反， ↑ 把新輸入的資料取代原本的資料 (enter)
+        //  ↓ 把新輸入的資料用原本的資料取代 (esc)
+        cancelEdit(todo) {
+          todo.model = todo.list
+          todo.edit = false //編輯模式關閉
         }
       },
       computed: {
         // computed 一定要有 return
-        border() {
+        inputborder() {
           // 老師版簡寫 三元運算子
           // return this.newTodo.length === 0 ? '5px solid black' : this.newTodo.length < 2 ? '5px solid red' : '5px solid blue'
 
@@ -185,15 +343,18 @@
           // 注意 style 寫法，該有的空格都要有
         },
         filteredList() {
-          return this.list.filter(item => {
+          // 針對 display 目前的狀態，去產生新的列表迴圈
+          // .filter  =  for of
+          return this.todos.filter(item => {
             if (this.display === 2) return true
-            else if (this.display === 0 && !item.done) return true
-            else if (this.display === 1 && item.done) return true
+            else if (this.display === 0 && !item.completed) return true
+            else if (this.display === 1 && item.completed) return true
             else return false
           })
         }
       },
       watch: {
+        // 直接把 function 設成物件名稱
         todos: {
           handler() {
             localStorage.setItem('vue-todolist', JSON.stringify(this.todos))
@@ -206,7 +367,7 @@
         const data = localStorage.getItem('vue-todolist')
         if (data) {
           this.todos = JSON.parse(data)
-          this.id = this.list[this.list.length - 1].id + 1
+          this.id = this.todos[this.todos.length - 1].id + 1
         }
       }
     })
