@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h3 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>按鈕群組(button group)</h3>
+    <h4>將一系列的 .btn 包裝在 .btn-group 內。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary">Left</button>
+          <button type="button" class="btn btn-secondary">Middle</button>
+          <button type="button" class="btn btn-secondary">Right</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>按鈕工具列</h3>
+    <h4>將整組的按鈕組加入到按鈕工具列中，用於更複雜的組件。可以用一個 .btn-toolbar 區塊將它們包起來，依據需要的工具類別將群組、按鈕等間隔開來。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">1</button>
+            <button type="button" class="btn btn-secondary">2</button>
+            <button type="button" class="btn btn-secondary">3</button>
+            <button type="button" class="btn btn-secondary">4</button>
+          </div>
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-secondary">5</button>
+            <button type="button" class="btn btn-secondary">6</button>
+            <button type="button" class="btn btn-secondary">7</button>
+          </div>
+          <div class="btn-group" role="group" aria-label="Third group">
+            <button type="button" class="btn btn-secondary">8</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>垂直按鈕組</h3>
+    <h4>將一組按鈕垂直堆疊而不是水平呈現。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <div class="btn-group" role="group">
+            <button id="btnGroupVerticalDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              Dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1" x-placement="bottom-start"
+                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <button type="button" class="btn btn-secondary">Button</button>
+          <div class="btn-group" role="group">
+            <button id="btnGroupVerticalDrop2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              Dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2" x-placement="bottom-start"
+                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupVerticalDrop3" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              Dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3" x-placement="bottom-start"
+                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+          <div class="btn-group" role="group">
+            <button id="btnGroupVerticalDrop4" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+              Dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop4" x-placement="bottom-start"
+                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script>
+    $('.btn-group > button, .btn-group-vertical > button').each(function () {
+      $(this).on('click', function () {
+        $(this).siblings().removeClass('active')
+        $(this).addClass('active')
+      })
+    })
+  </script>
+</body>
+
+</html>

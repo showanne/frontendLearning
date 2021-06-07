@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>警報 (Alerts)</h2>
+    <h3>使用靈活的警報消息為使用者操作提供上下文的內容回饋。</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert—check it out!
+        </div>
+        <div class="alert alert-secondary" role="alert">
+          A simple secondary alert—check it out!
+        </div>
+        <div class="alert alert-success" role="alert">
+          A simple success alert—check it out!
+        </div>
+        <div class="alert alert-danger" role="alert">
+          A simple danger alert—check it out!
+        </div>
+        <div class="alert alert-warning" role="alert">
+          A simple warning alert—check it out!
+        </div>
+        <div class="alert alert-info" role="alert">
+          A simple info alert—check it out!
+        </div>
+        <div class="alert alert-light" role="alert">
+          A simple light alert—check it out!
+        </div>
+        <div class="alert alert-dark" role="alert">
+          A simple dark alert—check it out!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>警報 連結顏色 (alert-link)</h2>
+    <h3>使用 .alert-link 來快速為警報中的連結增添合適的色彩。</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-secondary" role="alert">
+          A simple secondary alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-success" role="alert">
+          A simple success alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-danger" role="alert">
+          A simple danger alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-warning" role="alert">
+          A simple warning alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-info" role="alert">
+          A simple info alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-light" role="alert">
+          A simple light alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-dark" role="alert">
+          A simple dark alert with <a href="#" class="alert-link">alert-link</a>. Give it a click if you like.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>警報 額外的內容</h2>
+    <h3>警報可以增加額外的 HTML 元素，像是標題、段落以及分隔線。</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Well done!</h4>
+          <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit
+            longer so
+            that you can see how spacing within an alert works with this kind of content.</p>
+          <hr>
+          <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>解除</h2>
+    <h3>在關閉的按鈕上加上自定義屬性 data-dismiss="alert" ，可以觸發JS的關閉功能</h3>
+    <h3>'data-*' 在套件或框架內 有自定義屬性 (啟動某預設功能)，不用寫JS 可直接使用</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong>
+          You should check in on some of those fields below.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>使用JS的關閉</h2>
+    <div class="row">
+      <div class="col-11 my-3 pl-3">
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>描述</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="highlighter-rouge">$().alert()</code></td>
+              <td>發出警報，偵聽具有 <code class="highlighter-rouge">data-dismiss="alert"</code> 屬性的後代元素上的點擊事件。 （使用 data-api
+                的自動初始化時不需要）
+              </td>
+            </tr>
+            <tr>
+              <td><code class="highlighter-rouge">$().alert('close')</code></td>
+              <td>從 DOM 中刪除來關閉警報。如果元素上出現 <code class="highlighter-rouge">.fade</code> 和 <code
+                      class="highlighter-rouge">.show</code>，則在刪除之前該警報將淡出。</td>
+            </tr>
+            <tr>
+              <td><code class="highlighter-rouge">$().alert('dispose')</code></td>
+              <td>銷毀一個元素的警報</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-7">
+        <div id="alert1" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong>
+          You should check in on some of those fields below.
+          <button type="button" id="btn1" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-5 bg-light">
+        <pre>
+            <code>$('#btn1').on('click', function () {
+              $('#alert1').alert('close')
+            })</code>
+        </pre>
+      </div>
+      <div class="row mt-2">
+        <div class="col-7">
+          <div id="alert2" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong>
+            You should check in on some of those fields below.
+            <button type="button" id="btn2" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-5 bg-light">
+          <pre>
+              <code>$('#btn1').on('click', function () {
+                $('#alert1').alert('close')
+              })</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>動態偵測視窗高度跳出 alert</h3>
+    <p id="p1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deleniti praesentium hic enim, aspernatur
+      ipsum tempora nam quas similique sed, dicta iste tempore quod sunt! Officia totam id facere deserunt, magni
+      nostrum at explicabo libero harum, odio accusamus cupiditate eligendi magnam reiciendis saepe exercitationem.
+      Sapiente quis fugit nulla dolore. Sed similique dolorum reiciendis praesentium veritatis iste unde sequi
+      perferendis natus suscipit fugit excepturi laboriosam cupiditate, minima, esse quaerat molestias soluta asperiores
+      sint repellendus officia, labore aspernatur. Eum, molestias consequuntur non fugiat, at quam, rerum in corrupti ad
+      placeat deleniti molestiae. Veniam voluptas delectus error eos quibusdam itaque dicta eius accusantium. Non illum
+      blanditiis maiores nam amet perspiciatis praesentium ullam dolor molestias cumque! Magnam accusantium quam cumque
+      unde voluptas commodi corporis dignissimos accusamus suscipit quidem laudantium perferendis vitae mollitia
+      voluptatibus, quod totam. Cum, libero ea minus sed beatae incidunt in quas cupiditate quia eum, deserunt mollitia,
+      labore repellendus? Alias cum sapiente qui voluptates exercitationem animi obcaecati architecto fugit. Suscipit
+      laborum eum voluptatem et quas, recusandae quam voluptatibus! Voluptate, omnis minus culpa iusto officia nam
+      magnam porro delectus inventore cumque exercitationem incidunt corrupti a sapiente ad placeat unde. Cum dolores
+      nobis vel iste atque minima laudantium optio ad facere neque? Magnam quia nam impedit voluptates ea in vero,
+      officia assumenda ipsam eos inventore deserunt itaque ad porro ex maiores ducimus neque debitis similique quam
+      consequuntur! Reiciendis deserunt dicta, aspernatur enim totam sapiente dolorum voluptatem culpa voluptate minima
+      saepe cum quo in quis fuga harum ipsam accusantium suscipit inventore natus odio necessitatibus est voluptates
+      quasi. Numquam ipsum consequuntur dolore quaerat, vero fugit inventore molestias, necessitatibus ut natus
+      blanditiis aliquid ratione enim dolor? Possimus assumenda repellat voluptate quos magni tempore dignissimos
+      similique nostrum eius laboriosam soluta dicta ad voluptatem distinctio itaque eligendi fuga dolorem ipsam eum
+      veniam porro veritatis, incidunt sint! Animi, asperiores a.
+    </p>
+    <div id="myAlert" class="alert alert-warning alert-dismissible fade show position-fixed"
+         style="right:0;bottom:0;width: 300px;" role="alert">
+      <h4 class="alert-heading">今日促銷</h4>
+      <p>
+        一句輕鬆北方首頁美國大小電池苗栗，日誌我覺得聯繫方式口氣從此精選科學研究，大門儘量休閒有了，睡覺。
+      </p>
+      <hr>
+      <button class="btn btn-warning">立即下單</button>
+      <button type="button" id="mybtn" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In minima asperiores nisi quis magni voluptatibus
+      tempore totam. Perspiciatis nulla nisi repellat veniam eligendi delectus libero deleniti exercitationem officiis
+      similique, sed, incidunt explicabo iure quos, sequi quibusdam modi facilis! Sequi at reiciendis hic aliquam
+      incidunt nihil quam alias consequatur debitis, autem quidem ab unde quaerat dolores! Odit, itaque. Laboriosam
+      quidem eligendi similique quibusdam earum quae quis veritatis. Quasi sequi unde voluptate! Quia doloremque harum
+      obcaecati cupiditate laudantium nulla repellat? Eius, incidunt! Ratione eum voluptas quisquam tempora, dolorem
+      molestiae eos labore molestias error? Vel explicabo perspiciatis amet ratione distinctio ea magnam ab alias
+      reiciendis, temporibus itaque fuga debitis recusandae blanditiis velit quod harum vitae odit neque cupiditate ex
+      commodi tempora consequatur. Quod saepe minima quas quis, ipsum reiciendis enim harum soluta commodi optio alias
+      voluptates, id eius perspiciatis impedit ut eos maiores officiis quam praesentium. Deserunt quia sunt at ratione
+      ab inventore voluptatum laborum voluptate similique, nemo nihil? Consectetur dignissimos tempore debitis qui
+      reprehenderit, veritatis soluta illo dolores deserunt quas cum, molestiae inventore, excepturi saepe suscipit
+      explicabo culpa totam asperiores. Suscipit nulla dolor quia optio, vel voluptates soluta debitis voluptatibus
+      eaque exercitationem veniam minima ab illo aperiam vitae repellat architecto expedita doloribus maxime animi!
+      Harum a, maiores corporis eveniet officia sed sequi beatae modi aut. Maiores, sed doloremque soluta facere
+      explicabo aut recusandae suscipit enim ducimus quidem tempore possimus nisi voluptatum, quibusdam earum accusamus
+      aperiam nihil est rem. Iste provident aut voluptatum quasi impedit. Atque quae saepe beatae voluptates! Dolor
+      saepe iusto, eaque magni sed, et ipsa reprehenderit voluptate quos ex fugit sint neque, asperiores magnam quaerat
+      perspiciatis officiis pariatur minima iste aperiam id. Obcaecati, exercitationem optio facere molestiae suscipit
+      nesciunt vel? Soluta esse assumenda voluptatem eligendi suscipit itaque ipsum atque tenetur, quos alias! Ad eos
+      blanditiis modi in nesciunt provident maiores.
+    </p>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script>
+    $('#btn1').on('click', function () {
+      $('#alert1').alert('close')
+    })
+
+
+    $('#btn2').on('click', function () {
+      $('#alert2').alert('close')
+    })
+    // 當關閉時要做的事情
+    $('#alert2').on('close.bs.alert', function () {
+      alert('當關閉時要做的事情')
+      $('body').css({ backgroundColor: '#123' })
+    })
+    // 後
+    $('#alert2').on('close.bs.alert', function () {
+      alert('當關閉後要做的事情')
+      $('body').css({ backgroundColor: '#456' })
+    })
+  </script> -->
+
+  <script>
+    $(document).on('scroll', function () {
+      // 固定值 - 視窗高度
+      let windowHeight = $(window).height()
+      // 變動值 - 卷軸移動距離
+      let windowScrollTop = $(window).scrollTop()
+      console.log(windowHeight, windowScrollTop, '#p1:' + $('#p1').offset().top);
+
+      // (視窗高度 + 卷軸移動距離) > #p1 相對於最頂部的距離
+      if ((windowHeight + windowScrollTop) > $('#p1').offset().top) {
+        // offset().top 抓 從頁面頂端到該元素最上方的位置
+        $('#myAlert').addClass('show') //show BS4預設顯示
+      } else {
+        $('#myAlert').removeClass('show')
+      }
+    })
+  </script>
+</body>
+
+</html>

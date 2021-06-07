@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h3 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h4>active(啟用狀態) 和 disabled(停用狀態)</h4>
+    <div class="row">
+      <div class="col-12">
+        <h5>為按鈕增加 .active 切換啟用狀態</h5>
+        <!-- 切換前 -->
+        <a href="#" class="btn btn-primary btn-lg" role="button" aria-pressed="true">切換前</a>
+        <!-- 切換後 -->
+        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">切換後</a>
+      </div>
+      <div class="col-12 mt-3">
+        <h5>disabeld 屬性可以使用在 button 標籤上</h5>
+        <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+        <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
+      </div>
+      <div class="col-12 mt-3">
+        <h5>a 標籤沒有 disabled 屬性，但可增加 .disabled 類別。</h5>
+        <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+        <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>按鈕插件</h3>
+    <div class="row">
+      <div class="col">
+        <h4>觸發 data-toggle="button" 功能切換按鈕 active 狀態。aria-pressed='false' 為未點選狀態。</h4>
+        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">
+          Single toggle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>將 data-toggle="buttons" 自訂義屬性加到含有 .btn-group、.btn-group-toggle 來切換子元素 input checkbox 或 radio 按鈕。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="checkbox" checked autocomplete="off"> Checked
+          </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>autocomplete 預設為 on 會顯示輸入過的資訊，off 不會提示。</h3>
+    <div class="row">
+      <div class="col">
+        <form>
+          <input type="text" name="options" autocomplete="off">
+          <input type="submit" value="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

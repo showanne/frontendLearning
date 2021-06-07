@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alert</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h3 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>警報 (Alerts)</h2>
+    <h3>使用靈活的警報消息為使用者操作提供上下文的內容回饋。</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert—check it out!
+        </div>
+        <div class="alert alert-secondary" role="alert">
+          A simple secondary alert—check it out!
+        </div>
+        <div class="alert alert-success" role="alert">
+          A simple success alert—check it out!
+        </div>
+        <div class="alert alert-danger" role="alert">
+          A simple danger alert—check it out!
+        </div>
+        <div class="alert alert-warning" role="alert">
+          A simple warning alert—check it out!
+        </div>
+        <div class="alert alert-info" role="alert">
+          A simple info alert—check it out!
+        </div>
+        <div class="alert alert-light" role="alert">
+          A simple light alert—check it out!
+        </div>
+        <div class="alert alert-dark" role="alert">
+          A simple dark alert—check it out!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>連結顏色</h2>
+    <h3>使用 .alert-link 來快速為警報中的連結增添合適的色彩。</h3>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-secondary" role="alert">
+          A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-success" role="alert">
+          A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-danger" role="alert">
+          A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-warning" role="alert">
+          A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-info" role="alert">
+          A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-light" role="alert">
+          A simple light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+        <div class="alert alert-dark" role="alert">
+          A simple dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>額外的內容</h3>
+    <h4>警報可以增加額外的 HTML 元素，像是標題、段落以及分隔線。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Well done!</h4>
+          <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within
+            an alert works with this kind of content.</p>
+          <hr>
+          <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>在關閉的按鈕上加上自訂義屬性 data-dismiss="alert"，可以觸發 JS 的關閉功能。
+      data-* 在套件或框架通常有不用寫 JS 就可以使用互動功能。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>使用 JS 關閉</h4>
+    <div class="row">
+      <div class="col">
+        <div id="alert1" class="alert alert-warning alert-dismissible fade show">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button id="btn1" type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <p id="p1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem sint, distinctio nihil tempore magni, sit dolore omnis dolores explicabo sunt deleniti quae
+      perspiciatis vel expedita consequatur. Numquam tempora dignissimos est explicabo id quo, illum, magni nisi cumque adipisci neque sequi quibusdam iste
+      saepe maiores sunt voluptates ut, debitis ex. Beatae quasi dicta optio illum culpa odit mollitia tenetur, in fugiat soluta atque fuga maxime dolorem
+      quidem tempore molestias perspiciatis incidunt harum nisi? Eveniet, itaque. Ad nisi fugiat sed a, eveniet et ab natus unde odio molestias velit eum earum,
+      mollitia dolores libero modi provident eius incidunt similique blanditiis minima in suscipit. Quod consequatur ea quam laborum corrupti rem totam eveniet,
+      expedita eligendi cumque officia quo dolore, rerum labore quos illo, facere inventore! Iure mollitia doloribus at architecto, recusandae assumenda aperiam
+      corrupti unde ducimus eligendi praesentium minima quae similique aut quisquam minus maxime eos ipsum nemo ipsa eius porro animi natus voluptates. Ullam
+      mollitia tenetur repellendus? Cum nesciunt libero ut aspernatur perspiciatis iste tempora unde illum, impedit commodi ratione pariatur voluptate provident
+      explicabo possimus qui voluptatum rerum consequuntur amet beatae? Corrupti quae necessitatibus saepe, expedita dignissimos magnam neque voluptate porro
+      libero adipisci veniam, nam fuga. Earum, molestiae quaerat eveniet velit quasi quae, harum id perspiciatis eius possimus minima ad, sequi amet ullam
+      libero nostrum laborum facere laudantium fugiat? Autem sequi reiciendis ipsa quo perferendis molestias, fugiat ullam tenetur nisi velit odio voluptate
+      distinctio laudantium accusamus, similique officiis officia libero, animi earum ipsam reprehenderit exercitationem provident? Quod veniam quae illo
+      adipisci vitae dolorem, reiciendis provident minus reprehenderit molestias, nam rem aut explicabo nisi atque voluptatibus cupiditate dolor ducimus
+      doloribus? Eum qui illo, delectus dicta soluta quaerat praesentium architecto magnam quibusdam commodi sequi quis quos explicabo repudiandae non nihil
+      quod veritatis eaque? Quia, saepe in! Distinctio nesciunt harum animi cumque eaque debitis! Odit.
+    </p>
+
+    <div id="myAlert" class="alert alert-warning alert-dismissible fade position-fixed" style="right:0;bottom:0;width:300px;z-index:9999">
+      <h4 class="alert-heading">今日促銷</h4>
+      <p>當前落實影音伺服器均為，較高本人不需要，不斷房地產些什麼讓。</p>
+      <hr>
+      <button class="btn btn-success">立即下單</button>
+      <button id="btn1" type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo voluptas tempore nemo aut nihil laborum exercitationem hic fuga quidem totam. Quas quia
+      repellendus nisi iusto cumque, aperiam eos asperiores, autem officia officiis aliquid quis tempore. Impedit odit et commodi odio nihil repellendus dolorum
+      eos provident, similique eligendi quis numquam inventore non, nobis debitis accusantium hic sapiente? Natus dicta corrupti voluptatibus, porro eius
+      voluptatum reprehenderit obcaecati aspernatur sit iusto iure dignissimos alias eligendi dolor similique atque. Earum facilis mollitia explicabo autem
+      itaque, velit corporis recusandae quo rem obcaecati reprehenderit veritatis at assumenda. Laborum debitis corrupti eligendi asperiores fugit? Accusantium
+      ratione voluptate sed modi veniam? Sed quasi voluptate voluptas hic dolores cupiditate mollitia perferendis fuga reprehenderit at commodi pariatur libero
+      fugit totam sequi repellat, ipsa enim, sapiente, ratione modi cum magni non! Temporibus corrupti quae, odit similique explicabo alias officiis ut iure
+      tempora obcaecati. Veniam facilis voluptatibus esse deserunt maxime nostrum numquam laborum adipisci ad sequi pariatur molestiae rem at saepe alias
+      impedit, explicabo modi autem eligendi quam? Qui veniam delectus similique est suscipit soluta reprehenderit nisi autem assumenda nulla reiciendis illo
+      fugiat voluptates rerum, consequatur odit obcaecati molestias amet id enim porro omnis, excepturi ullam doloremque? Harum illo magni ipsa aliquam
+      voluptatibus, provident qui doloribus possimus eveniet ut facilis cum temporibus, eaque soluta error deserunt, animi optio quae autem. Corrupti ipsam
+      maiores quae assumenda cupiditate quia hic nobis cumque fuga exercitationem, itaque eius laboriosam facere sequi laudantium neque earum quo optio
+      explicabo? Similique aperiam ratione blanditiis eveniet nesciunt expedita obcaecati, minima amet totam necessitatibus ut quod asperiores cumque laudantium
+      veritatis maxime aut voluptate nemo reiciendis. Enim, cum praesentium architecto aliquid sit ab. Unde esse tenetur blanditiis alias repellat, itaque
+      eligendi, consectetur et voluptatum maiores explicabo facilis eveniet. Officiis, quam repudiandae voluptatem deserunt, perspiciatis neque magni
+      praesentium eius odit facilis quis ratione!</p>
+
+  </div>
+  <!-- 順序要對，要先有 jQuery，再有 popper.js、bootstrap.js  -->
+  <!-- 3. src jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- 2. src  bootstrap.bundle.min.js 包含 bootstrap.js、popper.js-->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="./js/bootstrap5.bundle.min.js"></script> -->
+  <script>
+    // BS4 -----------------------------------------------------------------
+    // $('#btn1').on('click', function () {
+    //   $('#alert1').alert('close')
+    // })
+    // 當關閉時要做的事情
+    // $('#alert1').on('close.bs.alert', function () {
+    //   alert('當關閉時要做的事情')
+    //   $('body').css({ backgroundColor: '#333' })
+    // })
+    // 當關閉後要做的事情
+    // $('#alert1').on('closed.bs.alert', function () {
+    //   alert('當關閉後要做的事情')
+    //   $('body').css({ backgroundColor: '#fff' })
+    // })
+
+    // BS5 ------------------------------------------------------------------
+    // 1. 選擇 DOM
+    // const btn1 = document.querySelector('#btn1')
+    // const alert1 = document.querySelector('#alert1')
+    // 2. 替 DOM 轉換為 Bootstrap 的元件實體
+    // const myAlert = new bootstrap.Alert(alert1)
+    // 3. 操控創建實體的方法
+    // btn1.addEventListener('click', function () {
+    //   alert1.addEventListener('close.bs.alert', function () {
+    //     alert('當關閉時要做的事情')
+    //     document.querySelector('body').style.backgroundColor = '#333'
+    //   })
+    //   alert1.addEventListener('closed.bs.alert', function () {
+    //     alert('當關閉後要做的事情')
+    //     document.querySelector('body').style.backgroundColor = '#fff'
+    //   })
+    //   myAlert.close()
+    // })
+
+    $(document).on('scroll', function () {
+      // 固定值 - 視窗高度
+      let winHeight = $(window).height()
+      // 變動值 - 捲軸移動的距離
+      let winScrollTop = $(window).scrollTop()
+      // 兩者相加 > p1 相對於最頂部的距離
+      if ((winHeight + winScrollTop) > $('#p1').offset().top) {
+        $('#myAlert').addClass('show')
+      } else {
+        $('#myAlert').removeClass('show')
+      }
+    })
+  </script>
+</body>
+
+</html>

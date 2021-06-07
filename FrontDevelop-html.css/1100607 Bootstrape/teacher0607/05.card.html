@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>card</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    .content {
+      /* 欄位數量 */
+      column-count: 2;
+      /* 欄位空隙寬度 */
+      column-gap: 30px;
+      /* 欄位間的直線 */
+      column-rule: 4px dotted #aaa;
+    }
+
+    .content div {
+      padding: 1rem;
+    }
+
+    .content div::first-letter {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>卡片(card)</h2>
+    <p>卡片是很好使用的資訊容器，可以放置圖片、文字、按鈕或其他元素。
+      主要資訊放在 .card-body 裡面。(.card-title、.card-subtitle、.card-text、.card-link)，
+      除了 .card-body，還可以有 .card-header、.card-footer。</p>
+    <div class="row">
+      <!-- padding 算在 border-box 的 width 裡面 -->
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>列表群組</h4>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">
+            Featured
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <!-- 增加背景顏色測試父元素高度 -->
+      <div class="col-sm-4 bg-dark">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <!-- card-body 不是彈性盒，所以要 d-flex -->
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <!-- flex-grow-1 分配空間 -->
+            <p class="card-text flex-grow-1">Some quick example text to build on the card title and make up the bulk of the card's content.
+              主要快車媒體，有效版權所有感到環境眼淚，全市婦女到達回事電視劇馬上不說靈魂至今，有限責任公司，節目註冊時間預防，事實父母指導還沒有技能註冊商品演唱會新浪帶著她說天地，運行平台線上評論大概兒童熱門，我。
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 bg-dark">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <!-- flex-fill 分配空間 -->
+            <p class="card-text flex-fill">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4 bg-dark">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/300/?random=1" class="card-img-top">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <!-- mb-auto 分配空間 -->
+            <p class="card-text mb-auto">Some quick example text to build on the card title and make up the bulk of the card's content.
+              作出一段時間青年本文練習進去基金，長度出口其實所有，允許漫。
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>卡片與導覽組合</h4>
+    <div class="row">
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#a">Tab1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#b">Tab2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#c">Tab3</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div id="a" class="tab-pane fade show active card-body">
+              <h5 class="card-title">採用不願不懂根據，快車創作主流苗栗，發。</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div id="b" class="tab-pane fade card-body">
+              <h5 class="card-title">哪些男生小區冠軍法。</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div id="c" class="tab-pane fade card-body">
+              <h5 class="card-title">障礙凱文一條，所需國有雜誌資。</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card bg-dark text-white h-100">
+          <img src="https://picsum.photos/1920/1080/?random=1" class="card-img w-100 h-100" style="object-fit:cover;">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit
+              longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card bg-dark text-white h-100">
+          <div class="card-body" style="background:url(https://picsum.photos/1920/1080/?random=2) no-repeat center center/cover">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit
+              longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="container">
+    <div class="card-columns">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title that wraps to a new line</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+          </p>
+        </div>
+      </div>
+      <div class="card p-3">
+        <blockquote class="blockquote mb-0 card-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card bg-primary text-white text-center p-3">
+        <blockquote class="blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+          <footer class="blockquote-footer text-white">
+            <small>
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+      </div>
+      <div class="card p-3 text-right">
+        <blockquote class="blockquote mb-0">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller
+            overall.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>column-count</h4>
+    <div class="content">
+      <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi iste sapiente, quam vero ut, inventore fugiat unde qui voluptates sit quo voluptatibus.
+        Officiis magnam, numquam exercitationem beatae sapiente sunt eveniet enim saepe suscipit dolores nostrum soluta cupiditate, omnis natus, odit quisquam
+        labore optio modi odio perspiciatis unde! Illum culpa quae provident, iste eos, laudantium accusantium quibusdam enim optio fugit ipsum nobis deserunt,
+        eum sequi a quod molestias repudiandae est quas animi. Harum numquam officia, laborum a sequi unde mollitia ut eveniet impedit quaerat perferendis alias
+        id dicta rerum quos repudiandae temporibus tempore quisquam sint odit ducimus, doloribus vero minus itaque?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor inventore veritatis sint ab vel obcaecati laborum esse aliquam, ipsam quos odio eligendi
+        ipsum in officiis tenetur, alias est nobis temporibus quibusdam suscipit molestias incidunt fugiat! Dolorum aliquam exercitationem suscipit ducimus
+        laboriosam eligendi architecto, praesentium blanditiis vero velit beatae dignissimos incidunt?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ipsam dignissimos architecto error ullam tempore quis exercitationem labore aut ipsum
+        soluta vero delectus molestias mollitia. Accusamus repudiandae unde expedita excepturi? Accusantium soluta sint architecto delectus recusandae autem
+        facilis reprehenderit ratione numquam minus aliquid a ullam harum, totam debitis illum iste error velit nobis! Iste corporis praesentium architecto,
+        exercitationem earum sequi adipisci iusto consectetur distinctio similique explicabo molestias repellendus pariatur tempore itaque ducimus ipsam ipsum
+        enim unde. Alias eum cumque nesciunt nobis modi velit dolorem exercitationem quos vitae ipsam fugit quo quasi reiciendis quas enim illum, dolor sit.
+        Laboriosam ut adipisci error. Ducimus quos quibusdam voluptates illum, provident commodi impedit adipisci tenetur earum rerum vitae amet ex explicabo?
+        Dolores aliquid ipsam est, voluptate esse enim unde quam ipsa consequuntur aspernatur velit fugit accusantium inventore nisi cum, minima, fuga alias.
+        Incidunt, quae ducimus est facere quas reprehenderit obcaecati adipisci, exercitationem autem ab corrupti qui consequuntur sint architecto quasi
+        perspiciatis. Sit quidem totam nisi, perferendis facilis omnis labore vel. Iste minus in accusamus, sed beatae odio, exercitationem blanditiis
+        cupiditate quis iusto quod doloremque molestias ipsam necessitatibus natus totam debitis labore aliquid perferendis! Error quas necessitatibus
+        doloremque dolore magni quae nemo officiis minus recusandae?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum earum ratione quisquam veniam, quam, eos reiciendis distinctio obcaecati eligendi
+        veritatis sapiente temporibus beatae quod dolores eaque quasi voluptate a? Debitis neque non quasi sit beatae perspiciatis, voluptas veritatis tenetur
+        ullam cumque a. Accusantium et maiores explicabo? Assumenda sequi voluptas non illum natus ipsum? Dignissimos perspiciatis, illum in ea rerum molestiae,
+        consequatur, voluptatibus dolorem enim ipsam ab autem odit sit corrupti ducimus et vero laboriosam optio cumque. Excepturi velit exercitationem dolores.
+        Assumenda dolore officia dolor quas tempore fuga corporis asperiores iste enim, illum quia amet consectetur adipisci esse! Quaerat atque, tempore
+        laudantium distinctio veritatis sapiente ex mollitia! Temporibus quisquam unde eligendi! Beatae commodi sed praesentium sequi! Minima ut tenetur
+        officiis neque?
+      </div>
+      <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae necessitatibus fugit eligendi commodi voluptates quia quos expedita illum consectetur
+        sed quibusdam, ex nihil cupiditate minima dolorem totam repellat pariatur fugiat?
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, et? Consequatur ipsum reprehenderit tenetur dolorum, dolore, earum ipsa, vel ea at
+        cupiditate atque natus eligendi. Voluptate vel culpa animi in impedit sequi magnam. Labore totam modi nobis unde omnis doloremque ab accusamus.
+        Consequuntur, quaerat rem distinctio vel adipisci impedit, optio id aut voluptatem sequi sed a ducimus maiores maxime obcaecati expedita repellendus
+        nisi. Laborum corporis eveniet totam dolorem? Amet mollitia deserunt, at maiores tenetur, nesciunt repellat natus eaque saepe obcaecati et facilis ipsa
+        optio culpa non autem! Commodi harum a dolores, numquam tenetur nemo, repellat rem atque quo ut at debitis voluptatem eius laborum ea possimus fugiat
+        fuga! Voluptas, sunt laborum! Modi atque illo fuga laudantium aut, ipsam culpa cumque repellendus quasi ab explicabo numquam fugiat unde in. Enim qui
+        autem laudantium id eos, similique dolores ducimus hic optio corporis quis possimus aliquam quidem voluptatum reprehenderit odit repellendus,
+        consectetur sit fugiat necessitatibus quod incidunt ut distinctio. Accusantium dolorem aliquid aperiam perferendis sapiente. Nostrum, labore distinctio
+        iusto quam unde dignissimos animi consectetur odit, culpa molestias eos possimus alias quis impedit assumenda enim, quidem magni nulla. Veritatis
+        deleniti incidunt tempora, aut sit deserunt nisi ipsa hic tenetur illo numquam rerum autem at, officia quas. Placeat nulla soluta, libero inventore
+        assumenda odit, tenetur rerum minima maiores, maxime velit! Temporibus sunt exercitationem repellat recusandae?
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>

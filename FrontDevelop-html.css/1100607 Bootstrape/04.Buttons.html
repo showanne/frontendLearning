@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="mt-2">按鈕 (Buttons)</h3>
+    <div class="row mt-3">
+      <div class="col">
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+
+        <button type="button" class="btn btn-link">Link</button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col">
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-light">Light</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+      </div>
+    </div>
+    <h4 class="mt-5">
+      .btn 是設計為
+      <code class="highlighter-rouge">&lt;button&gt;</code>
+      元素一起使用。 但是，您也可以在
+      <code class="highlighter-rouge">&lt;a&gt;</code>
+      或
+      <code class="highlighter-rouge">&lt;input&gt;</code>
+      元素上使用，若要在
+      <code class="highlighter-rouge">&lt;button&gt;</code>
+      使用，建議加上
+      <code class="highlighter-rouge">role="button"</code>
+      適當地傳達他們的目的到螢幕閱讀器等輔助性技術。
+    </h4>
+    <div class="row mt-3">
+      <div class="col">
+        <a class="btn btn-primary" href="#" role="button">a:Link</a>
+        <button class="btn btn-primary" type="submit">Button</button>
+        <input class="btn btn-primary" type="button" value="Input">
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="reset" value="Reset">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="mt-2">較大 (btn-lg) 或較小 (btn-sm) 的按鈕</h3>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="mt-2">.active (啟用狀態) 與 .disabled (停用狀態)</h3>
+    <h4>啟用狀態 (.active（並包括 aria-pressed="true" 屬性）)</h4>
+    <div class="row">
+      <div class="col-12">
+        <h5 class="mt-3">為按鈕增加 .active 切換啟用狀態</h5>
+        <a href="#" class="btn btn-success btn-lg" role="button" aria-pressed="true">切換前 link NO active</a>
+        <a href="#" class="btn btn-success btn-lg active" role="button" aria-pressed="true">切換後 Link active</a>
+      </div>
+
+      <div class="col-12">
+        <h5 class="mt-3">disabled 屬性可以使用在 &lt;button&gt; 上</h5>
+        <button type="button" class="btn btn-secondary btn-lg" disabled>Button disabled</button>
+        <br>
+        <h5 class="mt-3"> &lt;a&gt; 沒有 disabled 屬性，但可增加 .disabled </h5>
+        <a href="#" class="btn btn-info btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">a:Link
+          .disabled</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>按鈕插件</h3>
+    <div class="row">
+      <div class="col">
+        <h4>觸發 data-toggle="button" 功能切換按鈕 active 狀態。</h4>
+        <h4>aria-pressed="false" false為未點狀態。</h4>
+        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+          Single toggle
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h3>核取方塊和選項按鈕</h3>
+    <h4>將 data-toggle="buttons" 加到含有 .btn-group .btn-group-toggle 來切換 &lt;input&gt; 的 checkbox 或 radio 按鈕</h4>
+    <div class="row">
+      <div class="col">
+        <h4>???</h4>
+        <h4>???</h4>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked> 預設 Active
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3>autocomplete 預設 'on' 會顯示輸入過的資訊，'off' 不會顯示</h3>
+    <div class="row">
+      <div class="col">
+        <form action="">
+          <input type="text" name="" id="" autocomplete="on">
+          <input type="submit" value="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

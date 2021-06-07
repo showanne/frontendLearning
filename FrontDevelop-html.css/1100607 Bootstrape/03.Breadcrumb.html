@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    /* 法1 → 直接改 content 文字 */
+    .breadcrumb-item+.breadcrumb-item::before {
+      float: left;
+      padding-right: 0.5rem;
+      color: #6c757d;
+      content: "→";
+    }
+
+    /* 法2 → 使用 Unicode Table */
+    .breadcrumb-item+.breadcrumb-item::before {
+      content: "\2B4C";
+    }
+
+    /* 法3 → 使用 base64 圖片編碼字串 */
+    /* 
+    base64
+    優點：base64 是字串，下載不用發送圖片的請求，減少下載時間，使用者可以更快看到結果
+    缺點：編碼字串比平常圖片容量大，越複雜檔案越大，且編碼會越長
+    結論：建議使用在 icon
+    */
+    .breadcrumb-item+.breadcrumb-item::before {
+      /* https://image.flaticon.com/icons/png/512/724/724954.png */
+
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAfwAAAH8BuLbMiQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACbSURBVDiNrdOxCcJAFAbgT8FGsNYFbBzACawsHEEyg0NYOIGlAzhESntxAgewEm3kbK4ImDMhl4O//eD99x6sMA0h6BK44IUj5l2ABZ4I+OCMZWsgKkUEqimxxqARiMipBgm4YotREzDGLYEE3LHDpBaISLWPVB7YY/YD/OmjLm8chnJfbyNklyjnGxPFldosktxV1sMxbWSc8xfb1sdZ80a05AAAAABJRU5ErkJggg==');
+
+      /* 使用 scale 縮放，其餘 font-size: ; width: ; 都無法修改大小 */
+      transform: scale(0.7);
+
+      /* icon若非黑白，可使用 filter 修改顏色 */
+      /* filter: hue-rotate(120deg); */
+      line-height: 1.9;
+    }
+
+    .breadcrumb-item+.breadcrumb-item::before {
+      /* https://image.flaticon.com/icons/png/512/724/724954.png */
+
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHQSURBVDiNY2DAA4K9plcEe02vwKeGGbfmqRXvLK2af8jIOBtx6v26fnvbEaINCDBoUPiprr7sjZIJ5w8uYSbOr68tzNk1V196cuAdulomdIEGhgYmBiXZ/a+MHXhFTx96Lnr60POXRo48nyVldzcwNGCoxxC4r/HO8LOShiTb85c/BW9fWih4+9JCthevfn5RVJe8p/JWH109C7rAN2ahy4KnjmwU/Mf4RfjWo1YGBgaG///XCTMwM/Fw8P+8gq6eEVsYMDAwMIQb1yh/U9c4x8DAwMB184bRyrMtd7Gpw/ACAwMkHH7JK+59bufL98Lej++XvOLeUIZQrAGO1YBLnmJLX9q4yvz9zcTw5xcjwwtbN9k/fq7LiDIgVj1H8ZuSst93VkG4jT9YBJi+y8n7JGgUKKCrxwhEVgaGn5z3779SvnaF45FrmAQjw38G2d2rn/3j4Pzxh5HhJ0EXzLs55RnLpZtazF+/drN8/8rA/P0bA/PXr718109pL7k+4TlRYbD6Sf/3/0wMfxj+/2dg+P+f4T8Tw58FDxb8wKYWwwsw8I+Vg4Pt/Rs4G5c6nAYw/P91n+XT138M/xkZmH79xZoGCIJA50mNQU5T6/GpAQB4qKdWpbrSuQAAAABJRU5ErkJggg==');
+
+      /* 使用 scale 縮放，其餘 font-size: ; width: ; 都無法修改大小 */
+      transform: scale(1.2) rotate(90deg);
+
+      /* icon若非黑白，可使用 filter 修改顏色 */
+      filter: hue-rotate(120deg);
+      line-height: 1.9;
+      padding-right: 1rem;
+      padding-top: 1rem;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="mt-2">麵包屑 (Breadcrumb)</h3>
+    <h4>在導航結構中透過 CSS 自動添加分隔符號指示當前頁面的位置。</h4>
+    <hr>
+    <h5>麵包屑可以修改 before 的 content
+
+    </h5>
+    <ul>
+      <li>直接改 content 文字 content: "→"; </li>
+      <li>使用 Unicode Table content: "\2B4C"; </li>
+      <li>使用 base64 圖片編碼字串 content: url(' '); </li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

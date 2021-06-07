@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- bootstrap5.css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <h2>使用JS的關閉</h2>
+    <div class="row">
+      <div class="col">
+        <div class="col-7">
+          <div id="alert3" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong>
+            You should check in on some of those fields below.
+            <button type="button" id="btn3" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-5 bg-light">
+          <pre>
+
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- bootstrap5.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- bs4 -->
+  <!-- <script>
+    $('#btn3').on('click', function () {
+      $('#alert3').alert('close')
+    })
+
+
+    $('#btn3').on('click', function () {
+      $('#alert3').alert('close')
+    })
+    // 當關閉時要做的事情
+    $('#alert3').on('close.bs.alert', function () {
+      alert('當關閉時要做的事情')
+      $('body').css({ backgroundColor: '#123' })
+    })
+    // 後
+    $('#alert3').on('close.bs.alert', function () {
+      alert('當關閉後要做的事情')
+      $('body').css({ backgroundColor: '#456' })
+    })
+  </script> -->
+
+  <!-- bs5 -->
+  <script>
+    // 
+    const btn3 = document.querySelector('#btn3')
+    const alert3 = document.querySelector('#alert3')
+
+    // 
+    const myAlert = new bootstrap.Alert(alert3)
+
+    // 
+    btn3.addEventListener('click', function () {
+      myAlert.close()
+    })
+
+    // 
+    // btn3.addEventListener('click', function () {
+    //   alert3.
+    // })
+
+
+  </script>
+</body>
+
+</html>
