@@ -1,0 +1,56 @@
+#app
+  width 1024px
+  height 768px
+  border 1px solid #000
+  box-sizing border-box
+  
+#top
+  width 100%
+  height 65px
+
+#left
+  width 225px
+  height 683px
+  float left
+  // display inline-block
+
+#right
+  width 770px
+  height 683px
+  float right // display inline-block
+  #marquee
+    width 100%
+    height 29px
+  #content
+    width 100%
+    height calc(100% - 29px)
+
+#menu
+  width 100%
+  height calc(100% - 25px)
+  span
+    margin-bottom 12px
+  tr 
+    width 100%
+    height 35px
+    background-image url('~@/assets/menu1.png') //  ~@ src資料夾
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    &:hover
+      background-image url('~@/assets/menu2.png')
+
+#footer
+  width 100%
+  height 20px
+
+#home
+  height 100%
+  font-size 24px
+  font-family '標楷體'
+  font-weight bold
+  color blue
+  text-align center 
+  img
+    width 250px
+    height 250px

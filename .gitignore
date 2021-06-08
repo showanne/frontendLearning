@@ -8,3 +8,5 @@ FrontDevelop-html.css/sync.ffs_db
 *.mp4
 
 .vscode/
+
+node_modules/
