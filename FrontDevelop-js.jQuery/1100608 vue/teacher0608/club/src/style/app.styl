@@ -1,0 +1,70 @@
+#app
+  width 1024px
+  height 768px
+  border 1px solid black
+  position relative
+
+#top
+  width 100%
+  height 65px
+
+#left
+  width 215px
+  height 683px
+  display inline-block
+  position relative
+
+#right
+  width 770px
+  height 683px
+  display inline-block
+  position relative
+
+#menu
+  position absolute
+  top 0
+  height calc(100% - 25px)
+  width 100%
+  td
+    background-image url('~@/assets/menu1.png')
+    background-size cover
+    background-attachment fixed
+    background-position center
+    background-repeat no-repeat
+    &:hover
+      background-image url('~@/assets/menu2.png')
+
+#update
+  width 100%
+  height 25px
+  position absolute
+  bottom 0
+
+#marquee
+  width 100%
+  height 29px
+  position absolute
+  top 0
+
+#content
+  width 100%
+  height calc(100% - 29px)
+  position absolute
+  bottom 0
+
+#footer
+  height 20px
+  width 100%
+  text-align center
+
+#home
+  font-size 24px
+  font-family '標楷體'
+  font-weight bold
+  color blue
+  text-align center
+  background url('~@/assets/0101.jpg')
+  height 100%
+  img
+    width 250px
+    height 250px
