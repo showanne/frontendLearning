@@ -3,7 +3,9 @@
     b-container
       b-row
         b-col(cols='12')
-          h1 商品
+          h1.my-3
+            font-awesome-icon(:icon='["fas","award"]').h2
+            span.ml-2 私房料理
         b-col(cols='12')
           b-table(:items='products' :fields='fields' hover striped)
             template(#cell(img)='data')

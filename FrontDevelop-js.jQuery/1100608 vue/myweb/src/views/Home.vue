@@ -1,17 +1,18 @@
 <template lang="pug">
   #home
-    b-container
+    b-container.mt-5
       b-row
         b-col(cols='12')
-          h1.text-center 私房料理
+          //- h1.text-center 私房料理
         b-col(cols='3' v-for='(product, i) in products' :key='i')
-          b-card(
-                  img-top
-                  :img-src='require("../assets/" + product.img)'
-                  :title='product.name'
-                  :sub-title='product.price.toLocaleString("zh-tw", {style: "currency", currency: "NTD"})'
-                )
-                  //- .toLocaleString("zh-tw", {style: "currency", currency: "NTD"}) 數字 金額格式化
+          div.py-2
+            b-card(
+                    img-top
+                    :img-src='require("../assets/" + product.img)'
+                    :title='product.name'
+                    :sub-title='product.price.toLocaleString("zh-tw", {style: "currency", currency: "NTD"})'
+                  )
+                    //- .toLocaleString("zh-tw", {style: "currency", currency: "NTD"}) 數字 金額格式化
 </template>
 
 <script>
