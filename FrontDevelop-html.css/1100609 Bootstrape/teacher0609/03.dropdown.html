@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dropdown</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid d-flex justify-content-around align-items-center h-100">
+
+    <!--
+      data-toggle = "dropdown" 觸發 .dropdown-menu 產生下拉的效果
+      使用 data-reference="parent" 找到父元素，即可使用 data-offset 位移對齊，第一數值為 x，第二數值為 y，可為負數
+      .dropup、.dropright、.dropleft、.dropbottom 設定下拉三角形的方向
+    -->
+    <div class="dropdown dropbottom">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" data-reference="parent" data-offset="5,5">
+        button 下拉選單
+      </button>
+      <div class="dropdown-menu">
+        <!-- 分類標題 -->
+        <div class="dropdown-item-text">個人電腦</div>
+        <!-- 分隔線 -->
+        <div class="dropdown-divider"></div>
+        <!-- 目前位置 .avtive -->
+        <a class="dropdown-item active" href="#">主機板</a>
+        <a class="dropdown-item" href="#">硬碟</a>
+        <a class="dropdown-item" href="#">記憶體</a>
+        <div class="dropdown-divider"></div>
+        <!-- 禁用 .disabled -->
+        <a class="dropdown-item disabled" href="#">軟碟機</a>
+      </div>
+    </div>
+
+    <div class="dropdown dropbottom">
+      <a class="btn btn-primary dropdown-toggle" href="#" data-toggle="dropdown" data-reference="parent" data-offset="5,5">
+        a 元素下拉選單
+      </a>
+      <div class="dropdown-menu">
+        <div class="dropdown-item-text">前端技術</div>
+        <a class="dropdown-item active" href="#">HTML</a>
+        <a class="dropdown-item" href="#">CSS</a>
+        <a class="dropdown-item" href="#">JavaScript</a>
+      </div>
+    </div>
+
+    <!-- 分離按鈕 -->
+    <!-- 使用 btn-group 包起來 -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger">分離按鈕</button>
+      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div>
+    </div>
+
+    <!-- 斷點對齊 -->
+    <div class="btn-group">
+      <!--
+          設定 data-display="static" 才能使用響應式對齊
+          加上 .dropdown-menu{-sm|-md|-lg|-xl}-right
+      -->
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static">
+        Right-aligned menu
+      </button>
+      <!-- sm 尺寸選單靠右對齊、lg 尺寸選單靠左對齊 -->
+      <div class="dropdown-menu dropdown-menu-sm-right dropdown-menu-lg-left">
+        <button class="dropdown-item" type="button">Action</button>
+        <button class="dropdown-item" type="button">Another action</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  </script>
+</body>
+
+</html>

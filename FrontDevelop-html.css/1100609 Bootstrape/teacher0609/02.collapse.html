@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>collapse</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h3 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>摺疊(Collapse)</h2>
+    <div class="row">
+      <div class="col">
+        <p>
+          <!-- data-toggle 觸發 collapse 摺疊功能 -->
+          <!-- a 使用 href 來對應 id -->
+          <a class="btn btn-primary" data-toggle="collapse" href="#kaifu" role="button">
+            a 元素摺疊
+          </a>
+          <!-- botton 沒有 href，需使用 data-target 來替代 -->
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#kaifu">
+            button 元素摺疊
+          </button>
+        </p>
+        <!-- 打開摺疊內容 .collapse 會添加 .show 顯示內容 -->
+        <div class="collapse" id="kaifu">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+            anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>多個目標（摺疊目標使用 class）</h4>
+    <p>點擊元素可以一次觸發多個摺疊目標，例如第三個按鈕，使用了 .kaifu-collapse 類別觸發了兩個摺疊目標。</p>
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#kaifu1" role="button">Toggle first element</a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#kaifu2">Toggle second element</button>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".kaifu-collapse">Toggle both elements</button>
+    </p>
+    <div class="row">
+      <div class="col">
+        <div class="collapse kaifu-collapse" id="kaifu1">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+            anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="collapse kaifu-collapse" id="kaifu2">
+          <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+            anderson cred nesciunt sapiente ea proident.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h4>手風琴摺疊效果</h4>
+    <div class="row">
+      <div class="col">
+        <div class="accordion" id="kaifu_accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#kaifu_collapseOne">
+                  產品類型(一)
+                </button>
+              </h2>
+            </div>
+
+            <!-- 指定一開始就開啟，加上 .show -->
+            <div id="kaifu_collapseOne" class="collapse show" data-parent="#kaifu_accordion">
+              <div class="card-body">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#kaifu_collapseTwo">
+                  產品類型(二)
+                </button>
+              </h2>
+            </div>
+            <div id="kaifu_collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#kaifu_accordion">
+              <div class="card-body">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#kaifu_collapseThree">
+                  產品類型(三)
+                </button>
+              </h2>
+            </div>
+            <div id="kaifu_collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#kaifu_accordion">
+              <div class="card-body">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">產品項目</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  </script>
+</body>
+
+</html>
