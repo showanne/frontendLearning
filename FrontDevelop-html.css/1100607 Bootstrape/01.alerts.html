@@ -167,9 +167,11 @@
       </div>
       <div class="col-5 bg-light">
         <pre>
-            <code>$('#btn1').on('click', function () {
-              $('#alert1').alert('close')
-            })</code>
+            <code>
+$('#btn1').on('click', function () {
+$('#alert1').alert('close')
+})
+          </code>
         </pre>
       </div>
       <div class="row mt-2">
@@ -184,9 +186,22 @@
         </div>
         <div class="col-5 bg-light">
           <pre>
-              <code>$('#btn1').on('click', function () {
-                $('#alert1').alert('close')
-              })</code>
+              <code>
+$('#btn2').on('click', function () {
+$('#alert2').alert('close')
+})
+
+// 當關閉時要做的事情 - close
+$('#alert2').on('close.bs.alert', function () {
+alert('當關閉時要做的事情')
+$('body').css({ backgroundColor: '#bad' })
+})
+// 當關閉後要做的事情 - closed
+$('#alert2').on('closed.bs.alert', function () {
+alert('當關閉後要做的事情')
+$('body').css({ backgroundColor: '#456' })
+})
+            </code>
           </pre>
         </div>
       </div>
@@ -196,33 +211,45 @@
   <div class="container">
     <h3>動態偵測視窗高度跳出 alert</h3>
     <p id="p1">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deleniti praesentium hic enim, aspernatur
-      ipsum tempora nam quas similique sed, dicta iste tempore quod sunt! Officia totam id facere deserunt, magni
-      nostrum at explicabo libero harum, odio accusamus cupiditate eligendi magnam reiciendis saepe exercitationem.
-      Sapiente quis fugit nulla dolore. Sed similique dolorum reiciendis praesentium veritatis iste unde sequi
-      perferendis natus suscipit fugit excepturi laboriosam cupiditate, minima, esse quaerat molestias soluta asperiores
-      sint repellendus officia, labore aspernatur. Eum, molestias consequuntur non fugiat, at quam, rerum in corrupti ad
-      placeat deleniti molestiae. Veniam voluptas delectus error eos quibusdam itaque dicta eius accusantium. Non illum
-      blanditiis maiores nam amet perspiciatis praesentium ullam dolor molestias cumque! Magnam accusantium quam cumque
-      unde voluptas commodi corporis dignissimos accusamus suscipit quidem laudantium perferendis vitae mollitia
-      voluptatibus, quod totam. Cum, libero ea minus sed beatae incidunt in quas cupiditate quia eum, deserunt mollitia,
-      labore repellendus? Alias cum sapiente qui voluptates exercitationem animi obcaecati architecto fugit. Suscipit
-      laborum eum voluptatem et quas, recusandae quam voluptatibus! Voluptate, omnis minus culpa iusto officia nam
-      magnam porro delectus inventore cumque exercitationem incidunt corrupti a sapiente ad placeat unde. Cum dolores
-      nobis vel iste atque minima laudantium optio ad facere neque? Magnam quia nam impedit voluptates ea in vero,
-      officia assumenda ipsam eos inventore deserunt itaque ad porro ex maiores ducimus neque debitis similique quam
-      consequuntur! Reiciendis deserunt dicta, aspernatur enim totam sapiente dolorum voluptatem culpa voluptate minima
-      saepe cum quo in quis fuga harum ipsam accusantium suscipit inventore natus odio necessitatibus est voluptates
-      quasi. Numquam ipsum consequuntur dolore quaerat, vero fugit inventore molestias, necessitatibus ut natus
-      blanditiis aliquid ratione enim dolor? Possimus assumenda repellat voluptate quos magni tempore dignissimos
-      similique nostrum eius laboriosam soluta dicta ad voluptatem distinctio itaque eligendi fuga dolorem ipsam eum
-      veniam porro veritatis, incidunt sint! Animi, asperiores a.
+    <pre class="bg-warning">
+            <code>
+    $(document).on('scroll', function () {
+    // 固定值 - 視窗高度
+    let windowHeight = $(window).height()
+    // 變動值 - 卷軸移動距離
+    let windowScrollTop = $(window).scrollTop()
+    console.log(windowHeight, windowScrollTop, '#p1:' + $('#p1').offset().top);
+    
+    // (視窗高度 + 卷軸移動距離) > #p1 相對於最頂部的距離
+    if ((windowHeight + windowScrollTop) > $('#p1').offset().top) {
+    // offset().top 抓 從頁面頂端到該元素最上方的位置
+    $('#myAlert').addClass('show') //show BS4預設顯示
+    } else {
+    $('#myAlert').removeClass('show')
+    }
+    })
+              </code>
+          </pre>
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus deleniti praesentium hic enim, aspernatur
+    ipsum tempora nam quas similique sed, dicta iste tempore quod sunt! Officia totam id facere deserunt, magni
+    nostrum at explicabo libero harum, odio accusamus cupiditate eligendi magnam reiciendis saepe exercitationem.
+    Sapiente quis fugit nulla dolore. Sed similique dolorum reiciendis praesentium veritatis iste unde sequi
+    perferendis natus suscipit fugit excepturi laboriosam cupiditate, minima, esse quaerat molestias soluta asperiores
+    sint repellendus officia, labore aspernatur. Eum, molestias consequuntur non fugiat, at quam, rerum in corrupti ad
+    saepe cum quo in quis fuga harum ipsam accusantium suscipit inventore natus odio necessitatibus est voluptates
+    quasi. Numquam ipsum consequuntur dolore quaerat, vero fugit inventore molestias, necessitatibus ut natus
+    blanditiis aliquid ratione enim dolor? Possimus assumenda repellat voluptate quos magni tempore dignissimos
+    similique nostrum eius laboriosam soluta dicta ad voluptatem distinctio itaque eligendi fuga dolorem ipsam eum
+    veniam porro veritatis, incidunt sint! Animi, asperiores a.
     </p>
-    <div id="myAlert" class="alert alert-warning alert-dismissible fade show position-fixed"
+
+    <!-- #myAlert 的 show 要先拿掉，並以 JQ 另外偵測達成條件後顯示~ (加 .show)  -->
+    <div id="myAlert" class="alert alert-warning alert-dismissible fade position-fixed"
          style="right:0;bottom:0;width: 300px;" role="alert">
       <h4 class="alert-heading">今日促銷</h4>
       <p>
-        一句輕鬆北方首頁美國大小電池苗栗，日誌我覺得聯繫方式口氣從此精選科學研究，大門儘量休閒有了，睡覺。
+        #myAlert 的 show 要先拿掉，並以 JQ 另外偵測達成條件後顯示~ (加 .show)
       </p>
       <hr>
       <button class="btn btn-warning">立即下單</button>
@@ -261,7 +288,7 @@
   <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- <script>
+  <script>
     $('#btn1').on('click', function () {
       $('#alert1').alert('close')
     })
@@ -270,17 +297,17 @@
     $('#btn2').on('click', function () {
       $('#alert2').alert('close')
     })
-    // 當關閉時要做的事情
+    // 當關閉時要做的事情 - close
     $('#alert2').on('close.bs.alert', function () {
       alert('當關閉時要做的事情')
-      $('body').css({ backgroundColor: '#123' })
+      $('body').css({ backgroundColor: '#bad' })
     })
-    // 後
-    $('#alert2').on('close.bs.alert', function () {
+    // 當關閉後要做的事情 - closed
+    $('#alert2').on('closed.bs.alert', function () {
       alert('當關閉後要做的事情')
       $('body').css({ backgroundColor: '#456' })
     })
-  </script> -->
+  </script>
 
   <script>
     $(document).on('scroll', function () {

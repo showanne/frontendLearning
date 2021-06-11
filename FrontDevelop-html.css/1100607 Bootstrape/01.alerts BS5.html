@@ -12,7 +12,7 @@
 
   <style>
     body {
-      background-color: #eee;
+      background-color: #9ee;
     }
 
     h3 {
@@ -32,19 +32,85 @@
     <h2>使用JS的關閉</h2>
     <div class="row">
       <div class="col">
-        <div class="col-7">
+        <div class="col-12">
+
+          <!-- BS5 -->
           <div id="alert3" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" id="btn3" class="btn-close" aria-label="Close"></button>
+            <!-- 指令與 JS 重複會出錯 data-bs-dismiss="alert" -->
+          </div>
+          <!-- BS4 -->
+          <!-- <div id="alert3" class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Holy guacamole!</strong>
             You should check in on some of those fields below.
             <button type="button" id="btn3" class="close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+          </div> -->
         </div>
-        <div class="col-5 bg-light">
+        <div class="col-12 p-5 bg-info">
           <pre>
+            <code>
+// 選擇 DOM
+const btn3 = document.querySelector('#btn3')
+const alert3 = document.querySelector('#alert3')
+const body = document.querySelector('body')
 
+// 替 DOM 轉換為 bootstrap 的元件實體
+const myAlert = new bootstrap.Alert(alert3)
+
+// 監聽事件 控制創建實體的方法
+btn3.addEventListener('click', function () {
+alert3.addEventListener('close.bs.alert', function () {
+alert('當關閉時要做的事情')
+body.style.backgroundColor = '#523'
+})
+alert3.addEventListener('closed.bs.alert', function () {
+alert('當關閉後要做的事情')
+body.style.backgroundColor = '#ea1'
+})
+myAlert.close()
+})
+          </code>
           </pre>
+
+        </div>
+        <div class="col-12 ">
+          <h4 class="mt-5">事件</h4>
+          <p>Bootstrap 警報插件提供額外的事件，可以直接取用警報函式。</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>close.bs.alert</code></td>
+                <td>
+                  當調用 <code>close</code> 實例方法時，此事件會立即觸發。
+                </td>
+              </tr>
+              <tr>
+                <td><code>closed.bs.alert</code></td>
+                <td>
+                  警報關閉時，會觸發此事件（等待CSS轉換完成）。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="highlight bg-light">
+            <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myAlert</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'myAlert'</span><span class="p">)</span>
+          <span class="nx">myAlert</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'closed.bs.alert'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// do something, for instance, explicitly move focus to the most appropriate element,
+          </span><span class="c1"></span>  <span class="c1">// so it doesn't get lost/reset to the start of the page
+          </span><span class="c1"></span>  <span class="c1">// document.getElementById('...').focus()
+          </span><span class="c1"></span><span class="p">})</span>
+          </code></pre>
+          </div>
         </div>
       </div>
     </div>
@@ -78,24 +144,26 @@
 
   <!-- bs5 -->
   <script>
-    // 
+    // 選擇 DOM
     const btn3 = document.querySelector('#btn3')
     const alert3 = document.querySelector('#alert3')
+    const body = document.querySelector('body')
 
-    // 
+    // 替 DOM 轉換為 bootstrap 的元件實體
     const myAlert = new bootstrap.Alert(alert3)
 
-    // 
+    // 監聽事件 控制創建實體的方法
     btn3.addEventListener('click', function () {
+      alert3.addEventListener('close.bs.alert', function () {
+        alert('當關閉時要做的事情')
+        body.style.backgroundColor = '#523'
+      })
+      alert3.addEventListener('closed.bs.alert', function () {
+        alert('當關閉後要做的事情')
+        body.style.backgroundColor = '#ea1'
+      })
       myAlert.close()
     })
-
-    // 
-    // btn3.addEventListener('click', function () {
-    //   alert3.
-    // })
-
-
   </script>
 </body>
 

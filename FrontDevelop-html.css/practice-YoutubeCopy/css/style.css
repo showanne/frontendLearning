@@ -1,7 +1,8 @@
 body {
   /* box-sizing: border-box; */
-  font-family: '微軟正黑體', 'Montserrat';
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
 }
+
 a {
   text-decoration: unset;
   color: gray;
@@ -22,6 +23,9 @@ a {
 } */
 .float-C {
   clear: both;
+}
+.d-inline {
+  display: inline-block;
 }
 .font0 {
   font-size: 0;
@@ -129,10 +133,10 @@ a {
 
 /* 左側導覽列 navbar */
 #navbar {
-  width: 15%;
+  width: 242px;
   height: calc(100vh - 56px);
   margin-top: 56px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 /* navbar 滾動條 */
@@ -185,12 +189,19 @@ a {
 }
 
 #navbar .dash p {
-  font-size: 0.9rem;
-  padding: 5px 5px 5px 30px;
+  padding: 15px 0 5px 0;
+  margin: 0 0 0 30px;
   line-height: 19px;
+  font-size: 0.9rem;
+  color: gray;
+}
+.font-b {
+  font-weight: bold;
 }
 #guide {
-  padding: 24px 24px 24px 24px;
+  padding: 24px;
+  /* 暫時把 padding-bottom 24px 拿掉，因為 #navbar 最後有奇怪的 padding
+   把 #navbar overflow-y: scroll; 後解決 */
 }
 #guide a {
   display: inline-block;
@@ -201,7 +212,8 @@ a {
 
 /* 網頁內容區 content */
 #content {
-  width: 85%;
+  width: calc(100vw - 250px);
+  /* 250px = 242px navbar + 8px scrollbar */
   padding: 56px 8px 0 8px;
   box-sizing: border-box;
 }
@@ -321,29 +333,43 @@ a {
 
 /* COVID */
 #content #COVID {
-  height: 210px;
-  padding: 2rem 0;
+  /* height: 210px; */
+  /* padding: 2rem 0; */
   position: relative;
 }
 #content #COVID img {
-  width: 180px;
-  margin-bottom: 0.7rem;
+  width: 150px;
+  padding: 0.8rem;
+  box-sizing: border-box;
 }
-#content #COVID div {
-  margin-bottom: 4rem;
-  width: 500px;
-  color: white;
-  font-size: 1.9rem;
+#content #COVID div.d-inline {
+  margin: 2rem 0 0 1rem;
+  color: black;
+  vertical-align: top;
+}
+#content #COVID p a {
+  background-color: #ebebeb;
+  color: gray;
+  font-size: 0.6rem;
+  vertical-align: top;
+  padding: 3px 5px;
+  box-sizing: border-box;
 }
 
-#content #COVID .buy {
-  border: solid 2px white;
-  border-radius: 3px;
-  background-color: transparent;
+#content #COVID .choice {
+  background-color: #3142dd;
   color: white;
   font-size: 1rem;
+  border: solid 2px white;
+  border-radius: 3px;
   box-sizing: border-box;
   padding: 10px 20px;
+  margin-top: 0.5rem;
+}
+
+#content #COVID .choice i {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
 }
 
 #content #COVID .exit {

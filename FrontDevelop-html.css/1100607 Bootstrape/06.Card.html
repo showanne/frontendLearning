@@ -191,18 +191,18 @@
   <hr>
 
   <div class="container">
-    <h3>為使不同高度之 .card 看起來一致</h3>
-
     <h4>
-      將 .card-body 轉為彈性項目 (d-flex) </h4>
-    <h4>
-      並將 .card-text 內的內容 以下列三種方式將剩餘的空間進行比例分配給彈性項目，
+      為使不同高度之 .card 看起來一致，先將歌度設 h-100<br>
+      將 .card-body (原為彈性項目，.card 是彈性盒) 轉為彈性盒 (d-flex) <br>
+      並將裡面內容(Ex. card-title / card-text / btn) 轉為彈性項目好分配剩餘空間
+      並將 .card-text 內的內容 以下列三種方式將剩餘的空間進行比例分配給彈性項目：<br>
       <ul>
-        <li>mb-auto</li>
-        <li>flex-fill</li>
-        <li>flex-grow-1</li>
+        <li>mb-auto → 把空間推出去</li>
+        <li>flex-fill → 把剩餘空間分給自己</li>
+        <li>flex-grow-1 → 把剩餘空間分給自己</li>
       </ul>
-      ??????
+
+      Tip：可先在 .col-sm-4 加背景顏色測試高度
     </h4>
 
     <div class="row align-items-stretch ">
@@ -211,11 +211,12 @@
           <img src="https://picsum.photos/400/350/?random=1" class="card-img-top" alt="...">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text mb-auto">Some quick example text to build Lorem ipsum, dolor sit amet consectetur
-              adipisicing
-              elit. Blanditiis repudiandae dolore omnis eveniet, ab, vero maxime consectetur et, at unde voluptatum ea
-              illo eos sapiente nam optio earum voluptatibus rem? on the card title and make up the bulk of the card's
-              content.
+            <p class="card-text mb-auto">
+              Some quick example text to build Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Blanditiis repudiandae dolore omnis eveniet,
+              ab, vero maxime consectetur et, at unde voluptatum ea
+              illo eos sapiente nam optio earum voluptatibus rem? on the card
+              title and make up the bulk of the card's content.
             </p>
             <br>
             <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -224,12 +225,12 @@
       </div>
       <div class="col-sm-4">
         <div class="card h-100">
-          <img src="https://picsum.photos/400/350/?random=1" class="card-img-top" alt="...">
+          <img src="https://picsum.photos/400/350/?random=2" class="card-img-top" alt="...">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text flex-fill">Some quick example text to build on the card title and make up the bulk of
-              the card's
-              content.
+            <p class="card-text flex-fill">
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
             </p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
@@ -237,12 +238,12 @@
       </div>
       <div class="col-sm-4">
         <div class="card h-100">
-          <img src="https://picsum.photos/400/350/?random=1" class="card-img-top" alt="...">
+          <img src="https://picsum.photos/400/350/?random=3" class="card-img-top" alt="...">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text flex-grow-1">Some quick example text to build on the card title and make up the bulk of
-              the card's
-              content. Lorem ipsum dolor sit amet co quidem nesciunt voluptatem.
+            <p class="card-text flex-grow-1">
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content. Lorem ipsum dolor sit amet co quidem nesciunt voluptatem.
             </p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
@@ -293,35 +294,70 @@
   </div>
 
   <div class="container">
-    <h3 class="mt-2">卡片導覽</h3>
-    <h4>使用 Bootstrap 導覽元件 向卡片的標題（或塊）添加一些導覽。</h4>
+    <h3 class="mt-2">圖像覆蓋 .card-img-overlay</h3>
+    <h4>將圖像轉換為卡片背景，並疊加卡片的文字。 根據圖像，你可以選擇是否需要額外的樣式或通用類別。</h4>
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-6 p-3">
+        <h5 class=" border border-warning p-2">
+          法 1 將四邊位移設定為0就是填滿整個父元素
+          <pre><code>
+  .card-img-overlay {
+  position: absolute;<span style="color: deeppink;">
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;  </span>
+  padding: 1.25rem;
+  }</code></pre>
+        </h5>
+      </div>
+      <div class="col-6 p-3">
+        <h5 class=" border border-warning p-2">
+          法 2 將寬高設定為100 也是填滿整個父元素 <br>
+          缺點：無法位移
+          <pre><code>
+  .card-img-overlay {
+  position: absolute;<span style="color: darkorange;">
+  width: 100%;
+  height: 100%;</span>
+  padding: 1.25rem;
+  }</code></pre>
+        </h5>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-sm-6">
         <div class="card h-100 bg-dark text-white">
           <img src="https://picsum.photos/1920/1080/?random=1" class="card-img w-100 h-100" style="object-fit:cover;">
           <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <pre>
-  .card-img-overlay {
+            <h5 class="card-title text-warning">.card-img-overlay + img + style="object-fit:cover;"</h5>
+
+            <p class="card-text">
+            <pre><code>
+&lt;img src="https://picsum.photos/1920/1080/?random=1"
+ class="card-img w-100 h-100" style="object-fit:cover;" &gt;
+&lt; div class="card-img-overlay" &gt;
+              
+    <!-- .card-img-overlay {
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0; → 占滿整個
-    width: 100%; height: 100%; →
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 100%; height: 100%;
     padding: 1.25rem;
-    border-radius: calc(0.25rem - 1px);
-  }
-            </pre>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content.
-              This content is a little bit longer.</p>
+    border-radius: calc(0.25rem - 1px);} -->
+  </code></pre>
+            </p>
             <p class="card-text btn btn-light">Last updated 3 mins ago</p>
           </div>
         </div>
       </div>
-      <div class="col-sm-7">
+      <div class="col-sm-6">
         <div class="card h-100 bg-dark text-white">
           <div class="card-body"
                style="background: url('https://picsum.photos/1920/1080/?random=2') no-repeat center center/cover;">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title text-warning">background-image</h5>
             <pre>
   style {
     style="background: url('https://picsum.photos/1920/1080/?random=2') 
@@ -339,6 +375,8 @@
   </div>
 
   <div class="container">
+    <h3 class="bg-primary">column-count</h3>
+
     <h5>
       <pre>
   .card-columns {
@@ -354,36 +392,9 @@
       </pre>
     </h5>
     <div class="card-columns">
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title that wraps to a new line</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-            content.
-            This content is a little bit longer.</p>
-        </div>
-      </div>
-      <div class="card p-3">
-        <blockquote class="blockquote mb-0 card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">
-            <small class="text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
       <div class="card bg-primary text-white text-center p-3">
         <blockquote class="blockquote mb-0">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+          <p>Card1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
           <footer class="blockquote-footer text-white">
             <small>
               Someone famous in <cite title="Source Title">Source Title</cite>
@@ -391,19 +402,19 @@
           </footer>
         </blockquote>
       </div>
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-      </div>
       <div class="card p-3 text-right">
         <blockquote class="blockquote mb-0">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <p>Card2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card p-3">
+        <blockquote class="blockquote mb-0 card-body">
+          <p>Card3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
           <footer class="blockquote-footer">
             <small class="text-muted">
               Someone famous in <cite title="Source Title">Source Title</cite>
@@ -412,8 +423,35 @@
         </blockquote>
       </div>
       <div class="card">
+        <img src="https://picsum.photos/600/360/?random=1" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">Card4 title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/920/680/?random=1" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card5 title that wraps to a new line</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content.
+            This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Card6 title</h5>
+          <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/300/180/?random=7" class="card-img-top" alt="...">
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card8 title</h5>
           <p class="card-text">This is another card with title and supporting text below. This card has some additional
             content to make it slightly taller overall.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -423,7 +461,27 @@
   </div>
 
   <div class="container">
-    <h3>column-count</h3>
+    <h3 class="bg-primary">column-count 嘗試</h3>
+    <p class="pl-5">
+    <pre class="text-primary"><code>
+.content {
+/* 欄位數量 */
+column-count: 2;
+/* 欄位空隙寬度 */
+column-gap: 30px;
+/* 欄位間的直線 */
+column-rule: 4px dotted #aaa;
+}
+
+.content div {
+padding: 1rem;
+}
+
+.content div::first-letter {
+font-size: 2.5rem;
+font-weight: bold;
+}</code></pre>
+    </p>
     <div class="content">
       <div>
         1Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ipsum odio, impedit voluptatem quo aperiam saepe
