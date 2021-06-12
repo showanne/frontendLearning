@@ -5,25 +5,58 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>homework_name_card</title>
+  <title>Anne's business_card</title>
 
   <!-- bootstrap.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
 
   <style>
+    /* #fffcf0 #dedcee #6a60a9 #fbd14b */
+    /* #A593E0 #E0E3DA #FFFFF3 #566270 */
+
     body {
-      background-color: #251b38;
-      color: #251b38;
+      background-color: #A593E0;
+      color: #FFFFF0;
     }
 
     body a {
-      color: #39265c;
+      text-decoration: none;
+      padding: 1px 9px;
+    }
+
+    /* 連結初始顏色 */
+    a:link {
+      color: #FFFFF0;
       text-decoration: none;
     }
 
+    /* 拜訪過的顏色 */
+    a:visited {
+      color: #E0E3DA;
+    }
+
+    /* 滑鼠移入的顏色 */
+    a:hover {
+      color: #FFFFF0;
+      background-color: #A593E055;
+    }
+
+    /* 點擊時的顏色 */
+    a:active {
+      color: #A593E0;
+      background-color: #A593E055;
+    }
+
     .business-card {
-      background-color: #bad;
+      background-color: #566270;
       overflow: hidden;
+      /* filter: drop-shadow(0px 10px 11px #3a3a3a); */
+      /* box-shadow: 0px 5px 11px 0px #3a3a3a; */
+    }
+
+    .contact p {
+      /* line-height: 1.5rem; */
+      margin: 0.3rem 0;
     }
 
     .imghead img {
@@ -47,11 +80,11 @@
         margin-right: -15px;
         width: 0;
         height: 0;
-        /* background-color: #251b38; */
+        /* background-color: #A593E0; */
 
         border-style: solid;
         border-width: 0 150px 150px 0;
-        border-color: transparent #251b38 transparent transparent;
+        border-color: transparent #A593E0 transparent transparent;
         filter: drop-shadow(0px 0px 11px #3a3a3a);
 
         /* clip-path: polygon(0 0, 100% 100%, 100% 0); */
@@ -66,13 +99,13 @@
 
         width: 0;
         height: 0;
-        /* background-color: #251b38; */
+        /* background-color: #A593E0; */
         margin-left: -15px;
 
 
         border-style: solid;
         border-width: 150px 0 0 150px;
-        border-color: transparent transparent transparent #251b38;
+        border-color: transparent transparent transparent #A593E0;
         filter: drop-shadow(0px 0px 11px #3a3a3a);
 
         /* clip-path: polygon(0 0, 0% 100%, 100% 100%); */
@@ -113,10 +146,18 @@
               <p class="h5 mt-1 mb-0">Front-end Developer</p>
             </div>
             <div class="contact">
-              <p class="m-0">住址：<a href="#">OOXX.XXOO.OOXX</a></p>
-              <p class="m-0">電話：<a href="tel:+0900000000"></a>0900-000000</p>
-              <p class="m-0">信箱：<a href="mailto:OOXX.XXOO.com">OOXX.XXOO.com</a> </p>
-              <p class="m-0">網站：<a href="https://showanne.github.io/" title="Anne's Portfolio">A.XXOO.com</a></p>
+              <p>
+                住址：<a href="#">OOXX.XXOO.OOXX</a>
+              </p>
+              <p>
+                電話：<a href="tel:0918184250">0900-000000</a>
+              </p>
+              <p>
+                信箱：<a href="mailto:s85120ss@gmail.com">OOXX.XXOO.com</a>
+              </p>
+              <p>
+                網站：<a href="https://showanne.github.io/" title="Anne's Portfolio">A.XXOO.com</a>
+              </p>
             </div>
           </div>
         </div>
