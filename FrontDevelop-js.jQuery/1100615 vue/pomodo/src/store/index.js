@@ -46,11 +46,11 @@ export default new Vuex.Store({
       state.list.splice(data, 1)
     },
     start (state) {
-      state.timeleft = state.isBreak ? timeBreak : time
-      state.current = state.list.shift().name
-    },
-    addCurrent (state) {
-      state.current = state.list.shift().name
+      if (state.isBreak) {
+        state.current = '休息一下'
+      } else {
+        state.current = state.list.shift().name
+      }
     },
     changeStatus (state, data) {
       state.status = data

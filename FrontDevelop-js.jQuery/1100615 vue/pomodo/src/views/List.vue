@@ -77,6 +77,9 @@ export default {
         }
         return item
       })
+    },
+    finished () {
+      return this.$store.state.finished
     }
   },
   methods: {
