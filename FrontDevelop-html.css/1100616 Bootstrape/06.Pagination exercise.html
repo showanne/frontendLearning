@@ -48,6 +48,7 @@
         <nav class="d-flex justify-content-center align-items-center">
           <a id="prev" class="page-link" href="#">Prev</a>
           <ul id="allPage" class="pagination justify-content-center align-items-center mb-0">
+            <!-- ul 有預設 mb ，此處不需要所以設 mb-0 -->
             <!-- jquery 產生 -->
           </ul>
           <a id="next" class="page-link" href="#">Next</a>
@@ -64,14 +65,17 @@
 
   <script>
     // 筆記.....
-    let data = null
-    let pageCount = 10
-    let pageIndex = 1 // 第幾頁變數，預設顯示第 1 頁
-    let totalPage = 0
-    let pageBox = [] //將總比數資料切成好幾批存放
+    let data = null    // 接收 API 資料的容器
+    let pageCount = 10 //每頁顯示的資料筆數
+    let pageIndex = 1  // 頁碼，預設顯示第 1 頁
+    let totalPage = 0  // 總頁數
+    let pageBox = []   // 將總筆數資料切成好幾批存放，每批為一組陣列 1~10、11~20 ...
 
+    // 顯示第幾頁資料
     function pageShow(array) {
+      // 一開始沒有東西
       $('#tab-page tbody').html('')
+
       for (let item of array) {
         $('#tab-page tbody').append(`
         <tr>
@@ -84,58 +88,81 @@
     }
 
     $.ajax({
+      // API 位置，要擷取資料的 URL
       url: 'https://jsonplaceholder.typicode.com/albums',
+      // http 請求方式
       type: 'get',
       success: function (res) {
         data = res
-        totalPage = Math.ceil(data.length / pageCount)  // 計算總頁數， Math.ceil()無條件進位 將未被整除....
+        // 計算總頁數， Math.ceil()無條件進位 將未被整除多餘的資料放進新的一頁
+        totalPage = Math.ceil(data.length / pageCount)
         // console.log(data);
+
         for (let i = 1; i <= totalPage; i++) {
-          pageBox[i] = data.slice(0 + pageCount * (i - 1), i * pageCount) //slice(0, 10)
+          //slice(0, 10) 從第0個開始切割10個(取 0 1 2 3 4 5 6 7 8 9 共10個)，放進 pageBox[]
+          pageBox[i] = data.slice(0 + pageCount * (i - 1), i * pageCount)
           $('#allPage').append(`
           <li class="page-item">
              <a href="#" class="page-link"> ${i} </a>
           </li>`)
         }
         // console.log(pageBox);
+        // 一開始，顯示 現在(pageIndex) 的資料，預設第1頁
         pageShow(pageBox[pageIndex])
+
+        // 一開始，預設 第1頁(eq(0)) 是啟動狀態 (.active)
         $('#allPage a').eq(0).parent().addClass('active')
 
-        // 
+        // 點哪一頁，顯示那一頁
         // index 從 0 開始
         $('#allPage a').each(function (index) {
           $(this).on('click', function (e) {
             // console.log(e);
-            e.preventDefault()  // 阻止 a 連結跳動
+            // 阻止 a 連結預設跳頁行為 <a href="#">
+            e.preventDefault()
+            // 此處 index 為 0 轉換成 pageIndex 需 +1
             pageIndex = index + 1
+            // 點哪一頁，顯示該 pageIndex 頁
             pageShow(pageBox[pageIndex])
-            $(this).parent().siblings().removeClass('active') // 將父母層的同層所有移除 .active
-            $(this).parent().addClass('active') // 將自己父母層加 .active
+            // 將父母(li)層的同層所有移除 .active
+            $(this).parent().siblings().removeClass('active')
+            // 將自己父母層加 .active
+            $(this).parent().addClass('active')
           })
         })
 
-        // 
+        // 顯示下一頁
         $('#next').on('click', function (e) {
+          // 阻止 a 連結預設跳頁行為 <a href="#">
           e.preventDefault()
+          // 翻頁，頁碼 +1
           pageIndex++
+          // 判斷 本頁 ≦ 總頁數 做的事情
           if (pageIndex <= totalPage) {
+            // 顯示新翻的頁
             pageShow(pageBox[pageIndex])
+            // 並將其餘父層的 .active 移除
             $('#allPage li').removeClass('active')
+            // 再將自己父層 加上 .active 
+            // 因為 eq() 從 0 開始，所以 pageIndex 要 - 1
             $('#allPage li').eq(pageIndex - 1).addClass('active')
           } else {
+            // 當 本頁 ＞ 總頁數 時，就讓 本頁 = 總頁數 ，然後進到前面的判斷去做事 (不能超過總頁數會出錯)
             pageIndex = totalPage
           }
         })
 
-        // 
+        // 顯示上一頁
         $('#prev').on('click', function (e) {
           e.preventDefault()
           pageIndex--
+          // 判斷 本頁 ≧ 1 做的事情
           if (pageIndex >= 1) {
             pageShow(pageBox[pageIndex])
             $('#allPage li').removeClass('active')
             $('#allPage li').eq(pageIndex - 1).addClass('active')
           } else {
+            // 當 本頁 ＜ 1 時，就讓 本頁 = 1 ，然後進到前面的判斷去做事
             pageIndex = 1
           }
         })
