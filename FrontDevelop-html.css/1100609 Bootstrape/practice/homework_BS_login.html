@@ -22,12 +22,13 @@
     }
 
     .bg-glassmorphism {
-      background: rgba(56, 79, 126, 0.50);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      background: #384f7e5e;
+      box-shadow: 0 8px 32px 0 #1f26875e;
       backdrop-filter: blur(5.5px);
       -webkit-backdrop-filter: blur(5.5px);
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.18);
+      filter: drop-shadow(0px 0px 6px #bad);
     }
 
     .login-icon {
@@ -43,7 +44,13 @@
       font-size: 95px;
       line-height: 90px;
       color: #2a2161;
+      /* color: slateblue; */
       filter: drop-shadow(0px 0px 6px #bad);
+    }
+
+    .input-group .material-icons,
+    .login-icon .material-icons {
+      color: #2a2161;
     }
 
     /* .input-group.has-validation>.dropdown-toggle:nth-last-child(n + 4)  */
@@ -51,6 +58,20 @@
       border-top-right-radius: .25rem;
       border-bottom-right-radius: .25rem;
     } */
+
+    .text-c1 {
+      color: #bad;
+    }
+
+    .text-c2 {
+      color: #2a2161;
+    }
+
+    .btn-c2 {
+      background-color: #2a2161;
+      color: #bad;
+      border-color: #2a2161;
+    }
 
     /* 輸入欄位佔位幅樣式 */
     .form-control::placeholder {
@@ -62,7 +83,7 @@
 <body>
   <div class="container-fluid vh-100 w-100">
     <div class="row h-100 w-100 justify-content-center align-items-center">
-      <div class="col-12 col-md-4 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-5 col-xl-4">
         <div class="card justify-content-center bg-glassmorphism ">
           <div class="card-header mx-auto bg-transparent border-0">
             <div class="login-icon text-center rounded-circle">
@@ -72,7 +93,7 @@
             </div>
           </div>
           <div class="card-body mb-4">
-            <h5 class="card-title text-center fs-2">Sign In</h5>
+            <h5 class="card-title text-center fs-2 text-c1">Sign In</h5>
 
             <!-- .g-* .row 內的 .col 的間距 -->
             <form class="row justify-content-center g-3 mt-3 needs-validation" novalidate>
@@ -81,7 +102,7 @@
               <div class="col-11">
                 <!-- <label for="Username" class="form-label">Username</label> -->
                 <div class="input-group has-validation">
-                  <span class="input-group-text bg-transparent border-end-0 material-icons"
+                  <span class="input-group-text bg-white border-end-0 material-icons"
                         id="p-Username">account_circle</span>
                   <input type="text" class="form-control border-start-0" id="Username" placeholder="Username"
                          aria-describedby="p-Username" required>
@@ -99,7 +120,7 @@
               <div class="col-11">
                 <!-- <label for="Password" class="form-label">Password</label> -->
                 <div class="input-group has-validation">
-                  <span class="input-group-text bg-transparent border-end-0 material-icons"
+                  <span class="input-group-text bg-white border-end-0 material-icons"
                         id="p-Password">model_training</span>
                   <input type="text" class="form-control border-start-0" id="Password" placeholder="Password"
                          aria-describedby="p-Password" required>
@@ -113,10 +134,11 @@
                 </div>
               </div>
 
+              <!-- Remember me. -->
               <div class="col-5">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                  <label class="form-check-label" for="invalidCheck">
+                  <label class="form-check-label text-c1" for="invalidCheck">
                     Remember me.
                   </label>
                   <div class="invalid-feedback">
@@ -125,21 +147,22 @@
                 </div>
               </div>
 
-              <div class="col-6">
-                <a href="#" class="text-decoration-none">
+              <!-- Forgot Password? -->
+              <div class="col-6 text-end">
+                <a href="#" class="text-decoration-none text-c2">
                   <span class="material-icons align-middle"> contact_support </span>
                   Forgot Password?
                 </a>
               </div>
 
-              <!-- <div class="col-3"> -->
-              <button class="col-5 btn btn-primary" type="submit">
+              <!-- Login -->
+              <button class="col-5 btn btn-c2" type="submit">
                 <p class="m-0 p-1">
                   Login
-                  <span class="material-icons align-middle me-2 "> published_with_changes </span>
+                  <span class="material-icons align-middle ms-2 "> published_with_changes </span>
                 </p>
               </button>
-              <!-- </div> -->
+
             </form>
           </div>
         </div>
