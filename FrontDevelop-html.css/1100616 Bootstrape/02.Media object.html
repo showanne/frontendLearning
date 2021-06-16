@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media object</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #cee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <code class="highlighter-rouge">&lt; form &gt;</code> -->
+
+  <div class="container">
+    <h3 class="mt-2">媒體物件 (Media object)</h3>
+    <p>media-body{ flex:1 (fle-grow:1) } 將圖片以外剩餘空間分配給media-body</p>
+    <p>媒體物件...?.?</p>
+    <div class="row">
+      <div class="col">
+        <div class="media">
+          <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">Media heading</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4 class="">巢狀</h4>
+    <h3>媒體物件可以無限做巢狀，但是我們建議你別作過頭。將巢狀的媒體.media放在父媒體對象的.media-body內。</h3>
+    <div class="media">
+      <img src="https://picsum.photos/65/65/?random=1" class="mr-3" alt="...">
+      <div class="media-body">
+        <h5 class="mt-0">Media heading</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    
+        <div class="media mt-3">
+          <a class="mr-3" href="#">
+            <img src="https://picsum.photos/65/65/?random=2" class="mr-3" alt="...">
+          </a>
+          <div class="media-body">
+            <h5 class="mt-0">Media heading</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+            <div class="media mt-3">
+              <a class="mr-3" href="#">
+                <img src="https://picsum.photos/65/65/?random=2" class="mr-3" alt="...">
+              </a>
+              <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4 class="">媒體列表</h4>
+        <h5>?????...由於媒體物件具有較少的結構要求，你也可以在清單 HTML 元素上使用這些 class。在你的 ul 或 ol 上，增加 .list-unstyled，以移除任何瀏覽器預設清單樣式，然後對你的 li 應用 .media。當然，你也可以使用間隔調整工具。</h5>
+        <ul class="list-unstyled">
+          <li class="media">
+            <img src="https://picsum.photos/65/65/?random=3" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media my-4">
+            <img src="https://picsum.photos/65/65/?random=4" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media">
+            <img src="https://picsum.photos/65/65/?random=5" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4 class=""></h4>
+
+      </div>
+    </div>
+  </div>
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

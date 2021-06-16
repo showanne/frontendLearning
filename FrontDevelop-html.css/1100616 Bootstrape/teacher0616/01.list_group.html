@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List group</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h2,
+    h3,
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>列表群組 (List group)</h2>
+    <h3>基礎範例</h3>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item active">Cras justo odio</li>
+          <li class="list-group-item disabled">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>連結和按鈕</h3>
+    <p>使用 a 或 button 加入 .list-group-item-action 來創建具有 hover、disable 和 active狀態的動態清單項目。
+      分離這些 Class，以確保由非交互元素組成的列表群組（如 li 或 div）不提供可點點擊或觸擊。</p>
+    <div class="row">
+      <div class="col">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+          <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+          <!-- a 使用 .disable class -->
+          <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="list-group">
+          <button type="button" class="list-group-item list-group-item-action active">
+            Cras justo odio
+          </button>
+          <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+          <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+          <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+          <!-- button 使用 disable 屬性 -->
+          <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>緊貼</h3>
+    <p>加入 .list-group-flush 來移除部分邊框及圓角，用來產生邊緣貼齊的列表群組，這可用在一個容器內(如：card)。</p>
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+    <h4>放在 card 裡面的 .list-group-flush </h4>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>帶標籤</h4>
+    <p>在某些 通用類別 的幫助下，向任何列表項目添加標籤以顯示未讀計數、活動等。</p>
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Cras justo odio
+            <span class="badge badge-primary badge-pill">14</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Dapibus ac facilisis in
+            <span class="badge badge-primary badge-pill">2</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Morbi leo risus
+            <span class="badge badge-primary badge-pill">1</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>自定義內容</h4>
+    <p>在 flexbox 通用類別 的幫助下，添加幾乎任何的 HTML 或內容、連結等，都能加入到一個項目內。</p>
+    <div class="row">
+      <div class="col">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small>Donec id elit non mi porta.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small class="text-muted">Donec id elit non mi porta.</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">List group item heading</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <small class="text-muted">Donec id elit non mi porta.</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>JavaScript 行為</h3>
+    <h4>透過 data-toggle="list" 來觸發分頁切換的功能</h4>
+    <div class="row">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab"
+             aria-controls="home">Home</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
+             aria-controls="profile">Profile</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab"
+             aria-controls="messages">Messages</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab"
+             aria-controls="settings">Settings</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+            聯繫電話機構放在立刻手續把你圖像化擴大不在，便宜出去本報其它文字移動進入下載，民族注重吸引固定財產抽菸區差不多，兩個什麼是威脅共同跟我得知本書，海外最終打開其他點此以便，承擔分別你還老師公佈所在玄幻招生成熟老人希望理解之家，變得小姐一人警告，品牌快車阿宅。
+          </div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+            學術公斤忘記練習最重要買了活力執行時間，權益指定長沙歡迎光臨公共政策思想說完今日白色關鍵我現在不好，隱藏版老人預防稱為站內不住大盤流程笑容，對不起一絲，本論壇民族說話，對著家庭房地產成為花蓮選單試試好友或許國外，喜愛其實保證規則精英，寫真妻子，短信一臉歐。
+          </div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+            懷疑速度周圍，明年大大支付蒐集檔案大多數早上招標委託看不到難得，總算美麗知道農民措施內地不好意思手上，不得這個本週這種藥品進來苗栗不願討論感到進來精品初音就像，庫存創建免費電影演員值得，可憐抱著聊天權利允許打印一遍顯然後果平均，結婚顧問，空中平時，打印交。
+          </div>
+          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+            如同國外十年探索商業圖形，如此傢俱不用魔法不停典型正是我愛滿足輸入任何還沒死了據說領域，所需發達之一部落格遵守聯合輸出只需，轉身每一個本來保留博士提供作出溫度有着站長再說主義必須，英國資料承擔流行批准哪些，原料貫徹予以，女士添加例如溫度所說解決便是至少一。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  </script>
+</body>
+
+</html>

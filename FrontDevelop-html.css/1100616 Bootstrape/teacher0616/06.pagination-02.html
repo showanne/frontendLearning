@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css'
+        integrity='sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==' crossorigin='anonymous' />
+
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h2,
+    h3,
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+      padding-bottom: 500px;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table id="kaifu" class="table table-dark">
+          <thead>
+            <tr>
+              <th style="width:10%">userId</th>
+              <th>id</th>
+              <th>title</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <nav class="d-flex justify-content-center align-items-center">
+          <a id="prev" class="page-link" href="#">上一頁</a>
+          <ul id="allPage" class="pagination justify-content-center align-items-center mb-0"></ul>
+          <a id="next" class="page-link" href="#">下一頁</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    let data = null // 容器，接收 ajax 資料
+    let pageCount = 10 // 每頁顯示幾筆資料
+    let pageIndex = 1 // 第幾頁，預設顯示第 1 頁
+    let totalPage = 0 // 全部的頁數
+    let pageBox = [] // 總筆數資料切成好幾批存放，每批一組陣列 1~10，11~20，21~30 ...
+
+    // 顯示第幾頁資料
+    function pageShow(array) {
+      $('#kaifu tbody').html('')
+      for (let item of array) {
+        $('#kaifu tbody').append(`
+          <tr>
+            <td>${item.userId}</td>
+            <td>${item.id}</td>
+            <td>${item.title}</td>
+        `)
+      }
+    }
+
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/albums', // API 位置，要擷取資料的 URL
+      type: 'get', // http 請求方式
+      success: function (res) {
+        data = res
+        totalPage = Math.ceil(data.length / pageCount) // 計算總頁數，Math.ceil() 將未被整除多餘的資料放進新的一頁
+        for (let i = 1; i <= totalPage; i++) {
+          pageBox[i] = data.slice(0 + pageCount * (i - 1), i * pageCount)
+          $('#allPage').append(`<li class="page-item"><a class="page-link" href="#">${i}</a></li>`)
+        }
+        // 一開始，顯示第一頁資料
+        pageShow(pageBox[pageIndex])
+        // 一開始，第一頁 active
+        $('#allPage a').eq(0).parent().addClass('active')
+
+        // 點哪一頁顯示那一頁的筆數
+        $('#allPage a').each(function (index) {
+          $(this).on('click', function (e) {
+            e.preventDefault()
+            pageIndex = index + 1
+            pageShow(pageBox[pageIndex])
+            $(this).parent().siblings().removeClass('active')
+            $(this).parent().addClass('active')
+          })
+        })
+
+        // 顯示下一頁
+        $('#next').on('click', function (e) {
+          e.preventDefault()
+          pageIndex++
+          if (pageIndex <= totalPage) {
+            pageShow(pageBox[pageIndex])
+            $('#allPage li').removeClass('active')
+            $('#allPage li').eq(pageIndex - 1).addClass('active')
+          } else {
+            pageIndex = totalPage
+          }
+        })
+
+        // 顯示上一頁
+        $('#prev').on('click', function (e) {
+          e.preventDefault()
+          pageIndex--
+          if (pageIndex >= 1) {
+            pageShow(pageBox[pageIndex])
+            $('#allPage li').removeClass('active')
+            $('#allPage li').eq(pageIndex - 1).addClass('active')
+          } else {
+            pageIndex = 1
+          }
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navs</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css'
+        integrity='sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==' crossorigin='anonymous' />
+
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h2,
+    h3,
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+      padding-bottom: 500px;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>導覽 (Navs)</h3>
+    <h4>.nav 組件本身是彈性盒 flexbox，運用很靈活。</h4>
+    <ul>
+      <li>可以使用 ul、ol 的結構設計導覽</li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <ul>
+      <li>可以使用 nav 與 a 結構來設計導覽</li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <nav class="nav">
+          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>水平對齊 .justify-content-*</h4>
+    <ul class="nav justify-content-start">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>垂直 .flex-column</h4>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>分頁標籤</h4>
+    <p>從基本導覽加入 .nav-tabs 或 .nav-pills 以生成具有分頁標籤的介面。</p>
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h3>填充和對齊</h3>
+    <h4>nav-fill</h4>
+    <p>.nav 內容有兩種擴展寬度的 class，.nav-fill 會將剩餘的空間平均分配給 .nav-item 內容左右兩側的空間，但並不是每個導覽項目都具有相同寬度。</p>
+    <div class="row">
+      <div class="col-12">
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">Activeaaaaaaaaaaaaa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">Longer nav linkaaaaaa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">Linkaaaaaaaaaaaaaaa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <h4>nav-justified</h4>
+    <p>若想讓 .nav-item 導覽項目等寬，可以使用 .nav-justified。</p>
+    <div class="row">
+      <div class="col-12">
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Longer nav link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Linkaaaa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Disabledaaaaaaaa</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>JavaScript 行為</h4>
+    <div class="row">
+      <div class="col">
+        <!-- .nav-tabs 可以換成 .nav-pills 藥丸形狀 -->
+        <ul class="nav nav-pills" id="myTab">
+          <li class="nav-item">
+            <!-- data-toggle 觸發 tab 功能，注意對應的 id -->
+            <a class="nav-link active" id="home-tab" data-toggle="pill" href="#kaifu1">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="pill" href="#kaifu2">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="pill" href="#kaifu3">Contact</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="kaifu1">
+            第二制度不說細節崇拜種種願意，所謂吃飯儘管老大測試基本求職夢想，檢索曝光中壢所有此外都在範圍學術動作計算，空調下載環節藝術不願審核移動防止互相強化，輕輕排行榜招生地理寫出來藍色動畫接下來特別意大利同時明確，在此體制相關執法對我很容易選擇女孩子高中，身體男。
+          </div>
+          <div class="tab-pane fade" id="kaifu2">
+            男生地面作用忽然黃金傷害，公斤差不多研發房價圖文通信空調金額經濟機器，思考開發商這款花蓮五金範圍內地，便利商店你看看了，保障什麼事引發百姓從來沒發送，遊客你是問題天使，當前位置評論組成等等青草湖基於溫暖上來試題演出，常見電話告知，高雄請點擊，作戰東西本文。
+          </div>
+          <div class="tab-pane fade" id="kaifu3">
+            大哥特徵分析你就營養電器不明白辦公室以為打電話利益，信箱五金第一章我家的是多多吃飯不肯，軍隊是個速度對於，路線反應圖片頻道厲害研究生不行樣子不願意防治室內，說話或者稿件上路為你劇情到底內置工作執行環境，一定選擇便利商店傳輸檔案作用參與害怕有關農業，保存保。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+  </script>
+</body>
+
+</html>

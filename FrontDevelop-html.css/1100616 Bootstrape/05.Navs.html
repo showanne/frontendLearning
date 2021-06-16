@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navs</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #fdebc8;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <code class="highlighter-rouge">&lt; form &gt;</code> -->
+
+  <div class="container">
+    <h3 class="mt-2">導覽 (Navs)</h3>
+    <h4>
+      <ul>
+        <li>可以使用 ul li 結構設計導覽</li>
+        <li>.nav 組件本身是彈性盒 flexbox ....</li>
+        <li></li>
+      </ul>
+    </h4>
+    <div class="row">
+      <div class="col">
+        <h5>可以使用 ul li 結構設計導覽</h5>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>可以使用 nav 與 a 結構來設計導覽</h5>
+        <nav class="nav">
+          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h5>水平 .justify-content-*</h5>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="container">
+    <h5>垂直 .flex-column 通用類別更改 flex 項目的軸項</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4 class="">分頁標籤</h4>
+        <h5>從基本導覽加入 nav-tabs
+          ??????
+        </h5>
+        <h5>nav-pills ?????????</h5>
+        <ul class="nav nav-tabs">
+          <li class="nav-item nav-pills">
+            <a class="nav-link" href="#">nav-pills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h3>填充和對齊</h3>
+    <h4>.nav 內容有2種
+
+      <ul>
+        <li></li>
+        <li>.nav-justified</li>
+      </ul>
+    </h4>
+    <div class="row">
+      <div class="col">
+        <h4>nav-fill</h4>
+        <h5>將剩餘空間分配給每個 li 的左右空間</h5>
+        <ul class="nav nav-pills mb-2">
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">i,krhnmfguvioahgeiow,ry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">5yhryhuek7ek7y</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">hdjrj46</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#" tabindex="-1" aria-disabled="true">htahjtjh6wj</a>
+          </li>
+        </ul>
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">i,krhnmfguvioahgeiow,ry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">5yhryhuek7ek7y</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#">hdjrj46</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success text-white" href="#" tabindex="-1" aria-disabled="true">htahjtjh6wj</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>nav-justified</h4>
+        <h5>將所有空間平均分配給每個 li </h5>
+        <ul class="nav nav-pills nav-justified">
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Longer nav link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-danger text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>JavaScript 行為</h4>
+    <h5>
+      <ul>
+        <li>.nav-tabs 可換 .nav-pills 藥丸形狀</li>
+        <li></li>
+      </ul>
+    </h5>
+    <div class="row">
+      <div class="col">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel">. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum
+            eligendi voluptate modi, facilis deserunt harum nesciunt. ..</div>
+          <div class="tab-pane fade" id="profile" role="tabpanel">. Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum eligendi
+            voluptate modi, facilis deserunt harum nesciunt. ..</div>
+          <div class="tab-pane fade" id="contact" role="tabpanel">. Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum eligendi
+            voluptate modi, facilis deserunt harum nesciunt. ..</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h3>pill</h3>
+        <ul class="nav nav-pills" id="mypill" role="pilllist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-pill" data-toggle="pill" href="#home2">Home2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-pill" data-toggle="pill" href="#profile2">Profile2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-pill" data-toggle="pill" href="#contact2">Contact2</a>
+          </li>
+        </ul>
+        <div class="pill-content" id="mypillContent">
+          <div class="pill-pane fade show active" id="home2" role="pillpanel">. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum
+            eligendi voluptate modi, facilis deserunt harum nesciunt. ..</div>
+          <div class="pill-pane fade" id="profile2" role="pillpanel">. Lorem ipsum dolor sit amet, consectetur
+            adipisicing
+            elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum eligendi
+            voluptate modi, facilis deserunt harum nesciunt. ..</div>
+          <div class="pill-pane fade" id="contact2" role="pillpanel">. Lorem ipsum dolor sit amet, consectetur
+            adipisicing
+            elit. Accusamus sint aspernatur ipsa veritatis et vitae perferendis sed rerum ratione voluptatum eligendi
+            voluptate modi, facilis deserunt harum nesciunt. ..</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

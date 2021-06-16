@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media object</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h2,
+    h3,
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>媒體物件 (Media object)</h3>
+    <p>媒體物件 .media 是一個 flex，圖片、.media-body 是彈性項目，.media-body flex:1 分配了剩餘的空間</p>
+    <div class="media">
+      <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+      <div class="media-body">
+        <h5 class="mt-0">Media heading</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra
+        turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>巢狀</h4>
+    <p>媒體物件可以無限做巢狀，但是我們建議你別作過頭。將巢狀的媒體.media放在父媒體對象的.media-body內。</p>
+    <div class="row">
+      <div class="col">
+        <div class="media">
+          <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">Media heading</h5>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+            viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+            <div class="media mt-3">
+              <a class="mr-3" href="#">
+                <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+              </a>
+              <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h4>媒體列表</h4>
+    <p>在 ul 或 ol 上，增加 .list-unstyled，以移除任何瀏覽器預設清單樣式，然後對 li 應用 .media。當然，也可以使用間隔調整工具。</p>
+    <div class="row">
+      <div class="col">
+        <ul class="list-unstyled">
+          <li class="media">
+            <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+              viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media my-4">
+            <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+              viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+          <li class="media">
+            <img src="https://picsum.photos/75/75/?random=1" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">List-based media object</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+              viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  </script>
+</body>
+
+</html>

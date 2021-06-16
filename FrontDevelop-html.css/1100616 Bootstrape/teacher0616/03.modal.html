@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css'
+        integrity='sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==' crossorigin='anonymous' />
+
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    h2,
+    h3,
+    h4 {
+      margin: 1rem 0;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    .ani-in {
+      animation: ani-in 0.5s;
+    }
+
+    @keyframes ani-in {
+      from {
+        transform: translate(0, 300px) rotate(0deg);
+      }
+
+      to {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+
+    .ani-out {
+      animation: ani-out 0.5s;
+    }
+
+    @keyframes ani-out {
+      from {
+        transform: translate(0px) rotate(0deg);
+      }
+
+      to {
+        transform: translate(300px) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>互動視窗 (modal)</h3>
+    <h4>觸發按鈕</h4>
+    <ul>
+      <li>可以使用 button 或 a 元素觸發 modal 視窗，並啟動 data-toggle="modal" 效果</li>
+      <li>使用 button 元素時 data-target 的值須為 modal 主體的 id，使用 a 時，沒有 data-target，必須使用 href="#id"</li>
+    </ul>
+    <div class="row">
+      <div class="col">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kaifu">
+          觸發 modal 視窗按鈕
+        </button>
+        <a href="#kaifu" class="btn btn-primary" data-toggle="modal">
+          觸發 modal 視窗按鈕
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 主體 ---------------------------------------------------------------------->
+  <!-- data-backdrop="static 可鎖定背景，點擊深灰色背景時不關閉 modal -->
+  <div class="modal fade" id="kaifu" data-backdrop="static">
+    <!--
+      .modal-dialog-centered 可以讓整個 modal 垂直置中
+      可以調整視窗大小，使用 .modal-sm(300px)、.modal-lg(800px)、.modal-xl(1140px)，沒寫是 500px
+     -->
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <!-- .modal-content 資訊區可以分為 .modal-header、.modal-body、.modal-footer -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          各位靜靜學習授權方式各自所說使得溫州攻擊願意主持，因此容量南方，適合明年文本有限責任公司為什麼明天手續勞動大戰區別，對她群眾具備領域互動呼吸網址太多歡迎，面前承受一面現在接着娛樂，依法液晶重複思維所有人回答請大家，播放本來想法隨時就有治理推出如今理解完成首頁，北方昨天不多資訊夢想委託寫作然而工藝先後帶著允許，生意出現在資本二人，快速某個早上隊伍大力房屋，不可以最重要紡織更大但我方法審核中間轉移熱線失望任意改善，今日會不會給你做好工人新鮮，眼淚男女日期現在是因為全家，會議無論一大通常物業適應還在數碼相機之一展示眾人，咖啡原則成人男性權限眼淚，將會條件承受
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // $('a,button').on('click', function () {
+    //   $('.modal').removeClass('ani-out')
+    //   $('.modal').addClass('ani-in')
+    // })
+
+    // $('[data-dismiss="modal"]').on('click', function () {
+    //   $('.modal').removeClass('ani-in')
+    //   $('.modal').addClass('ani-out')
+    // })
+
+    $('.modal').on('show.bs.modal', function () {
+      $(this).removeClass('animate__backOutUp')
+      $(this).addClass('animate__animated animate__backInUp animate__faster')
+    })
+
+    $('.modal').on('hide.bs.modal', function () {
+      $(this).removeClass('animate__backInUp')
+      $(this).addClass('animate__animated animate__backOutUp animate__faster')
+      $(this).css('transition', '0.5s')
+    })
+  </script>
+</body>
+
+</html>
