@@ -1,3 +1,10 @@
+# 自動部署
+# github 的 Actions 頁面會顯示處理過程，包含重跑 npm install 及 npm run build
+# 當 github 該資料夾首頁 commit 旁邊出現 綠勾勾√ 代表打包完成
+# 這時可以打開分支 [ main ] 的下拉選單，切換到 gh-pages 資料夾(打包出來的檔案)代表成功
+# 接下來可以到 Settings → 側邊 Pages → 中間 None 下拉選單 改選 gh-pages → Save
+# 接下來上面會出現一行 √ Your site is published at https://.....  點按網址有出現剛剛做的畫面代表成功打包
+
 # Action 名稱
 name: Deploy
 # 觸發時機，當推送到分支 master 時
@@ -29,4 +36,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
+          # 打包後的資料夾預設名稱，會隨著不同 UI 工具需求變更
           folder: dist

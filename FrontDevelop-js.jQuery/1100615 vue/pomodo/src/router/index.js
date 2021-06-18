@@ -13,6 +13,14 @@ const routes = [
       title: '番茄鐘'
     }
   },
+  // {
+  //   path: '/settings',        當網頁路徑 為 '/    ' 時
+  //   name: 'Settings',         網頁名稱叫 '     '
+  //   component: () => import(/* webpackChunkName: "settings" */ '../views/Settings.vue'),                lazyload 當網頁展入時，還沒點到此頁，不會先載入
+  //   meta: {
+  //     title: '番茄鐘 | 設定'   網頁標籤名稱
+  //   }
+  // }
   {
     path: '/settings',
     name: 'Settings',
