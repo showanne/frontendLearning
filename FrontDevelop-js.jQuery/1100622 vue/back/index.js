@@ -9,6 +9,7 @@ import productsRoute from './routes/products.js'
 
 dotenv.config()
 
+// (node:13284) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
 // node 一長串訊息顯示提醒有某些套件即將過期，所以加下面這句解決
 //  { useNewUrlParser: true, useUnifiedTopology: true }
 mongoose.connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
