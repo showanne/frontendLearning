@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose'  // MongoDB 操作套件
 import validator from 'validator' // 驗證套件
 import md5 from 'md5' // 加密套件
 

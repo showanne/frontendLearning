@@ -1,6 +1,6 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser' // ???套件
+import express from 'express'  // 網頁伺服器
+import mongoose from 'mongoose'  // MongoDB 操作套件
+import bodyParser from 'body-parser' // 讀取傳入網頁伺服器的資料
 import cors from 'cors' // 跨域套件
 import users from './users.js'
 
