@@ -1,0 +1,374 @@
+{
+  "type": "flex",
+  "altText": "2851 Stock News",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://picsum.photos/960/540/?random=5",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "top",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://news.cnyes.com/news/id/4646801"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "5/17 ",
+                      "color": "#064d8888",
+                      "size": "sm",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "color": "#8c8c8c",
+                      "size": "xl",
+                      "flex": 0,
+                      "text": "|"
+                    },
+                    {
+                      "type": "text",
+                      "text": "〈每周CFTC報告〉投機者連4周加碼歐元多頭 看漲加元、英鎊意願上升",
+                      "size": "md",
+                      "color": "#064d88",
+                      "weight": "bold",
+                      "maxLines": 1,
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://news.cnyes.com/news/id/4646801"
+                      }
+                    }
+                  ],
+                  "spacing": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "backgroundColor": "#eaf3faee",
+              "paddingAll": "3px",
+              "offsetTop": "0px",
+              "paddingStart": "17px",
+              "paddingEnd": "17px"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://picsum.photos/960/540/?random=19",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "top",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://news.cnyes.com/news/id/4631211"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "4/19 ",
+                      "color": "#064d8888",
+                      "size": "sm",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "color": "#064d888c",
+                      "size": "xl",
+                      "flex": 0,
+                      "text": "|"
+                    },
+                    {
+                      "type": "text",
+                      "text": "日經：SUMCO考慮興建全新工廠 提升矽晶圓產量",
+                      "size": "md",
+                      "color": "#064d88",
+                      "weight": "bold",
+                      "maxLines": 1,
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://news.cnyes.com/news/id/4631211"
+                      }
+                    }
+                  ],
+                  "spacing": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "backgroundColor": "#eaf3faee",
+              "paddingAll": "3px",
+              "offsetTop": "0px",
+              "paddingStart": "17px",
+              "paddingEnd": "17px"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://cimg.cnyes.cool/prod/news/4545318/xl/9318311b67e3ba454931b7db6083556d.jpg",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "top",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://news.cnyes.com/news/id/4545318"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "11/25",
+                      "color": "#064d8888",
+                      "size": "sm",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "color": "#064d888c",
+                      "size": "xl",
+                      "flex": 0,
+                      "text": "|"
+                    },
+                    {
+                      "type": "text",
+                      "text": "內外資聯手砍聯電4.5萬餘張 買盤轉進航運股",
+                      "size": "md",
+                      "color": "#064d88",
+                      "weight": "bold",
+                      "maxLines": 1,
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://news.cnyes.com/news/id/4545318"
+                      }
+                    }
+                  ],
+                  "spacing": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "backgroundColor": "#eaf3faee",
+              "paddingAll": "3px",
+              "offsetTop": "0px",
+              "paddingStart": "17px",
+              "paddingEnd": "17px"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://cimg.cnyes.cool/prod/news/4536480/xl/32d2c5e6956d972f45b5bcc3402a701f.jpg",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "top",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://news.cnyes.com/news/id/4536480"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "10/27",
+                      "color": "#064d8888",
+                      "size": "sm",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "color": "#064d888c",
+                      "size": "xl",
+                      "flex": 0,
+                      "text": "|"
+                    },
+                    {
+                      "type": "text",
+                      "text": "強化公司治理 27家上市公司法說會11月陸續登場",
+                      "size": "md",
+                      "color": "#064d88",
+                      "weight": "bold",
+                      "maxLines": 1,
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://news.cnyes.com/news/id/4536480"
+                      }
+                    }
+                  ],
+                  "spacing": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "backgroundColor": "#eaf3faee",
+              "paddingAll": "3px",
+              "offsetTop": "0px",
+              "paddingStart": "17px",
+              "paddingEnd": "17px"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://cimg.cnyes.cool/prod/news/4506890/xl/ed21a1ce210c846a07b1cdc7e0aebd4d.jpg",
+              "size": "full",
+              "aspectMode": "cover",
+              "aspectRatio": "1:1",
+              "gravity": "top",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://news.cnyes.com/news/id/4506890"
+              }
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "7/16 ",
+                      "color": "#064d8888",
+                      "size": "sm",
+                      "flex": 0
+                    },
+                    {
+                      "type": "text",
+                      "color": "#064d888c",
+                      "size": "xl",
+                      "flex": 0,
+                      "text": "|"
+                    },
+                    {
+                      "type": "text",
+                      "text": "公司治理100指數新增台泥等27檔個股 7/17生效",
+                      "size": "md",
+                      "color": "#064d88",
+                      "weight": "bold",
+                      "maxLines": 1,
+                      "wrap": true,
+                      "action": {
+                        "type": "uri",
+                        "label": "action",
+                        "uri": "https://news.cnyes.com/news/id/4506890"
+                      }
+                    }
+                  ],
+                  "spacing": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "0px",
+              "offsetEnd": "0px",
+              "backgroundColor": "#eaf3faee",
+              "paddingAll": "3px",
+              "offsetTop": "0px",
+              "paddingStart": "17px",
+              "paddingEnd": "17px"
+            }
+          ],
+          "paddingAll": "0px"
+        }
+      }
+    ]
+  }
+}

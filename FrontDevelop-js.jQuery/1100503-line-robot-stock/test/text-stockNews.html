@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>text-stockNews</title>
+</head>
+
+<body>
+
+
+  <!-- axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    // const text = prompt('請輸入股票代號')
+
+    const news = async () => {
+      try {
+        const cors = 'https://cors-anywhere.herokuapp.com/'; // use cors-anywhere to fetch api data
+        const responseSearch = await axios.get(`${cors}https://api.cnyes.com/media/api/v1/search?q=0050`)
+
+        // const responseNews = await axios.get(`https://news.cnyes.com/news/id/${encodeURI(newsId)}`)
+
+        console.log(responseSearch);
+
+        document.write('<br>股票新聞搜尋：' + responseSearch.data)
+        // .data.items.data.title
+
+
+        setTimeout(() => {
+          console.log(responseSearch)
+        }, 1000)
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    news()
+  </script>
+
+</body>
+
+</html>

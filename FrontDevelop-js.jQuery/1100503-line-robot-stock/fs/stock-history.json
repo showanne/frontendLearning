@@ -1,0 +1,26 @@
+{
+  "type": "text",
+  "text": "2330 走勢",
+  "quickReply": {
+    "items": [
+      {
+        "type": "action",
+        "imageUrl": "https://img.icons8.com/nolan/2x/combo-chart.png",
+        "action": {
+          "type": "uri",
+          "label": "歷史走勢",
+          "uri": "https://www.google.com/finance/quote/2330:TPE?window=MAX"
+        }
+      },
+      {
+        "type": "action",
+        "imageUrl": "https://img.icons8.com/nolan/2x/combo-chart.png",
+        "action": {
+          "type": "uri",
+          "label": "即時走勢",
+          "uri": "https://www.google.com/finance/quote/2330:TPE"
+        }
+      }
+    ]
+  }
+}

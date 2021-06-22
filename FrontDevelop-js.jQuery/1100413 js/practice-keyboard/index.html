@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
   <!-- PaperCSS - the less formal CSS framework -->
   <!-- https://www.getpapercss.com/ -->
   <!-- <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css"> -->
@@ -18,9 +21,10 @@
 </head>
 <style>
   body {
+    min-width: 1655px;
     padding: 1.5rem 0.5rem;
     /* overflow: scroll; */
-    background-image: url('./images/watercolor.jpg');
+    background-image: url('./images/word_bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,16 +36,12 @@
 
   .info {
     width: 275px;
-    /* background-color: orange; */
-    /* text-align: center; */
     vertical-align: top;
     box-sizing: border-box;
     padding: 51px 19px;
   }
 
   .game {
-    /* width: calc(96% - 265px); */
-    /* background-color: rgb(234, 255, 239); */
     box-sizing: border-box;
     padding: 59px 39px;
   }
@@ -59,9 +59,6 @@
     transition: all 235ms ease-in-out 0s;
     backdrop-filter: blur(3.5px);
     -webkit-backdrop-filter: blur(3.5px);
-
-    /* border-radius: 5px; */
-    /* border: 1px solid rgba(255, 255, 255, 0.18); */
   }
 
   /* 神奇不規則線條 PaperCSS framework */
@@ -124,14 +121,6 @@
   /* 按鍵樣式效果 https://codepen.io/veronicadev/pen/GyGLyN */
   .key {
     text-decoration: none;
-    /* color: #000; */
-    /* margin: auto; */
-    /* width: 150px; */
-    /* display: inline-block; */
-    /* line-height: 40px; */
-    /* font-size: 12px; */
-    /* font-weight: 900; */
-    /* letter-spacing: 2px; */
     text-transform: uppercase;
     background-color: rgb(247, 255, 241);
     border: 3px solid #193520;
@@ -143,9 +132,6 @@
       4px 4px 0 #193520a2,
       5px 5px 0 #193520a2;
     position: relative;
-
-    /* transition: 0.5s; */
-    /* 加了後，按按鍵的效果會變很怪 */
   }
 
   .key:hover {
@@ -178,29 +164,14 @@
     background-color: #f61e1e7e;
   }
 
-  /* .key:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    background-color: #fff;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-  }
-
-  .key:hover:after {
-    background-color: #f6d51e;
-  } */
-
   /* sweetalert 框 的標題 */
   .swal2-title {
     font-size: 1.5em !important;
     line-height: 0.9;
+  }
+
+  .swal2-input {
+    margin: 0 auto !important;
   }
 </style>
 
@@ -209,7 +180,6 @@
     <!-- 觸發按鈕 -->
     <div class="center">
       <button class="paper-border mode" id="start">開始</button>
-      <!-- <button class="paper-border" id="stop">暫停</button> -->
       <button class="paper-border" id="end">結束</button>
       <button class="paper-border" id="switch">中英切換</button>
       <!-- <br> -->
@@ -351,20 +321,35 @@
 
 
     // 假如資料庫內有內容，將內容加到 ListScore
-    for (let S in ScoreStorage.StorageArr) {
-      if (ScoreStorage !== 0) {
-        ListScore.insertAdjacentHTML('beforeend', `
+    if (ScoreStorage !== 0) {
+      // 判斷資料多餘10筆，只印10筆
+      if (ScoreStorage.StorageArr.length > 10) {
+        console.log(ScoreStorage.StorageArr.length);
+        for (let i = (ScoreStorage.StorageArr.length - 10); i <= 10; i++) {
+          ListScore.insertAdjacentHTML('beforeend', `
+          <tr>
+            <td align="center">${ScoreStorage.StorageArr[i].level}</td>
+            <td align="center">${ScoreStorage.StorageArr[i].name}</td>
+            <td align="center">${ScoreStorage.StorageArr[i].key}鍵</td>
+            <td align="center">${ScoreStorage.StorageArr[i].error}鍵</td>
+            <td align="center">${ScoreStorage.StorageArr[i].time}秒</td>
+          </tr>
+          `)
+        }
+      } else {
+        for (let S in ScoreStorage.StorageArr) {
+          ListScore.insertAdjacentHTML('beforeend', `
         <tr>
           <td align="center">${ScoreStorage.StorageArr[S].level}</td>
           <td align="center">${ScoreStorage.StorageArr[S].name}</td>
           <td align="center">${ScoreStorage.StorageArr[S].key}鍵</td>
           <td align="center">${ScoreStorage.StorageArr[S].error}鍵</td>
           <td align="center">${ScoreStorage.StorageArr[S].time}秒</td>
-        </tr>
-        `)
+          </tr>
+          `)
+        }
       }
     }
-
 
     // 計算用 function
     const calc = () => {
@@ -449,12 +434,6 @@
       keyValue(2)  //初始二鍵模式
     }
 
-    // 暫停 按鍵 --好像可以不需要...或再增加繼續按鈕?
-    // btnStop.onclick = () => {
-    //   console.log('stop');
-    //   clearInterval(timer)
-    // }
-
     // 結束 按鍵
     btnEnd.onclick = () => {
       console.log('end');
@@ -469,9 +448,19 @@
       }
 
       Swal.fire({
-        title: `恭喜你成功按到 ${key} 個鍵，加油
-                <br>目前等級為 ${level()}
-                <br>路過請留下大名，謝謝`,
+        title: `恭喜你，路過請留下大名，謝謝`,
+        html: `<table align="center" cellpadding="19">
+                <tr>
+                  <td><i class="fas fa-user-secret fa-3x" style="color:#f3a712;"></i></td>
+                  <td><i class="fas fa-bug fa-3x" style="color:#ff4f79;"></i></td>
+                  <td><i class="fas fa-award fa-3x" style="color:#7161ef;"></i></td>
+                </tr>
+                <tr>
+                  <td style="color:#ae7709;">${level()}</td>
+                  <td style="color:#E00034;">${error}鍵</td>
+                  <td style="color:#3820E9;">${key}鍵</td>
+                </tr>
+              </table>`,
         input: 'text',
         inputAttributes: {
           maxlength: 3, //控制字數
@@ -544,29 +533,14 @@
       modeDisabled(true)
       calc()
 
-      let R = Math.floor(Math.random() * 38)
+      // 從 1 開始 到 26 (26 隨便想的數字)
+      let R = Math.floor(Math.random() * 26) + 1
       console.log(`${R}`);
       keyR.innerText = R
 
       timer = setInterval(keyValue, 3000, R)
       keyValue(R)
     }
-
-
-    // 每個 td 的滑鼠點擊事件 --這個遊戲不需要
-    // for (const td of tds) {
-    //   td.onclick = () => {
-    //     if (td.classList.contains('colorOrign')) {
-    //       td.classList.replace('colorOrign', 'colorOn')
-
-    //       key++
-    //       KeyScore.innerText = key
-
-    //       time++
-    //       TimeScore.innerText = time
-    //     }
-    //   }
-    // }
 
     // 每個 td 的按鍵事件 --偵測按到哪個鍵
     document.onkeydown = (event) => {
@@ -591,24 +565,6 @@
       }
     }
 
-
-    //要如何呼叫 td ? 只能去每個單獨命名ID嗎? 或是可以用陣列呼叫? --只能單獨命名ID
-
-    // key 值會奇怪的增加 --0415解決
-    // 最後 alert 的 key 值與頁面顯示的不同 --0415解決
-    // 若要套用 PaperCSS framework 如何讓他只作用在 button ，看不太懂他的 css --0419解決
-    // 結束按鈕失靈...  --0416解決
-    // 若一直按結束，隨機到M時，會按鍵+1(神奇)  -0416就沒了
-    // 判斷按鍵隨機時不重複，且不要隨機到空白那格 -0424就沒了，0427還是有，0429修好
-    // 設定所有有 .mode 的按鈕開始後不能被點選，可以選到，但是沒有作用 --0427解決
-    // 成績不能一筆一筆一直存嗎? --0429解決
-    // 按鍵效果css 要有按鍵被壓扁的感覺 (.key:active 有效)(.colorOn 沒效)  --0428解決，原來是因為權重及先後順序問題
-    // 按結束遊戲不會停止 --OK
-    // sweetalert 更改 font-size --OK
-
-    // 計算總出現的鍵，設變數 ++，並計算錯誤率及正確率
-    // 判斷不能有重複的隨機數字
-    // 按結束按鈕，到輸入名字完成時，這段時間按鍵還是會繼續跑  --0519解決，clearInterval 變數設錯
   </script>
 </body>
 
