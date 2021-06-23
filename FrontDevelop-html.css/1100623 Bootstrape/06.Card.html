@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #eee;
+    }
+
+    h3 {
+      margin: 1rem 0;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    .content {
+      /* 欄位數量 */
+      column-count: 2;
+      /* 欄位空隙寬度 */
+      column-gap: 30px;
+      /* 欄位間的直線 */
+      column-rule: 4px dotted #aaa;
+    }
+
+    .content div {
+      padding: 1rem;
+    }
+
+    .content div::first-letter {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <h3 class="mt-2">卡片導覽</h3>
+    <h4>使用 Bootstrap 導覽元件 向卡片的標題（或塊）添加一些導覽。</h4>
+    <div class="row">
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tabA">TabA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tabB">TabB</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tabC">TabC</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div id="tabA" class="tab-pane fade card-body active show">
+              <h5 class="card-title">tabA</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div id="tabB" class="tab-pane fade card-body">
+              <h5 class="card-title">tabB</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div id="tabC" class="tab-pane fade card-body">
+              <h5 class="card-title">tabC</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h4>
+      為使不同高度之 .card 看起來一致，先將歌度設 h-100<br>
+      將 .card-body (原為彈性項目，.card 是彈性盒) 轉為彈性盒 (d-flex) <br>
+      並將裡面內容(Ex. card-title / card-text / btn) 轉為彈性項目好分配剩餘空間
+      並將 .card-text 內的內容 以下列三種方式將剩餘的空間進行比例分配給彈性項目：<br>
+      <ul>
+        <li>mb-auto → 把空間推出去</li>
+        <li>flex-fill → 把剩餘空間分給自己</li>
+        <li>flex-grow-1 → 把剩餘空間分給自己</li>
+      </ul>
+
+      Tip：可先在 .col-sm-4 加背景顏色測試高度
+    </h4>
+
+    <div class="row align-items-stretch ">
+      <div class="col-sm-4">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/350/?random=1" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text mb-auto">
+              Some quick example text to build Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Blanditiis repudiandae dolore omnis eveniet,
+              ab, vero maxime consectetur et, at unde voluptatum ea
+              illo eos sapiente nam optio earum voluptatibus rem? on the card
+              title and make up the bulk of the card's content.
+            </p>
+            <br>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/350/?random=2" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text flex-fill">
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card h-100">
+          <img src="https://picsum.photos/400/350/?random=3" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text flex-grow-1">
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content. Lorem ipsum dolor sit amet co quidem nesciunt voluptatem.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

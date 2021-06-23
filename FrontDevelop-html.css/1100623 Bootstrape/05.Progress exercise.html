@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #ace;
+    }
+
+    .container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress" class="vh-100 w-100 d-flex align-items-center bg-dark position-fixed">
+    <div class="w-100 progess">
+      <div class="progess-bar progress-bar-striped progress-bar-animated bg-warning text-center"></div>
+    </div>
+  </div>
+
+  <div id="content" class="vh-100">
+    <img class="img-fluid w-100 h-100" src="https://picsum.photos/1920/1080/?random=1" style="object-fit: cover;">
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // 
+    $('#content').hide()
+
+    // 
+    $(window).on('load', function () {
+      // alert('window')
+      // 
+      let loadingPerc = 0
+      let loading = setInterval(() => {
+        if (loadingPerc >= 100) {
+          $('#progess').fadeOut(function () {
+            $(this).removeClass('d-flex').addClass('d-none')
+          })
+          $('#content').fadeIn(2000)
+        } else {
+          // 
+          loadingPerc += 1
+          $('.progess-bar').css({
+            width: loadingPerc + '%',
+            fontSize: '1.2rem'
+          })
+          // 
+          $('.progess-bar').text(loadingPerc + '%')
+        }
+      }, 50);
+    })
+
+    loading()
+  </script>
+
+</body>
+
+</html>

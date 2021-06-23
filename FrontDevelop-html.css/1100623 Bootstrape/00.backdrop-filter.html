@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>backdrop-filter</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #ace;
+    }
+
+    .container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .filterBox {
+      position: relative;
+      height: 19vh;
+      padding: 0.5rem;
+      background: url('https://picsum.photos/1920/1080/?random=3') no-repeat center/cover;
+    }
+
+    .filter {
+      position: absolute;
+      width: 65%;
+      height: 65%;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .filter span {
+      padding: 1rem;
+      line-height: 5;
+      text-align: center;
+      /* vertical-align: center; */
+    }
+  </style>
+</head>
+<!-- 
+  blur: 模糊
+  brightness: 明度
+  contrast: 對比度
+  drop-shadow: 陰影
+  grayscale: 灰階
+  hue-rotate: 色相
+  invert: 反轉
+  opacity: 透明度
+  sepia: 棕褐色
+  saturate: 飽和度
+
+  backdrop-filter: blur(2px);
+  backdrop-filter: brightness(60%);
+  backdrop-filter: contrast(40%);
+  backdrop-filter: drop-shadow(4px 4px 10px blue);
+  backdrop-filter: grayscale(30%);
+  backdrop-filter: hue-rotate(120deg);
+  backdrop-filter: invert(70%);
+  backdrop-filter: opacity(20%);
+  backdrop-filter: sepia(90%);
+  backdrop-filter: saturate(80%);
+-->
+
+<body>
+  <!-- https://wcc723.github.io/development/2020/10/12/frosted-glass/ -->
+
+  <div class="container">
+    <h3 class="mt-2">backdrop-filter</h3>
+    <div class="row">
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: blur(5px);">
+            <span>模糊: blur(5px);</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: brightness(60%);">
+            <span>明度: brightness(60%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: contrast(40%);">
+            <span>對比度: contrast(40%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: drop-shadow(4px 4px 10px blue);">
+            <span>陰影: drop-shadow(4px 4px 10px blue)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: grayscale(30%);">
+            <span>灰階: grayscale(30%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: hue-rotate(120deg);">
+            <span>色相: hue-rotate(120deg)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: invert(70%);">
+            <span>反轉: invert(70%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: opacity(20%);">
+            <span>透明度: opacity(20%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: sepia(90%);">
+            <span>棕褐色: sepia(90%)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="filterBox">
+          <div class="filter" style="backdrop-filter: saturate(80%);">
+            <span>飽和度: saturate(80%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popovers</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: #ace;
+    }
+
+    .container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <code class="highlighter-rouge">&lt; form &gt;</code> -->
+
+  <div class="container">
+    <h3 class="mt-2">彈出提示框 (Popovers)</h3>
+
+    <ol>
+      <li>
+        <h4>使用前須先啟用</h4>
+        <h5>
+          <code class="highlighter-rouge">
+            $('[data-toggle="popover"]').popover()
+          </code>
+        </h5>
+      </li>
+      <li>
+        <h5>title=" " 會變 h3</h5>
+        <h5>
+          data-content="XXX" 會變 &lt; div class="popover-body">XXX &lt;/div &gt;
+        </h5>
+      </li>
+      <li>data-placement="left"</li>
+      <li>data-toggle="popover"</li>
+      <li>ata-trigger="focus"</li>
+    </ol>
+
+
+
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-lg btn-danger" title="Popover title 我是標題我是標題" data-placement="left"
+                data-trigger="focus" data-toggle="popover"
+                data-content="And here's some amazing content. It's very engaging. Right?">
+          Click to toggle popover
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>data-placement="" 四個方向</h4>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top"
+                data-content="lorem ibus.">
+          Popover on top
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-placement="right" data-content="lorem ibus.">
+          Popover on right
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-placement="bottom" data-content="lorem ibus.">
+          Popover on bottom
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-placement="left" data-content="lorem ibus.">
+          Popover on left
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>事件</h4>
+    show.bs.popover 當調用 show 實例方法時，此事件會立即觸發。
+    shown.bs.popover 當彈出提示框顯示時，會觸發此事件（待 CSS 轉換完成）。
+    hide.bs.popover 當調用 hide 實例方法時，會立即觸發此事件。
+    hidden.bs.popover 當彈出提示框隱藏後，會觸發此事件（將等待CSS轉換完成）
+    inserted.bs.popover 當將提示範本加到 DOM 時，此事件在 show.bs.popover 事件之後觸發。
+
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-content="lorem ibus.">
+          Popover on top
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-content="lorem ibus.">
+          Popover on right
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-content="lorem ibus.">
+          Popover on bottom
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+                data-content="lorem ibus.">
+          Popover on left
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順序很重要！ 要先有 jquery ，再有 popper.js bootstrap.js -->
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap.bundle.min.js 包含 popper.js bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 啟用彈出提示框
+    $('[data-toggle="popover"]').popover()
+  </script>
+</body>
+
+</html>
