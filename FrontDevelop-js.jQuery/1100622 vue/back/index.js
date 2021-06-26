@@ -24,17 +24,19 @@ app.use(cors({
   }
 }))
 
+// bodyparser 將資料處理成 json 格式
 app.use(bodyParser.json())
 
-// 處理 Express 套件的錯誤，一定要放在要處理的套件(express、bodyParser...)後面
-// function 一定要放四個東西
-// error = 發生的錯誤
-// next = 繼續下一個步驟，使用方式為 next()
+// 處理 Express 套件的錯誤，一定要放在要處理的套件(express、bodyParser、cors...)後面
+// function 一定要放四個東西 error, req, res, next
+// _ = error = Express 發生的錯誤
+// error 一定要寫，但是不使用的話 可以 _ 替代
+// next = 是否要繼續下一個步驟，使用方式為 next()
 app.use((_, req, res, next) => {
   res.status(400).send({ success: false, message: '格式錯誤' })
 })
 
-// 自己預設請求的回應
+// 根據傳進來的路由判斷由哪個預設的請求來回應
 app.use('/users', usersRoute)
 app.use('/products', productsRoute)
 
@@ -47,7 +49,7 @@ app.all('*', (req, res) => {
 // 最後放一個保險起見，處理預期外的狀況
 app.use((error, req, res, next) => {
   console.log(error)
-  res.status(400).send({ success: false, message: error })
+  res.status(500).send({ success: false, message: error })
 })
 
 app.listen(process.env.PORT, () => {

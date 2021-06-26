@@ -13,27 +13,14 @@ export default {
     return {
       series: [
         {
-          name: 'Datal',
+          name: 'Data1',
+          // 若有 data 需搭配一個 categories (分類) ，共有3種寫法本次使用 2.3 版 - https://apexcharts.com/docs/series/
           data: []
         }
       ],
       chartOptions: {
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
         xaxis: {
+          // 若有 data 需搭配一個 categories (分類) ，共有3種寫法本次使用 2.3 版 - https://apexcharts.com/docs/series/
           categories: []
         }
       }
@@ -46,6 +33,7 @@ export default {
       this.series[0].data = data.result.map(item => {
         return { y: item.price, x: item.name }
       })
+      // 若有 data 需搭配一個 categories (分類) ，共有3種寫法本次使用 2.3 版 - https://apexcharts.com/docs/series/
 
         // this.series[0].data = data.result.map(item => item.price)
         // this.chartOptions.xaxis.categories = data.result.map(item => item.name)

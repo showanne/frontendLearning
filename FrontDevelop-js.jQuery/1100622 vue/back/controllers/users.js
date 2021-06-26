@@ -7,6 +7,7 @@ export const createUser = async (req, res) => {
     console.log(typeof result)
     // .toObject() 將回傳的 Mongoose Document(Mongoose 特有格式，非JSON物件) 格式轉為 JS 格式才能進行相關操作
     result = result.toObject()
+    // 回傳時 刪除密碼欄位 顯示
     delete result.password
 
     console.log(result)
