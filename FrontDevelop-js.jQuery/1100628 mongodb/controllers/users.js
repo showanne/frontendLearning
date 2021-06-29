@@ -113,11 +113,12 @@ export const updateOrder = async (req, res) => {
       'orders.items.p_id': req.body.p_id
     })
     // 第二步: 直接做陣列處理改資料
+    // .toString() 將 moogoose 資料型態改為 一般資料型態 可使判斷成立 2邊型態相等
     const orderidx = result.orders.findIndex(order => {
-      return order._id = req.params.id
+      return order._id.toString() === req.params.id
     })
     const itemidx = result.orders[orderidx].items.findIndex(item => {
-      return item.p_id = req.body.p_id
+      return item.p_id.toString() === req.body.p_id
     })
     result.orders[orderidx].items[itemidx].amount = req.body.amount
     // 第三步: 存回去
