@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltips</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h4>工具提示框(Tooltips)</h4>
+    <ol>
+      <li>在使用彈出提示框之前，必須包含 popper.js，或者使用 bootstrap.bundle.js（已經包含在裡面）</li>
+      <li>需自行設定 JavaScript 才能使用。</li>
+      <li>title="彈出訊息"</li>
+      <li>datat-placement="right"，可以設定四個方向 top、right、bottom、left</li>
+      <li>data-delay="300"，延遲時間，預設 0，單位毫秒</li>
+      <li>data-offset="x,y" 彈出位移 x,y</li>
+    </ol>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-delay="300" data-offset="0,5" data-placement="top" title="疫情趕快結束">
+          上
+        </button>
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+          右
+        </button>
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+          下
+        </button>
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+          左
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+  </script>
+</body>
+
+</html>

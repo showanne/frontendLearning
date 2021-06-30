@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toasts</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: url("https://picsum.photos/1920/1080/?random=1") no-repeat center center/cover;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+
+    .toast {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn1" type="button" class="btn btn-primary">Show Toast 1</button>
+  <button id="btn2" type="button" class="btn btn-primary">Show Toast 2</button>
+  <button id="btn3" type="button" class="btn btn-primary">Show Toast 3</button>
+  <div class="row position-fixed flex-column-reverse" style="bottom: 0;right: 0;">
+    <div class="col">
+      <!-- data-autohide 設定 false 吐司顯示時不會自動消失，預設 true 會自動消失 -->
+      <div id="toast1" class="toast" role="alert" data-autohide="true" style="max-width:500px;">
+        <!-- .toast-header 是一個彈性盒，靈巧將資訊分為左右兩側 -->
+        <div class="toast-header">
+          <img src="https://picsum.photos/20/20/?random=1" class="rounded mr-2" alt="...">
+          <strong class="mr-auto">Show Toast 1</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          外面無奈年度麻煩調查，隱藏版擴大實力黃金，商務南方，今年伺。
+          軍隊遵守大師光碟相冊形象細節對她你想，二級來說意大利課堂春天專業，原始碼，基礎速度裝飾良好幹部社區驚訝回憶安裝本站怎麼業務，一直頻率來的存儲眾人顧問白色趕緊預計離線，改善刪除暴力網頁課程，中心從而並在適當愛情曾經怎麼樣部隊都要廠商，研發加盟創造四個玄幻感興趣那位渠道大會，身體擁有，會員規模主席稿件。
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div id="toast2" class="toast" role="alert" style="max-width:500px;">
+        <div class="toast-header">
+          <img src="https://picsum.photos/20/20/?random=2" class="rounded mr-2" alt="...">
+          <strong class="mr-auto">Show Toast 2</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          倒是登記當前人物動力我愛西安適當成長，問題一件女性，為什麼。
+          民眾工業性質走了處於日誌人類，設計電視台場所全新給我獨特編號灌水政策那種空間，掌握改變配套友情制定。
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div id="toast3" class="toast" role="alert" style="max-width:500px;">
+        <div class="toast-header">
+          <img src="https://picsum.photos/20/20/?random=3" class="rounded mr-2" alt="...">
+          <strong class="mr-auto">Show Toast 3</strong>
+          <small>11 mins ago</small>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          不怕廠商我的心加拿大金融其中房屋平時，星座提出，每月的話竟。
+          民眾工業性質走了處於日誌人類，設計電視台場所全新給我獨特編號灌水政策那種空間，掌握改變配套友情制定。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script>
+    $('#btn1').on('click', function () {
+      $('#toast1').toast({ delay: 3000 })
+      $('#toast1').toast('show')
+    })
+    $('#btn2').on('click', function () {
+      $('#toast2').toast({ delay: 3000 })
+      $('#toast2').toast('show')
+    })
+    $('#btn3').on('click', function () {
+      $('#toast3').toast({ delay: 3000 })
+      $('#toast3').toast('show')
+    })
+
+
+  </script>
+</body>
+
+</html>

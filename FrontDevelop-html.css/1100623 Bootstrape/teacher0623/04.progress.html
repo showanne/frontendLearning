@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltips</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- loading bar -->
+  <div id="progress" class="d-flex align-items-center vh-100 position-fixed w-100" style="background:rgba(0,0,0,1);">
+    <div class="progress w-100">
+      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"></div>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div id="content" class="vh-100">
+    <img class="img-fluid h-100 w-100" src="https://picsum.photos/1920/1080/?random=1" style="object-fit:cover">
+    <img class="img-fluid h-100 w-100" src="https://picsum.photos/1920/1080/?random=2" style="object-fit:cover">
+    <img class="img-fluid h-100 w-100" src="https://picsum.photos/1920/1080/?random=3" style="object-fit:cover">
+    <img class="img-fluid h-100 w-100" src="https://picsum.photos/1920/1080/?random=4" style="object-fit:cover">
+  </div>
+
+  <!-- <button id="btn">btn</button>
+  <div class="box">123456</div> -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // $('#btn').on('click', function () {
+    //   $('.box').fadeOut({
+    //     duration: 3000
+    //   })
+    // })
+
+    $('#content').hide()
+    $(window).on('load', function () {
+      // 載入進度百分比數字，它會影響載入數字、進度條寬度
+      let loadingPerc = 0
+      let loading = setInterval(() => {
+        // 載入進度 100% 時要做的事
+        if (loadingPerc >= 100) {
+          $('#progress').fadeOut(function () {
+            $(this).removeClass('d-flex').addClass('d-none')
+          })
+          $('#content').fadeIn(2000)
+          // 載入進度未達 100% 時要做的事
+        } else {
+          // 每隔一段時間 loadingPerc 累加 1
+          loadingPerc += 1
+          $('.progress-bar').css({
+            width: loadingPerc + '%',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            textAlign: 'right'
+          })
+          // 改變文字內容
+          $('.progress-bar').text(loadingPerc + '%')
+        }
+      }, 50);
+    })
+
+
+  </script>
+</body>
+
+</html>

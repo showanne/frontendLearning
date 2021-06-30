@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popovers</title>
+  <!-- 1. link bootstrap.css -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      background: #eee;
+    }
+
+    .container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h4>彈出提示框(Popovers)</h4>
+    <ol>
+      <li>在使用彈出提示框之前，必須包含 popper.js，或者使用 bootstrap.bundle.js（已經包含在裡面）</li>
+      <li>需自行設定 JavaScript 才能使用。</li>
+      <li>data-content="彈出框顯示的內容"，title="彈出框標題"</li>
+      <li>datat-placement="right"，可以設定四個方向 top、right、bottom、left</li>
+      <li>data-trigger="hover" 滑鼠滑過去彈出，預設是"click"，也可以設定"focus"，在畫面上，下次點擊會關閉 popover</li>
+    </ol>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" data-placement="top" data-trigger="click" title="今天星期三"
+                data-content="另一個指出因此是誰經歷按鈕兩個加油，指揮基隆交易，傳輸訪問。" style="margin-top:300px">Click to toggle
+          popover</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(function () {
+      // 要先啟動才能使用
+      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="popover"]').on('show.bs.popover', function () {
+        alert('當開始觸發時')
+      })
+      $('[data-toggle="popover"]').on('shown.bs.popover', function () {
+        alert('當開始觸發後')
+      })
+      $('[data-toggle="popover"]').on('hide.bs.popover', function () {
+        alert('當關閉時')
+      })
+      $('[data-toggle="popover"]').on('hidden.bs.popover', function () {
+        alert('當關閉完畢後')
+      })
+    })
+  </script>
+</body>
+
+</html>
