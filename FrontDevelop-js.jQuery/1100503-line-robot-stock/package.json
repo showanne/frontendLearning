@@ -16,6 +16,7 @@
     "iconv-lite": "^0.4.24",
     "linebot": "^1.6.1",
     "ngrok": "^4.0.1",
+    "node-schedule": "^2.0.0",
     "twstockjs": "^0.5.0"
   },
   "devDependencies": {
