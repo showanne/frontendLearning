@@ -52,8 +52,10 @@ export const login = async (req, res) => {
 export const getUser = async (req, res) => {
   // GET http://localhost:3090/users/使用者 id
   // Authorization → Type : Bearer Token → Token : 輸入 使用者 id 對應的 jwt Token
+  // 如果有權限就回傳資料，沒有權限就不傳
   try {
     // .toString() 轉換格式
+    // 如果請求的 id 與傳入 Token 相同才給資料
     if (req.params.id === req.user._id.toString()) {
       res.status(200).send({ success: true, message: '', result: req.user})
     } else {
@@ -84,7 +86,7 @@ export const logout = async (req, res) => {
 
 // 上傳檔案
 export const changeAvatar = async (req, res) => {
-  // PATCH http://localhost:3090/users/logout
+  // PATCH http://localhost:3090/users/使用者 id
   // Authorization → Type : Bearer Token → Token : 輸入 剛剛使用者登入時 給的 jwt Token
   // body → √ form-data → KEY：image √ file → VALUE：上傳圖片
   try {

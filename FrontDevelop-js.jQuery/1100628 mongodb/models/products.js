@@ -12,7 +12,7 @@ const productSchema = new Schema({
 })
 
 // 關聯的地方名稱需相同
-// ↑ p_id: ref: 'products'
+// ↑ users.js p_id: ref: 'products' ↓
 const products = mongoose.model('products', productSchema)
 
 export default products

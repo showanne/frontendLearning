@@ -1,11 +1,14 @@
+import dotenv from 'dotenv'
 import express from 'express'  // 網頁伺服器
 import mongoose from 'mongoose'  // MongoDB 操作套件
 import bodyParser from 'body-parser' // 讀取傳入網頁伺服器的資料
 import cors from 'cors' // 跨域套件
 import users from './users.js'
 
+dotenv.config()
+
 // 資料庫連線
-mongoose.connect('mongodb+srv://user:Anne123@cluster0.krn0h.mongodb.net/0621test')
+mongoose.connect(process.env.MONGO)
 
 const app = express()
 

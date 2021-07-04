@@ -71,15 +71,17 @@ export const getProducts = async (req, res) => {
       // 把每個關鍵字加上正則表達式
       for (const keyword of keywords) {
         const re = new RegExp(keyword, 'i')
-        // g (全域) 代表全部搜尋 / i 大小寫都可以
+        // g (全域) 代表全部搜尋 / i 不分大小寫都可以
         names.push(re)
         descriptions.push(re)
       }
-      // $or 或 / $in 包含
+      // $or 或 / $in 包含-關鍵字須完全符合
       query.$or.push({ name: { $in: names } })
       query.$or.push({ description: { $in: descriptions } })
     }
 
+    // 可以將 log 出來，被 node 摺疊起來的 [object] 展開
+    // 觀察 query{} ，然後 { depth: null } 有多少層全部展開
     console.log(util.inspect(query, { depth: null }))
 
     const result = await products.find(query)

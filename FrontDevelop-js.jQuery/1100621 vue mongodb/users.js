@@ -14,7 +14,7 @@ const userSchema = new Schema({
     // 最小長度 4 與自訂的錯誤訊息
     minlength: [4, '帳號必須最少 4 個字'],
     // 最大長度 10 與自訂的錯誤訊息
-    maxlength: [10, '帳號必須最少 10 個字'],
+    maxlength: [10, '帳號最多 10 個字'],
     // 必填與自訂的錯誤訊息
     required: [true, '缺少帳號欄位'],
     // 設定不可重複，這裡的驗證無法使用自訂錯誤訊息，除非安裝套件
@@ -26,7 +26,7 @@ const userSchema = new Schema({
     // 最小長度 5 與自訂的錯誤訊息
     minlength: [5, '密碼必須最少 5 個字'],
     // 最大長度 10 與自訂的錯誤訊息
-    maxlength: [10, '密碼必須最少 10 個字'],
+    maxlength: [10, '密碼最多 10 個字'],
     // 必填與自訂的錯誤訊息
     required: [true, '缺少密碼欄位']
   },

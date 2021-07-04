@@ -1,6 +1,6 @@
 import users from '../models/users.js'
 
-// 新增商品資料
+// 新增使用者
 export const createUser = async (req, res) => {
   // post http://localhost:3020/users
   try {
@@ -104,7 +104,8 @@ export const getOrder = async (req, res) => {
 // 更新 訂單內單個商品的數量
 export const updateOrder = async (req, res) => {
   // patch http://localhost:3020/users/orders/訂單 id
-  // body 輸入修改的值 "p_id": "訂單內的商品 p_id", "amount": 修改的數量
+  // body 輸入修改的值 "p_id": "訂單內的商品 p_id",
+  //                  "amount": "修改的數量"
   try {
     // 簡單版
     // 第一步: 找出符合的資料
