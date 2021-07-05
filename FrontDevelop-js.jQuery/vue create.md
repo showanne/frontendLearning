@@ -1,6 +1,6 @@
-# vue create pomodoro
+# 建立 vue 環境
 
-1. vue create pomodoro
+1. vue create 資料夾名稱
  - Manually select features (手動選擇功能)
  - check  空白鍵是選擇
   1. Choose Vue version
@@ -24,8 +24,10 @@
 
 3. vue add bootstrap-vue (安裝 bootstrap-vue)
  -  WARN  There are uncommitted changes in the current repository, it's recommended to commit or stash them first.
- 　? Still proceed? >　Yes
- - Use babel/polyfill? ＞　Yes
+   (詢問還沒 commit 是否要繼續?)
+ 　? Still proceed? >　√ Yes
+ - Use babel/polyfill? ＞　√ Yes
+   (是否要將新語法翻譯成舊瀏覽器也支援的語法)
 
 4. 清理資料夾
  - App.vue 留 <template lang='pug'> #app

@@ -1,6 +1,8 @@
 # Creat ESLint
 - F1 輸入 Creat ESLint configuration
   eslint --init
+- 如果上面指令不行，可能是路徑跑掉
+  "./node_modules/.bin/eslint" eslint --init 
 
 - ? How would you like to use ESLint? ... (要怎麼使用 ESLint)
   To check syntax only (檢查語法)
@@ -32,10 +34,9 @@
 
 
 - Which style guide do you want to follow? (哪一種風格)
-  Airbnb
-√ standard
-  Google
-  XO
+  Airbnb: https://github.com/airbnb/javascript
+  Standard: https://github.com/standard/standard
+  Google: https://github.com/google/eslint-config-google
 
 - What format do you want your config file to be in?
   JavaScript
