@@ -17,12 +17,18 @@
 </template>
 
 <script>
-// 僅在這個檔案呼叫 mixin
+// 區域引用 - 僅在這個檔案呼叫 mixin
 // import mixin from './mixin.js'
 
 export default {
   name: 'App'
-  // 僅在這個檔案呼叫 mixin
+  // 區域引用 - 僅在這個檔案呼叫 mixin
   // mixins: [mixin]
+  // 全部檔案都會用到的 function 可以一起寫在 mixin ，不要每個檔案重複寫
+  // computed: {
+  //   user () {
+  //     return this.$store.state.user
+  //   }
+  // }
 }
 </script>

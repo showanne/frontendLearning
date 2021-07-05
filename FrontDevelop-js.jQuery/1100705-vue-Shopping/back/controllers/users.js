@@ -1,6 +1,6 @@
-import users from '../models/users.js'
-import md5 from 'md5'
-import jwt from 'jsonwebtoken'
+import users from '../models/users.js' // 引用使用者資料庫
+import md5 from 'md5' // 加密套件
+import jwt from 'jsonwebtoken' // 製作 token
 
 // 註冊
 export const register = async (req, res) => {
@@ -13,8 +13,10 @@ export const register = async (req, res) => {
     await users.create(req.body)
     res.status(200).send({ success: true, message: '' })
   } catch (error) {
+    // // 資料格式錯誤
     // console.log(error)
     if (error.name === 'ValidationError') {
+      // 錯誤的訊息的 key 值為欄位名稱，不固定
       // 用 Object.keys 取第一個驗證錯誤
       const key = Object.keys(error.errors)[0]
       // 取驗證失敗的訊息
@@ -33,15 +35,25 @@ export const login = async (req, res) => {
   // 先檢查進來的資料格式
   if (!req.headers['content-type'] || !req.headers['content-type'].includes('application/json')) {
     res.status(400).send({ success: false, message: '資料格式不正確' })
+    // 如果對就繼續，不對就不跑下面
     return
   }
   try {
-    // ? 找到符合傳入的帳號的使用者資料
-    const user = await users.findOne({ account: req.body.account, password: md5(req.body.password) }, '-password')
-    // 如果有找到
+    // 先去資料庫中找出符合傳入資料的使用者
+    // 查詢的資料庫欄位 帳號；密碼
+    // password: md5(req.body.password) 傳進來的密碼是不是資料庫儲存的加密(md5)後的密碼
+    const user = await users.findOne({
+      account: req.body.account,
+      password: md5(req.body.password)
+    }, '-password')
+    // 如果有登入成功
     if (user) {
       // 簽發一個 jwt token
-      const token = jwt.sign({ _id: user._id.toString() }, process.env.SECRET, { expiresIn: '7 days' })
+      const token = jwt.sign(
+        { _id: user._id.toString() },
+        process.env.SECRET,
+        { expiresIn: '7 days' }
+      )
 
       // 將 token 存入使用者帳號資料庫的 tokens 欄位內
       user.tokens.push(token)

@@ -58,6 +58,8 @@
 
 <script>
 // validator 套件自訂驗證
+// 單獨拉套件的其中一個功能，套件文件有寫
+// es 瀏覽器
 import isEmail from 'validator/es/lib/isEmail'
 
 export default {
@@ -76,16 +78,17 @@ export default {
       const password = this.form.password
       const email = this.form.email
       return {
-        // 判斷帳號輸入
-        // account.length >= 4 && account.length <= 20 結過只有 true 和 false 可以省略
+        // 驗證判斷帳號、密碼輸入
+        // account.length >= 4 && account.length <= 20 結果會傳 true 和 false 所以後面可以省略
         account: account.length === 0 ? null : account.length >= 4 && account.length <= 20,
         password: password.length === 0 ? null : password.length >= 4 && password.length <= 20,
+        // 信箱驗證判斷 交給 validator isEmail
         email: email.length === 0 ? null : isEmail(email)
       }
     }
   },
   methods: {
-    // 表單內容重設
+    // 表單內容重設，將內容清空
     reset () {
       this.form.account = ''
       this.form.password = ''

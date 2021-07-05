@@ -9,7 +9,12 @@ export default new Vuex.Store({
     jwt: {
       token: '',
       // 計算取得 token 的時間
+      // 不用每次開網頁都更新序號，等到大概過了5~6天再去換 (後端設定7天過期)，但是每次開網頁都要與後端確認序號可不可以
+      
+      // 時間戳記
       received: 0
+      // typeof new Date().getTime() 類型是 number
+      // new Date().getTime() -> 1625498219087
     },
     user: {
       account: '',
@@ -31,12 +36,15 @@ export default new Vuex.Store({
   },
   modules: {
   },
-  // getters 是處理
+  // getters (Vuex) 是先將 Vuex 的資料處理後，再return出來
   getters: {
     user (state) {
-      // mixin 與 getters 的差異
-      // ...state.user (解構寫法) 將上方 state: {user} 展開
-      return { islogin: state.user.account.length > 0, isAdmin: state.user.role === 1, ...state.user }
+      // ...state.user 其餘運算子 (解構寫法) 將上方 state: {user} 展開
+      return {
+        islogin: state.user.account.length > 0,
+        isAdmin: state.user.role === 1,
+        ...state.user
+      }
     }
   }
 })

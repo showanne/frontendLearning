@@ -10,6 +10,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+
 // 全域引用 mixin，這樣各分頁要是用變數就可以直接使用
 import mixin from './mixin.js'
 

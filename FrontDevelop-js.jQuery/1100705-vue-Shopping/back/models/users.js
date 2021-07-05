@@ -1,12 +1,15 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose' // MongoDB 操作套件
 import md5 from 'md5' // 加密套件
 import validator from 'validator' // 信箱驗證套件
 
+// 建立資料庫綱要 Schema
 const Schema = mongoose.Schema
 
+// 編寫資料表綱要
 const UserSchema = new Schema({
   // 帳號
   account: {
+    // 資料類型
     type: String,
     minlength: [4, '帳號必須 4 個字以上'],
     maxlength: [20, '帳號不能超過 20 個字'],
@@ -103,5 +106,5 @@ UserSchema.pre('save', function (next) {
   next()
 })
 
-// 建立 mongoose 的資料 model (collection名稱, Schema)
+// 建立 mongoose 的資料 model (資料表collection名稱, Schema)，並 匯出 Model
 export default mongoose.model('users', UserSchema)
