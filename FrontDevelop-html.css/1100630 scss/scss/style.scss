@@ -62,7 +62,10 @@ $gradient: linear-gradient(
   rgba(0, 25, 255, 1) 100%
 );
 
-/* ???? css  */
+/* 任何 CSS 規範的值都可以指定給變數
+   Ex: $border、$padding...
+   使用： border: $border;
+*/
 $border: 5px solid #fff;
 $border-radius: 0.5rem;
 $padding: 0.5rem 0.5rem;
@@ -85,7 +88,8 @@ h1 {
 }
 
 /* 2. Flow Control (流程控制) */
-/* random() 為 sass 內建函數，提供亂數，從 1 開始 */
+/* random() 為 sass 內建函式，提供亂數，從 1 開始
+   Ex: $number: random(3);  */
 $number: random(3);
 .mybox {
   width: 150px;
@@ -94,7 +98,7 @@ $number: random(3);
   justify-content: center;
   align-items: center;
 
-  //
+  /* @if () {} @else {} 可省略小括號 */
   @if ($number == 1) {
     background-color: sandybrown;
   } @else if ($number == 2) {
@@ -103,27 +107,27 @@ $number: random(3);
     background-color: slateblue;
   }
 
-  // and
+  // and 兩運算式條件都成立
   $a: 1;
   $b: 1;
   @if ($a==1 and $b==1) {
     color: springgreen;
   }
 
-  // or
+  // or 兩運算式其中之一成立
   $c: 1;
   $d: 0;
   @if ($c==1 or $d==0) {
     font-size: 30px;
   }
 
-  // not
+  // not 反轉運算式的結果
   $e: 50px;
   @if not($c==100px) {
     border: 10px solid yellow;
   }
 
-  //
+  // 符合 CSS 規範的值都可以寫成判斷運算式
   $f: red;
   $g: #000;
   $i: 5px;
@@ -131,14 +135,19 @@ $number: random(3);
     margin: 50px;
   }
 
-  // 三元
+  // 內建函式，類似三元運算子，因為它是函式，所以 if 沒有 @
   outline: if(true, 10px solid purple, 10px solid #ace);
-  // : ; ??
+  // 三元運算子 a == 1: '成立' ? '不成立'
 }
 
-// @for
-/*  */
-// 3
+/* @for 迴圈有兩種 through 和 to
+    宣告 i 從 start 到 end
+    @for $i from (start) through (end)，包含 end
+    @for $i from (start) to (end)，不包含 end
+*/
+
+/* 插值語法 '#{}' 類似 JS `${}` */
+// 包含 end，也就是 3
 @for $i from 1 through 3 {
   .through-#{$i} {
     width: 50px * $i;
@@ -148,7 +157,7 @@ $number: random(3);
   }
 }
 
-/*  */
+// 不包含 end，也就是不包含 3
 @for $i from 1 to 3 {
   .to-#{$i} {
     width: 50px * $i;
@@ -157,12 +166,14 @@ $number: random(3);
     background-color: steelblue;
   }
 }
+
 /* 3. nested (巢狀) */
 #section3 {
   .menu {
     font-size: 0;
     margin-top: 1rem;
     li {
+      display: inline-block;
       list-style: none;
       width: 100px;
       text-align: center;
@@ -174,13 +185,13 @@ $number: random(3);
         text-decoration: none;
         padding: 0.5rem;
 
-        //
+        // & 符號可以表示父層選擇器
         &:hover {
           color: palegreen;
           background-color: pink;
         }
       }
-      //
+      // li + li 相鄰選擇器
       + li {
         border-left: 1px solid #000;
       }
@@ -188,6 +199,7 @@ $number: random(3);
   }
 }
 
+// & 父層選擇器
 .clearfix {
   &::after {
     content: '';
@@ -196,8 +208,12 @@ $number: random(3);
   }
 }
 
-// 崁套巢狀
-//
+/* 嵌套屬性，把相同綴詞提取出來
+    font: {
+        family: '微軟正黑體';
+        size: 1rem;
+      }
+*/
 nav {
   font: {
     family: '微軟正黑體';
@@ -211,16 +227,29 @@ nav {
   }
 }
 
-/* BEM 每層依序 */
+/* BEM 組件寫法
+    Block Element Modifier
+    使用 & 組合 */
+/*
+  .slidebar__item--active
+  .slidebar {
+    &__item {
+      &--active {
+  } } }
+*/
+
 .slidebar {
+  /* Block */
   display: flex;
   &__item {
+    /* Element */
     color: mediumblue;
     padding: 1rem;
     border: 1px solid #333;
     text-decoration: none;
 
     &--active {
+    /* Modifier */
       color: lightgreen;
       background-color: lightskyblue;
     }
@@ -260,11 +289,12 @@ nav {
 }
 
 /* 4. Extend (繼承) % 符號 */
-.extend {
-  width: 50px;
-  height: 50px;
-  float: left;
-}
+
+// .extend {
+//   width: 50px;
+//   height: 50px;
+//   float: left;
+// }
 %extend {
   width: 50px;
   height: 50px;
@@ -273,6 +303,8 @@ nav {
 #extend {
   overflow: auto;
 }
+// @extend .extend 會連 class 一起匯出
+// @extend %extend 若有相同屬性會被群組起來 .box1, .box2, .box3
 .box1 {
   // @extend .extend; →編譯 .extend .box1 {.extend Style}
   @extend %extend; // →編譯 .box1 {%extend Style}
@@ -320,7 +352,7 @@ nav {
   background-color: navy;
   color: #ace;
   margin: 5px;
-  /* 除法 記得() */
+  /* 除法 記得() - 遇到除法養成習慣用括號 */
   width: (50px / 1.5);
 
   $h1: 500px;
@@ -341,7 +373,7 @@ nav {
   background-color: navy;
   color: #ace;
   margin: 5px;
-  /* 使用 calc() */
+  /* 使用 calc() 使用變數時，使用插值語法 #{} */
   $w1: 50px;
   $w2: 2rem;
   width: calc(#{$w1} + #{$w2});
@@ -382,7 +414,7 @@ nav {
   width: pow(2, 3) * 1px;
 }
 
-/* unit 內建函式判斷有無 px */
+/* unit 內建函式判斷有無 px， px to rem */
 @function rem($px) {
   @if (unit($px) == 'px') {
     @return #{$px/16px}rem;
@@ -433,15 +465,21 @@ $size: 2px;
       margin: 1% 0;
       background: darken($color: #359, $amount: 0.5);
       color: lighten($color: #a00, $amount: 0.8);
-      /* 內建函式 darken lighten */
+      /* 內建函式 darken() 變深、lighten() 變淺 */
     }
   }
 }
 
 /* 7. Mixins (混入)
-    缺點：
-    優點：
+   寫法 @Mixins 名稱(參數) {...}
+   呼叫 @include Mixins名稱()
+
+    缺點：樣式會不斷重複
+    優點：可以帶入變數，而且裡面可以使用判斷是，非常適合做組件及做框架非常方便
+
     Mixins 與 Extend 的不同
+     Mixins 呼叫一次，就會重複一次樣式
+     Extend 會把同樣的使用群組選擇器群組起來，樣式碼較節省
 */
 @mixin mixinTest {
   width: 100px;
@@ -457,7 +495,7 @@ $size: 2px;
   @include mixinTest();
 }
 
-/* 跟函式ˊ一樣可以帶入預設值 */
+/* 跟函式一樣可以帶入預設值 */
 @mixin box($width, $height, $bg, $border, $outline: 10px dashed purple) {
   width: $width;
   height: $height;
@@ -526,7 +564,7 @@ $size: 2px;
 }
 
 /* sass 其餘參數(...)寫在參數後面，用 list 表示(sass 的陣列)
-   JavaScript
+   JavaSctipt 其餘參數寫在參數前面，...args，用陣列表示
 */
 /* $shadows 為 list */
 @mixin box-shadow($width, $height, $shadows...) {
@@ -675,5 +713,11 @@ $breakpoint-xxl: 1400px;
 }
 
 /* 9. 資料型態
-    數字  
+     數字(number)：分為無單位、有單位，1,2,13,10px,2rem
+     字串(string)：有引號字串 "Noto Sans TC"，無引號字串 Noto Sans TC
+     顏色(color)：blue，#000000，rgba(0,0,0,0.5)
+     布林值(boolean)：true，false
+     空值(null)：null
+     列表(list)：用空格或逗號作為分隔，1.5rem 1rem 0 2rem 或  'Courier New', Courier, monospace
+     map(物件)：很像 JS 物件，有 key/value pair 一對的特性
 */

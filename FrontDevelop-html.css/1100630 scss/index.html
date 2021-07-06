@@ -14,9 +14,9 @@
     <div class="container">
       <h1>1. Variables(變數)</h1>
       <ol>
-        <li>$ 符號宣告變數名稱的位置，是它的作用域，就像 JS 的 let</li>
-        <li>變數的底線(_) (-)</li>
-        <li>變數可以維持網站一致性</li>
+        <li>$ 符號宣告變數名稱的位置，是它的作用域，就像 JS 的 let 宣告，寫在大括號裡面屬於大括號內的變數，寫在最外面為全域變數。</li>
+        <li>變數的 (_) (-)，底線(_) 和 連接線(-) 可以互換使用，$bg_black、$bg-black 兩者是一樣的。</li>
+        <li>變數可以維持網站的一致姓，可以節省修改成本。</li>
       </ol>
     </div>
   </section>
@@ -27,15 +27,15 @@
       <h3>@if、@else if、@else</h3>
       <div class="mybox">hello</div>
 
-      <h3>@for.....?</h3>
-      <h4>@for.....?</h4>
-      <h4>@for $i from 1 through 3</h4>
+      <h3>@for 迴圈有兩種 through 與 to</h3>
+      <h4>@for $i from (start) through (end)，包含 end</h4>
+      <h4>Ex: @for $i from 1 through 3</h4>
       <div class="through-1">t-1</div>
       <div class="through-2">through-2</div>
       <div class="through-3">through-3</div>
 
-      <h4>@for.....?</h4>
-      <h4>@for $i from 1 to 3</h4>
+      <h4>@for $i from (start) to (end)，不包含 end</h4>
+      <h4>Ex: @for $i from 1 to 3</h4>
       <div class="to-1">to-1</div>
       <div class="to-2">to-2</div>
     </div>
@@ -44,9 +44,11 @@
   <section id="section3">
     <div class="container">
       <h1>3. nested (巢狀)</h1>
-      <P>....?//</P>
-      <P></P>
-      <h2>崁套巢狀</h2>
+      <h2>嵌套巢狀（nested）</h2>
+      <ol>
+        <li>勿過度使用巢狀，考慮用最少的結構選擇到目標，一般建議三層，不超過四層</li>
+        <li>過度使用巢狀，編譯後選擇器會有過長的問題，樣式不易閱讀，瀏覽器渲染效果會變差，且 CSS 檔案容量較大。</li>
+      </ol>
       <ul class="menu">
         <li><a href="#">link</a></li>
         <li><a href="#">link</a></li>
@@ -55,7 +57,16 @@
         <li><a href="#">link</a></li>
       </ul>
 
-      <h2>BEM</h2>
+      <h2>BEM Block Element Modifier</h2>
+      <h3>BEM 組件寫法 - 使用 & 組合</h3>
+<pre><code>
+  .slidebar__item--active
+  .slidebar {
+    &__item {
+      &--active {
+  } } }
+</code></pre>
+
       <div class="slidebar">
         <a href="" class="slidebar__item slidebar__item--active">item</a>
         <a href="" class="slidebar__item">item</a>
@@ -68,7 +79,7 @@
 
   <section id="exercise">
     <div class="container">
-      <h2>??</h2>
+      <h2>練習:建立三欄結構，用巢狀</h2>
       <div class="row">
         <div class="col">
           <img src="https://picsum.photos/90/120/?random=1">
@@ -105,10 +116,12 @@
     <div class="container">
       <h1>4. Extend (繼承) % 符號</h1>
       <ol>
-        <li>繼承可以用 css 選</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li>繼承可以用 CSS 選擇器 或 % 佔位選擇器來命名。</li>
+        <li>% 佔位選擇器屬於 SASS 的範疇，不會被編譯到 CSS。</li>
+        <li>相同繼承樣式編譯後會被用群組選擇器聚集在一起。
+          <br>Ex:  .box1, .box2, .box3 {}
+        </li>
+        <li>@extend 沒有參數可以使用。</li>
       </ol>
       <div id="extend">
         <div class="box1">#1</div>
@@ -135,7 +148,8 @@
       <h1>6. Function(函式)</h1>
       <p>
       <ol>
-        <li>@function......???</li>
+        <li>@function 和 @mixin 很像，差異在於 @function 必須使用 @return 回傳結果（符合CSS規範的計算值），它無法在呼叫時產生一段樣式碼，
+          而 @mixin 則可以在呼叫時產生一段樣式碼。</li>
         <li>2</li>
         <li>3</li>
       </ol>
@@ -143,7 +157,7 @@
     </div>
 
     <div class="container">
-      <h2>???</h2>
+      <h2>使用函式計算欄位寬度</h2>
       <div class="row">
         <div class="col">
           <p>
@@ -189,7 +203,7 @@
       <h1>7. Mixins (混入)</h1>
       <h2>flexbox</h2>
       <div class="boxflex"></div>
-      <h2>mixin</h2>
+      <h2>使用 mixin 建立按鈕</h2>
       <a href="" class="btn btn-primary">btn-primary</a>
       <a href="" class="btn btn-secondary">btn-secondary</a>
       <a href="" class="btn btn-danger">btn-danger</a>

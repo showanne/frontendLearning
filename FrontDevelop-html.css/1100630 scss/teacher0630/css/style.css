@@ -398,23 +398,23 @@ nav {
 }
 
 .b1 {
-  background: #422570;
+  background: #438a94;
 }
 
 .b2 {
-  background: #8f9ff5;
+  background: #aae189;
 }
 
 .b3 {
-  background: #628f1e;
+  background: #f5055f;
 }
 
 .b4 {
-  background: #9cb9fb;
+  background: #81b987;
 }
 
 .b5 {
-  background: #5def07;
+  background: #ab3ede;
 }
 
 /* 8. 使用 mixin + @content 設計 RWD -----------------------------------------------------------------*/
