@@ -1,9 +1,17 @@
 <template lang="pug">
   #adminproducts.mt-3
     b-btn(block variant="success" @click="$bvModal.show('modal-product')") 新增
-    b-table(:items="products" :fields="fields" ref="productTable")
+    b-table(
+      :items="products"
+      :fields="fields"
+      ref="productTable"
+    )
       template(#cell(image)="data")
-        img(v-if="data.item" :src="data.item.image" style="height: 50px")
+        img(
+          v-if="data.item"
+          :src="data.item.image"
+          style="height: 50px"
+        )
       template(#cell(sell)="data")
         | {{ data.item.sell ? '√' : '' }}
       template(#cell(action)="data")
@@ -11,7 +19,7 @@
           @click="editProduct(data.index)"
           variant="outline-success"
           squared size="sm"
-        ).mx-2 編輯
+        ) 編輯
         //- b-btn(variant="danger" squared size="sm").mx-2 刪除(編輯的下架)
     b-modal#modal-product(
       :title="form._id.length > 0 ? '編輯商品' : '新增商品'"
@@ -67,11 +75,11 @@
       b-form-group(
         label="上架"
         label-for="input-sell"
-      )
-        b-form-radio-group#radio-slots
+      ).d-inline-block
+        //- b-form-radio-group#radio-slots
           //- (v-model='selected' :options='options' :aria-describedby='ariaDescribedby' name='radio-options-slots')
-          b-form-radio(v-model="form.sell" :value="true") 上架
-          b-form-radio(v-model="form.sell" :value="false") 下架
+        b-form-radio(v-model="form.sell" :value="true" inline) 上架
+        b-form-radio(v-model="form.sell" :value="false" inline) 下架
       //- img-inputer 上傳檔案的套件
       img-inputer(i
         v-model="form.image"
@@ -115,15 +123,16 @@ export default {
     }
   },
   methods: {
-    editProduct (item) {
+    editProduct (index) {
       // 編輯時，將商品資料填入 modal
       this.form = {
-        name: item.name,
-        price: item.price,
-        description: item.description,
-        sell: item.sell,
-        image: item.image,
-        _id: item._id
+        name: this.products[index].name,
+        price: this.products[index].price,
+        description: this.products[index].description,
+        sell: this.products[index].sell,
+        image: this.products[index].image,
+        _id: this.products[index]._id,
+        index
       }
       // 點擊按鈕後，將 modal 顯示
       this.$bvModal.show('modal-product')

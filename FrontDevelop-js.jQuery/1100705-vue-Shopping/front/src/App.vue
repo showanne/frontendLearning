@@ -8,6 +8,7 @@
         b-navbar-toggle(target='nav-collapse')
         b-collapse#nav-collapse(is-nav)
           b-navbar-nav.ml-auto
+            b-nav-item(to='/about') 關於
             b-nav-item(v-if="!user.islogin" to='/register') 註冊
             b-nav-item(v-if="!user.islogin" to='/login') 登入
             //- 如果是登入狀態才會顯示

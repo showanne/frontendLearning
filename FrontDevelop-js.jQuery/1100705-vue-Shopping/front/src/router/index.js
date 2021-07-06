@@ -15,6 +15,14 @@ const routes = [
     }
   },
   {
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      title: '關於 | 購物網'
+    }
+  },
+  {
     path: '/register',
     name: 'Register',
     component: () => import(/* webpackChunkName: "register" */ '../views/Register.vue'),

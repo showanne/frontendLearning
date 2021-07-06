@@ -6,8 +6,7 @@
           //- exact exact-active-class="active" 切換
           b-nav-item(to="/admin/products" exact exact-active-class="active") 商品管理
           b-nav-item(to="/admin/orders" exact exact-active-class="active") 訂單管理
-    hr
-    b-row
+      hr
       b-col(cols="12")
         router-view
 </template>

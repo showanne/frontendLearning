@@ -1,11 +1,12 @@
 <template lang="pug">
-  ProductCard#home(v-for="product in products" :key="product._id" :product="product")
+  b-container#home
     b-row
       b-col(
         cols="12" md="6" lg="4"
         v-for="product in products"
-        :key="product._id")
-      ProductCard(:product="product")
+        :key="product._id"
+      )
+        ProductCard(:product="product").p-5
 </template>
 
 <script>

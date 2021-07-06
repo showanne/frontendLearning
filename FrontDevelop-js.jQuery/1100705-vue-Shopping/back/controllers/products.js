@@ -15,6 +15,7 @@ export const newProduct = async (req, res) => {
     return
   }
   try {
+    // req.filepath
     const result = await products.create({
       name: req.body.name,
       price: req.body.price,
@@ -32,6 +33,7 @@ export const newProduct = async (req, res) => {
       res.status(500).send({ success: false, message: '伺服器錯誤' })
     }
   }
+  console.log('newProduct')
 }
 
 // 檢視商品
@@ -42,6 +44,7 @@ export const getProduct = async (req, res) => {
   } catch (error) {
     res.status(500).send({ success: false, message: '伺服器錯誤' })
   }
+  console.log('getProduct')
 }
 
 // 編輯商品
