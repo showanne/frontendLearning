@@ -10,6 +10,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+import ImgInputer from 'vue-img-inputer'
+import 'vue-img-inputer/dist/index.css'
 
 // 全域引用 mixin，這樣各分頁要是用變數就可以直接使用
 import mixin from './mixin.js'
@@ -19,6 +21,7 @@ import mixin from './mixin.js'
 axios.defaults.baseURL = process.env.VUE_APP_API
 Vue.use(VueAxios, axios)
 Vue.use(VueSweetalert2)
+Vue.component('ImgInputer', ImgInputer)
 
 // 全域引用 mixin，這樣各分頁要是要用變數就可以直接使用
 Vue.mixin(mixin)

@@ -21,3 +21,5 @@ npm i axios vue-axios vue-sweetalert2
 ## 如何在 node 環境測 log
 - 終端機指令打 node
 - 接著直接打 js 即可
+
+### slot 插槽 (vue)

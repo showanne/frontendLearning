@@ -8,8 +8,11 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 // 讀取環境設定檔
 import dotenv from 'dotenv'
+
 // users 資料的路由
 import userRouter from './routes/users.js'
+import productRouter from './routes/products.js'
+import fileRouter from './routes/files.js'
 
 dotenv.config()
 
@@ -19,6 +22,8 @@ mongoose.connect(process.env.MONGODB,
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
+mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
 
 const app = express()
 
@@ -59,6 +64,8 @@ app.use((_, req, res, next) => {
 
 // 根據進來的請求 使用不同的路由
 app.use('/users', userRouter)
+app.use('/products', productRouter)
+app.use('/files', fileRouter)
 
 // 最後擋住 404 不要讓 express 去處理
 app.all('*', (req, res) => {
@@ -67,5 +74,5 @@ app.all('*', (req, res) => {
 
 // 在 port 啟用
 app.listen(process.env.PORT, () => {
-  console.log('server start' + process.env.PORT)
+  console.log('server start ' + process.env.PORT)
 })

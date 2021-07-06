@@ -8,10 +8,8 @@ export default new Vuex.Store({
     // 將後端傳回的資料存 Vuex
     jwt: {
       token: '',
-      // 計算取得 token 的時間
+      // 時間戳記 - 計算取得 token 的時間
       // 不用每次開網頁都更新序號，等到大概過了5~6天再去換 (後端設定7天過期)，但是每次開網頁都要與後端確認序號可不可以
-      
-      // 時間戳記
       received: 0
       // typeof new Date().getTime() 類型是 number
       // new Date().getTime() -> 1625498219087
@@ -30,6 +28,18 @@ export default new Vuex.Store({
       state.user.account = data.account
       state.user.role = data.role
       state.user.email = data.email
+    },
+    logout (state) {
+      // 登出 將存 Vuex 的資料清空
+      state.jwt = {
+        token: '',
+        received: 0
+      }
+      state.user = {
+        account: '',
+        role: 0,
+        email: ''
+      }
     }
   },
   actions: {

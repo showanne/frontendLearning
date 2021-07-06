@@ -2,17 +2,19 @@
   #app
     b-navbar(toggleable='lg' type='dark' variant='primary').mb-3
       b-container
-        b-navbar-brand(to='/') 購物網
-      b-navbar-toggle(target='nav-collapse')
-      b-collapse#nav-collapse(is-nav)
-        b-navbar-nav.ml-auto
-          b-nav-item(v-if="!user.islogin" to='/register') 註冊
-          b-nav-item(v-if="!user.islogin" to='/login') 登入
-          //- 如果是登入狀態才會顯示
-          b-nav-item(v-if="user.islogin" ) 購物車
-          b-nav-item(v-if="user.islogin" ) 訂單
-          b-nav-item(v-if="user.islogin && user.isAdmin" ) 管理
-          b-nav-item(v-if="user.islogin" ) 登出
+        b-navbar-brand(to='/') ɾ⚈▿⚈ɹ 購物網
+        //- .h2.mb-0
+        //-   b-icon(icon='shop-window' variant='success')
+        b-navbar-toggle(target='nav-collapse')
+        b-collapse#nav-collapse(is-nav)
+          b-navbar-nav.ml-auto
+            b-nav-item(v-if="!user.islogin" to='/register') 註冊
+            b-nav-item(v-if="!user.islogin" to='/login') 登入
+            //- 如果是登入狀態才會顯示
+            b-nav-item(v-if="user.islogin" ) 購物車
+            b-nav-item(v-if="user.islogin" ) 訂單
+            b-nav-item(v-if="user.islogin && user.isAdmin" to='/admin') 管理
+            b-nav-item(v-if="user.islogin" @click="logout") 登出
     router-view
 </template>
 
@@ -21,7 +23,31 @@
 // import mixin from './mixin.js'
 
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    async logout () {
+      try {
+        await this.axios.delete('/users/logout', {
+          headers: {
+            // 驗證欄位 'Bearer ' + token  -> Bearer要空格
+            authorization: 'Bearer ' + this.$store.state.jwt.token
+          }
+        })
+        // 呼叫 logout 的 mutations
+        this.$store.commit('logout')
+        // 判斷現在不是在首頁的話，登出成功就導回首頁
+        if (this.$route.path !== '/') this.$router.push('/')
+        // $route 路由資訊
+        // $router 是可以對 $route 修改變數的 function
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: '發生錯誤'
+        })
+      }
+    }
+  }
   // 區域引用 - 僅在這個檔案呼叫 mixin
   // mixins: [mixin]
   // 全部檔案都會用到的 function 可以一起寫在 mixin ，不要每個檔案重複寫

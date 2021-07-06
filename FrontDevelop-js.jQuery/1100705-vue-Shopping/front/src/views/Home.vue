@@ -1,3 +1,43 @@
 <template lang="pug">
-  #home
+  ProductCard#home(v-for="product in products" :key="product._id" :product="product")
+    b-row
+      b-col(
+        cols="12" md="6" lg="4"
+        v-for="product in products"
+        :key="product._id")
+      ProductCard(:product="product")
 </template>
+
+<script>
+// components元件 會重複使用的寫成元件方便使用...?
+import ProductCard from '@/components/ProductCard.vue'
+
+export default {
+  name: 'Home',
+  data () {
+    return {
+      products: []
+    }
+  },
+  components: {
+    ProductCard
+  },
+  async mounted () {
+    try {
+      const { data } = await this.axios.get('/products')
+      this.products = data.result.map(product => {
+        if (product.image) {
+          product.image = `${process.env.VUE_APP_API}/files/${product.image}`
+        }
+        return product
+      })
+    } catch (error) {
+      this.$swal({
+        icon: 'error',
+        title: '錯誤',
+        text: '取得商品失敗'
+      })
+    }
+  }
+}
+</script>
