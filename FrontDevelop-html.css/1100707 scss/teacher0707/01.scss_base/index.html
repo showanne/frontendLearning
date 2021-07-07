@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- 1. 變數（Variables） -->
+  <section id="section01">
+    <div class="container">
+      <h1>1. 變數（Variables）</h1>
+      <p>$ 符號宣告變數名稱的位置，是它的作用域，就像 JS 的 let 宣告，寫在大括號裡面屬於大括號內的變數，寫在最外面為全域變數。</p>
+      <p>變數的底線(_) 和 連接線(-) 可以互換使用，$bg_black、$bg-black 兩者是一樣的。</p>
+      <p>變數可以維持網站的一致姓，可以節省修改成本。</p>
+    </div>
+  </section>
+
+  <!-- 2. 流程控制（Flow Control） -->
+  <section id="section02">
+    <div class="container">
+      <h1>流程控制（Flow Control）</h1>
+      <h3>@if、@else if、@else</h3>
+      <div class="mybox">哈囉!</div>
+
+      <h3>@for 迴圈有兩種 through 與 to</h3>
+      <h4>@for $i from (start) through (end)，包含 end</h4>
+      <div class="through-1"></div>
+      <div class="through-2"></div>
+      <div class="through-3"></div>
+
+      <h4>@for $i from (start) to (end)，不包含 end</h4>
+      <div class="to-1"></div>
+      <div class="to-2"></div>
+    </div>
+  </section>
+
+  <!-- 3. 巢狀（nested） -->
+  <section id="section03">
+    <div class="container">
+      <h1>3. 嵌套巢狀（nested）</h1>
+      <p>勿過度使用巢狀，考慮用最少的結構選擇到目標，一般建議三層，不超過四層</p>
+      <p>過度使用巢狀，編譯後選擇器會有過長的問題，樣式不易閱讀，瀏覽器渲染效果會變差，且 CSS 檔案容量較大。</p>
+      <ul class="menu">
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+        <li><a href="#">LINK</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="bem">
+    <div class="container">
+      <h2>BEM</h2>
+      <div class="sidebar">
+        <a class="sidebar__item sidebar__item--active" href="#">item</a>
+        <a class="sidebar__item" href="#">item</a>
+        <a class="sidebar__item" href="#">item</a>
+        <a class="sidebar__item" href="#">item</a>
+        <a class="sidebar__item" href="#">item</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 練習:建立三欄結構，用巢狀 -->
+  <div id="exercise">
+    <div class="container">
+      <h2>練習:建立三欄結構，用巢狀 </h2>
+      <div class="row">
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=1">
+          <h2><a href="#">Title Link</a></h2>
+          <p>裝置人群答應制度情形母親標準推坑王軟體外面閲讀者適應，典型這麼解壓如此不對收集一把腦袋一場，我一互相下去做出貿易，虛擬環境均為提高精神停止瀏覽器無派目前味道手上結束，少女在我回事信譽故障健康程度我就，雙方住房，吃了一句上次參數金融手冊能量營銷事務十分祝福。</p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=2">
+          <h2><a href="#">Title Link</a></h2>
+          <p>裝置人群答應制度情形母親標準推坑王軟體外面閲讀者適應，典型這麼解壓如此不對收集一把腦袋一場，我一互相下去做出貿易，虛擬環境均為提高精神停止瀏覽器無派目前味道手上結束，少女在我回事信譽故障健康程度我就，雙方住房，吃了一句上次參數金融手冊能量營銷事務十分祝福。</p>
+        </div>
+        <div class="col">
+          <img src="https://picsum.photos/400/300/?random=3">
+          <h2><a href="#">Title Link</a></h2>
+          <p>裝置人群答應制度情形母親標準推坑王軟體外面閲讀者適應，典型這麼解壓如此不對收集一把腦袋一場，我一互相下去做出貿易，虛擬環境均為提高精神停止瀏覽器無派目前味道手上結束，少女在我回事信譽故障健康程度我就，雙方住房，吃了一句上次參數金融手冊能量營銷事務十分祝福。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Extend(繼承) % 符號 -->
+  <section id="section04">
+    <div class="container">
+      <h1>4. Extend(繼承) % 符號</h1>
+      <p>繼承可以用 CSS 選擇器 或 % 佔位選擇器來命名。</p>
+      <p>% 佔位選擇器屬於 SASS 的範疇，不會被編譯到 CSS。</p>
+      <p>相同繼承樣式編譯後會被用群組選擇器聚集在一起。</p>
+      <p>@extend 沒有參數可以使用。</p>
+      <div id="extend">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Sass 的計算 -->
+  <section id="section05">
+    <div class="container">
+      <h1>5. 計算</h1>
+      <div class="box4"></div>
+    </div>
+  </section>
+
+  <!-- 6. Function（函式） -->
+  <section id="section06">
+    <div class="container">
+      <h1>6. Function（函式）</h1>
+      <p>@function 和 @mixin 很像，差異在於 @function 必須使用 @return 回傳結果（符合CSS規範的計算值），它無法在呼叫時產生一段樣式碼，
+        而 @mixin 則可以在呼叫時產生一段樣式碼。</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum eius animi iure. Id veritatis, doloribus quisquam et consequatur dolores ipsa eveniet
+        earum ea consectetur quam rerum minima in voluptate nemo autem illo eligendi quos repellendus similique corrupti. Dolore, architecto odio quia aperiam
+        ab sed excepturi necessitatibus libero, nam quam in voluptatem cum sapiente! Reiciendis modi earum placeat ea laudantium, maxime molestiae tenetur
+        quidem harum corrupti odit dolorem suscipit voluptates sed repellendus dolorum porro, dignissimos doloribus, dicta iure illo quas. Ullam numquam maxime
+        ex nulla officia error saepe accusamus reprehenderit tempore aspernatur. Minima eius quis necessitatibus! Minima nulla quibusdam natus atque!</p>
+    </div>
+
+    <div class="container">
+      <h2>使用函式計算欄位寬度</h2>
+      <div class="row">
+        <div class="col">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt eius at harum quaerat aut impedit, nulla odio saepe ab ipsum earum similique.
+            Voluptates, ducimus velit alias itaque sint eius esse?</p>
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt eius at harum quaerat aut impedit, nulla odio saepe ab ipsum earum similique.
+            Voluptates, ducimus velit alias itaque sint eius esse?</p>
+        </div>
+        <div class="col">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt eius at harum quaerat aut impedit, nulla odio saepe ab ipsum earum similique.
+            Voluptates, ducimus velit alias itaque sint eius esse?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Mixins（混入） -->
+  <section id="section07">
+    <div class="container">
+      <h1>7. Mixins（混入）</h1>
+      <h2>flexbox</h2>
+      <div class="boxflex"></div>
+
+      <h2>使用 mixin 建立按鈕</h2>
+      <a class="btn btn-dark" href="#">按鈕</a>
+      <a class="btn btn-primary" href="#">按鈕</a>
+      <a class="btn btn-success" href="#">按鈕</a>
+      <a class="btn btn-danger" href="#">按鈕</a>
+
+      <h2>建立多個不同顏色的盒子</h2>
+      <div class="b1"></div>
+      <div class="b2"></div>
+      <div class="b3"></div>
+      <div class="b4"></div>
+      <div class="b5"></div>
+    </div>
+  </section>
+
+  <!-- 8. RWD -->
+  <section id="section08">
+    <div class="container">
+      <h1>8. 使用 mixin + @content 設計 RWD</h1>
+      <div class="row">
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+        <div class="col">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus et unde aspernatur quos, sed eius sit ut debitis nobis hic vero voluptates quod,
+          veniam aliquid eaque iusto provident temporibus beatae expedita, id sint maxime dolores quisquam! Deleniti in voluptatibus quibusdam, harum, assumenda
+          cupiditate reprehenderit doloribus quo eveniet maxime, eius incidunt!
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

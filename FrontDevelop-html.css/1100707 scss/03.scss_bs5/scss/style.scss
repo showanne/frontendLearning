@@ -1,0 +1,28 @@
+@import './vendor/rfs';
+
+// 第一種方式
+.rwd-font-1 {
+  @include rfs(2.5rem);
+}
+
+// 第二種方式
+.rwd-font-2 {
+  @include rfs(2.5rem !important);
+}
+
+.no-rwd-font-3 {
+  font-size: rhs-fluid-value(6rem !important);
+}
+
+// rwd-paddinng
+.rwd-paddinng-1 {
+  @include rfs(1.5rem !important, padding);
+}
+
+.rwd-paddinng-2 {
+  @include padding(3.5rem !important);
+}
+
+.no-rwd-paddinng-3 {
+  padding: rfs-fluid-value(1.5rem !important);
+}

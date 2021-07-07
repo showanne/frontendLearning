@@ -1,0 +1,167 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  /* list-style: none; */
+  font-family: '微軟正黑體';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 10px;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+/* 多行註解  會被編譯 */
+/* 9. 資料型態
+     數字(number)：分為無單位、有單位，1,2,13,10px,2rem
+     字串(string)：有引號字串 "Noto Sans TC"，無引號字串 Noto Sans TC
+     顏色(color)：blue，#000000，rgba(0,0,0,0.5)
+     布林值(boolean)：true，false
+     空值(null)：null
+     列表(list)：用空格或逗號作為分隔，1.5rem 1rem 0 2rem 或  'Courier New', Courier, monospace
+     map(物件)：很像 JS 物件，有 key/value pair 一對的特性
+*/
+/* 列表(list) */
+/**/
+/* list 內建函數 nth($list_name , index) 索引從1開始   */
+.list {
+  width: 100px;
+  margin: 20px;
+}
+
+/* 取 list 索引 index($list: , $value: ) */
+.index {
+  width: 3;
+  z-index: 2;
+  z-index: 3;
+}
+
+/* 取 list 長度 length($list: ) */
+.length {
+  z-index: 4;
+}
+
+/* @for $var from start to end {} */
+/* 使用 @for 並從 list 取值做出 class */
+.bg-red {
+  background-color: red;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+/* @each $var in list {} */
+/* 使用 @each...in  從 list 取值做出 class，也可以用在 map 物件 */
+.each-bg-red {
+  background-color: red;
+}
+
+.each-bg-green {
+  background-color: green;
+}
+
+.each-bg-blue {
+  background-color: blue;
+}
+
+/* 使用 join 合併 list join($list1: , $list2: , $separator: ) */
+.join {
+  z-index: 1, 2, 3, 4, 5, 6;
+  margin: 3px, 5px, 9px, 7px;
+}
+
+/* Map (key: value) 一對(pair)的特性 ??*/
+.bg-primary {
+  background-color: papayawhip;
+}
+
+.bg-secondary {
+  background-color: gainsboro;
+}
+
+.bg-third {
+  background-color: mistyrose;
+}
+
+/* 對 map 物件取出 key 值 map-keys($map_name) */
+.size1 {
+  color: sandybrown;
+}
+
+.size2 {
+  color: sandybrown;
+}
+
+.size3 {
+  color: sandybrown;
+}
+
+/* 取出 map 中的所有 value 值 map-values($map_name) */
+.shadow-1 {
+  -webkit-box-shadow: 0 0 10px springgreen;
+          box-shadow: 0 0 10px springgreen;
+}
+
+.shadow-2 {
+  -webkit-box-shadow: 0 0 20px springgreen;
+          box-shadow: 0 0 20px springgreen;
+}
+
+.shadow-3 {
+  -webkit-box-shadow: 0 0 30px springgreen;
+          box-shadow: 0 0 30px springgreen;
+}
+
+/* 巢狀 map
+$map: (
+  $ket: (
+    $value <- 在此處為 第二層 map
+  )
+)
+*/
+/* map-get($map: , $key: ) */
+.box-box0 {
+  width: 100px;
+  height: 100px;
+}
+
+.box-box1 {
+  width: 200px;
+  height: 200px;
+}
+
+.box-box2 {
+  width: 300px;
+  height: 300px;
+}
+
+/* 
+資料型態
+...
+...
+...
+...
+...
+*/

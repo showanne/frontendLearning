@@ -1,0 +1,8 @@
+// px to rem
+@function rem($px) {
+  @if (unit($px) == 'px') {
+    @return #{$px/16px}rem;
+  } @else {
+    @return #{$px/16}rem;
+  }
+}

@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* list-style: none; */
+  font-family: '微軟正黑體';
+  box-sizing: border-box;
+}
+
+.container {
+  width: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 20px 0 10px;
+}
+
+section {
+  margin-bottom: 2rem !important;
+}
+
+// 單行註解 - 不會被編譯
+
+/* 多行註解  會被編譯 */
+
+/* 9. 資料型態
+     數字(number)：分為無單位、有單位，1,2,13,10px,2rem
+     字串(string)：有引號字串 "Noto Sans TC"，無引號字串 Noto Sans TC
+     顏色(color)：blue，#000000，rgba(0,0,0,0.5)
+     布林值(boolean)：true，false
+     空值(null)：null
+     列表(list)：用空格或逗號作為分隔，1.5rem 1rem 0 2rem 或  'Courier New', Courier, monospace
+     map(物件)：很像 JS 物件，有 key/value pair 一對的特性
+*/
+
+/* 列表(list) */
+/**/
+$width_list: 100px, 200px, 300px;
+$margin_list: 10px 20px 30px 40px;
+$bgColor_list: red, green, blue;
+$zindex_list: 1 2 3 4;
+$border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
+
+/* list 內建函數 nth($list_name , index) 索引從1開始   */
+.list {
+  width: nth($width_list, 1);
+  margin: nth($margin_list, 2);
+}
+
+/* 取 list 索引 index($list: , $value: ) */
+.index {
+  width: index($width_list, 300px);
+  z-index: index($border_list, 1px solid blue); // 2
+  z-index: index($border_list, 1px solid green); // 3
+}
+
+/* 取 list 長度 length($list: ) */
+.length {
+  z-index: length($border_list); // 4
+}
+
+/* @for $var from start to end {} */
+/* 使用 @for 並從 list 取值做出 class */
+@for $i from 1 through length($bgColor_list) {
+  .bg-#{nth($bgColor_list, $i)} {
+    background-color: nth($bgColor_list, $i);
+  }
+}
+
+/* @each $var in list {} */
+/* 使用 @each...in  從 list 取值做出 class，也可以用在 map 物件 */
+@each $value in $bgColor_list {
+  .each-bg-#{$value} {
+    background-color: $value;
+  }
+}
+
+/* 使用 join 合併 list join($list1: , $list2: , $separator: ) */
+$list1: 1, 2, 3;
+$list2: 4, 5, 6;
+.join {
+  z-index: join($list1, $list2);
+  margin: join((3px, 5px), (9px, 7px));
+}
+
+/* Map (key: value) 一對(pair)的特性 ??*/
+$map1: (
+  primary: papayawhip,
+  secondary: gainsboro,
+  third: mistyrose
+);
+
+@each $key, $value in $map1 {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+$map2: (
+  size1: 100px,
+  size2: 200px,
+  size3: 300px
+);
+
+/* 對 map 物件取出 key 值 map-keys($map_name) */
+@each $key in map-keys($map2) {
+  .#{$key} {
+    color: sandybrown;
+  }
+}
+
+$map3: (
+  shadow1: 0 0 10px springgreen,
+  shadow2: 0 0 20px springgreen,
+  shadow3: 0 0 30px springgreen
+);
+
+$i: 0;
+/* 取出 map 中的所有 value 值 map-values($map_name) */
+@each $value in map-values($map3) {
+  $i: $i + 1;
+  .shadow-#{$i} {
+    box-shadow: $value;
+  }
+}
+
+/* 巢狀 map
+$map: (
+  $ket: (
+    $value <- 在此處為 第二層 map
+  )
+)
+*/
+$map4: (
+  box0: (
+    width: 100px,
+    height: 100px
+  ),
+  box1: (
+    width: 200px,
+    height: 200px
+  ),
+  box2: (
+    width: 300px,
+    height: 300px
+  )
+);
+
+/* map-get($map: , $key: ) */
+@each $key,$value in $map4 {
+  $width: map-get($value, width);
+  $height: map-get($value, height);
+  .box-#{$key} {
+    width: $width;
+    height: $height;
+  }
+}
+
+/* 
+資料型態
+...
+...
+...
+...
+...
+*/

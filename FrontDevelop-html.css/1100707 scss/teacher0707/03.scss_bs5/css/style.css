@@ -1,0 +1,73 @@
+.rwd-font-1 {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-font-1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+.rwd-font-2 {
+  font-size: calc(1.375rem + 1.5vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-font-2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+.no-rwd-font {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+/* rwd-padding */
+.rwd-padding-1 {
+  padding: calc(1.275rem + 0.3vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-padding-1 {
+    padding: 1.5rem !important;
+  }
+}
+
+.rwd-padding-2 {
+  padding: calc(1.375rem + 1.5vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-padding-2 {
+    padding: 2.5rem !important;
+  }
+}
+
+.no-rwd-padding {
+  padding: calc(1.275rem + 0.3vw) !important;
+}
+
+/* rwd-margin */
+.rwd-margin-1 {
+  margin: calc(1.275rem + 0.3vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-margin-1 {
+    margin: 1.5rem !important;
+  }
+}
+
+.rwd-margin-2 {
+  margin: calc(1.375rem + 1.5vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-margin-2 {
+    margin: 2.5rem !important;
+  }
+}
+
+.no-rwd-margin {
+  margin: calc(1.275rem + 0.3vw) !important;
+}

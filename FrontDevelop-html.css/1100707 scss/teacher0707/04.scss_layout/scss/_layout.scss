@@ -1,0 +1,55 @@
+:root {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include sm {
+    width: 540px;
+  }
+  @include md {
+    width: 720px;
+  }
+  @include lg {
+    width: 960px;
+  }
+  @include xl {
+    width: 1140px;
+  }
+}

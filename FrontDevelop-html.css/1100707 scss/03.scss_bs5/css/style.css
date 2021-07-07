@@ -1,0 +1,47 @@
+.rwd-font-1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+
+@media (min-width: 1200px) {
+  .rwd-font-1 {
+    font-size: 2.5rem;
+  }
+}
+
+.rwd-font-2 {
+  font-size: calc(1.375rem + 1.5vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-font-2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+.no-rwd-font-3 {
+  font-size: rhs-fluid-value(6rem !important);
+}
+
+.rwd-paddinng-1 {
+  padding: calc(1.275rem + 0.3vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-paddinng-1 {
+    padding: 1.5rem !important;
+  }
+}
+
+.rwd-paddinng-2 {
+  padding: calc(1.475rem + 2.7vw) !important;
+}
+
+@media (min-width: 1200px) {
+  .rwd-paddinng-2 {
+    padding: 3.5rem !important;
+  }
+}
+
+.no-rwd-paddinng-3 {
+  padding: calc(1.275rem + 0.3vw) !important;
+}

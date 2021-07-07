@@ -1,0 +1,45 @@
+// RWD 屬性
+@import './vendor/rfs';
+.rwd-font-1 {
+  // 第一種方式
+  @include rfs(1.5rem !important);
+}
+
+.rwd-font-2 {
+  // 第二種方式
+  @include font-size(2.5rem !important);
+}
+
+.no-rwd-font {
+  font-size: rfs-fluid-value(1.5rem !important);
+}
+
+/* rwd-padding */
+.rwd-padding-1 {
+  // 第一種方式
+  @include rfs(1.5rem !important, padding);
+}
+
+.rwd-padding-2 {
+  // 第二種方式
+  @include padding(2.5rem !important);
+}
+
+.no-rwd-padding {
+  padding: rfs-fluid-value(1.5rem !important);
+}
+
+/* rwd-margin */
+.rwd-margin-1 {
+  // 第一種方式
+  @include rfs(1.5rem !important, margin);
+}
+
+.rwd-margin-2 {
+  // 第二種方式
+  @include margin(2.5rem !important);
+}
+
+.no-rwd-margin {
+  margin: rfs-fluid-value(1.5rem !important);
+}
