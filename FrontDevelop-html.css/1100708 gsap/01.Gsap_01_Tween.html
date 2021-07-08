@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gsap Tween</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      padding-bottom: 10rem;
+    }
+
+    .wrap {
+      width: 600px;
+      height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8 {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>GSAP</h1>
+    <ul>
+      <li>支援 CSS</li>
+      <li>GSAP....</li>
+      <li></li>
+    </ul>
+
+    <hr>
+
+    <h2>GSAP 物件</h2>
+    <ul>
+      <li>GSAP3</li>
+      <li>gsap.to() gsap.from() gsap.fromTo()</li>
+      <li>gsap.timeline()</li>
+      <li>...</li>
+    </ul>
+
+    <hr>
+
+    <h2>tween - </h2>
+    <h3>1.....vars....</h3>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+
+    <h3 class="mt-5 pt-5">2.Stagger</h3>
+    <div class="wrap">
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+      <div class="box2"></div>
+    </div>
+
+    <h3 class="mt-5">3.動畫狀態與時間函式</h3>
+    <div class="box3"></div>
+    <button id="btn-pause" class="mt-3">paused 暫停狀態</button>
+    <button id="btn-reversed">reversed 反轉狀態</button>
+
+    <h3 class="mt-5">4. tween 的方法</h3>
+    <div style="background-color: #eee;">
+      <div class="box4"></div>
+    </div>
+    <p class="my-1" id="paused-text">paused 狀態:</p>
+    <p class="my-1" id="reversed-text">reversed 狀態:</p>
+    <p class="my-1" id="isActive-text">isActive狀態:</p>
+    <p class="my-1 text-primary" id="progress-text">progress:</p>
+    <p class="my-1 text-primary" id="totalProgress-text">totalProgress:</p>
+    <p class="my-1 text-success" id="time-text">time:</p>
+    <p class="my-1 text-success" id="totalTime-text">totalTime:</p>
+    <p class="my-1 text-info" id="duration-text">duration:</p>
+    <p class="my-1 text-info" id="totalDuration-text">totalDuration:</p>
+
+    <h4 class="mt-2 d-inline-block">控制動畫的方法：</h4>
+    <button id="play">play</button>
+    <button id="pause">pause</button>
+    <button id="resume">resume</button>
+    <button id="restart">restart</button>
+    <button id="reverse">reverse</button>
+    <button id="seek">seek</button>
+
+    <br>
+
+    <h4 class="mt-3 d-inline-block">進度相關的方法：</h4>
+    <button id="delay">delay</button>
+    <button id="repeat">repeat</button>
+    <button id="repeatDelay">repeatDelay</button>
+    <button id="progress">progress + totalProgress</button>
+    <button id="time">time + totalTime</button>
+    <button id="duration">duration + totalDuration</button>
+    <button id="timeScale">timeScale</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- gsap -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/CustomEase.js"></script>
+
+  <script>
+    // 1.....vars....
+    // gsap.to('動畫目標', {設定動畫屬性})
+    // 選擇方式 '.box1'  $('.box1')  document.querySelectorAll('.box1') 
+    // gsap.to() ...
+    // ...
+    // 屬性數值可以純數字(已預設單位)，也可以 '270deg' 自行加上單位，正負值都可以接受
+
+    // x 及 xPercent 都是 translate 所以使用時用一種就好
+
+    // 'random(0,1)' gsap 以定義好的 隨機
+    // random() 自行定義的變數，不用加 ' '
+
+    // gsap 通用工具
+    // gsap.utils.random(0, 100) // 77.05545
+    // gsap.utils.random(0, 500, 7) // 210
+    // gsap.utils.random([10, 25, 34, 84, 623, 15]) // 623
+    // gsap.utils.shuffle(['purple','red','blue','pink','blue']) // (5)["pink", "blue", "red", "blue", "purple"]
+    // gsap.utils.clamp(0,100,85)  // 85
+
+    const tween1 = gsap.to('.box1', {
+      x: 'random(0,69)',
+      y: $(window).width() / 9,
+      // xPercent: '+=99', // 相當於 x: '50%'
+      // yPercent: '+=19',
+      rotation: '+=random(19, 59)',
+      skewX: 19,
+      marginLeft: 99,
+      backgroundColor: '#1ce',
+      backgroundColor: 'rgba(random(0,255),random(0,255),random(0,255),random(0.8,1))',
+      opacity: () => gsap.utils.random(0.5, 1),
+
+      // 動畫相關屬性 秒數單位為 1秒
+      duration: 0.7,
+      delay: 1,
+      repeat: -1, // repeat 1 + 初始播放 1 = 動畫 2 次
+      // 再重複 repeat 次， -1 為無限次
+      repeatDelay: 1, // repeat 前的延遲時間
+      repeatRefresh: true, // ... ...
+      // yoyo: true, // ...
+      ease: 'step(5)', // 動畫速率 ...
+      ease:
+        CustomEase.create("custom", "M0,0 C0,0.36 0.496,0.268 0.654,0.416 0.846,0.596 0.58,0.8 1,1 ")
+    })
+
+    // 2.Stagger
+    const tween2 = gsap.to('.box2', {
+      rotation: 360,
+      stagger: {
+        each: 0.1, // ...
+        from: 0, // ...
+        ease: 'no', // ...
+        repeat: 1,
+        yoyo: true,
+        grid: [1, 10]
+      }
+    })
+
+    // 3.動畫狀態與時間函式
+    const tween3 = gsap.to('.box3', {
+      x: 500,
+      duration: 0.5,
+      paused: false, // 暫停狀態
+      reversed: false, // 反轉狀態
+      onStart: function (param1, param2) {
+        console.log('HELLO')
+        // console.log(param1, param2)
+      },
+      onStartParams: ['animation', 'start'],
+      onComplete(param1, param2) {
+        console.log('animation ok')
+        // console.log(param1, param2)
+      },
+      onCompleteParams: ['animation', 'end'],
+      onUpdate() {
+        // console.log('animation update', 'totalProgress:' + this.totalProgress())
+      },
+      data: { name: 'Anne' }, // ...tween3.data -> { name: "Anne" }
+      id: 'tween3',
+    })
+    // paused 暫停狀態
+    $('#btn-pause').on('click', function () {
+      tween3.paused(!(tween3.paused()))
+    })
+    // reversed 反轉狀態
+    $('#btn-reversed').on('click', function () {
+      tween3.reversed(!(tween3.reversed()))
+    })
+
+    // 4. tween 的方法
+    const tween4 = gsap.to('.box4', {
+      x: $('.container').width() - $('.box4').width(),
+      duration: 5,
+      paused: true,
+      ease: 'none',
+      onUpdate() {
+        $('#paused-text').text(`paused: ${this.paused()}`)
+        $('#reversed-text').text(`reversed: ${this.reversed()}`)
+        $('#isActive-text').text(`isActive: ${this.isActive()}`)
+
+        // .toFixed(2) 將很多位小數點 改為 2 位
+        $('#progress-text').text(`progress: ${this.progress().toFixed(2)}`)
+        $('#totalProgress-text').text(`totalProgress: ${this.totalProgress().toFixed(2)}`)
+
+        $('#time-text').text(`time: ${this.time().toFixed(1)}`)
+        $('#totalTime-text').text(`totalTime: ${this.totalTime().toFixed(1)}`)
+
+        $('#duration-text').text(`duration: ${this.duration()}`)
+        $('#totalDuration-text').text(`totalDuration: ${this.totalDuration()}`)
+      }
+    })
+
+    // 控制動畫的方法
+    $('#play').on('click', function () {
+      tween4.play() // 開始播放
+      //  play resume 的差異 .....
+    })
+    $('#pause').on('click', function () {
+      tween4.pause()
+      $('#paused-text').text(`paused: ${tween4.paused()}`)
+      $('#isActive-text').text(`isActive: ${tween4.isActive()}`)
+      // 此處不能使用 ${this.isActive()} 因為現在並非在 tween4 內，需使用 ${tween4.isActive()}
+      // tween4.pause(3) // 強制暫停在 3 秒的位置
+    })
+    $('#resume').on('click', function () {
+      tween4.resume() // 將 pause 狀態恢復 play
+    })
+    $('#restart').on('click', function () {
+      tween4.restart(false) // 將 恢復 立即重新啟動
+      // false ...
+    })
+    $('#reverse').on('click', function () {
+      tween4.reverse() // 只能反向 1 次
+      tween4.reverse(2) // 反向 從第2秒開始
+      tween4.reversed(!(tween4.reversed())) // 可以重複反向
+      $('#reversed-text').text(`reversed: ${this.reversed()}`)
+    })
+    $('#seek').on('click', function () {
+      tween4.seek(3) // 跳至指定時點，不會播放
+      $('#paused-text').text(`paused: ${tween4.paused()}`)
+      $('#isActive-text').text(`isActive: ${tween4.isActive()}`)
+    })
+
+    // 進度相關的方法
+    $('#delay').on('click', function () {
+      tween4.play().delay(3) // ... delay 要在 play 後面
+      // console.log(tween4.delay()); // 3 取得...
+    })
+    $('#repeat').on('click', function () {
+      tween4.repeat(1).play() // 重複播放次數
+      console.log(tween4.repeat()); // 1 取得...
+    })
+    $('#repeatDelay').on('click', function () {
+      tween4.repeatDelay(2).repeat(1).play() // 重複播放時的延遲時間
+      console.log(tween4.repeatDelay()); // 2 取得....
+    })
+    $('#progress').on('click', function () {
+      tween4.repeat(1)
+      tween4.repeatDelay(3) // totalProgress 會算進去
+      tween4.play()
+      // progress: 跑單程的進度
+      // totalProgress: 跑加了重複次數後的進度
+      // totalProgress = progress * (1 + repeat 次數) + repeatDelay
+    })
+    $('#time').on('click', function () {
+      tween4.repeat(1)
+      tween4.repeatDelay(3) // totalTime 會算進去
+      tween4.play()
+      // time: 跑單程的時間                ex: 5s
+      // totalTime: 跑加了重複次數後的時間  ex: 10s
+      // totalTime = time * (1 + repeat 次數) + repeatDelay 時間
+    })
+    $('#duration').on('click', function () {
+      tween4.duration(3)
+      tween4.repeatDelay(3) // totalduration 會算進去
+      tween4.repeat(1)
+      tween4.play()
+      // duration: 跑單程的持續時間
+      // totalduration: 跑加了重複次數後的持續時間
+      // totalduration = duration * (1 + repeat 次數) + repeatDelay 時間
+    })
+    $('#timeScale').on('click', function () {
+      tween4.timeScale(2).play()
+      // timeScale 動畫播放速度，不會影響總體時間 totalduration
+      // 0.5 變慢一倍 / 1 速度不變 / 2 加快一倍
+    })
+
+
+  </script>
+</body>
+
+</html>

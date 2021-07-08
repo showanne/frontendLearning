@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gsap Timeline</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      padding-bottom: 10rem;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8,
+    .box9,
+    .box10,
+    .box11,
+    .box12,
+    .box13 {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Timeline - 時間線</h2>
+    <h4 class="mt-4">使用 gsap 製作佇列動畫</h4>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+    <h4 class="mt-4">使用 timeline 製作佇列動畫</h4>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+    <h4 class="mt-4">關於時間線</h4>
+    <ul>
+      <li>Timeline...</li>
+      <li>Timeline...vars..</li>
+      <li></li>
+    </ul>
+    <div class="box7"></div>
+    <div class="box8"></div>
+    <div class="box9"></div>
+    <div class="box10"></div>
+    <button class="mt-3" id="play">play</button>
+    <button class="mt-3" id="pause">pause</button>
+    <button class="mt-3" id="resume">恢復</button>
+
+    <h4 class="mt-4">巢狀時間線</h4>
+    <div class="box11"></div>
+    <div class="box12"></div>
+    <div class="box13"></div>
+    <button class="mt-3" id="nested">開始</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- gsap -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/CustomEase.js"></script>
+
+  <script>
+    // 使用 tween 製作佇列動畫
+    //  ...
+    gsap.to('.box1', { x: 500, duration: 1 })
+    gsap.to('.box2', { x: 500, duration: 2, delay: 1 })
+    gsap.to('.box3', { x: 500, duration: 3, delay: 3 })
+
+    // 使用 timeline 製作佇列動畫
+    //  ...
+    // 按照由上往下順序播放
+    const tl = gsap.timeline()
+    tl
+      .to('.box4', { x: 500, duration: 3 })
+      .to('.box6', { x: 500, duration: 1 })
+      .to('.box5', { x: 500, duration: 2 })
+
+
+    // Timeline
+    const tl1 = gsap.timeline({
+      // defaults ......預設一組設定
+      defaults: {
+        x: 500,
+        duration: 1,
+        // ease: 'elastic',
+      },
+      repeat: 1,
+      repeatDelay: 0,
+      yoyo: true,
+      pause: false,
+    })
+    $('#play').on('click', function () {
+      tl1
+        .to('.box7', {})
+        .to('.box8', { duration: 2 })
+        .to('.box9', {}, '<2')
+        .to('.box10', {}, '<1')
+      // 第三個值可以分別控制播放時間
+      // '<1' → 前一動畫開始播後1秒
+      // '>1' → 前一動畫播完後1秒
+    })
+    $('#pause').on('click', function () {
+      tl1.pause()
+    })
+    $('#resume').on('click', function () {
+      tl1.resume()
+    })
+
+    // 巢狀時間線
+    function t1() {
+      const tl = gsap.timeline()
+      tl.to('.box11', { x: 100 })
+      return t1
+    }
+    function t2() {
+      const tl = gsap.timeline()
+      tl.to('.box12', { x: 100 })
+      return t2
+    }
+    function t3() {
+      const tl = gsap.timeline()
+      tl.to('.box13', { x: 100 })
+      return t3
+    }
+
+    const master = gsap.timeline({ paused: true })
+    $('#nested').on('click', function () {
+      master
+        .add(t1())
+        .add(t2())
+        .add(t3())
+      master.play()
+    })
+
+  </script>
+</body>
+
+</html>
