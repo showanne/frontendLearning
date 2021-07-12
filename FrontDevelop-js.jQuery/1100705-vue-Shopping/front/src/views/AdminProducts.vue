@@ -1,6 +1,6 @@
 <template lang="pug">
   #adminproducts.mt-3
-    b-btn(block variant="success" @click="$bvModal.show('modal-product')") 新增
+    b-btn(block variant="success" @click="$bvModal.show('modal-product')").my-3 新增
     b-table(
       :items="products"
       :fields="fields"
@@ -12,6 +12,8 @@
           :src="data.item.image"
           style="height: 50px"
         )
+      template(#cell(description)="data").w-25
+        | {{ data.item.description }}
       template(#cell(sell)="data")
         | {{ data.item.sell ? '√' : '' }}
       template(#cell(action)="data")
@@ -204,7 +206,11 @@ export default {
   },
   async mounted () {
     try {
-      const { data } = await this.axios.get('/products')
+      const { data } = await this.axios.get('/products/all', {
+        headers: {
+          authorization: 'Bearer ' + this.$store.state.jwt.token
+        }
+      })
       this.products = data.result.map(product => {
         if (product.image) {
           product.image = `${process.env.VUE_APP_API}/files/${product.image}`

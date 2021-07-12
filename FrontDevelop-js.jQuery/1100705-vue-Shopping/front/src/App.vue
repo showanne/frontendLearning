@@ -12,8 +12,8 @@
             b-nav-item(v-if="!user.islogin" to='/register') 註冊
             b-nav-item(v-if="!user.islogin" to='/login') 登入
             //- 如果是登入狀態才會顯示
-            b-nav-item(v-if="user.islogin" ) 購物車
-            b-nav-item(v-if="user.islogin" ) 訂單
+            b-nav-item(v-if="user.islogin" to='/cart') 購物車
+            b-nav-item(v-if="user.islogin" to='/orders') 訂單
             b-nav-item(v-if="user.islogin && user.isAdmin" to='/admin') 管理
             b-nav-item(v-if="user.islogin" @click="logout") 登出
     router-view
@@ -47,6 +47,31 @@ export default {
           text: '發生錯誤'
         })
       }
+    }
+  },
+  async mounted () {
+    if (this.$store.state.jwt.token.length === 0) return
+    const diff = Date.now() - this.$store.state.jwt.received
+    try {
+      // 如果進入網頁時，距離收到 jwt 過了六天，重新取得一次新的 jwt
+      // 1000 * 60 * 60 * 24 * 6 = 6 天的毫秒數
+      if (diff > 1000 * 60 * 60 * 24 * 6) {
+        const { data } = await this.axios.post('/users/extend', {}, {
+          headers: {
+            authorization: 'Bearer ' + this.$store.state.jwt.token
+          }
+        })
+        this.$store.commit('extend', data.result)
+      }
+      // 進入網頁時重新取一次使用者資料
+      const { data } = await this.axios.get('/users/', {
+        headers: {
+          authorization: 'Bearer ' + this.$store.state.jwt.token
+        }
+      })
+      this.$store.commit('getinfo', data.result)
+    } catch (error) {
+      this.$store.commit('logout')
     }
   }
   // 區域引用 - 僅在這個檔案呼叫 mixin

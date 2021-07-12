@@ -1,17 +1,12 @@
 <template lang="pug">
-  b-container#home
-    b-row
-      b-col(
-        cols="12" md="6" lg="4"
-        v-for="product in products"
-        :key="product._id"
-      )
-        //- router-link(:to="'/product/'+product._id").text-decoration-none
-        ProductCard(:product="product").p-5
+b-container#home
+  b-row
+    b-col(cols="12" md="6" lg="4" v-for="product in products" :key="product._id")
+      router-link(:to="'/product/'+product._id")
+        ProductCard(:product="product")
 </template>
 
 <script>
-// components元件 會重複使用的寫成元件方便使用...?
 import ProductCard from '@/components/ProductCard.vue'
 
 export default {
