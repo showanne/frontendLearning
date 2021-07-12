@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小星星</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      height: 100vh;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .animate {
+      animation: animate 5s infinite alternate-reverse;
+    }
+
+    @keyframes animate {
+      0% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+      }
+
+      50% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 20px rgba(255, 255, 0, 1);
+
+      }
+
+      100% {
+        text-shadow: 0 0 1px rgba(255, 255, 135, 1), 0 0 1px rgba(255, 255, 0, 1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid vh-100"></div>
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script>
+    function createStar(starCount) {
+      for (let i = 0; i < starCount; i++) {
+        $('.container-fluid').append(`<div class="star animate">★</div>`)
+        $('.star').each(function () {
+          $(this).css({
+            position: 'absolute',
+            left: gsap.utils.random(0, 100) + '%',
+            top: gsap.utils.random(0, 100) + '%',
+            color: 'yellow'
+          })
+        })
+      }
+    }
+    // 產生星星
+    createStar(50)
+    gsap.to('.star', {
+      fontSize: 'random(12,50)',
+      x: 'random(-50,50)',
+      y: 'random(-50,50)',
+      rotation: '+=360',
+      scale: 'random(1,1.5)',
+      transformOrigin: 'center',
+      filter: 'drop-shadow(0 0 30px rgba(255,255,0,1))',
+      duration: `random(5,10)`,
+      repeat: -1,
+      repeatRefresh: true,
+      ease: 'back',
+      stagger: {
+        each: 0.1
+      }
+    })
+
+  </script>
+</body>
+
+</html>

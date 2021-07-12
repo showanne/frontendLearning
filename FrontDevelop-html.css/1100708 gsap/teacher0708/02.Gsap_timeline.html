@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小星星</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      padding-bottom: 300px;
+    }
+
+    .box1,
+    .box2,
+    .box3,
+    .box4,
+    .box5,
+    .box6,
+    .box7,
+    .box8,
+    .box9,
+    .box10,
+    .box11,
+    .box12,
+    .box13 {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Timeline - 時間線</h2>
+    <h4 class="mt-4">使用 gsap 製作佇列動畫</h4>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <h4 class="mt-4">使用 timeline 製作佇列動畫</h4>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <h3 class="mt-4">關於時間線</h3>
+    <ul>
+      <li>Timeline 是 tween 或其他 timeline 的容器，也是它們的排序工具，可在任意位置放置動畫</li>
+      <li>Timeline 也有自己的 vars 物件可以設定。</li>
+    </ul>
+    <div class="box7"></div>
+    <div class="box8"></div>
+    <div class="box9"></div>
+    <div class="box10"></div>
+    <button id="play" class="mt-3">播放</button>
+    <button id="pause" class="mt-3">暫停</button>
+    <button id="resume" class="mt-3">恢復</button>
+
+    <h3 class="mt-4">巢狀時間線</h3>
+    <div class="box11"></div>
+    <div class="box12"></div>
+    <div class="box13"></div>
+    <button id="nested">開始</button>
+  </div>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script>
+    /*
+      使用 tween 製作佇列動畫
+      雖然可以使用 delay 完成佇列排序，但如果要調動其中一個 delay，
+      就需要調整其他的補間動畫
+    */
+    gsap.to('.box1', { x: 500, duration: 1 })
+    gsap.to('.box2', { x: 500, duration: 1, delay: 1 })
+    gsap.to('.box3', { x: 500, duration: 1, delay: 2 })
+
+    /*
+      使用 timeline 製作佇列動畫
+      無需考慮整體 delay 的調動
+      如果沒有 timeline 在建構動畫的排列順序會非常麻煩
+      Timeline 是 tween 或其他 timeline 的容器
+    */
+    const tl = gsap.timeline()
+    tl
+      .to('.box4', { x: 500, duration: 1 })
+      .to('.box5', { x: 500, duration: 1 })
+      .to('.box6', { x: 500, duration: 1 })
+
+    // Timeline -----------------------------------------------------
+    const tl1 = gsap.timeline({
+      // defaluts 是一個物件，讓 timeline 替子補間動畫設定一組預設
+      defaults: {
+        duration: 1,
+        ease: 'none',
+      },
+      repeat: 1,
+      // repeatDelay: 1,
+      yoyo: true,
+      // paused: false
+    })
+    $('#play').on('click', function () {
+      tl1
+        .to('.box7', { x: 500 })
+        .to('.box8', { x: 500 })
+        .to('.box9', { x: 500 })
+        .to('.box10', { x: 500 })
+    })
+
+    // 也可以使用 tween 的方法
+    $('#pause').on('click', function () {
+      tl1.pause()
+    })
+
+    $('#resume').on('click', function () {
+      tl1.resume()
+    })
+
+    // 巢狀時間線
+    function t1() {
+      const tl = gsap.timeline()
+      tl.to('.box11', {
+        x: 100
+      })
+      return tl
+    }
+
+    function t2() {
+      const tl = gsap.timeline()
+      tl.to('.box12', {
+        x: 100
+      })
+      return tl
+    }
+
+    function t3() {
+      const tl = gsap.timeline()
+      tl.to('.box13', {
+        x: 100
+      })
+      return tl
+    }
+    const master = gsap.timeline({ paused: true })
+    $('#nested').on('click', function () {
+      master
+        .add(t1())
+        .add(t2())
+        .add(t3())
+      master.play()
+    })
+  </script>
+</body>
+
+</html>
