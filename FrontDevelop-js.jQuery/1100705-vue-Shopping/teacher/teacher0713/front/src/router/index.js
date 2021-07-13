@@ -27,8 +27,8 @@ const routes = [
     name: 'Cart',
     component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
     meta: {
-      login: true,
-      title: '購物車 | 購物網'
+      title: '購物車 | 購物網',
+      login: true
     }
   },
   {
@@ -36,16 +36,8 @@ const routes = [
     name: 'Orders',
     component: () => import(/* webpackChunkName: "orders" */ '../views/Orders.vue'),
     meta: {
-      login: true,
-      title: '訂單 | 購物網'
-    }
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    meta: {
-      title: '關於 | 購物網'
+      title: '訂單 | 購物網',
+      login: true
     }
   },
   {
@@ -70,8 +62,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
     children: [
       {
-        // path: '', 不打代表跟上面路徑相同
-        // /* webpackChunkName: "admin" */ 打包時 是否要單獨存 js 檔
         path: '',
         name: 'AdminHome',
         component: () => import(/* webpackChunkName: "admin" */ '../views/AdminHome.vue'),
@@ -109,24 +99,16 @@ const router = new VueRouter({
   routes
 })
 
-// .beforeEach 在進去頁面之前
 router.beforeEach((to, from, next) => {
-  // console.log(store.state.user)
-  // console.log('beforeEach')
   if (to.meta.login && store.state.user.account.length === 0) {
-    // 如果現在不是登入 且 帳號長度為 0
-    // 導去登入畫面
     next('/login')
   } else if (to.meta.admin && store.state.user.role !== 1) {
-    // 如果現在不是管理員登入 且 使用者角色不等於 1
-    // 導回首頁
     next('/')
   } else {
     next()
   }
 })
 
-// .afterEach 在進去每頁之後
 router.afterEach((to, from) => {
   document.title = to.meta.title
 })

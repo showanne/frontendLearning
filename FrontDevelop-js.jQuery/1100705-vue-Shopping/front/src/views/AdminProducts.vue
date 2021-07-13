@@ -141,7 +141,11 @@ export default {
     },
     resetForm (event) {
       // preventDefault
-      if (this.submitDisable) event.preventDefault()
+      // 處理 更新商品後即時更新資料
+      if (this.submitDisable) {
+        event.preventDefault()
+        return
+      }
       this.form = {
         name: '',
         price: 0,
