@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gsap ScrollTrigger pin</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    body {
+      height: 100vh;
+    }
+
+    section {
+      height: 100vh;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background-color: lightsteelblue;
+    }
+
+    section:nth-child(even) {
+      background-color: lightgray;
+    }
+
+    .square {
+      width: 300px;
+      height: 300px;
+      background-color: mediumpurple;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: darkolivegreen;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .box2 {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01"></section>
+  <section id="section02">
+    <div class="box1">box1</div>
+  </section>
+  <section id="section03"></section>
+  <section id="section04">
+    <div class="box2">box2</div>
+    <div class="square"></div>
+  </section>
+  <section id="section05"></section>
+  <!-- <section id="section06">
+    <div class="box3"></div>
+    <div class="shadow"></div>
+  </section>
+  <section id="section07"></section> -->
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    /*...
+      pin:
+      pinSpacing: 
+      pin-space 是根據 start、end + scroll-start、scroll-end 之間距離加總
+    */
+    gsap.to('.box1', {
+      scrollTrigger: {
+        // markers: true,
+        trigger: '.box1',
+        start: 'top 60%',
+        end: '500px 30%',
+        pin: true
+      },
+      x: 1000,
+      duration: 5,
+      repeat: -1,
+      yoyo: true
+    })
+
+    gsap.to('.box2', {
+      scrollTrigger: {
+        markers: true,
+        trigger: '.square',
+        start: 'top 60%',
+        end: 'center 30%',
+        pin: '.box2', // .....
+        pinSpacing: false
+
+      }
+      // x: 1000,
+    })
+  </script>
+</body>
+
+</html>

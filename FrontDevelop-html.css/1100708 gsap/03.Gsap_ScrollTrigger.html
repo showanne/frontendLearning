@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gsap ScrollTrigger</title>
+
+  <!-- bootstrap.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css">
+
+  <style>
+    section {
+      height: 100vh;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background-color: lightcyan;
+    }
+
+    section:nth-child(even) {
+      background-color: lightgray;
+    }
+
+    #section02,
+    #section04,
+    #section06 {
+      display: flex;
+      align-items: center;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+      width: 100px;
+      height: 100px;
+      background-color: darkorchid;
+      /* transition: 0.9s; */
+      /* transition 會影響 scrub*/
+    }
+
+    .box1,
+    .box2 {
+      transition: 0.9s;
+    }
+
+    .shadow {
+      width: 100px;
+      height: 100px;
+      background-color: rgba(0, 0, 0, 0.3);
+      position: absolute;
+    }
+
+    .active {
+      background-color: #ace;
+      width: 190px;
+      height: 190px;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01"></section>
+  <section id="section02">
+    <div class="box1"></div>
+  </section>
+  <section id="section03"></section>
+  <section id="section04">
+    <div class="box2"></div>
+  </section>
+  <section id="section05"></section>
+  <section id="section06">
+    <div class="box3"></div>
+    <div class="shadow"></div>
+  </section>
+  <section id="section07"></section>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/ScrollTrigger.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    const tween1 = gsap.to('.box1', {
+      scrollTrigger: {
+        trigger: '.box1', //...
+        // markers: true, // 標記器
+        start: 'top 60%', // 預設值 start: 'top bottom', 值1:觸發對象位置的起始點 值2:捲動軸位置的起始點 會影像動畫作用範圍
+        end: 'bottom 30%', // 預設值 end: 'bottom start', 值1:觸發對象位置的結束點 值2:捲動軸位置的結束點 會影像動畫作用範圍
+        /*...
+        
+        */
+        // toggleActions: 'play pause resume reverse', // 進出點的動作
+        /* toggleActions 進出點的動畫
+           設定: onEnter、onLeave、onEnterBack、onLeaveBack
+           值: play、pause、resume、reverse、restart、reset、complete、none
+           預設值: play none none none
+        */
+        scrub: 2,
+        /* scrub
+           值: true .....
+        */
+        toggleClass: {
+          target: '.box1',
+          className: 'active'
+        },
+        onEnter(self) { console.log(self); },
+        onLeave() { },
+        onEnterBack() { },
+        onLeaveBack() { },
+      },
+      x: '88vw', // x = transform: translateX
+      duration: 8
+    })
+
+    const tween2 = gsap.to('.box2', { X: 1000, duration: 5 })
+    ScrollTrigger.create({
+      animation: tween2,
+      trigger: '.box2',
+      // markers: true, // 標記器
+      start: 'top 60%',
+      end: 'bottom 30%',
+      toggleActions: 'play pause resume reverse',
+    })
+
+    // 官方範例
+    gsap.to('.box3', {
+      scrollTrigger: {
+        trigger: '.box3',
+        markers: true,
+        start: 'top 50%',
+        end: 'bottom 50%',
+        scrub: 1,
+      },
+      x: 600,
+      rotation: 360,
+      duration: 5
+    })
+    gsap.to('.shadow', {
+      scrollTrigger: {
+        trigger: '.box3',
+        markers: true,
+        start: 'top 50%',
+        end: 'bottom 50%',
+        scrub: 2,
+        // transition 會影響 scrub
+      },
+      x: 600,
+      rotation: 360,
+      duration: 5
+    })
+  </script>
+</body>
+
+</html>

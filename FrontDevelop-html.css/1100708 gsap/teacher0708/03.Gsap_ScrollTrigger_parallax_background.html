@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List group</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      background: black;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 50vh;
+      font-size: 3rem;
+      color: white;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01">Section01</section>
+  <section id="section02">Section02</section>
+  <section id="section03">Section03</section>
+  <section id="section04">Section04</section>
+  <section id="section05">Section05</section>
+  <section id="section06">Section06</section>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <!-- GSAP 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- GSAP's Plugins -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    $('section').each(function (index, section) {
+      $(section).css({
+        backgroundImage: `url(https://picsum.photos/1920/1080/?random=${index})`,
+      })
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 50%',
+          end: 'bottom 0%',
+          scrub: true,
+          markers: true
+        },
+        backgroundPosition: '50% -50%',
+        ease: 'none'
+      })
+    })
+  </script>
+</body>
+
+</html>

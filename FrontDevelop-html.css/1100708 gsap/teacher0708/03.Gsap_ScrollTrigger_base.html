@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List group</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    section {
+      height: 100vh;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: lightcyan;
+    }
+
+    section:nth-child(even) {
+      background: lightgray;
+    }
+
+    #section02,
+    #section04,
+    #section06 {
+      display: flex;
+      align-items: center;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+      width: 100px;
+      height: 100px;
+      background: darkorchid;
+      /* transition: 1s; */
+    }
+
+    .shadow {
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+    }
+
+    .active {
+      background: #ffa;
+      /* width: 200px;
+      height: 200px; */
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01"></section>
+  <section id="section02">
+    <div class="box1"></div>
+  </section>
+  <section id="section03"></section>
+  <section id="section04">
+    <div class="box2"></div>
+  </section>
+  <section id="section05"></section>
+  <section id="section06">
+    <div class="box3"></div>
+    <div class="shadow"></div>
+  </section>
+  <section id="section07"></section>
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <!-- GSAP 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- GSAP's Plugins -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    const tween1 = gsap.to('.box1', {
+      scrollTrigger: {
+        trigger: '.box1', // 觸發對象是誰？
+        /*
+          start 與 end 設定
+          雙數值(建議，明確指定)，值可為 top、center、bottom、px、%，或是相對數值 +=100、-=100
+          第一數值為觸發對象的位置，第二數值為滾動軸位置
+          [預設值]
+          start: 'top bottom' （當滾動軸的 scroller-start 位置觸發元素的 start 位置）
+          end: 'bottom top'（當滾動軸的 scroller-end 位置觸發元素的 end 位置）
+        */
+        start: 'top center',
+        end: 'bottom center',
+        /*
+          toggleActions 設定 onEnter、onLeave、onEnterBack、onLeaveBack 四個進出點動作
+          值： play、pause、resume、reverse、restart、reset、complete、none
+          預設： 'play none none none'
+        */
+        // toggleActions: 'play pause resume reverse',
+        /*
+          scrub 讓滾動軸進度與動畫進度連動起來，但會讓 toggleActions 設定失效。
+          值: boolean 或 number (1 為 1 秒趕上，數字越大，動畫會越慢追上滾動軸進度)
+        */
+        scrub: true,
+        toggleClass: {
+          targets: '.box1',
+          className: 'active'
+        },
+        onEnter(self) {
+          console.log(self)
+        },
+        onLeave() {
+
+        },
+        onEnterBack() {
+
+        },
+        onLeaveBack() {
+
+        },
+        // markers: true, // 標記器，方便觀察觸發時機
+      },
+      x: '87vw',
+      duration: 10,
+    })
+
+    const tween2 = gsap.to('.box2', { x: 1000, duration: 5 })
+    ScrollTrigger.create({
+      animation: tween2,
+      trigger: '.box2',
+      start: 'top 60%',
+      end: 'bottom 30%',
+      toggleActions: 'play pause resume reverse',
+      // markers: true
+    })
+
+    // 官方範例
+    gsap.to('.box3', {
+      scrollTrigger: {
+        trigger: '.box3',
+        start: 'top 50%',
+        end: 'bottom 50%',
+        scrub: 1,
+        markers: true
+      },
+      x: 600,
+      rotation: 360,
+      duration: 4
+    })
+    gsap.to('.shadow', {
+      scrollTrigger: {
+        trigger: '.box3',
+        start: 'top 50%',
+        end: 'bottom 50%',
+        scrub: 2,
+        markers: true
+      },
+      x: 600,
+      rotation: 360,
+      duration: 4
+    })
+  </script>
+</body>
+
+</html>

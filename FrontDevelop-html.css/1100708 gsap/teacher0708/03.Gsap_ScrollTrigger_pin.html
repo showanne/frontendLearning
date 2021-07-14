@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List group</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      height: 100vh;
+    }
+
+
+    section {
+      height: 100vh;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: lightcyan;
+    }
+
+    section:nth-child(even) {
+      background: black;
+    }
+
+    .square {
+      width: 300px;
+      height: 300px;
+      background: red;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background: darkorchid;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .box2 {
+      width: 100px;
+      height: 100px;
+      background: green;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="section01"></section>
+  <section id="section02">
+    <div class="box1">box1</div>
+  </section>
+  <section id="section03"></section>
+  <section id="section04">
+    <div class="box2">box2</div>
+    <div class="square"></div>
+  </section>
+  <section id="section05"></section>
+
+
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <!-- GSAP 主程式 -->
+  <script src="./gsap/gsap.js"></script>
+  <!-- GSAP's Plugins -->
+  <script src="./gsap/ScrollTrigger.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger)
+    /*
+      pin: true => trigger 即是被釘選元素
+      pin: 'selector' => 觸發元素後，可指定要被釘選的 selector 元素
+      pinSpacing:true (預設) => pin 元素會被包裹在一個 div，此 div 會產生的 padding 空間，
+                              它是根據 start、end 與 scroll-star、scroll-end 設定的值，作為釘選距離
+      pinSpacing:false => pin 元素無法隔開其他元素，會有穿套其他元素的效果
+    */
+    gsap.to('.box1', {
+      scrollTrigger: {
+        trigger: '.box1',
+        start: 'top 60%',
+        end: '500px 30%',
+        pin: true,
+        // markers: true
+      },
+      x: 500,
+      duration: 5,
+      repeat: -1,
+      yoyo: true
+    })
+
+    gsap.to('.box2', {
+      scrollTrigger: {
+        trigger: '.square',
+        start: 'top 50%',
+        end: 'center 50%',
+        pin: '.box2',  // 可指定被釘選的元素
+        pinSpacing: true,
+        markers: true
+      }
+    })
+  </script>
+</body>
+
+</html>

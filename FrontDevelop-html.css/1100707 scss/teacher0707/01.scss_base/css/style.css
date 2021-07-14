@@ -65,7 +65,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: green;
+  background-color: blue;
   color: white;
   font-size: 30px;
   border: 10px solid yellow;
@@ -398,23 +398,23 @@ nav {
 }
 
 .b1 {
-  background: #1414e1;
+  background: #63fcb5;
 }
 
 .b2 {
-  background: #885519;
+  background: #12f625;
 }
 
 .b3 {
-  background: #0a2942;
+  background: #6edf19;
 }
 
 .b4 {
-  background: #f0fa50;
+  background: #d2986a;
 }
 
 .b5 {
-  background: #171698;
+  background: #830569;
 }
 
 /* 8. 使用 mixin + @content 設計 RWD -----------------------------------------------------------------*/
