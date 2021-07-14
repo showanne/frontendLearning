@@ -1,0 +1,16 @@
+body {
+  color: white;
+  background: #000;
+  font-weight: 400;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#section01,
+#section02,
+#section03,
+#section04,
+#section05,
+#section06 {
+  position: relative;
+  z-index: 1000;
+}

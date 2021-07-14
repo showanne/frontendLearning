@@ -1,0 +1,43 @@
+#home {
+  margin-top: 60px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: url('../images/mask.png') no-repeat center/100% 100%;
+    // mask 具有穿透作用，才能點擊上一張、下一張
+    pointer-events: none;
+  }
+  // 左箭頭
+  .carousel-control-prev {
+    background: url(../images/arrow_left.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .carousel-control-prev:hover {
+    background: url(../images/arrow_left_hover.png) no-repeat center/100px;
+  }
+  // 右箭頭
+  .carousel-control-next {
+    background: url(../images/arrow_right.png) no-repeat center/80px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .carousel-control-next:hover {
+    background: url(../images/arrow_right_hover.png) no-repeat center/100px;
+  }
+
+  @include lg {
+    height: 100vh;
+    margin-top: 0;
+  }
+}
