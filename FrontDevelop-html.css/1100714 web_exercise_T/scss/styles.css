@@ -1,79 +1,7 @@
 @charset "UTF-8";
-/* RWD mixins */
-#section01 .content .frame, #section02 .content .frame {
-  color: #321400;
-  font-size: 1.1rem;
-  padding: 0 3rem;
-  background: url("../images/frame_middle_xs.png") repeat-y center/contain;
-  margin-top: -10px;
-  margin-bottom: -25px;
-  position: relative;
-}
-
-#section01 .content .frame h1, #section02 .content .frame h1 {
-  font-size: 2rem;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 1px 1px 1px #3c3200, 2px 2px 1px #3c3200;
-  position: absolute;
-  left: 50%;
-  top: -60px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-#section01 .content::before, #section02 .content::before {
-  content: '';
-  display: block;
-  height: 90px;
-  background: url("../images/frame_top_xs.png") no-repeat center/contain;
-}
-
-#section01 .content::after, #section02 .content::after {
-  content: '';
-  display: block;
-  height: 50px;
-  background: url("../../images/frame_bottom_xs.png") no-repeat center/contain;
-}
-
-@media (min-width: 768px) {
-  #section01 .content .frame, #section02 .content .frame {
-    background: url("../images/frame_middle_xs.png") repeat-y center;
-    padding: 1rem 7rem;
-    margin-top: calc(-2px - 1vw);
-    margin-bottom: calc(-1px - 1vw);
-  }
-  #section01 .content::before, #section02 .content::before {
-    background: url("../images/frame_top_xs.png") no-repeat center;
-  }
-  #section01 .content::after, #section02 .content::after {
-    background: url("../images/frame_bottom_xs.png") no-repeat center;
-  }
-}
-
-@media (min-width: 992px) {
-  #section01 .content .frame, #section02 .content .frame {
-    background: url("../images/frame_middle_small.png") repeat-y center/contain;
-    padding: 1rem 5rem;
-    margin-top: calc(-3px - 1vw);
-    margin-bottom: calc(-1px - 1vw);
-    position: relative;
-  }
-  #section01 .content .frame h3, #section02 .content .frame h3 {
-    left: calc(50% - 10px);
-    top: -58px;
-  }
-  #section01 .content::before, #section02 .content::before {
-    background: url("../images/frame_top.png") no-repeat center/contain;
-  }
-  #section01 .content::after, #section02 .content::after {
-    background: url("../images/frame_bottom.png") no-repeat center/contain;
-  }
-}
-
 body {
   color: white;
-  background-color: black;
+  background: #000;
   font-weight: 400;
   font-family: 'Noto Sans TC', sans-serif;
 }
@@ -88,9 +16,9 @@ body {
   z-index: 1000;
 }
 
-/* navbar 導覽列 */
+/* navbar 導覽列 -------------------------------------------------------------------------------- */
 #navbar {
-  background-color: black;
+  background: #000;
 }
 
 #navbar .nav-link {
@@ -105,13 +33,13 @@ body {
 
 #navbar .nav-link:hover {
   color: yellow;
-  background-color: rgba(50, 30, 0, 0.75);
+  background: rgba(50, 30, 0, 0.75);
 }
 
 #navbar .nav-link:active {
   font-weight: bolder;
   color: yellow;
-  background-color: rgba(50, 30, 0, 0.75);
+  background: rgba(50, 30, 0, 0.75);
 }
 
 #navbar .register_login {
@@ -136,7 +64,7 @@ body {
   #navbar .navbar-brand {
     display: none;
   }
-  #navbar #navbar-content {
+  #navbar #kaifu_navabr {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -161,7 +89,7 @@ body {
     content: '';
     width: 2px;
     height: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     position: absolute;
     left: -5px;
     top: 50%;
@@ -181,15 +109,14 @@ body {
             align-items: center;
     margin-left: 1rem !important;
   }
-  #navbar .register_login::before {
-    display: none;
-  }
   #navbar .register_login .gap-line {
     display: block;
   }
+  #navbar .register_login::before {
+    display: none;
+  }
 }
 
-/* home */
 #home {
   margin-top: 60px;
   position: relative;
@@ -214,25 +141,25 @@ body {
 }
 
 #home .carousel-control-prev {
-  background: url("../images/arrow_left.png") no-repeat center/80px;
+  background: url(../images/arrow_left.png) no-repeat center/80px;
   opacity: 1;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 #home .carousel-control-prev:hover {
-  background: url("../images/arrow_left_hover.png") no-repeat center/100px;
+  background: url(../images/arrow_left_hover.png) no-repeat center/100px;
 }
 
 #home .carousel-control-next {
-  background: url("../images/arrow_right.png") no-repeat center/80px;
+  background: url(../images/arrow_right.png) no-repeat center/80px;
   opacity: 1;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 #home .carousel-control-next:hover {
-  background: url("../images/arrow_right_hover.png") no-repeat center/100px;
+  background: url(../images/arrow_right_hover.png) no-repeat center/100px;
 }
 
 @media (min-width: 992px) {
@@ -242,21 +169,7 @@ body {
   }
 }
 
-/* section01 奇幻世界 */
-@media (min-width: 992px) {
-  #section01 {
-    background: url("../images/section01_top_mask.png") no-repeat center top/100%;
-  }
-}
-
-/* section02 典型要素 */
-@media (min-width: 992px) {
-  #section02 {
-    margin-top: 1rem;
-  }
-}
-
-/* register modal */
+/* modal -----------------------------------------------------------------------*/
 .modal .modal-content {
   background-color: transparent;
   border: none;
@@ -264,10 +177,8 @@ body {
 
 .modal .modal-header {
   color: white;
-  /* 圖片尺寸為 200 */
   height: 120px;
-  /* 要注意匯出時，圖片位置要以編譯後的 style.css 為基礎 */
-  background: url("../images/login_register_header.png") no-repeat center top/100%;
+  background: url(../../images/login_register_header.png) no-repeat center top/100%;
   padding: 5rem 5rem 2rem;
   border: none;
   -webkit-box-pack: center;
@@ -276,7 +187,6 @@ body {
 }
 
 .modal .modal-header .btn-close {
-  /* em 根據父元素縮放 rem 根據網頁根元素 root 縮放 */
   width: 0.5em;
   height: 0.5em;
   border: 1px solid #000;
@@ -291,15 +201,14 @@ body {
 
 .modal .modal-body {
   padding: 0 5rem;
-  /*ody_02.png(有尖角) 蓋 ody_01.png(重複鋪滿剩餘的空間)*/
-  background: url("../images/login_register_body_02.png") no-repeat center/contain, url("../images/login_register_body_01.png") repeat-y center/100%;
+  background: url(../../images/login_register_body_02.png) no-repeat center/contain, url(../../images/login_register_body_01.png) repeat-y center/100%;
 }
 
 .modal .modal-footer {
   border: none;
   height: 110px;
   padding: 0 5rem;
-  background: url("../images/login_register_footer.png") no-repeat center bottom/100%;
+  background: url(../../images/login_register_footer.png) no-repeat center bottom/100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -318,3 +227,4 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
 }
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,6 @@
+#section02 {
+  @extend %frame;
+  @include lg {
+    margin-top: 90px;
+  }
+}

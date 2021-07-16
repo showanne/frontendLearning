@@ -1,0 +1,10 @@
+/* section01 奇幻世界 */
+
+#section01 {
+  // xs
+  @extend %frame;
+  @include lg {
+    background: url('../images/section01_top_mask.png') no-repeat center
+      top/100%;
+  }
+}

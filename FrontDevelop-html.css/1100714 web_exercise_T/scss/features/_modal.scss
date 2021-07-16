@@ -1,4 +1,4 @@
-/* modal -----------------------------------------------------------------------*/
+/* modal ----------------------------------------------------------------------- */
 .modal {
   .modal-content {
     background-color: transparent;
@@ -45,5 +45,7 @@
   }
   .modal-dialog-centered {
     justify-content: center;
+  }
+  @include lg {
   }
 }

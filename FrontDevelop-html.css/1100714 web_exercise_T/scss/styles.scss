@@ -9,6 +9,7 @@
 
 // 混合
 @import './mixins/rwd';
+@import './mixins/frame';
 
 // 全域設定
 @import './global';
@@ -16,6 +17,8 @@
 // 區塊結構
 @import './navbar';
 @import './home';
+@import './section01';
+@import './section02';
 
 // 功能
 @import './features/modal';

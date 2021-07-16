@@ -1,0 +1,6 @@
+#section01 {
+  @extend %frame;
+  @include lg {
+    background: url(../images/section01_top_mask.png) no-repeat center top/100%;
+  }
+}
