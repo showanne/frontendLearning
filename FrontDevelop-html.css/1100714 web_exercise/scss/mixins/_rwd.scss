@@ -1,4 +1,4 @@
-// RWD mixins
+/* RWD mixins */
 @mixin sm {
   @media (min-width: $breakpoint-sm) {
     @content;

@@ -1,0 +1,49 @@
+/* modal -----------------------------------------------------------------------*/
+.modal {
+  .modal-content {
+    background-color: transparent;
+    border: none;
+  }
+  .modal-header {
+    color: white;
+    height: 120px;
+    background: url(../../images/login_register_header.png) no-repeat center
+      top/100%;
+    padding: 5rem 5rem 2rem;
+    border: none;
+    justify-content: center;
+    .btn-close {
+      width: 0.5em;
+      height: 0.5em;
+      border: 1px solid #000;
+      border-radius: 0.3rem;
+      background-size: 0.8em;
+      filter: invert(100%);
+      position: absolute;
+      right: 70px;
+      top: 80px;
+    }
+  }
+  .modal-body {
+    padding: 0 5rem;
+    background: url(../../images/login_register_body_02.png) no-repeat
+        center/contain,
+      url(../../images/login_register_body_01.png) repeat-y center/100%;
+  }
+  .modal-footer {
+    border: none;
+    height: 110px;
+    padding: 0 5rem;
+    background: url(../../images/login_register_footer.png) no-repeat center
+      bottom/100%;
+    justify-content: center;
+    align-items: start;
+    button {
+      width: 100%;
+      margin: 0;
+    }
+  }
+  .modal-dialog-centered {
+    justify-content: center;
+  }
+}

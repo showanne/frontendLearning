@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* RWD mixins */
 body {
   color: white;
   background-color: black;
@@ -15,6 +17,7 @@ body {
   z-index: 1000;
 }
 
+/* navbar 導覽列 */
 #navbar {
   background-color: black;
 }
@@ -115,6 +118,7 @@ body {
   }
 }
 
+/* home */
 #home {
   margin-top: 60px;
   position: relative;
@@ -165,4 +169,67 @@ body {
     height: 100vh;
     margin-top: 0;
   }
+}
+
+/* register modal */
+.modal .modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.modal .modal-header {
+  color: white;
+  /* 圖片尺寸為 200 */
+  height: 120px;
+  /* 要注意匯出時，圖片位置要以編譯後的 style.css 為基礎 */
+  background: url("../images/login_register_header.png") no-repeat center top/100%;
+  padding: 5rem 5rem 2rem;
+  border: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal .modal-header .btn-close {
+  /* em 根據父元素縮放 rem 根據網頁根元素 root 縮放 */
+  width: 0.5em;
+  height: 0.5em;
+  border: 1px solid #000;
+  border-radius: 0.3rem;
+  background-size: 0.8em;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  position: absolute;
+  right: 70px;
+  top: 80px;
+}
+
+.modal .modal-body {
+  padding: 0 5rem;
+  /*ody_02.png(有尖角) 蓋 ody_01.png(重複鋪滿剩餘的空間)*/
+  background: url("../images/login_register_body_02.png") no-repeat center/contain, url("../images/login_register_body_01.png") repeat-y center/100%;
+}
+
+.modal .modal-footer {
+  border: none;
+  height: 110px;
+  padding: 0 5rem;
+  background: url("../images/login_register_footer.png") no-repeat center bottom/100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.modal .modal-footer button {
+  width: 100%;
+  margin: 0;
+}
+
+.modal .modal-dialog-centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
