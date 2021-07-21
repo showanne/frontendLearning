@@ -1,31 +1,37 @@
-// bootstrap rfs
+/* bootstrap rfs */
 @import '../scss_bs5/vendor/_rfs.scss';
 
-// 變數
+/* 變數 */
 @import './variables';
 
-// 函式
+/* 函式 */
 @import './functions';
 
-// 混合
+/* 混合 */
 @import './mixins/rwd';
 @import './mixins/frame';
 
-// 全域設定
+/* 全域設定 */
 @import './global';
 
-// 區塊結構
-// navbar
+/* 區塊結構 */
+/* navbar */
 @import './navbar';
-// home
+/* home */
 @import './home';
-// section
+/* section */
 @import './section01';
 @import './section02';
 @import './section03';
 @import './section04';
 @import './section05';
+/* footer */
+@import './footer';
 
-// 功能
-// modal
+/* 功能 */
+/* modal */
 @import './features/modal';
+/* backtop */
+@import './features/backtop';
+/* parallax */
+@import './features/parallax';

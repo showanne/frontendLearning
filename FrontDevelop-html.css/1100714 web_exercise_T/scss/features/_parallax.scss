@@ -1,0 +1,57 @@
+// 星空背景
+body {
+  overflow-x: hidden;
+  @include lg {
+    background: url(../images/mask.png) no-repeat fixed 50% 0%/100%,
+      url(../images/night_sky.jpg) no-repeat fixed 50% 0%/100%;
+  }
+}
+
+// 視差元素
+.parallax {
+  display: none;
+  @include lg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: block;
+    .float-wrap-01 {
+      width: 280px;
+      height: 300px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      .float-island {
+        width: 100%;
+        height: 100%;
+        background: url(../images/float-island-01.png) no-repeat center/100%;
+      }
+    }
+    .float-wrap-02 {
+      width: 200px;
+      height: 350px;
+      position: absolute;
+      top: 10%;
+      right: 0;
+      .float-island {
+        width: 100%;
+        height: 100%;
+        background: url(../images/float-island-02.png) no-repeat center/100%;
+      }
+    }
+    .float-wrap-03 {
+      width: 100%;
+      height: 507px;
+      position: absolute;
+      bottom: 0;
+      .float-island {
+        width: 100%;
+        height: 100%;
+        background: url(../images/float-island-03.png) no-repeat center/100%;
+      }
+    }
+  }
+}

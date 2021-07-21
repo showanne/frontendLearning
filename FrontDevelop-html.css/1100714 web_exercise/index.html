@@ -10,17 +10,18 @@
   <!-- google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="./css/bootstrap.css">
   <!-- bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <!-- <link rel="stylesheet" href="./icons-fonts_bs5/bootstrap-icons.css"> -->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
   <!-- owl carousel -->
-  <link rel="stylesheet" href="./css/owlcarousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="./css/owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="./css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./css/owl.theme.default.min.css">
   <!-- Magnific Popup -->
   <link rel="stylesheet" href="./css/magnific-popup.css">
-  <link rel="stylesheet" href="./css/magnific-popup-Single image lightbox.css">
+  <!-- magnific-popup view source 各別設定的樣式 -->
+  <link rel="stylesheet" href="./css/magnific-popup-Single-image-lightbox.css">
   <!-- self -->
   <link rel="stylesheet" href="./css/style.css">
 
@@ -102,10 +103,10 @@
           </div>
           <div class="modal-body">
             <div class="mb-4">
-              <input type="text" class="form-control form-control-sm" id="log_name" placeholder="請輸入帳號">
+              <input type="text" class="form-control form-control-sm" id="login_name" placeholder="請輸入帳號">
             </div>
             <div class="mb-4">
-              <input type="password" class="form-control form-control-sm" id="log_pwd_01" placeholder="請輸入密碼">
+              <input type="password" class="form-control form-control-sm" id="login_pwd_01" placeholder="請輸入密碼">
             </div>
           </div>
           <div class="modal-footer">
@@ -329,9 +330,9 @@
                 </div>
               </div>
             </div>
-            <div class="col">
-              <!-- 矮人（Dwarf） -->
+            <div class="col-lg">
               <div class="tab-content">
+                <!-- 矮人（Dwarf） -->
                 <div class="tab-pane fade show active" id="dwarf">
                   <h2>矮人（Dwarf）</h2>
                   <p>
@@ -348,9 +349,7 @@
                     矮人常年在黑暗環境生活，培養出能夠在無光環境視物的黑暗視覺。他們對毒素和法術都有一定程度的抵抗力。
                   </p>
                 </div>
-              </div>
-              <!-- 精靈（elf） -->
-              <div class="tab-content">
+                <!-- 精靈（elf） -->
                 <div class="tab-pane fade" id="elf">
                   <h2>精靈（elf）</h2>
                   <p>
@@ -367,9 +366,7 @@
                     精靈使用精靈語，一種優美而高複雜度的語言，使得他們的文學和詩歌增色不少，其他種族的藝術家經常為了接觸精靈文學而學習精靈語。精靈的體質讓他們對催眠法術免疫，常年在森林中培育出能夠在昏暗環境中夜視的能力，
                   </p>
                 </div>
-              </div>
-              <!-- 地精（Gnome） -->
-              <div class="tab-content">
+                <!-- 地精（Gnome） -->
                 <div class="tab-pane fade" id="gnome">
                   <h2>地精（Gnome）</h2>
                   <p>
@@ -386,9 +383,7 @@
                     地精的聽覺和嗅覺很敏銳，對幻術擁有抵抗力，和精靈一樣能夠在昏暗中視物。
                   </p>
                 </div>
-              </div>
-              <!-- 巨魔（Ogres） -->
-              <div class="tab-content">
+                <!-- 巨魔（Ogres） -->
                 <div class="tab-pane fade" id="ogres">
                   <h2>巨魔（Ogres）</h2>
                   <p>
@@ -402,9 +397,7 @@
                     受害者的財物玩賞後放在一邊不久就遺忘了。
                   </p>
                 </div>
-              </div>
-              <!-- 洞穴巨人（troll） -->
-              <div class="tab-content">
+                <!-- 洞穴巨人（troll） -->
                 <div class="tab-pane fade" id="troll">
                   <h2>洞穴巨人（troll）</h2>
                   <p>
@@ -417,9 +410,7 @@
                     角色扮演遊戲裡的洞穴巨人也是可怕的食肉動物，很難殺死，在被擊倒後會重新復活，必須用火或毒繼續攻擊它的屍體，才能徹底將其消滅。即龍與地下城中巨魔的原形。
                   </p>
                 </div>
-              </div>
-              <!-- 半獸人（Orc） -->
-              <div class="tab-content">
+                <!-- 半獸人（Orc） -->
                 <div class="tab-pane fade" id="orc">
                   <h2>半獸人（Orc）</h2>
                   <p>
@@ -436,9 +427,7 @@
                     半獸人的戰鬥力是無與倫比的。在戰場上，沒有人敢靠近擁有無窮力量與抱著必勝決心的半獸人。半獸人法師是在背後秘密支持半獸人戰士的巫師。他們也在半獸人社會中擁有相當的政治力量。他們的力量優於其他種族的法師，魔法也因此較弱，但是兼具魔法與力量。
                   </p>
                 </div>
-              </div>
-              <!-- 人類（Human） -->
-              <div class="tab-content">
+                <!-- 人類（Human） -->
                 <div class="tab-pane fade" id="human">
                   <h2>人類（Human）</h2>
                   <p>
@@ -455,9 +444,7 @@
                     使用的語言為通用語，許多人願意學習其他種族的語言。人類還喜歡於談話之間穿插其他種族的語言，像是精靈的形容詞或是地精的玩笑話，認為這種習慣還挺酷的，和現實如出一轍。
                   </p>
                 </div>
-              </div>
-              <!-- 半身人（Halfing） -->
-              <div class="tab-content">
+                <!-- 半身人（Halfing） -->
                 <div class="tab-pane fade" id="halfing">
                   <h2>半身人（Halfing）</h2>
                   <p>
@@ -470,9 +457,7 @@
                     半身人偏向中立而重視現實，沒有特定的居住場所，經常住在其他種族的城市，而且不排斥過著遷徙的生活，所以在奇幻世界經常能看見半身人浪跡天涯。半身人有自己的語言，使用通用文，他們的知識偏向以口耳相傳的方式流傳下來。
                   </p>
                 </div>
-              </div>
-              <!-- 半精靈（Half Elf） -->
-              <div class="tab-content">
+                <!-- 半精靈（Half Elf） -->
                 <div class="tab-pane fade" id="halfelf">
                   <h2>半精靈（Half Elf）</h2>
                   <p>
@@ -512,9 +497,9 @@
                 無盡的任務建構了一個擬真的諾瑞斯虛構世界 ，再分成費朵以及安東尼卡等數塊大陸。遊戲中提供 15 種種族與 16 個職業供玩家選擇。遊戲其中包含了 1.6
                 萬多個遊戲任務等內容，而遊戲中的諾拉斯大陸的面積若換算為現實世界有 350 平方公里。
               </p>
-              <div class="card-footer">
-                <img src="./images/game_footer.png" alt="">
-              </div>
+            </div>
+            <div class="card-footer">
+              <img src="./images/game_footer.png" alt="">
             </div>
           </div>
         </div>
@@ -530,9 +515,9 @@
               <p class="card-text">
                 龍與地下城是一款有結構但結局開放的角色扮演遊戲。遊戲並無明確限制參與人數，通常會有３－５名玩家，以及一位主持人，稱為地下城主。遊戲大多都在室內進行，參與者們會圍坐在桌邊，因而稱為「桌上角色扮演遊戲」。
               </p>
-              <div class="card-footer">
-                <img src="./images/game_footer.png" alt="">
-              </div>
+            </div>
+            <div class="card-footer">
+              <img src="./images/game_footer.png" alt="">
             </div>
           </div>
         </div>
@@ -548,9 +533,9 @@
               <p class="card-text">
                 魔獸世界的劇情開端點緣起於寒冰霸權四年後的艾澤拉斯大陸。隨著燃燒軍團在海加爾山被擊退，以及阿薩斯和巫妖王合為一體使天譴軍團的亡靈陷入沉睡，大陸上的聯盟與部落兩大勢力逐漸形成了對立狀態，而新的威脅卻正在不斷產生。
               </p>
-              <div class="card-footer">
-                <img src="./images/game_footer.png" alt="">
-              </div>
+            </div>
+            <div class="card-footer">
+              <img src="./images/game_footer.png" alt="">
             </div>
           </div>
         </div>
@@ -631,10 +616,10 @@
   </section>
 
   <!-- 頁尾版權 Footer -->
-  <footer>
+  <footer id="footer">
     <div class="info">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-3">
             <div class="search">
               <h5>搜尋關鍵字</h5>
@@ -645,17 +630,82 @@
                 </button>
               </form>
             </div>
-            <div class="social"></div>
+            <div class="social">
+              <h5>社群</h5>
+              <ul>
+                <li><a href="#"><i class="bi-facebook"></i></a></li>
+                <li><a href="#"><i class="bi-twitter"></i></a></li>
+                <li><a href="#"><i class="bi-youtube"></i></a></li>
+                <li><a href="#"><i class="bi-instagram"></i></a></li>
+                <li><a href="#"><i class="bi-twitch"></i></a></li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-3"></div>
+          <div class="col-lg-8 d-flex justify-content-between justify-content-lg-around">
+            <div class="site-map">
+              <h5>網站地圖</h5>
+              <ul>
+                <li><a href="#">奇幻世界</a></li>
+                <li><a href="#">典型要素</a></li>
+                <li><a href="#">魔法咒語</a></li>
+                <li><a href="#">遊戲作品</a></li>
+                <li><a href="#">文學作品</a></li>
+              </ul>
+            </div>
+            <div class="related-link">
+              <h5>相關連結</h5>
+              <ul>
+                <li><a href="#">龍與地下城</a></li>
+                <li><a href="#">無盡的任務</a></li>
+                <li><a href="#">魔獸世界</a></li>
+                <li><a href="#">最終幻想</a></li>
+                <li><a href="#">勇者鬥惡龍</a></li>
+              </ul>
+            </div>
+            <div class="about-me">
+              <h5>關於我們</h5>
+              <ul>
+                <li><a href="#">最新消息</a></li>
+                <li><a href="#">產品服務</a></li>
+                <li><a href="#">常見問題</a></li>
+                <li><a href="#">客服中心</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="copyright">
-        <span>&copy; 2021 泰山職訓局網站設計實務</span>
-      </div>
+    </div>
+    <div class="copyright">
+      <span>&copy; 2021 泰山職訓局網站設計實務整合範例</span>
     </div>
   </footer>
 
+  <!-- backtop 回頂端 -->
+  <div class="backtop">
+    <div class="backtop_item">
+      <a href="#home"></a>
+    </div>
+  </div>
+
+  <!-- 視差 -->
+  <div class="parallax">
+    <!-- float-wrap 進出場動畫
+         float-island 島本身動畫
+    -->
+    <div class="float-wrap-01">
+      <div class="float-island"></div>
+    </div>
+    <div class="float-wrap-02">
+      <div class="float-island"></div>
+    </div>
+    <div class="float-wrap-03">
+      <div class="float-island"></div>
+    </div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+  </div>
   <!-- jquery -->
   <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- bootstrap -->
@@ -665,7 +715,12 @@
   <script src="./js/owl_self.js"></script>
   <!-- Magnific Popup -->
   <script src="./js/jquery.magnific-popup.min.js"></script>
-  <script src="./js/magnific-popup-Single image lightbox.js"></script>
+  <!-- magnific-popup view source 各別設定 js -->
+  <script src="./js/magnific-popup-Single-image-lightbox.js"></script>
+  <!-- GSAP -->
+  <script src="./js/gsap/gsap.js"></script>
+  <script src="./js/gsap/ScrollToPlugin.js"></script>
+  <script src="./js/gsap/ScrollTrigger.js"></script>
   <!-- self -->
   <script src="./js/all.js"></script>
 </body>

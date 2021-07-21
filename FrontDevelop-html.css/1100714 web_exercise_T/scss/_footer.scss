@@ -1,0 +1,99 @@
+#footer {
+  color: white;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    transparent 100%
+  );
+  a {
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 1s;
+    &:hover {
+      color: yellow;
+    }
+  }
+  .info {
+    padding: 2rem 1rem;
+    h5 {
+      font-size: 1.3rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #fff;
+      display: inline-block;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+
+      li + li {
+        margin-left: 1rem;
+      }
+    }
+    .search {
+      margin-bottom: 1rem;
+      form {
+        position: relative;
+        input {
+          height: 40px;
+          border-radius: 0;
+          padding: 0;
+          border: none;
+        }
+        button {
+          font-size: 1.5rem;
+          background: transparent;
+          border: none;
+          height: 100%;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    .social {
+      h5 {
+        margin-bottom: 0.3rem;
+      }
+      ul {
+        a {
+          font-size: 2rem;
+        }
+      }
+    }
+    .site-map,
+    .related-link,
+    .about-me {
+      margin-top: 1rem;
+      ul {
+        flex-direction: column;
+        li {
+          margin-left: 0;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+  }
+  .copyright {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+    letter-spacing: 0.13rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  @include lg {
+    .info {
+      .site-map,
+      .related-link,
+      .about-me {
+        margin-top: 0;
+      }
+    }
+  }
+}

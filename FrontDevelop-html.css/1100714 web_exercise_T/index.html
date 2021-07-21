@@ -553,7 +553,7 @@
   <div id="footer">
     <div class="info">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-3">
             <div class="search">
               <h5>搜尋關鍵字</h5>
@@ -562,9 +562,48 @@
                 <button type="submit"><i class="bi-search"></i></button>
               </form>
             </div>
-            <div class="social"></div>
+            <div class="social">
+              <h5>社群</h5>
+              <ul>
+                <li><a href="#"><i class="bi-facebook"></i></a></li>
+                <li><a href="#"><i class="bi-twitter"></i></a></li>
+                <li><a href="#"><i class="bi-youtube"></i></a></li>
+                <li><a href="#"><i class="bi-instagram"></i></a></li>
+                <li><a href="#"><i class="bi-twitch"></i></a></li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-8"></div>
+          <div class="col-lg-8 d-flex justify-content-between justify-content-lg-around">
+            <div class="site-map">
+              <h5>網站地圖</h5>
+              <ul>
+                <li><a href="#">奇幻世界</a></li>
+                <li><a href="#">典型要素</a></li>
+                <li><a href="#">魔法咒語</a></li>
+                <li><a href="#">遊戲作品</a></li>
+                <li><a href="#">文學作品</a></li>
+              </ul>
+            </div>
+            <div class="related-link">
+              <h5>相關連結</h5>
+              <ul>
+                <li><a href="#">龍與地下城</a></li>
+                <li><a href="#">無盡的任務</a></li>
+                <li><a href="#">魔獸世界</a></li>
+                <li><a href="#">最終幻想</a></li>
+                <li><a href="#">勇者鬥惡龍</a></li>
+              </ul>
+            </div>
+            <div class="about-me">
+              <h5>關於我們</h5>
+              <ul>
+                <li><a href="#">最新消息</a></li>
+                <li><a href="#">產品服務</a></li>
+                <li><a href="#">常見問題</a></li>
+                <li><a href="#">客服中心</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -572,6 +611,31 @@
       <span>&copy; 2021 泰山職訓局網站設計實務整合範例</span>
     </div>
   </div>
+
+  <!-- 返回頂端 -->
+  <div class="backtop">
+    <div class="backtop__item">
+      <a href="#home"></a>
+    </div>
+  </div>
+
+  <!-- 視差 -->
+  <div class="parallax">
+    <div class="float-wrap-01">
+      <div class="float-island"></div>
+    </div>
+    <div class="float-wrap-02">
+      <div class="float-island"></div>
+    </div>
+    <div class="float-wrap-03">
+      <div class="float-island"></div>
+    </div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+    <div class="fog"></div>
+  </div>
+
   <!-- jQuery -->
   <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap -->
@@ -583,6 +647,10 @@
   <script src="./js/jquery.magnific-popup.min.js"></script>
   <!-- magnific-popup view source 各別設定 js -->
   <script src="./js/magnific-popup-self.js"></script>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/ScrollToPlugin.js"></script>
+  <script src="./gsap/ScrollTrigger.js"></script>
   <!-- self -->
   <script src="./js/all.js"></script>
 </body>

@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/* bootstrap rfs */
+/* 變數 */
+/* 函式 */
+/* 混合 */
 /* RWD mixins */
 #section01 .content .frame, #section02 .content .frame, #section03 .content .frame {
   color: #321400;
@@ -71,6 +75,7 @@
   }
 }
 
+/* 全域設定 */
 body {
   color: white;
   background-color: black;
@@ -88,6 +93,8 @@ body {
   z-index: 1000;
 }
 
+/* 區塊結構 */
+/* navbar */
 /* navbar 導覽列 */
 #navbar {
   background-color: black;
@@ -108,7 +115,7 @@ body {
   background-color: rgba(50, 30, 0, 0.75);
 }
 
-#navbar .nav-link:active {
+#navbar .nav-link.active {
   font-weight: bolder;
   color: yellow;
   background-color: rgba(50, 30, 0, 0.75);
@@ -190,6 +197,7 @@ body {
 }
 
 /* home */
+/* home */
 #home {
   margin-top: 60px;
   position: relative;
@@ -242,6 +250,7 @@ body {
   }
 }
 
+/* section */
 /* section01 奇幻世界 */
 @media (min-width: 992px) {
   #section01 {
@@ -263,7 +272,6 @@ body {
 }
 
 #section03 .accordion-header button {
-  color: white;
   font-size: 1.3rem;
 }
 
@@ -403,6 +411,133 @@ body {
   }
 }
 
+/* footer */
+/* 頁尾版權 footer */
+#footer {
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(50%, rgba(0, 0, 0, 0.5)), to(transparent));
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+}
+
+#footer a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#footer a:hover {
+  color: yellow;
+}
+
+#footer .info {
+  padding: 2rem 1rem;
+}
+
+#footer .info h5 {
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #fff;
+  display: inline-block;
+}
+
+#footer .info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#footer .info ul li + li {
+  margin-left: 1rem;
+}
+
+#footer .info .search {
+  margin-bottom: 1rem;
+}
+
+#footer .info .search form {
+  position: relative;
+}
+
+#footer .info .search form input {
+  height: 40px;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+
+#footer .info .search form button {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#footer .info .social h5 {
+  margin-bottom: 0.3rem;
+}
+
+#footer .info .social ul a {
+  font-size: 2rem;
+}
+
+#footer .info .site-map,
+#footer .info .related-link,
+#footer .info .about-me {
+  margin-top: 1rem;
+}
+
+#footer .info .site-map ul,
+#footer .info .related-link ul,
+#footer .info .about-me ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#footer .info .site-map ul li,
+#footer .info .related-link ul li,
+#footer .info .about-me ul li {
+  margin-left: 0;
+  margin-bottom: 0.25rem;
+}
+
+#footer .copyright {
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  letter-spacing: 0.13rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 992px) {
+  #footer .info .site-map,
+  #footer .info .related-link,
+  #footer .info .about-me {
+    margin-top: 0;
+  }
+}
+
+/* 功能 */
+/* modal */
 /* register modal */
 .modal .modal-content {
   background-color: transparent;
@@ -464,4 +599,102 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+/* backtop */
+/* backtop 回頂端 */
+.backtop {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+}
+
+.backtop_item {
+  width: 100%;
+  height: 100%;
+}
+
+.backtop_item a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: url(../images/arrow_top.png) no-repeat center/100px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.backtop_item a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background: url(../images/arrow_top_hover.png) no-repeat center/100px;
+}
+
+/* parallax */
+/* 視差效果 parallax */
+/* 星空背景 */
+body {
+  overflow-x: hidden;
+}
+
+@media (min-width: 992px) {
+  body {
+    /* mask 顯示在 night_sky 上方*/
+    background: url(../images/mask.png) no-repeat fixed 50% 0%/100%, url(../images/night_sky.jpg) no-repeat fixed 50% 0%/100%;
+  }
+}
+
+/* 視差元素 */
+.parallax {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .parallax {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: block;
+  }
+  .parallax .float-wrap-01 {
+    width: 280px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  .parallax .float-wrap-01 .float-island {
+    width: 100%;
+    height: 100%;
+    background: url(../images/float-island-01.png) no-repeat center/100%;
+  }
+  .parallax .float-wrap-02 {
+    width: 200px;
+    height: 350px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+  }
+  .parallax .float-wrap-02 .float-island {
+    width: 100%;
+    height: 100%;
+    background: url(../images/float-island-02.png) no-repeat center/100%;
+  }
+  .parallax .float-wrap-03 {
+    width: 100%;
+    height: 507px;
+    position: absolute;
+    bottom: 0;
+  }
+  .parallax .float-wrap-03 .float-island {
+    width: 100%;
+    height: 100%;
+    background: url(../images/float-island-03.png) no-repeat center/100%;
+  }
 }
