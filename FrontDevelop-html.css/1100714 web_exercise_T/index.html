@@ -9,7 +9,15 @@
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap-icons.css">
   <link rel="stylesheet" href="./css/bootstrap.css">
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="./css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+  <!-- magnific-popup -->
+  <link rel="stylesheet" href="./css/magnific-popup.css">
+  <!-- magnific-popup view source 各別設定的樣式 -->
+  <link rel="stylesheet" href="./css/magnific-popup-self.css">
   <!-- self -->
   <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -229,11 +237,352 @@
     </div>
   </section>
 
+  <!-- 生物種族 section03 ------------------------------------------------------------------------------------------->
+  <section id="section03">
+    <div class="container">
+      <div class="content">
+        <div class="frame">
+          <h1>生物種族</h1>
+          <div class="row flex-column flex-lg-row">
+            <div class="col-lg-3 my-3 my-lg-0">
+              <div id="race" class="accordion">
+                <!-- 善良種族 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#good_race">善良種族</button>
+                  </h2>
+                  <div id="good_race" class="accordion-collapse collapse show" data-bs-parent="#race">
+                    <div class="accordion-body">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <a class="nav-link active" href="#dwarf" data-bs-toggle="pill">矮人（Dwarf）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#elf" data-bs-toggle="pill">精靈（Elf）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#gnome" data-bs-toggle="pill">地精（Gnome）</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- 邪惡種族 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#evil_race">邪惡種族</button>
+                  </h2>
+                  <div id="evil_race" class="accordion-collapse collapse" data-bs-parent="#race">
+                    <div class="accordion-body">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#ogre" data-bs-toggle="pill">巨魔（Ogre）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#troll" data-bs-toggle="pill">洞穴巨人（Troll）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#orc" data-bs-toggle="pill">半獸人（Orc）</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- 中立種族 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#neutral_race">中立種族</button>
+                  </h2>
+                  <div id="neutral_race" class="accordion-collapse collapse" data-bs-parent="#race">
+                    <div class="accordion-body">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#human" data-bs-toggle="pill">人類（Human）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#halfing" data-bs-toggle="pill">半身人（Halfing）</a>
+                        </li>
+                        <li class="list-group-item">
+                          <a class="nav-link" href="#halfelf" data-bs-toggle="pill">半精靈（Half Elf）</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="dwarf">
+                  <h2>矮人（Dwarf）</h2>
+                  <p>
+                    矮人是堅毅的善良種族，矮小身材配上強壯身軀，喜歡飲酒和挖掘，個性保守且缺乏耐心。在某些方面可說像山脈或石頭一樣堅忍不拔，但是他們的牛脾氣也不好惹。身高大約只有 ４ 呎，大約只到成年男性的胸口位置，體格卻非常壯碩，使得體重和人類相差無幾。矮人大約 ５０ 歲就算成年，可以活到 ４００
+                    歲。
+                  </p>
+                  <p>
+                    矮人以力量自傲，所以他們的武器多是最能發揮這一優點的大劍，斧子等重型武器。雖然他們的速度較慢，但是矮人戰士的活力和毅力可說是眾所皆知。矮人缺少魔法天份，所以對魔法事物抱持不信任的態度。
+                  </p>
+                  <p>
+                    天性頑固多疑，經常被其他種族誤解為不友善，想要贏得矮人的信任和友情需要很久的時間。矮人不欣賞人類的善變個性，覺得精靈難以捉摸，不過在緊要關頭也能夠放下種族成見和對方合作。矮人對擁有獸人血統的半獸人持保留態度，但仍然願意給對方展示忠誠的機會。
+                  </p>
+                  <p>矮人常年在黑暗環境生活，培養出能夠在無光環境視物的黑暗視覺。他們對毒素和法術都有一定程度的抵抗力。</p>
+                </div>
+                <div class="tab-pane fade" id="elf">
+                  <h2>精靈（elf）</h2>
+                  <p>
+                    精靈是奇幻世界中壽命最長的種族。他們一般都能活到 ７００
+                    多歲甚至千年以上，這也是為什麼他們總是不慌不忙的原因。精靈總是樂於在一些人類不能理解的事情花費大量的時間，由於精靈的壽命很長，所以他們很難和壽命短促的種族，比如人類，建立起深厚的友誼。因為眼看著朋友故去，而自己卻還有無盡的生命要度過，是件很痛苦的事。
+                  </p>
+                  <p>
+                    精靈的身高大約在人類與矮人之間，體重很輕，也更纖瘦些。皮膚白系，身上沒有多餘毛髮，雖然沒有人類那麼強壯，精靈卻比人類敏捷得多。精靈最顯著的特徵是他們那尖尖的耳朵。另一個特徵是精靈沒有鬍子。喜歡穿著簡單卻質地上等的衣物，優雅的身段與美貌總是令其他種族嘆為觀止。
+                  </p>
+                  <p>
+                    精靈屬於善良陣營且崇尚自由，自詡為神選擇的種族，總是覺得其他種族比不上他們，所以其他種族認為精靈很高傲，精靈則認為其他的種族很粗野，不過精靈不會將這種輕視表現出來。
+                  </p>
+                  <p>精靈使用精靈語，一種優美而高複雜度的語言，使得他們的文學和詩歌增色不少，其他種族的藝術家經常為了接觸精靈文學而學習精靈語。精靈的體質讓他們對催眠法術免疫，常年在森林中培育出能夠在昏暗環境中夜視的能力，</p>
+                </div>
+                <div class="tab-pane fade" id="gnome">
+                  <h2>地精（Gnome）</h2>
+                  <p>
+                    地精和矮人相似，矮矮的身高配上傑出的工藝手腕，卻擁有出色的魔法天賦。地精比矮人再矮一點，體重更是輕上許多。地精通常是金髮碧眼，膚色偏棕灰色，喜歡把自己打扮得很體面。地精約在 ４０ 歲成年，可以活到 ３５０ 歲以上。地精喜歡住在丘陵的地底下，以高超的建築技巧和幻術打理門面。
+                  </p>
+                  <p>
+                    地精極富幽默感，喜歡對能夠帶來樂趣的行為，如笑話或是遊戲，甚至是惡作劇。地精的發問本能讓他們喜歡問問題，探索未知甚至是危險的領域，這個特性讓地精能夠成為出色的學者或工程師。地精原則上偏向善良與中立，邪惡的地精並不多見。
+                  </p>
+                  <p>
+                    地精和矮人有許多相似的地方，因此經常和矮人交流（雖然後者經常因為被戲弄而火冒三丈），和喜歡享受人生的半身人也很合得來。地精對所有比他們高的種族都有戒心，但還不至於產生厭惡。地精使用地精語，和矮人一樣使用矮人文。他們的文獻偏向理工和學識，其他種族會為了向地精求教而學習地精語。
+                  </p>
+                  <p>地精的聽覺和嗅覺很敏銳，對幻術擁有抵抗力，和精靈一樣能夠在昏暗中視物。</p>
+                </div>
+                <div class="tab-pane fade" id="ogre">
+                  <h2>巨魔（Ogres）</h2>
+                  <p>
+                    巨魔是歐洲傳說中的怪物，也是奇幻文學中的怪物，在不同文學、奇幻小說、影視作品和遊戲中有不同表現，但大多是邪惡龐大的怪物，故翻譯為巨魔，常常與洞穴巨人混為一談。這個幻想種族往往和矮人是死敵，爭奪地下洞穴和山嶺作為自己的地盤。巨魔身材高大肥胖，手臂粗壯力大無窮，頭腦簡單，喜歡吃任何肉類，尤其是新鮮的家畜和家畜的主人。
+                  </p>
+                  <p>
+                    巨魔喜歡住在陰暗的洞穴、廢棄的城堡、森林，還有商隊經常出現的道路等等。身高約三公尺，皮膚為膚色，藍色或咖啡色。圓滾滾的腦袋有著一雙小眼睛，嘴上長著獠牙。身材肥胖，有明顯的大肚子，手臂十分粗壯。身上散發著濃濃的汗味，還有濃厚的屍臭味。
+                  </p>
+                  <p>
+                    巨魔永遠只想著吃，洞穴裡堆積的各種骨頭就是最好的証明。他們襲擊村子，也會在商隊經常出現的道路偷襲，帶走家畜還有人類；帶回洞穴後，把他們丟到大鍋子裡面煮或著串起來烤食，
+                    受害者的財物玩賞後放在一邊不久就遺忘了。
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="troll">
+                  <h2>洞穴巨人（troll）</h2>
+                  <p>
+                    洞穴巨人是北歐神話中一種智力低下的食人巨人，相貌醜陋而邪惡，住在洞穴裡，保衛著地下的財寶，遇見陽光即會變成石頭。在神的劫難（Ragnorok）中它們曾代表巨人出戰，後來逐漸演變為類似矮人（dwarf）的怪物，依舊住在地下，但已經不再像以前那樣高大強壯，也不像以前那樣殘暴，不過仍然喜歡偷竊兒童或女人，而且在智力方面比它們的先輩略高一籌。
+                  </p>
+                  <p>
+                    在北歐，巨怪原與巨人相同，但巨怪體型較小。此相異處後來由殘暴的巨人（類似英國的巨魔，其有時也被稱作巨怪），演變成為類似生性欺詐的野蠻人，居於山底、洞穴裡，保衛著地下的財寶，遇見陽光即會變成石頭。
+                  </p>
+                  <p>
+                    角色扮演遊戲裡的洞穴巨人也是可怕的食肉動物，很難殺死，在被擊倒後會重新復活，必須用火或毒繼續攻擊它的屍體，才能徹底將其消滅。即龍與地下城中巨魔的原形。
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="orc">
+                  <h2>半獸人（Orc）</h2>
+                  <p>
+                    半獸人是人類與獸人的混血，繼承獸人的強壯與人類的智慧，卻因為混種而過著辛苦的日子。半獸人比人類略高，外觀帶有明顯的獸人特徵，如獠牙、粗糙的皮膚和下顎突出等等，他們的壽命大約是 ７０ 歲。半獸人的個性較為粗暴，不過還是有機可循，不會像獸人那樣一言不合就大開殺戒。
+                  </p>
+                  <p>
+                    半獸人好戰的本性使他們的歷史綿延著無止境的戰火。自從幾世紀之前被精靈和人類聯盟所打敗後，他們就喪失了陸地上所有的控制權。較低等的半獸人回歸蠻荒之地退化成怪物。但是高等的半獸人仍擁有高於人類的智力，併發展出屬於自己的精神文化，再度開始擴張他們的勢力。
+                  </p>
+                  <p>
+                    半獸人比人類高壯，有寬實的肩膀與發達的肌肉，是種看起來巨大且強而有力的生物。大部分的人都害怕看到他們，因為他們的外貌是如此的令人生畏。當他們一來到這個世界，就是一個非常好戰的民族。他們從遠古時期就積極致力於發動戰爭。
+                  </p>
+                  <p>
+                    半獸人的戰鬥力是無與倫比的。在戰場上，沒有人敢靠近擁有無窮力量與抱著必勝決心的半獸人。半獸人法師是在背後秘密支持半獸人戰士的巫師。他們也在半獸人社會中擁有相當的政治力量。他們的力量優於其他種族的法師，魔法也因此較弱，但是兼具魔法與力量。
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="human">
+                  <h2>人類（Human）</h2>
+                  <p>
+                    人類是人數最多、壽命最短、企圖心最強的種族，體型和現實世界並無二致，外貌會根據棲息地和環境而有很大變化。人類約在 １５ 歲就算成年，壽命很少超過 １００ 歲。他們能夠忍受環境與種族的差異性，所以很容易融入不同族群，社交手腕比其他種族出色許多。
+                  </p>
+                  <p>
+                    人類沒有明顯的善惡傾向，好人和壞人的數量都不在少數，這點經常讓其他種族感到困惑。人類喜歡選擇較理想的地方定居，不排斥更換環境，所以人類的遷徙頻率比其他種族還來得高。因為壽命較短，使得人類有太多事情想去做，這也就是為甚麼其他種族總認人類很急躁的原因了。
+                  </p>
+                  <p>
+                    人類的文化更迭非常迅速，改朝換代稀鬆平常，對政治環境的適應性高於其他種族，很少對文化或政局有所堅持。人類的多元性同樣反應在宗教信仰上，人類沒有對應的種族主神，人們會根據環境和需要來選擇信仰，無論是虔誠的信徒還是無神論者都大有人在。
+                  </p>
+                  <p>
+                    使用的語言為通用語，許多人願意學習其他種族的語言。人類還喜歡於談話之間穿插其他種族的語言，像是精靈的形容詞或是地精的玩笑話，認為這種習慣還挺酷的，和現實如出一轍。
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="halfing">
+                  <h2>半身人（Halfing）</h2>
+                  <p>
+                    半身人的好奇心旺盛，而且膽量很大，經常出現驚人之舉。他們的種族原則是享受生活，希望讓自己生活得享受，因此他們的開銷總是很驚人。半身人擁有蒐集物品的習慣，從茶具到郵票包羅萬象，較有財力的半身人會委託冒險者蒐集稀有物品。
+                  </p>
+                  <p>
+                    半身人偏向中立而重視現實，沒有特定的居住場所，經常住在其他種族的城市，而且不排斥過著遷徙的生活，所以在奇幻世界經常能看見半身人浪跡天涯。半身人有自己的語言，使用通用文，他們的知識偏向以口耳相傳的方式流傳下來。
+                  </p>
+                  <p>
+                    半身人偏向中立而重視現實，沒有特定的居住場所，經常住在其他種族的城市，而且不排斥過著遷徙的生活，所以在奇幻世界經常能看見半身人浪跡天涯。半身人有自己的語言，使用通用文，他們的知識偏向以口耳相傳的方式流傳下來。
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="halfelf">
+                  <h2>半精靈（Half Elf）</h2>
+                  <p>
+                    精靈和人類有時能跨越種族隔閡而結為連理，其後代便是半精靈。半精靈的生活通常不會很順遂，因為對人類來說他們一半是精靈，對精靈來說他們一半是人類。在精靈社會長大的半精靈通常會離開家鄉尋求認同，在人類社會長大的半精靈則是會努力找到容身之所。
+                  </p>
+                  <p>
+                    半精靈的身高介於人類與精靈之間，約 ２０ 歲就算成年，可以活到 ２００
+                    歲左右。半精靈通常繼承了人類的混亂天性，不重視秩序和規則，給人一種摸不透的不安感。半精靈使用通用語和精靈語，不過他們的精靈語聽在精靈耳中相當生硬。半精靈繼承了精靈的種族特性，對催眠法術免疫，同時能夠在昏暗中視物。
+                  </p>
+                  <p>
+                    由於半精靈可說是混血兒，所以在兩方的社會中多少都會受到一些排斥。如果你喜歡容易招惹麻煩的種族背景，那麼半精靈就算是了。必須強調的是，以上的描述都是一些刻板印象。你仍然可以看到一個喜歡製造器械，並和人群共處的精靈，也可以看到一個只喜歡種花植草的矮人。想像力才是角色的創造者，是沒有任何規則可以限制的。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- 生物種族 section04 ------------------------------------------------------------------------------------------->
+  <section id="section04">
+    <div class="container">
+      <h1>經典遊戲</h1>
+      <div class="row">
+        <div class="col-lg">
+          <div class="card eq-game">
+            <div class="card-header"><img src="./images/game_header_eq.png"></div>
+            <div class="card-body">
+              <video src="./images/game_movie_eq.mp4" controls></video>
+              <h5 class="card-title">無盡的任務</h5>
+              <p class="card-text">無盡的任務建構了一個擬真的諾瑞斯虛構世界 ，再分成費朵以及安東尼卡等數塊大陸。遊戲中提供 15 種種族與 16 個職業供玩家選擇。遊戲其中包含了 1.6 萬多個遊戲任務等內容，而遊戲中的諾拉斯大陸的面積若換算為現實世界有 350 平方公里。</p>
+            </div>
+            <div class="card-footer"><img src="./images/game_footer.png"></div>
+          </div>
+        </div>
+        <div class="col-lg">
+          <div class="card dd-game">
+            <div class="card-header"><img src="./images/game_header_dd.png"></div>
+            <div class="card-body">
+              <video src="./images/game_movie_dd.mp4" controls></video>
+              <h5 class="card-title">龍與地下城</h5>
+              <p class="card-text">龍與地下城是一款有結構但結局開放的角色扮演遊戲。遊戲並無明確限制參與人數，通常會有３－５名玩家，以及一位主持人，稱為地下城主。遊戲大多都在室內進行，參與者們會圍坐在桌邊，因而稱為「桌上角色扮演遊戲」。</p>
+            </div>
+            <div class="card-footer"><img src="./images/game_footer.png"></div>
+          </div>
+        </div>
+        <div class="col-lg">
+          <div class="card wow-game">
+            <div class="card-header"><img src="./images/game_header_wow.png"></div>
+            <div class="card-body">
+              <video src="./images/game_movie_wow.mp4" controls></video>
+              <h5 class="card-title">魔獸世界</h5>
+              <p class="card-text">魔獸世界的劇情開端點緣起於寒冰霸權四年後的艾澤拉斯大陸。隨著燃燒軍團在海加爾山被擊退，以及阿薩斯和巫妖王合為一體使天譴軍團的亡靈陷入沉睡，大陸上的聯盟與部落兩大勢力逐漸形成了對立狀態，而新的威脅卻正在不斷產生。</p>
+            </div>
+            <div class="card-footer"><img src="./images/game_footer.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文學作品 section05 ------------------------------------------------------------------------------------------->
+  <section id="section05" class="d-flex justify-content-center align-items-center">
+    <div class="container">
+      <h1>文學作品</h1>
+      <div class="owl-carousel owl-theme">
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_01.jpg">
+            <img src="./images/book_01.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">魔戒</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_02.jpg">
+            <img src="./images/book_02.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">哈利波特</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_03.jpg">
+            <img src="./images/book_03.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">納尼亞傳奇</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_04.jpg">
+            <img src="./images/book_04.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">龍槍</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_05.jpg">
+            <img src="./images/book_05.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">黑塔</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_06.jpg">
+            <img src="./images/book_06.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">冰與火之歌</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="image-popup-no-margins" href="./images/book_07.jpg">
+            <img src="./images/book_07.jpg" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <div class="card-title">波西傑克森</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾版權 footer ---------------------------------------------------------------------------------------------->
+  <div id="footer">
+    <div class="info">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="search">
+              <h5>搜尋關鍵字</h5>
+              <form>
+                <input type="text" class="form-control">
+                <button type="submit"><i class="bi-search"></i></button>
+              </form>
+            </div>
+            <div class="social"></div>
+          </div>
+          <div class="col-lg-8"></div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>&copy; 2021 泰山職訓局網站設計實務整合範例</span>
+    </div>
+  </div>
   <!-- jQuery -->
   <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap -->
   <script src="./js/bootstrap.bundle.min.js"></script>
+  <!-- owl carsouel -->
+  <script src="./js/owl.carousel.min.js"></script>
+  <script src="./js/owl_self.js"></script>
+  <!-- magnific-popup -->
+  <script src="./js/jquery.magnific-popup.min.js"></script>
+  <!-- magnific-popup view source 各別設定 js -->
+  <script src="./js/magnific-popup-self.js"></script>
   <!-- self -->
   <script src="./js/all.js"></script>
 </body>
