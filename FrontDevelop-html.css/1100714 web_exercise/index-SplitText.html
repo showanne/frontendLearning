@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fantasy World</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    section {
+      color: white;
+      font-size: 1.5rem;
+      height: 100vh;
+      background-color: #354;
+      border-bottom: 1px solid #fff;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      width: 50%;
+      /* background-color: #aaa; */
+    }
+
+    #text02 {
+      letter-spacing: 0.3rem;
+    }
+
+    #text03 {
+      color: red;
+      text-align: center;
+      font-size: 5rem;
+      font-family: '標楷體';
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01" class="text">SplitText makes it easy to break apart the text in an HTML element so that each
+      character, word, and/or line is in
+      its own, making complex animation simple. For example, maybe you’d like to make each character or word fade into
+      place
+      in a staggered fashion. SplitText
+      automatically works around various browser inconsistencies and recognizes line breaks appropriately. Plus it is
+      highly
+      configurable.
+    </div>
+  </section>
+  <section>
+    <div id="text02" class="text">Edit <br> Collection <br> Setting
+    </div>
+  </section>
+  <section>
+    <div id="text03" class="text">惡靈古堡</div>
+  </section>
+
+  <!-- jquery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- bootstrap -->
+  <script src="./js/bootstrap5.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="./js/gsap/gsap.js"></script>
+  <script src="./js/gsap/SplitText.min.js"></script>
+  <script>
+    gsap.registerPlugin(SplitText)
+    // 使用SplitText
+    const text01 = new SplitText('#text01', {
+      type: 'chars,words,lines'
+    })
+    // SplitText 可將目標裡面的文字段落拆分成 chars 英文字 / words單字 / lines行 提供使用，他們都是陣列，是物件的一種，因此可以被 gsap 操作
+    console.log('chars :', text01.chars);
+    console.log('words :', text01.words);
+    console.log('lines :', text01.lines);
+
+    gsap.from(text01.chars, {
+      opacity: 0,
+      color: '#aaa',
+      y: 70,
+      rotation: 'random(0,3600)',
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      // ease: 'none',
+      stagger: {
+        each: 0.05
+      }
+    })
+
+    const text02 = new SplitText('#text02', {
+      type: 'chars,words,lines'
+    })
+    gsap.from(text02.chars, {
+      opacity: 0,
+      color: '#aaa',
+      duration: 1,
+      delay: 0.05,
+      repeat: -1,
+      yoyo: true,
+      // ease: 'none',
+      stagger: {
+        each: 0.2
+      }
+    })
+
+    const text03 = new SplitText('#text03', {
+      type: 'chars'
+    })
+    $('#text03 div').each(function (index, char) {
+      gsap.set(char, {
+        margin: 30
+      })
+      gsap.from(char, {
+        scale: 10,
+        filter: 'blur(50px)',
+        duration: 7,
+        delay: 'random(0, 3)',
+        onUpdate() {
+          gsap.to(char, {
+            x: 'random(10,50)',
+            y: 'random(10,50)',
+            repeat: -1,
+            yoyo: true,
+            duration: 0.3
+          })
+        },
+        onComplete() {
+          gsap.killTweensOf(char)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

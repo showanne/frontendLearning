@@ -14,7 +14,7 @@ $('#race a').on('click', function () {
 
 // GSAP ---------------------------------------------------------------------------------------------------
 // 註冊 plugin
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText)
 //  ScrollToPlugin 滑動效果 ---------------------------------------------------------------------------------
 $('#navbar .main-link,.backtop a').each(function (index, link) {
   $(this).on('click', function (e) {
@@ -50,6 +50,54 @@ gsap.from('#navbar', {
   duration: 2,
   ease: 'back.inOut',
 })
+
+// 流星
+// 創建流星數目
+function createStar(starNumber) {
+  for (let i = 0; i < starNumber; i++) {
+    $('.shooting_star').append('<div class="star"></div>')
+  }
+  const stars = gsap.utils.toArray('.star')
+  return stars
+}
+
+// 設定補間動畫預設值
+function setTween(stars) {
+  gsap.set('.shooting_star', { perspective: 800 })
+  stars.forEach(function (star, index) {
+    gsap.set(star, {
+      transformOrigin: '0% 50% 100px',
+      position: 'absolute',
+      left: gsap.utils.random($(window).width() / 2, $(window).width() * 2),
+      // left: `random(${$(window).width() / 2},${$(window).width() * 2})`,
+      top: gsap.utils.random(-100, -200),
+      rotation: -25,
+    })
+  })
+  return stars
+}
+
+function playTimeline(stars) {
+  const tl = gsap.timeline({ repeat: -1 })
+  stars.forEach(function (star, index) {
+    tl.to(
+      star,
+      {
+        x: () => `-=${$(window).width() * 1.5}`,
+        y: () => `+=${$(window).height() * 1.5}`,
+        z: () => `random(50,500)`,
+        duration: 1,
+        delay: 'random(1,5)',
+        ease: 'none',
+      },
+      '<' + gsap.utils.random(0, 5)
+    )
+  })
+}
+
+//  gsap.utils.pipe() 管道，將參數丟進函式，回傳的結果再丟入下一個函式
+const playStar = gsap.utils.pipe(createStar, setTween, playTimeline)
+playStar(30)
 
 // ScrollTrigger 滾動軸 ------------------------------------------------------------------------------------
 // backtop 回頂端，顯示/隱藏
@@ -167,4 +215,49 @@ $('.fog').each(function (index, fog) {
       })
     },
   })
+})
+
+// SplitText -------------------------------------------------------------------------------------------
+gsap.set('#splitText', { perspective: 400 })
+const tl = gsap.timeline({ repeat: -1, repeatDelay: 8 })
+// 取得 DOM 元素（它是類陣列）將其轉成真正的陣列
+const paragraphs = gsap.utils.toArray('#splitText p')
+// 使用陣列方法 map 將每個元素轉成 SplitText 實體放到新陣列
+const splitText = paragraphs.map(function (p) {
+  return new SplitText(p, {
+    charsClass: 'charBg',
+  })
+})
+
+splitText.forEach(function (item) {
+  const chars = item.chars
+  tl.from(
+    chars,
+    {
+      y: 80,
+      rotationX: 0,
+      rotationY: 180,
+      scale: 2,
+      transformOrigin: '0% 50% 500',
+      opacity: 0,
+      duration: 2,
+      ease: 'back',
+      stagger: 0.1,
+      onComplete() {
+        gsap.to(chars, {
+          delay: 3,
+          duration: 2,
+          opacity: 0,
+          scale: 2,
+          y: 80,
+          rotationX: 180,
+          rotationY: 0,
+          transformOrigin: '0% 50% -100',
+          ease: 'back',
+          stagger: 0.1,
+        })
+      },
+    },
+    '+=3'
+  )
 })

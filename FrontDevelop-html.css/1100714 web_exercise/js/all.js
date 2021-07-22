@@ -14,7 +14,7 @@ $('#race a').on('click', function () {
 
 // GSAP
 // 註冊 Plugin
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText)
 // ScrollToPlugin 滑動效果
 $('#navbar .main-link, .backtop a').each(function (index, link) {
   $(this).on('click', function (e) {
@@ -83,6 +83,56 @@ $('.main-link').each(function (index, link) {
     }
   })
 })
+
+// shooting_star 流星
+// 創建流星數目
+function createStar(starNumber) {
+  for (let i = 0; i < starNumber; i++) {
+    $('.shooting_star').append('<div class="star"></div>')
+  }
+  // 將 產生的 star 轉陣列 ...??
+  const stars = gsap.utils.toArray('.star')
+  return stars
+}
+
+// 設定補間動畫預設值
+function setTween(stars) {
+  gsap.set('.shooting_star', { perspective: 800 })
+  stars.forEach(function (star, index) {
+    gsap.set(star, {
+      transformOrigin: '0% 50% 100px',
+      position: 'absolute',
+      // left: gsap.utils.random($(window).width() / 2, $(window).width() * 2),
+      left: `random(${$(window).width() / 2},${$(window).width() * 2})`,
+      top: gsap.utils.random(-100, -200),
+      rotation: -25
+    })
+  })
+  return stars
+}
+
+function playTimeline(stars) {
+  const play_tl = gsap.timeline({ repeat: -1 })
+  stars.forEach(function (star, index) {
+    play_tl.to(
+      star,
+      {
+        x: () => `-=${$(window).width() * 1.5}`,
+        y: () => `+=${$(window).height() * 1.5}`,
+        // 紀錄 上一個出現的位置 跑相對位置
+        z: () => `random(50,500)`,
+        duration: 1,
+        delay: 'random(1,5)',
+        ease: 'none'
+      },
+      '<' + gsap.utils.random(0, 5)
+    )
+  })
+}
+// .pipe(fucn1 fucn2 fucn3) 將 fucn 串起來，先做 fucn1 在做 fucn2
+// pipe 管道，將參數丟進函式，回傳的結果再丟入下一個函式
+const playStar = gsap.utils.pipe(createStar, setTween, playTimeline)
+playStar(30)
 
 // 視差效果 parallax
 // 星空背景
@@ -174,4 +224,60 @@ $('.fog').each(function (index, fog) {
       })
     }
   })
+})
+
+// SplitText
+gsap.set('#splitText', {
+  perspective: 400
+})
+
+const splitText_tl = gsap.timeline({
+  repeat: -1,
+  repeatDelay: 8
+})
+
+// ...... NOTE:
+// document.querySelectorAll('#splitText p') 產生的是類陣列
+const paragraphs = gsap.utils.toArray('#splitText p')
+const splitText = paragraphs.map(function (p) {
+  return new SplitText(p, {
+    charsClass: 'charBg'
+  })
+})
+
+splitText.forEach(function (item) {
+  const chars = item.chars
+  splitText_tl.from(
+    chars,
+    {
+      // 進場動畫
+      y: 80,
+      rotationX: 0,
+      rotationY: 180,
+      scale: 2,
+      // transformOrigin (x, y, z)
+      transformOrigin: '0% 50% -100%',
+      opacity: 0,
+      duration: 2,
+      ease: 'back',
+      stagger: 0.1,
+      // 離場動畫
+      onComplete() {
+        gsap.to(chars, {
+          delay: 2,
+          duration: 2,
+          opacity: 0,
+          scale: 2,
+          y: 80,
+          rotationX: 180,
+          rotationY: 0,
+          transformOrigin: '0% 50% -100%',
+          ease: 'back',
+          stagger: 0.1
+        })
+      }
+    },
+    '+=3'
+    // 每個間隔 3 秒，所以上面 onComplete 要設定停留時間 delay 避免前一動畫馬上消失 空等
+  )
 })

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SplitText</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    html,
+    body {
+      height: 100%
+    }
+
+    section {
+      color: white;
+      font-size: 1.5rem;
+      height: 100%;
+      background: #000;
+      border-bottom: 1px solid #fff;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text {
+      width: 50%;
+    }
+
+    #text02 {
+      color: red;
+      text-align: center;
+      font-size: 5rem;
+      font-family: '標楷體';
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div id="text01" class="text">SplitText makes it easy to break apart the text in an HTML element so that each character, word, and/or line is in its own
+      div, making complex animation simple.For example, maybe you'd like to make each character or word fade into place in a staggered fashion. SplitText
+      automatically works around various browser inconsistencies and recognizes line breaks appropriately. Plus it is highly configurable.</div>
+  </section>
+
+  <section>
+    <div id="text02" class="text">惡靈古堡</div>
+  </section>
+  <!-- jQuery -->
+  <script src="./js/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="./gsap/gsap.js"></script>
+  <script src="./gsap/SplitText.min.js"></script>
+  <script>
+    gsap.registerPlugin(SplitText)
+    // 使用 SplitText
+    const text01 = new SplitText('#text01', {
+      type: 'chars,words,lines'
+    })
+
+    // SplitText 可將目標裡面的文字拆分成 chars、words、lines 提供使用，他們都是陣列，是物件的一種，因此可以被 gsap 操作
+    console.log('chars:', text01.chars)
+    console.log('words:', text01.words)
+    console.log('lines:', text01.lines)
+
+    gsap.from(text01.chars, {
+      opacity: 0,
+      rotation: 'random(0,3600)',
+      color: 'yellow',
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      // ease: 'steps(1)',
+      stagger: {
+        each: 0.05
+      }
+    })
+
+    const text02 = new SplitText('#text02', {
+      type: 'chars'
+    })
+
+    $('#text02 div').each(function (index, char) {
+      gsap.set(char, {
+        margin: 30
+      })
+      gsap.from(char, {
+        scale: 10,
+        filter: 'blur(50px)',
+        duration: 7,
+        delay: 'random(0,3)',
+        onUpdate() {
+          gsap.to(char, {
+            x: 'random(10,50)',
+            y: 'random(10,50)',
+            repeat: -1,
+            yoyo: true,
+            duration: 0.3
+          })
+        },
+        onComplete() {
+          gsap.killTweensOf(char)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
