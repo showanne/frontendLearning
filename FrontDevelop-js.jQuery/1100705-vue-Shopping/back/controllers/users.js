@@ -120,7 +120,8 @@ export const login = async (req, res) => {
 // 登出
 export const logout = async (req, res) => {
   try {
-    // 不等於會被留下；等於會被踢掉
+    // req.user.tokens (登出時回傳的 tokens) 是不是不等於傳進來的
+    // 如果不等於會被留下；等於的會被踢掉(登出後刪除 tokens)
     req.user.tokens = req.user.tokens.filter(token => token !== req.token)
     // 儲存
     req.user.save({ validateBeforeSave: false })
