@@ -39,21 +39,22 @@ section {
      map(物件)：很像 JS 物件，有 key/value pair 一對的特性
 */
 /* 列表(list) */
-/**/
-/* list 內建函數 nth($list_name , index) 索引從1開始   */
+/* list(列表) 就像 JS 的陣列，索引從 1 開始，不是 0 */
+/* 它是一系列的項目值，透過 '空格'或'逗號' 分隔，裡面每個值都稱作 item */
+/* 取 list 裡面的 item 值 nth(list,index) 內建函式， */
 .list {
   width: 100px;
   margin: 20px;
 }
 
-/* 取 list 索引 index($list: , $value: ) */
+/* 取 list 索引 index($list: , $value: ) 內建函式 */
 .index {
   width: 3;
   z-index: 2;
   z-index: 3;
 }
 
-/* 取 list 長度 length($list: ) */
+/* 取 list 長度 length($list: ) 內建函式 */
 .length {
   z-index: 4;
 }
@@ -92,7 +93,8 @@ section {
   margin: 3px, 5px, 9px, 7px;
 }
 
-/* Map (key: value) 一對(pair)的特性 ??*/
+/* Map 是 Scss 的物件，就像 JS 物件 */
+/* Map (key: value) 一對(pair)的特性 */
 .bg-primary {
   background-color: papayawhip;
 }
@@ -105,7 +107,7 @@ section {
   background-color: mistyrose;
 }
 
-/* 對 map 物件取出 key 值 map-keys($map_name) */
+/* 對 map 物件 只取 key 值 map-keys($map_name) */
 .size1 {
   color: sandybrown;
 }
@@ -118,7 +120,7 @@ section {
   color: sandybrown;
 }
 
-/* 取出 map 中的所有 value 值 map-values($map_name) */
+/* 對 map 物件 只取 value 值 map-values($map_name) */
 .shadow-1 {
   -webkit-box-shadow: 0 0 10px springgreen;
           box-shadow: 0 0 10px springgreen;
@@ -136,7 +138,7 @@ section {
 
 /* 巢狀 map
 $map: (
-  $ket: (
+  $key: (
     $value <- 在此處為 第二層 map
   )
 )
@@ -158,10 +160,17 @@ $map: (
 }
 
 /* 
-資料型態
-...
-...
-...
-...
-...
+* 資料型態
+- 基礎型別值
+undefined
+null
+number              數字
+string              字串
+boolean true/false  布林值
+
+- 物件
+array               陣列
+object
+function
+new Date()
 */

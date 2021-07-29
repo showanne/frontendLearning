@@ -41,27 +41,28 @@ section {
 */
 
 /* 列表(list) */
-/**/
+/* list(列表) 就像 JS 的陣列，索引從 1 開始，不是 0 */
+/* 它是一系列的項目值，透過 '空格'或'逗號' 分隔，裡面每個值都稱作 item */
 $width_list: 100px, 200px, 300px;
 $margin_list: 10px 20px 30px 40px;
 $bgColor_list: red, green, blue;
 $zindex_list: 1 2 3 4;
 $border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
 
-/* list 內建函數 nth($list_name , index) 索引從1開始   */
+/* 取 list 裡面的 item 值 nth(list,index) 內建函式， */
 .list {
-  width: nth($width_list, 1);
-  margin: nth($margin_list, 2);
+  width: nth($width_list, 1); // 100px
+  margin: nth($margin_list, 2); // 20px
 }
 
-/* 取 list 索引 index($list: , $value: ) */
+/* 取 list 索引 index($list: , $value: ) 內建函式 */
 .index {
-  width: index($width_list, 300px);
+  width: index($width_list, 300px); // 3
   z-index: index($border_list, 1px solid blue); // 2
   z-index: index($border_list, 1px solid green); // 3
 }
 
-/* 取 list 長度 length($list: ) */
+/* 取 list 長度 length($list: ) 內建函式 */
 .length {
   z-index: length($border_list); // 4
 }
@@ -72,6 +73,9 @@ $border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
   .bg-#{nth($bgColor_list, $i)} {
     background-color: nth($bgColor_list, $i);
   }
+  // .bg-blue {
+  //   background-color: blue;
+  // }
 }
 
 /* @each $var in list {} */
@@ -80,6 +84,9 @@ $border_list: 1px solid red, 1px solid blue, 1px solid green, 1px solid yellow;
   .each-bg-#{$value} {
     background-color: $value;
   }
+  // .each-bg-green {
+  //   background-color: green;
+  // }
 }
 
 /* 使用 join 合併 list join($list1: , $list2: , $separator: ) */
@@ -87,10 +94,17 @@ $list1: 1, 2, 3;
 $list2: 4, 5, 6;
 .join {
   z-index: join($list1, $list2);
+  // z-index: 1, 2, 3, 4, 5, 6;
   margin: join((3px, 5px), (9px, 7px));
 }
 
-/* Map (key: value) 一對(pair)的特性 ??*/
+// 類似 js 的物件 
+// const obj = {
+//   name: 'AA',
+//   num: 1
+// }
+/* Map 是 Scss 的物件，就像 JS 物件 */
+/* Map (key: value) 一對(pair)的特性 */
 $map1: (
   primary: papayawhip,
   secondary: gainsboro,
@@ -101,6 +115,9 @@ $map1: (
   .bg-#{$key} {
     background-color: $value;
   }
+  // .bg-primary {
+  //   background-color: papayawhip;
+  // }
 }
 
 $map2: (
@@ -109,11 +126,17 @@ $map2: (
   size3: 300px
 );
 
-/* 對 map 物件取出 key 值 map-keys($map_name) */
+/* 對 map 物件 只取 key 值 map-keys($map_name) */
 @each $key in map-keys($map2) {
   .#{$key} {
     color: sandybrown;
   }
+  // .size1 {
+  //   color: sandybrown;
+  // }  
+  // .size2 {
+  //   color: sandybrown;
+  // }
 }
 
 $map3: (
@@ -122,8 +145,8 @@ $map3: (
   shadow3: 0 0 30px springgreen
 );
 
+/* 對 map 物件 只取 value 值 map-values($map_name) */
 $i: 0;
-/* 取出 map 中的所有 value 值 map-values($map_name) */
 @each $value in map-values($map3) {
   $i: $i + 1;
   .shadow-#{$i} {
@@ -133,7 +156,7 @@ $i: 0;
 
 /* 巢狀 map
 $map: (
-  $ket: (
+  $key: (
     $value <- 在此處為 第二層 map
   )
 )
@@ -153,6 +176,14 @@ $map4: (
   )
 );
 
+// $key : box1 box2
+
+// $value
+  // (
+  //   width: 100px,
+  //   height: 100px
+  // )
+
 /* map-get($map: , $key: ) */
 @each $key,$value in $map4 {
   $width: map-get($value, width);
@@ -163,11 +194,20 @@ $map4: (
   }
 }
 
+
+
 /* 
-資料型態
-...
-...
-...
-...
-...
+* 資料型態
+- 基礎型別值
+undefined
+null
+number              數字
+string              字串
+boolean true/false  布林值
+
+- 物件
+array               陣列
+object
+function
+new Date()
 */

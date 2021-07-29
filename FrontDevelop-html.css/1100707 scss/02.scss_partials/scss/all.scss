@@ -1,17 +1,15 @@
-// @import '_functions.scss'; 可縮寫成 @import 'functions'; scss 會自己判讀
-// 有 _ 的檔名 不會被轉譯成 css 在 /css
-// 順序很重要 變數要先出現才能被使用 否則會出錯
-// ...
-// ...
-// ...
+// Partials 概念，指拆分 scss 檔案再組合成自己規劃的 Scss 檔案結構。
+// 底線(_)檔案為 partials 檔案，在 @import 時不需寫底線(_)、副檔名，scss 會自行判斷，partials 不會匯出成 css 檔。
+// 有載入順序，例如：變數要先出現，若 mixins 有使用到變數。
+// 具有結構化，將各負責功能獨立成 partials，最後被一支主要的 scss 檔引入，修改時可以針對該功能 scss 檔案進行修改。
 
-// 
+// 函式
 @import 'functions';
-// 
+// 變數
 @import 'variables';
 // 匯入所有 /mixins 的 scss
 @import 'mixins';
-// 
+// 網頁上區塊的樣式
 @import 'layout';
-// 
-@import '_myStyle.scss';
+// 自己的樣式
+@import 'myStyle';
