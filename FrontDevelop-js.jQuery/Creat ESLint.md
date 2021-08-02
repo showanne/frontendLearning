@@ -22,7 +22,7 @@
 - Does your project use TypeScript? (有沒有使用 TypeScript)
   √ No / Yes
 
-- Where does your code run? (你的 code 在哪裡跑)
+- Where does your code run? (你的 code 在哪裡執行)
   Browser (瀏覽器)
 √ Node
   - tips: 按空白鍵可以選取或取消選取
@@ -33,12 +33,12 @@
   Inspect your JavaScript file(s)
 
 
-- Which style guide do you want to follow? (哪一種風格)
+- Which style guide do you want to follow? (要怎麼定義我們使用的程式碼風格)
   Airbnb: https://github.com/airbnb/javascript
   Standard: https://github.com/standard/standard
   Google: https://github.com/google/eslint-config-google
 
-- What format do you want your config file to be in?
+- What format do you want your config file to be in? (eslint 檔要存什麼格式)
   JavaScript
   YAML
 √ JSON
@@ -47,7 +47,7 @@ Checking peerDependencies of eslint-config-standard@latest
 The config that you've selected requires the following dependencies:
 
 eslint-config-standard@latest eslint@^7.12.1 eslint-plugin-import@^2.22.1 eslint-plugin-node@^11.1.0 eslint-plugin-promise@^4.2.1 || ^5.0.0
-√ Would you like to install them now with npm?
+√ Would you like to install them now with npm? (要不要幫忙安裝以上 eslint 相關套件)
   No / √ Yes
 
 
