@@ -1,6 +1,6 @@
 {
   "type": "flex",
-  "altText": "2851 Stock News",
+  "altText": "00888 個股新聞",
   "contents": {
     "type": "carousel",
     "contents": [
@@ -13,7 +13,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://picsum.photos/960/540/?random=5",
+              "url": "https://cimg.cnyes.cool/prod/news/4654060/xl/f937182fe53cd86414c9a35467794a89.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -21,7 +21,7 @@
               "action": {
                 "type": "uri",
                 "label": "action",
-                "uri": "https://news.cnyes.com/news/id/4646801"
+                "uri": "https://news.cnyes.com/news/id/4654060"
               }
             },
             {
@@ -34,7 +34,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "5/17 ",
+                      "text": "6/1 上",
                       "color": "#064d8888",
                       "size": "sm",
                       "flex": 0
@@ -48,7 +48,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "〈每周CFTC報告〉投機者連4周加碼歐元多頭 看漲加元、英鎊意願上升",
+                      "text": "台股ETF股民人數上攀 <mark>00888</mark>成長第一",
                       "size": "md",
                       "color": "#064d88",
                       "weight": "bold",
@@ -57,7 +57,7 @@
                       "action": {
                         "type": "uri",
                         "label": "action",
-                        "uri": "https://news.cnyes.com/news/id/4646801"
+                        "uri": "https://news.cnyes.com/news/id/4654060"
                       }
                     }
                   ],
@@ -86,7 +86,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://picsum.photos/960/540/?random=19",
+              "url": "https://cimg.cnyes.cool/prod/news/4638477/xl/c9e7174adc46b0fb392e8193e44c9697.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -94,7 +94,7 @@
               "action": {
                 "type": "uri",
                 "label": "action",
-                "uri": "https://news.cnyes.com/news/id/4631211"
+                "uri": "https://news.cnyes.com/news/id/4638477"
               }
             },
             {
@@ -107,7 +107,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "4/19 ",
+                      "text": "5/6 上",
                       "color": "#064d8888",
                       "size": "sm",
                       "flex": 0
@@ -121,7 +121,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "日經：SUMCO考慮興建全新工廠 提升矽晶圓產量",
+                      "text": "趁台股回檔加碼 8檔台股ETF發行逆勢淨增加",
                       "size": "md",
                       "color": "#064d88",
                       "weight": "bold",
@@ -130,7 +130,7 @@
                       "action": {
                         "type": "uri",
                         "label": "action",
-                        "uri": "https://news.cnyes.com/news/id/4631211"
+                        "uri": "https://news.cnyes.com/news/id/4638477"
                       }
                     }
                   ],
@@ -159,7 +159,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://cimg.cnyes.cool/prod/news/4545318/xl/9318311b67e3ba454931b7db6083556d.jpg",
+              "url": "https://cimg.cnyes.cool/prod/news/4636471/xl/b169e95948b3ddc67c5fc3b6e7630365.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -167,7 +167,7 @@
               "action": {
                 "type": "uri",
                 "label": "action",
-                "uri": "https://news.cnyes.com/news/id/4545318"
+                "uri": "https://news.cnyes.com/news/id/4636471"
               }
             },
             {
@@ -180,7 +180,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "11/25",
+                      "text": "5/3 下",
                       "color": "#064d8888",
                       "size": "sm",
                       "flex": 0
@@ -194,7 +194,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "內外資聯手砍聯電4.5萬餘張 買盤轉進航運股",
+                      "text": "台股ETF人氣爆棚 投資人數突破145萬人",
                       "size": "md",
                       "color": "#064d88",
                       "weight": "bold",
@@ -203,7 +203,7 @@
                       "action": {
                         "type": "uri",
                         "label": "action",
-                        "uri": "https://news.cnyes.com/news/id/4545318"
+                        "uri": "https://news.cnyes.com/news/id/4636471"
                       }
                     }
                   ],
@@ -232,7 +232,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://cimg.cnyes.cool/prod/news/4536480/xl/32d2c5e6956d972f45b5bcc3402a701f.jpg",
+              "url": "https://cimg.cnyes.cool/prod/news/4630101/xl/17de8121f48468df27756f28801f4b80.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -240,7 +240,7 @@
               "action": {
                 "type": "uri",
                 "label": "action",
-                "uri": "https://news.cnyes.com/news/id/4536480"
+                "uri": "https://news.cnyes.com/news/id/4630101"
               }
             },
             {
@@ -253,7 +253,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "10/27",
+                      "text": "4/15 ",
                       "color": "#064d8888",
                       "size": "sm",
                       "flex": 0
@@ -267,7 +267,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "強化公司治理 27家上市公司法說會11月陸續登場",
+                      "text": "萬七前震大量 4月台股ETF交投衝72.6萬張 前十大火熱出爐",
                       "size": "md",
                       "color": "#064d88",
                       "weight": "bold",
@@ -276,7 +276,7 @@
                       "action": {
                         "type": "uri",
                         "label": "action",
-                        "uri": "https://news.cnyes.com/news/id/4536480"
+                        "uri": "https://news.cnyes.com/news/id/4630101"
                       }
                     }
                   ],
@@ -305,7 +305,7 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://cimg.cnyes.cool/prod/news/4506890/xl/ed21a1ce210c846a07b1cdc7e0aebd4d.jpg",
+              "url": "https://cimg.cnyes.cool/prod/news/4628813/xl/d8ddc82b3b0446e1d6e28d8ac4e7d4d0.jpg",
               "size": "full",
               "aspectMode": "cover",
               "aspectRatio": "1:1",
@@ -313,7 +313,7 @@
               "action": {
                 "type": "uri",
                 "label": "action",
-                "uri": "https://news.cnyes.com/news/id/4506890"
+                "uri": "https://news.cnyes.com/news/id/4628813"
               }
             },
             {
@@ -326,7 +326,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "7/16 ",
+                      "text": "4/12 ",
                       "color": "#064d8888",
                       "size": "sm",
                       "flex": 0
@@ -340,7 +340,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "公司治理100指數新增台泥等27檔個股 7/17生效",
+                      "text": "<mark>00888</mark>奪台股ETF雙冠王 一張表掌握前十大人氣王",
                       "size": "md",
                       "color": "#064d88",
                       "weight": "bold",
@@ -349,7 +349,7 @@
                       "action": {
                         "type": "uri",
                         "label": "action",
-                        "uri": "https://news.cnyes.com/news/id/4506890"
+                        "uri": "https://news.cnyes.com/news/id/4628813"
                       }
                     }
                   ],

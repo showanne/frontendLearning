@@ -1,6 +1,6 @@
 {
   "type": "flex",
-  "altText": "2330 Stock Market",
+  "altText": "00888 即時股市行情",
   "contents": {
     "type": "carousel",
     "contents": [
@@ -34,7 +34,7 @@
                       "contents": [
                         {
                           "type": "text",
-                          "text": "2330",
+                          "text": "00888",
                           "weight": "bold",
                           "size": "xxl",
                           "margin": "none",
@@ -42,7 +42,7 @@
                         },
                         {
                           "type": "text",
-                          "text": "台積電",
+                          "text": "永豐台灣ESG",
                           "size": "sm",
                           "color": "#2A1E5Caa",
                           "wrap": true,
@@ -69,7 +69,7 @@
                             },
                             {
                               "type": "text",
-                              "text": "-3",
+                              "text": "0",
                               "size": "lg",
                               "color": "#111111",
                               "align": "start",
@@ -90,7 +90,7 @@
                             },
                             {
                               "type": "text",
-                              "text": "-0.5%",
+                              "text": "0%",
                               "size": "lg",
                               "color": "#111111",
                               "align": "start"
@@ -133,7 +133,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "592",
+                                  "text": "15.3",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -154,7 +154,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "594",
+                                  "text": "15.3",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -177,7 +177,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "595",
+                                  "text": "15.31",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -199,7 +199,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "594",
+                                  "text": "15.3",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -221,7 +221,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "595",
+                                  "text": "15.31",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -242,7 +242,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "text": "595",
+                                  "text": "15.3",
                                   "size": "sm",
                                   "color": "#111111",
                                   "align": "start",
@@ -279,7 +279,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "17729.179",
+                                      "text": "3626",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -300,7 +300,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "583 ~ 595",
+                                      "text": "15.29 ~ 15.34",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -321,7 +321,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "308.5 ~ 679",
+                                      "text": "13.62 ~ 16.75",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -351,7 +351,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "109.83",
+                                      "text": "- -",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -372,7 +372,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "7.91",
+                                      "text": "- -",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -393,7 +393,7 @@
                                     },
                                     {
                                       "type": "text",
-                                      "text": "153507.85231136 ",
+                                      "text": "- - ",
                                       "size": "sm",
                                       "color": "#111111",
                                       "align": "start",
@@ -441,7 +441,7 @@
           "contents": [
             {
               "type": "text",
-              "text": "2330",
+              "text": "00888",
               "weight": "bold",
               "size": "xxl",
               "margin": "none",
@@ -449,7 +449,7 @@
             },
             {
               "type": "text",
-              "text": "台積電",
+              "text": "永豐台灣ESG",
               "size": "sm",
               "color": "#2A1E5Caa",
               "wrap": true,
@@ -495,7 +495,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "328",
+                      "text": "53",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "start",
@@ -504,7 +504,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "592",
+                      "text": "15.3",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "end",
@@ -516,7 +516,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "593",
+                      "text": "15.31",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "start",
@@ -525,7 +525,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "93",
+                      "text": "3",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "end",
@@ -541,7 +541,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "286",
+                      "text": "112",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "start",
@@ -550,7 +550,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "591",
+                      "text": "15.29",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "end",
@@ -562,7 +562,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "594",
+                      "text": "15.32",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "start",
@@ -571,7 +571,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "214",
+                      "text": "103",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "end",
@@ -587,7 +587,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "246",
+                      "text": "183",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "start",
@@ -596,7 +596,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "590",
+                      "text": "15.28",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "end",
@@ -608,7 +608,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "595",
+                      "text": "15.33",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "start",
@@ -617,7 +617,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "597",
+                      "text": "134",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "end",
@@ -633,7 +633,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "332",
+                      "text": "118",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "start",
@@ -642,7 +642,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "589",
+                      "text": "15.27",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "end",
@@ -654,7 +654,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "596",
+                      "text": "15.34",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "start",
@@ -663,7 +663,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "467",
+                      "text": "202",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "end",
@@ -679,7 +679,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "906",
+                      "text": "227",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "start",
@@ -688,7 +688,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "588",
+                      "text": "15.26",
                       "size": "sm",
                       "color": "#FF5D73",
                       "align": "end",
@@ -700,7 +700,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "597",
+                      "text": "15.35",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "start",
@@ -709,7 +709,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "452",
+                      "text": "337",
                       "size": "sm",
                       "color": "#06A77D",
                       "align": "end",
@@ -745,7 +745,7 @@
                           "type": "filler"
                         }
                       ],
-                      "width": "60.77%",
+                      "width": "50.88%",
                       "backgroundColor": "#FF5D73",
                       "height": "8px"
                     }
@@ -760,7 +760,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "60.77% (9791)",
+                      "text": "50.88% (1817)",
                       "size": "sm",
                       "gravity": "top",
                       "color": "#FF5D73",
@@ -773,7 +773,7 @@
                     },
                     {
                       "type": "text",
-                      "text": "39.23% (6321)",
+                      "text": "49.12% (1754)",
                       "size": "sm",
                       "gravity": "top",
                       "color": "#06A77D",
@@ -804,12 +804,12 @@
                   "action": {
                     "type": "uri",
                     "label": "action",
-                    "uri": "https://www.google.com/finance/quote/2330:TPE"
+                    "uri": "https://www.google.com/finance/quote/00888:TPE"
                   }
                 },
                 {
                   "type": "text",
-                  "text": "2021/6/7 23:58:05",
+                  "text": "2021/6/30 22:39:06",
                   "color": "#aaaaaa",
                   "size": "xs",
                   "align": "end",

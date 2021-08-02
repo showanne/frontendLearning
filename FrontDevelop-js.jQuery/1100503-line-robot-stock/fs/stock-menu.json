@@ -1,6 +1,6 @@
 {
   "type": "flex",
-  "altText": "0056 Stock Menu",
+  "altText": "1101 Stock Menu",
   "contents": {
     "type": "carousel",
     "contents": [
@@ -62,7 +62,7 @@
                   "action": {
                     "type": "postback",
                     "label": "stock market",
-                    "data": "0056 market"
+                    "data": "1101 market"
                   }
                 },
                 {
@@ -105,7 +105,7 @@
                   "action": {
                     "type": "postback",
                     "label": "stock news",
-                    "data": "0056 news"
+                    "data": "1101 news"
                   }
                 },
                 {
@@ -135,7 +135,7 @@
                       "action": {
                         "type": "uri",
                         "label": "stock history",
-                        "uri": "https://www.google.com/finance/quote/0056:TPE?window=MAX"
+                        "uri": "https://www.google.com/finance/quote/1101:TPE?window=MAX"
                       },
                       "paddingStart": "lg"
                     },
@@ -218,7 +218,7 @@
               "contents": [
                 {
                   "type": "text",
-                  "text": "0056",
+                  "text": "1101",
                   "color": "#dcedfb",
                   "align": "center",
                   "gravity": "center",

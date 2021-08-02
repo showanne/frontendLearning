@@ -59,15 +59,24 @@
 
     }
 
+    .bg{
+      width: 1920px;height: 1080px;
+      margin: auto;
+      background-image: url('./images/halloween_carnival_balloon_darts_new.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover; 
+    }
+
     #container {
       width: 1085.6px;
       height: 1064.8px;
       margin: auto;
 
-      background-image: url('./images/halloween_carnival_balloon_darts_new.jpg');
-      background-position: left;
+      /* background-image: url('./images/halloween_carnival_balloon_darts_new.png');
+      background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover; */
     }
 
     .inline {
@@ -356,37 +365,39 @@
     <img src="./images/Halloween-Carnival_01.gif" class="imgW-L">
     <img src="./images/Halloween-Carnival_02.gif" class="imgW-R">
   </div>
-  <div id="container">
+  <div class="bg">
+    <div id="container">
 
-    <h1 id="title">Balloon Darts</h1>
+      <h1 id="title">Balloon Darts</h1>
 
-    <div id="info">
-      <input type="button" value="開始" id="start">
-      <div id="life"></div>
-      <div id="score">獲得&nbsp;<span> - </span>&nbsp;分</div>
-    </div>
+      <div id="info">
+        <input type="button" value="開始" id="start">
+        <div id="life"></div>
+        <div id="score">獲得&nbsp;<span> - </span>&nbsp;分</div>
+      </div>
 
-    <div id="turntable" class="">
-      <!-- 圓區 -->
-      <div id="circle" class="inline circleL">
-        <div class="circleM">
-          <div class="circleS"></div>
+      <div id="turntable" class="">
+        <!-- 圓區 -->
+        <div id="circle" class="inline circleL">
+          <div class="circleM">
+            <div class="circleS"></div>
+          </div>
+        </div>
+
+        <!-- 直走區 -->
+        <div id="straight" class="inline">
+          <div class="track"></div>
+          <div class="track"></div>
+        </div>
+
+        <!-- 橫走區 -->
+        <div id="horizontal" class="inline">
+          <div class="track"></div>
+          <div class="track"></div>
         </div>
       </div>
 
-      <!-- 直走區 -->
-      <div id="straight" class="inline">
-        <div class="track"></div>
-        <div class="track"></div>
-      </div>
-
-      <!-- 橫走區 -->
-      <div id="horizontal" class="inline">
-        <div class="track"></div>
-        <div class="track"></div>
-      </div>
     </div>
-
   </div>
   <!-- jquery js -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

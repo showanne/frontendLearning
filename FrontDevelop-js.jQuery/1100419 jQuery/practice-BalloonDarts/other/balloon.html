@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .balloon {
+      width: 52px;
+      height: 68px;
+      /* pointer-events: none; */
+      /* position: absolute;
+      z-index: 5;
+      left: -26px;
+      bottom: 0; */
+      /* transform-origin: 50% 100%; */
+    }
+
+    .balloon>div:before {
+      width: 52px;
+      height: 52px;
+      border-radius: 60%;
+      border-bottom-left-radius: 480%;
+      border-bottom-right-radius: 480%;
+      border-top-left-radius: 480%;
+      transform: rotate(135deg);
+      background: #5628ee;
+    }
+
+    /* .balloon>div:after { */
+    /* content: ""; */
+    /* font-family: "Roboto", Arial; */
+    /* font-size: 14px; */
+    /* font-weight: 500; */
+    /* color: #fff; */
+    /* position: absolute;
+      left: 0;
+      right: 0;
+      top: 16px;
+      line-height: 24px; */
+    /* text-align: center; */
+    /* } */
+
+    .balloon>div:before,
+    .balloon>div:after {
+      content: "";
+      display: block;
+    }
+
+
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .balloon>div svg {
+      display: block;
+      width: 8px;
+      height: 6px;
+      fill: #5628ee;
+      position: absolute;
+      left: 22px;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="balloon" style="transform: matrix(0.8875, 0, 0, 0.8875, 176, 0); --r:0deg;">
+    <div data-value="55"><svg viewBox="0 0 8 6">
+        <path
+              d="M3.19770784,0.400189793 L0.183732919,4.48916968 C-0.132777702,4.91857125 -0.0301446804,5.51531196 0.41297019,5.82202737 C0.58019429,5.93777661 0.780561067,6 0.986063367,6 L7.01401322,6 C7.55855868,6 8,5.57222019 8,5.04452705 C8,4.84538453 7.93578945,4.65121861 7.81634366,4.48916968 L4.80236874,0.400189793 C4.48585812,-0.0292117777 3.87005999,-0.128668564 3.42694512,0.178046844 C3.33840792,0.239330552 3.2609487,0.314392601 3.19770784,0.400189793 Z">
+        </path>
+      </svg></div>
+  </div>
+  </svg>
+</body>
+
+</html>

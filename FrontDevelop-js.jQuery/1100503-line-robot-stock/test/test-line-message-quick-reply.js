@@ -43,10 +43,9 @@
         "justifyContent": "center"
       },
       "action": {
-        "type": "postback",
-        "label": "歷史走勢",
-        "data": "hello",
-        "displayText": "歷史走勢"
+        "type": "uri",
+        "label": "action",
+        "uri": "http://linecorp.com/"
       }
     },
     {
@@ -91,11 +90,49 @@
         "justifyContent": "center"
       },
       "action": {
-        "type": "postback",
-        "label": "即時走勢",
-        "data": "hello",
-        "displayText": "即時走勢"
+        "type": "message",
+        "label": "action",
+        "text": "hello"
       }
     }
   ]
 }
+
+// const message = {
+          //   type: 'text',
+          //   text: `${event.message.text.substr(0, historyI)} 走勢`,
+          //   quickReply: {
+          //     items: [
+          //       {
+          //         type: 'action',
+          //         imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
+          //         action: {
+          //           type: 'uri',
+          //           label: '歷史走勢',
+          //           uri: `https://www.google.com/finance/quote/${encodeURI(
+          //             event.message.text.substr(0, historyI)
+          //           )}:TPE?window=MAX`
+          //         }
+          //       },
+          //       {
+          //         type: 'action',
+          //         imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
+          //         action: {
+          //           type: 'uri',
+          //           label: '即時走勢',
+          //           uri: `https://www.google.com/finance/quote/${encodeURI(
+          //             event.message.text.substr(0, historyI)
+          //           )}:TPE`
+          //         }
+          //       }
+          //       // ,
+          //       // {
+          //       //   type: 'action',
+          //       //   action: {
+          //       //     type: 'location',
+          //       //     label: '選擇地點'
+          //       //   }
+          //       // }
+          //     ]
+          //   }
+          // }

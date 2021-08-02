@@ -5,6 +5,18 @@ import fs from 'fs'
 import iconv from 'iconv-lite'
 import schedule from 'node-schedule'
 
+// import { flexNews } from './message/news.js'
+// console.log(flexNews)
+
+// TODO: 部分頁面背景未新做，待改
+// TODO: richmenu 三欄
+// TODO: 匯率查詢 1898行 rate https://tw.rter.info/capi.php
+// TODO: 抓取 cathaysecIstock 折線圖圖片及股東會資料
+// TODO: 項將每個 flex 獨立出去
+// TODO: news 用迴圈跑，可以重複
+// TODO: 個股資訊 市值(億) 顯示
+// REVIEW: 查無此股票 及 發生錯誤QQ 時機??
+
 // 讓套件讀取 .env 檔案
 dotenv.config()
 // 讀取後可以用 process.env.變數 使用
@@ -43,7 +55,7 @@ const getlist = async () => {
 }
 
 // 每天於服務器0點時更新資料
-schedule.scheduleJob('* * 0 * *', getlist)
+schedule.scheduleJob('0 0 0 * * *', getlist)
 // 機器人啟動時也要有資料
 getlist()
 
@@ -109,6 +121,16 @@ bot.on('message', async event => {
             timeZone: 'Asia/Taipei'
           })
           // "2021/6/4 19:01:18"
+
+          const marketData = D => {
+            let mD
+            if (D === null || D === undefined || isNaN(D)) {
+              mD = '- -'
+            } else {
+              mD = D
+            }
+            return mD
+          }
 
           const responseMeta = await axios.get(
             `https://api.fugle.tw/realtime/v0.2/intraday/meta?symbolId=${encodeURI(
@@ -532,7 +554,7 @@ bot.on('message', async event => {
                                           },
                                           {
                                             type: 'text',
-                                            text: `${responseCnyesQuoteI.data.data[0]['700001']}`,
+                                            text: `${marketData(responseCnyesQuoteI.data.data[0]['700001'])}`,
                                             size: 'sm',
                                             color: '#111111',
                                             align: 'start',
@@ -554,7 +576,7 @@ bot.on('message', async event => {
                                           },
                                           {
                                             type: 'text',
-                                            text: `${responseCnyesQuoteI.data.data[0]['700006']}`,
+                                            text: `${marketData(responseCnyesQuoteI.data.data[0]['700006'])}`,
                                             size: 'sm',
                                             color: '#111111',
                                             align: 'start',
@@ -569,7 +591,7 @@ bot.on('message', async event => {
                                         contents: [
                                           {
                                             type: 'text',
-                                            text: '市值(億)',
+                                            text: '市值',
                                             size: 'sm',
                                             color: '#555555',
                                             flex: 0
@@ -577,9 +599,9 @@ bot.on('message', async event => {
                                           {
                                             type: 'text',
                                             text: `${
-                                              responseCnyesQuoteI.data.data[0][
+                                              marketData(responseCnyesQuoteI.data.data[0][
                                                 '700005'
-                                              ] / 100000000
+                                              ] / 100000000)
                                             } `,
                                             size: 'sm',
                                             color: '#111111',
@@ -1494,42 +1516,112 @@ bot.on('message', async event => {
           const historyI = event.message.text.indexOf('history') - 1
           console.log(historyI)
 
-          const message = {
-            type: 'text',
-            text: `${event.message.text.substr(0, historyI)} 走勢`,
-            quickReply: {
-              items: [
-                {
-                  type: 'action',
-                  imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
-                  action: {
-                    type: 'uri',
-                    label: '歷史走勢',
-                    uri: `https://www.google.com/finance/quote/${encodeURI(
+          const flex = [
+            {
+              type: 'bubble',
+              size: 'nano',
+              body: {
+                type: 'box',
+                layout: 'vertical',
+                contents: [
+                  {
+                    type: 'image',
+                    url: 'https://i.imgur.com/vlu1wnz.png',
+                    size: 'full',
+                    aspectMode: 'cover',
+                    aspectRatio: '35:11',
+                    gravity: 'top'
+                  },
+                  {
+                    type: 'box',
+                    layout: 'baseline',
+                    contents: [
+                      {
+                        type: 'icon',
+                        url: 'https://img.icons8.com/nolan/2x/combo-chart.png'
+                      },
+                      {
+                        type: 'text',
+                        text: '歷史走勢',
+                        color: '#1a2a62',
+                        align: 'center',
+                        size: 'md',
+                        margin: 'md'
+                      }
+                    ],
+                    position: 'absolute',
+                    paddingAll: 'xl',
+                    offsetStart: 'xs',
+                    paddingTop: 'xxl'
+                  }
+                ],
+                paddingAll: '0px',
+                justifyContent: 'center'
+              },
+              action: {
+                type: 'uri',
+                label: '歷史走勢',
+                uri: `https://www.google.com/finance/quote/${encodeURI(
                       event.message.text.substr(0, historyI)
                     )}:TPE?window=MAX`
+              }
+            },
+            {
+              type: 'bubble',
+              size: 'nano',
+              body: {
+                type: 'box',
+                layout: 'vertical',
+                contents: [
+                  {
+                    type: 'image',
+                    url: 'https://i.imgur.com/vlu1wnz.png',
+                    size: 'full',
+                    aspectMode: 'cover',
+                    aspectRatio: '35:11',
+                    gravity: 'top'
+                  },
+                  {
+                    type: 'box',
+                    layout: 'baseline',
+                    contents: [
+                      {
+                        type: 'icon',
+                        url: 'https://img.icons8.com/nolan/2x/improvement.png'
+                      },
+                      {
+                        type: 'text',
+                        text: '即時走勢',
+                        color: '#1a2a62',
+                        align: 'center',
+                        size: 'md',
+                        margin: 'md'
+                      }
+                    ],
+                    position: 'absolute',
+                    paddingAll: 'xl',
+                    offsetStart: 'xs',
+                    paddingTop: 'xxl'
                   }
-                },
-                {
-                  type: 'action',
-                  imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
-                  action: {
-                    type: 'uri',
-                    label: '即時走勢',
-                    uri: `https://www.google.com/finance/quote/${encodeURI(
-                      event.message.text.substr(0, historyI)
-                    )}:TPE`
-                  }
-                }
-                // ,
-                // {
-                //   type: 'action',
-                //   action: {
-                //     type: 'location',
-                //     label: '選擇地點'
-                //   }
-                // }
-              ]
+                ],
+                paddingAll: '0px',
+                justifyContent: 'center'
+              },
+              action: {
+                type: 'uri',
+                label: '即時走勢',
+                uri: `https://www.google.com/finance/quote/${encodeURI(
+                      event.message.text.substr(0, historyI))}:TPE`
+              }
+            }
+          ]
+
+          const message = {
+            type: 'flex',
+            altText: `${event.message.text.substr(0, historyI)} 走勢`,
+            contents: {
+              type: 'carousel',
+              contents: flex
             }
           }
 
@@ -1843,7 +1935,7 @@ bot.on('message', async event => {
                     contents: [
                       {
                         type: 'image',
-                        url: 'https://www.frevvo.com/blog/wp-content/uploads/2020/01/Frevvo-Improve-Finance-hero.png',
+                        url: 'https://i.imgur.com/pXUHk5i.jpg',
                         size: 'full',
                         aspectMode: 'cover',
                         aspectRatio: '9:11',
@@ -1856,24 +1948,24 @@ bot.on('message', async event => {
                         contents: [
                           {
                             type: 'text',
-                            text: 'Stock.Find',
-                            size: 'xs',
-                            color: '#ffffff',
+                            text: '歡迎來到 Stock.Find',
+                            size: 'md',
+                            color: '#064d88',
                             align: 'center',
                             gravity: 'center'
                           }
                         ],
-                        backgroundColor: '#e55732',
+                        backgroundColor: '#faf188aa',
                         paddingAll: '2px',
-                        paddingStart: '4px',
-                        paddingEnd: '4px',
+                        paddingStart: 'lg',
+                        paddingEnd: 'lg',
                         flex: 0,
                         position: 'absolute',
-                        offsetStart: '18px',
-                        offsetTop: '18px',
-                        cornerRadius: '100px',
-                        width: '89px',
-                        height: '25px'
+                        offsetTop: '35px',
+                        offsetStart: '39px',
+                        height: '35px',
+                        justifyContent: 'center',
+                        alignItems: 'center'
                       },
                       {
                         type: 'box',
@@ -1885,20 +1977,18 @@ bot.on('message', async event => {
                             contents: [
                               {
                                 type: 'text',
-                                contents: [],
-                                size: 'xl',
-                                wrap: true,
-                                text: '歡迎來到…',
-                                color: '#064d88',
-                                weight: 'bold'
-                              },
-                              {
-                                type: 'text',
                                 text: '在這個聊天室您可以直接輸入股票代號，協助您快速查詢股票資訊！',
                                 color: '#064d88cc',
                                 size: 'sm',
                                 wrap: true
-                              },
+                              }
+                            ],
+                            spacing: 'sm'
+                          },
+                          {
+                            type: 'box',
+                            layout: 'vertical',
+                            contents: [
                               {
                                 type: 'text',
                                 text: '或輸入以下關鍵字，將立刻回覆您相關資訊',
@@ -1908,7 +1998,8 @@ bot.on('message', async event => {
                                 margin: 'md'
                               }
                             ],
-                            spacing: 'sm'
+                            spacing: 'sm',
+                            paddingStart: '14px'
                           },
                           {
                             type: 'box',
@@ -1924,26 +2015,23 @@ bot.on('message', async event => {
                                     contents: [],
                                     size: 'md',
                                     wrap: true,
-                                    margin: 'none',
                                     color: '#064d88de',
                                     text: '股票代號+market',
                                     align: 'start',
                                     action: {
                                       type: 'message',
-                                      label: `${
-                                        stockPop[stockRandom()]
-                                      }+market (e.g.)`,
+                                      label: 'market (e.g.)',
                                       text: `${
                                         stockPop[stockRandom()]
                                       }+market (e.g.)`
                                     }
                                   }
                                 ],
-                                paddingAll: '5px',
-                                justifyContent: 'center',
-                                paddingStart: '31px',
-                                backgroundColor: '#ffffff1A'
-                                // margin: 'md'
+                                backgroundColor: '#b6eefb66',
+                                borderWidth: 'semi-bold',
+                                paddingAll: '7px',
+                                borderColor: '#b6eefb',
+                                margin: 'md'
                               },
                               // 股票代號+news
                               {
@@ -1955,25 +2043,22 @@ bot.on('message', async event => {
                                     contents: [],
                                     size: 'md',
                                     wrap: true,
-                                    margin: 'none',
                                     color: '#064d88de',
                                     text: '股票代號+news',
                                     align: 'start',
                                     action: {
                                       type: 'message',
-                                      label: `${
-                                        stockPop[stockRandom()]
-                                      }+news (e.g.)`,
+                                      label: 'news (e.g.)',
                                       text: `${
                                         stockPop[stockRandom()]
                                       }+news (e.g.)`
                                     }
                                   }
                                 ],
-                                paddingAll: '5px',
-                                justifyContent: 'center',
-                                paddingStart: '31px',
-                                backgroundColor: '#ffffff1A',
+                                paddingAll: '7px',
+                                backgroundColor: '#b6eefb66',
+                                borderColor: '#b6eefb',
+                                borderWidth: 'semi-bold',
                                 margin: 'md'
                               },
                               // 股票代號+history
@@ -1986,42 +2071,36 @@ bot.on('message', async event => {
                                     contents: [],
                                     size: 'md',
                                     wrap: true,
-                                    margin: 'none',
                                     color: '#064d88de',
                                     text: '股票代號+history',
                                     align: 'start',
                                     action: {
                                       type: 'message',
-                                      label: `${
-                                        stockPop[stockRandom()]
-                                      }+history (e.g.)`,
+                                      label: 'history (e.g.)',
                                       text: `${
                                         stockPop[stockRandom()]
                                       }+history (e.g.)`
                                     }
                                   }
                                 ],
-                                paddingAll: '5px',
-                                justifyContent: 'center',
-                                paddingStart: '31px',
-                                backgroundColor: '#ffffff1A',
-                                margin: 'md'
+                                paddingAll: '7px',
+                                backgroundColor: '#b6eefb66',
+                                margin: 'md',
+                                borderColor: '#b6eefb',
+                                borderWidth: 'semi-bold'
                               }
                             ],
-                            paddingAll: '9px',
-                            cornerRadius: '2px',
-                            margin: 'sm'
+                            margin: 'sm',
+                            paddingStart: 'xl',
+                            paddingEnd: 'xl'
                           }
                         ],
                         spacing: 'sm',
-                        position: 'absolute',
-                        offsetTop: '50px',
-                        offsetStart: '50px',
-                        backgroundColor: '#f1cf4cdd',
-                        paddingAll: '30px',
-                        offsetBottom: 'none',
+                        backgroundColor: '#ffffff00',
+                        paddingAll: '55px',
                         cornerRadius: 'md',
-                        offsetEnd: 'none'
+                        position: 'absolute',
+                        paddingTop: '75px'
                       }
                     ]
                   }
@@ -2079,6 +2158,15 @@ bot.on('postback', async event => {
         })
         // "2021/6/4 19:01:18"
 
+        const marketData = D => {
+          let mD
+          if (D === null || D === undefined || isNaN(D)) {
+            mD = '- -'
+          } else {
+            mD = D
+          }
+          return mD
+        }
         const responseMeta = await axios.get(
           `https://api.fugle.tw/realtime/v0.2/intraday/meta?symbolId=${encodeURI(
             event.postback.data.substr(0, marketI)
@@ -2501,7 +2589,7 @@ bot.on('postback', async event => {
                                         },
                                         {
                                           type: 'text',
-                                          text: `${responseCnyesQuoteI.data.data[0]['700001']}`,
+                                          text: `${marketData(responseCnyesQuoteI.data.data[0]['700001'])}`,
                                           size: 'sm',
                                           color: '#111111',
                                           align: 'start',
@@ -2523,7 +2611,7 @@ bot.on('postback', async event => {
                                         },
                                         {
                                           type: 'text',
-                                          text: `${responseCnyesQuoteI.data.data[0]['700006']}`,
+                                          text: `${marketData(responseCnyesQuoteI.data.data[0]['700006'])}`,
                                           size: 'sm',
                                           color: '#111111',
                                           align: 'start',
@@ -2538,7 +2626,7 @@ bot.on('postback', async event => {
                                       contents: [
                                         {
                                           type: 'text',
-                                          text: '市值(億)',
+                                          text: '市值',
                                           size: 'sm',
                                           color: '#555555',
                                           flex: 0
@@ -2546,9 +2634,9 @@ bot.on('postback', async event => {
                                         {
                                           type: 'text',
                                           text: `${
-                                            responseCnyesQuoteI.data.data[0][
+                                            marketData(responseCnyesQuoteI.data.data[0][
                                               '700005'
-                                            ] / 100000000
+                                            ] / 100000000)
                                           } `,
                                           size: 'sm',
                                           color: '#111111',
@@ -3463,45 +3551,114 @@ bot.on('postback', async event => {
         const historyI = event.postback.data.indexOf('history') - 1
         console.log(historyI)
 
-        const message = {
-          type: 'text',
-          text: `${event.postback.data.substr(0, historyI)} 走勢`,
-          quickReply: {
-            items: [
-              {
-                type: 'action',
-                imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
-                action: {
-                  type: 'uri',
-                  label: '歷史走勢',
-                  uri: `https://www.google.com/finance/quote/${encodeURI(
+        const flex = [
+          {
+            type: 'bubble',
+            size: 'nano',
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              contents: [
+                {
+                  type: 'image',
+                  url: 'https://i.imgur.com/vlu1wnz.png',
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '35:11',
+                  gravity: 'top'
+                },
+                {
+                  type: 'box',
+                  layout: 'baseline',
+                  contents: [
+                    {
+                      type: 'icon',
+                      url: 'https://img.icons8.com/nolan/2x/combo-chart.png'
+                    },
+                    {
+                      type: 'text',
+                      text: '歷史走勢',
+                      color: '#1a2a62',
+                      align: 'center',
+                      size: 'md',
+                      margin: 'md'
+                    }
+                  ],
+                  position: 'absolute',
+                  paddingAll: 'xl',
+                  offsetStart: 'xs',
+                  paddingTop: 'xxl'
+                }
+              ],
+              paddingAll: '0px',
+              justifyContent: 'center'
+            },
+            action: {
+              type: 'uri',
+              label: '歷史走勢',
+              uri: `https://www.google.com/finance/quote/${encodeURI(
                     event.postback.data.substr(0, historyI)
                   )}:TPE?window=MAX`
+            }
+          },
+          {
+            type: 'bubble',
+            size: 'nano',
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              contents: [
+                {
+                  type: 'image',
+                  url: 'https://i.imgur.com/vlu1wnz.png',
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '35:11',
+                  gravity: 'top'
+                },
+                {
+                  type: 'box',
+                  layout: 'baseline',
+                  contents: [
+                    {
+                      type: 'icon',
+                      url: 'https://img.icons8.com/nolan/2x/improvement.png'
+                    },
+                    {
+                      type: 'text',
+                      text: '即時走勢',
+                      color: '#1a2a62',
+                      align: 'center',
+                      size: 'md',
+                      margin: 'md'
+                    }
+                  ],
+                  position: 'absolute',
+                  paddingAll: 'xl',
+                  offsetStart: 'xs',
+                  paddingTop: 'xxl'
                 }
-              },
-              {
-                type: 'action',
-                imageUrl: 'https://img.icons8.com/nolan/2x/combo-chart.png',
-                action: {
-                  type: 'uri',
-                  label: '即時走勢',
-                  uri: `https://www.google.com/finance/quote/${encodeURI(
-                    event.postback.data.substr(0, historyI)
-                  )}:TPE`
-                }
-              }
-              // ,
-              // {
-              //   type: 'action',
-              //   action: {
-              //     type: 'location',
-              //     label: '選擇地點'
-              //   }
-              // }
-            ]
+              ],
+              paddingAll: '0px',
+              justifyContent: 'center'
+            },
+            action: {
+              type: 'uri',
+              label: '即時走勢',
+              uri: `https://www.google.com/finance/quote/${encodeURI(
+                    event.postback.data.substr(0, historyI))}:TPE`
+            }
+          }
+        ]
+
+        const message = {
+          type: 'flex',
+          altText: `${event.postback.data.substr(0, historyI)} 走勢`,
+          contents: {
+            type: 'carousel',
+            contents: flex
           }
         }
-
         fs.writeFileSync(
           './fs/stock-history.json',
           JSON.stringify(message, null, 2)
@@ -3792,7 +3949,7 @@ bot.on('postback', async event => {
                   contents: [
                     {
                       type: 'image',
-                      url: 'https://www.frevvo.com/blog/wp-content/uploads/2020/01/Frevvo-Improve-Finance-hero.png',
+                      url: 'https://i.imgur.com/pXUHk5i.jpg',
                       size: 'full',
                       aspectMode: 'cover',
                       aspectRatio: '9:11',
@@ -3805,24 +3962,24 @@ bot.on('postback', async event => {
                       contents: [
                         {
                           type: 'text',
-                          text: 'Stock.Find',
-                          size: 'xs',
-                          color: '#ffffff',
+                          text: '歡迎來到 Stock.Find',
+                          size: 'md',
+                          color: '#064d88',
                           align: 'center',
                           gravity: 'center'
                         }
                       ],
-                      backgroundColor: '#e55732',
+                      backgroundColor: '#faf188aa',
                       paddingAll: '2px',
-                      paddingStart: '4px',
-                      paddingEnd: '4px',
+                      paddingStart: 'lg',
+                      paddingEnd: 'lg',
                       flex: 0,
                       position: 'absolute',
-                      offsetStart: '18px',
-                      offsetTop: '18px',
-                      cornerRadius: '100px',
-                      width: '89px',
-                      height: '25px'
+                      offsetTop: '35px',
+                      offsetStart: '39px',
+                      height: '35px',
+                      justifyContent: 'center',
+                      alignItems: 'center'
                     },
                     {
                       type: 'box',
@@ -3834,20 +3991,18 @@ bot.on('postback', async event => {
                           contents: [
                             {
                               type: 'text',
-                              contents: [],
-                              size: 'xl',
-                              wrap: true,
-                              text: '歡迎來到…',
-                              color: '#064d88',
-                              weight: 'bold'
-                            },
-                            {
-                              type: 'text',
                               text: '在這個聊天室您可以直接輸入股票代號，協助您快速查詢股票資訊！',
                               color: '#064d88cc',
                               size: 'sm',
                               wrap: true
-                            },
+                            }
+                          ],
+                          spacing: 'sm'
+                        },
+                        {
+                          type: 'box',
+                          layout: 'vertical',
+                          contents: [
                             {
                               type: 'text',
                               text: '或輸入以下關鍵字，將立刻回覆您相關資訊',
@@ -3857,7 +4012,8 @@ bot.on('postback', async event => {
                               margin: 'md'
                             }
                           ],
-                          spacing: 'sm'
+                          spacing: 'sm',
+                          paddingStart: '14px'
                         },
                         {
                           type: 'box',
@@ -3873,26 +4029,23 @@ bot.on('postback', async event => {
                                   contents: [],
                                   size: 'md',
                                   wrap: true,
-                                  margin: 'none',
                                   color: '#064d88de',
                                   text: '股票代號+market',
                                   align: 'start',
                                   action: {
                                     type: 'message',
-                                    label: `${
-                                      stockPop[stockRandom()]
-                                    }+market (e.g.)`,
+                                    label: 'market (e.g.)',
                                     text: `${
                                       stockPop[stockRandom()]
                                     }+market (e.g.)`
                                   }
                                 }
                               ],
-                              paddingAll: '5px',
-                              justifyContent: 'center',
-                              paddingStart: '31px',
-                              backgroundColor: '#ffffff1A'
-                              // margin: 'md'
+                              backgroundColor: '#b6eefb66',
+                              borderWidth: 'semi-bold',
+                              paddingAll: '7px',
+                              borderColor: '#b6eefb',
+                              margin: 'md'
                             },
                             // 股票代號+news
                             {
@@ -3904,25 +4057,22 @@ bot.on('postback', async event => {
                                   contents: [],
                                   size: 'md',
                                   wrap: true,
-                                  margin: 'none',
                                   color: '#064d88de',
                                   text: '股票代號+news',
                                   align: 'start',
                                   action: {
                                     type: 'message',
-                                    label: `${
-                                      stockPop[stockRandom()]
-                                    }+news (e.g.)`,
+                                    label: 'news (e.g.)',
                                     text: `${
                                       stockPop[stockRandom()]
                                     }+news (e.g.)`
                                   }
                                 }
                               ],
-                              paddingAll: '5px',
-                              justifyContent: 'center',
-                              paddingStart: '31px',
-                              backgroundColor: '#ffffff1A',
+                              paddingAll: '7px',
+                              backgroundColor: '#b6eefb66',
+                              borderColor: '#b6eefb',
+                              borderWidth: 'semi-bold',
                               margin: 'md'
                             },
                             // 股票代號+history
@@ -3935,42 +4085,36 @@ bot.on('postback', async event => {
                                   contents: [],
                                   size: 'md',
                                   wrap: true,
-                                  margin: 'none',
                                   color: '#064d88de',
                                   text: '股票代號+history',
                                   align: 'start',
                                   action: {
                                     type: 'message',
-                                    label: `${
-                                      stockPop[stockRandom()]
-                                    }+history (e.g.)`,
+                                    label: 'history (e.g.)',
                                     text: `${
                                       stockPop[stockRandom()]
                                     }+history (e.g.)`
                                   }
                                 }
                               ],
-                              paddingAll: '5px',
-                              justifyContent: 'center',
-                              paddingStart: '31px',
-                              backgroundColor: '#ffffff1A',
-                              margin: 'md'
+                              paddingAll: '7px',
+                              backgroundColor: '#b6eefb66',
+                              margin: 'md',
+                              borderColor: '#b6eefb',
+                              borderWidth: 'semi-bold'
                             }
                           ],
-                          paddingAll: '9px',
-                          cornerRadius: '2px',
-                          margin: 'sm'
+                          margin: 'sm',
+                          paddingStart: 'xl',
+                          paddingEnd: 'xl'
                         }
                       ],
                       spacing: 'sm',
-                      position: 'absolute',
-                      offsetTop: '50px',
-                      offsetStart: '50px',
-                      backgroundColor: '#f1cf4cdd',
-                      paddingAll: '30px',
-                      offsetBottom: 'none',
+                      backgroundColor: '#ffffff00',
+                      paddingAll: '55px',
                       cornerRadius: 'md',
-                      offsetEnd: 'none'
+                      position: 'absolute',
+                      paddingTop: '75px'
                     }
                   ]
                 }
