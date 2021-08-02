@@ -1,8 +1,8 @@
-// 處理使用者丟的檔案 套件
+// 處理使用者上傳的檔案 套件
 import multer from 'multer'
-// 將檔案丟ftp 套件
+// 將上傳的檔案丟ftp 套件
 import FTPStorage from 'multer-ftp'
-// 處理跟路經有關的事情 套件
+// 處理跟路經有關的事情 套件 (內建的套件 不用額外裝)
 import path from 'path'
 // 處理跟檔案資料夾有關的事情 套件
 import fs from 'fs'
@@ -11,7 +11,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-// 先命名一個 storage 變數，沒加 =''代表  undefined
+// 先命名一個 storage 變數，沒加 ='' 代表  undefined
 let storage
 // 收到檔案後的儲存設定
 // 判斷是否上傳 FTP
@@ -24,6 +24,7 @@ if (process.env.FTP === 'true') {
       secure: false // 安全傳輸設定
     },
     // secure: false  安全傳輸設定
+    // 存放位置 / file 上傳的檔案
     destination (req, file, options, callback) {
       // 用時間當檔名，這裡的檔名是完整的路徑
       callback(null, '/' + Date.now() + path.extname(file.originalname))
@@ -35,12 +36,14 @@ if (process.env.FTP === 'true') {
     // 存放位置 / file 上傳的檔案
     destination (req, file, callback) {
       // 用 path 套件將目前 node.js 執行的資料夾和 upload 組成路徑
-      // path.join 將路徑組合在一起
+      // path.join 將路徑組合在一起，若有多 / 或少 / ，套件會補齊成完整了路徑
       // ex path.join('c:\\'+'zz'+'aa.jpg') → c:/zz/aa.jpg
+      // process.cwd() 回傳 node.js 目前執行的資料夾
       const folder = path.join(process.cwd(), '/upload')
-      // 如果路徑不存在
+      // 檢察路徑存不存在 .existsSync() 同步的語法
+      // fs 套件檢查是否有資料夾
       if (!fs.existsSync(folder)) {
-        // 建立新資料夾
+        // 不存在就建立新資料夾
         fs.mkdirSync(folder)
       }
       // callback (錯誤做的事, 成功做的事 'upload/' -> 放到 upload 資料夾)
@@ -54,18 +57,19 @@ if (process.env.FTP === 'true') {
   })
 }
 
-// 設定 multer
+// 設定 上傳套件 multer
 const upload = multer({
   storage,
-  // 過濾檔案，因為內建的 limits 無法過濾檔案類型所以要自己寫
+  // 限制檔案類型(過濾檔案)，因為內建的 limits 無法過濾檔案類型所以要自己寫
   fileFilter (req, file, callback) {
     console.log(file)
     // 檢查檔案類型(mimetype)是不是圖片
     if (!file.mimetype.includes('image')) {
       // 觸發一個自訂的 LIMIT_FORMAT 錯誤，因為套件內建的錯誤都是 LIMIT 開頭，所以跟隨套件風格
-      // callback (錯誤做的事, 成功做的事)
-      callback(new multer.MulterError('LIMI_FORMAT'), false)
+      // callback (錯誤做的事, 成功做的事) false 為不允許上傳
+      callback(new multer.MulterError('LIMIT_FORMAT'), false)
     } else {
+      // true 為允許上傳
       callback(null, true)
     }
   },
