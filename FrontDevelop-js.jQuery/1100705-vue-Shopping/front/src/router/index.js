@@ -109,24 +109,27 @@ const router = new VueRouter({
   routes
 })
 
-// .beforeEach 在進去頁面之前
+// .beforeEach 在進去每頁之前，判斷是否為登入狀態及是否有權限訪問該頁面
+// to 從哪頁來 / from 要去哪頁 / next 如果符合判斷條件要丟去哪裡
 router.beforeEach((to, from, next) => {
   // console.log(store.state.user)
   // console.log('beforeEach')
   if (to.meta.login && store.state.user.account.length === 0) {
     // 如果現在不是登入 且 帳號長度為 0
-    // 導去登入畫面
+    // 未登入者導去登入畫面
     next('/login')
   } else if (to.meta.admin && store.state.user.role !== 1) {
     // 如果現在不是管理員登入 且 使用者角色不等於 1
     // 導回首頁
     next('/')
   } else {
+    // () 內有放路徑就是指定要跳去哪頁
+    // () 內沒放東西就是原本要去哪頁就直接去哪頁
     next()
   }
 })
 
-// .afterEach 在進去每頁之後
+// .afterEach 在進去每頁之後，更改網頁標題
 router.afterEach((to, from) => {
   document.title = to.meta.title
 })

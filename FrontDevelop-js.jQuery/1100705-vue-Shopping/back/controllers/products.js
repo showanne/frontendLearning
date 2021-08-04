@@ -98,13 +98,15 @@ export const editProduct = async (req, res) => {
       description: req.body.description,
       sell: req.body.sell
     }
-    // 判斷有更新圖片才回傳，不要把原本的圖覆蓋掉..?
+    // 判斷如果傳進來的請求有 filepath (更新圖片)，才把圖片放進回傳結果，如果不加判斷會把原本的圖覆蓋掉
     if (req.filepath) data.image = req.filepath
+    // findByIdAndUpdate 尋找符合傳進來的 id 的那筆
     const result = await products.findByIdAndUpdate(
       req.params.id,
       data,
       { new: true }
     )
+    // { new: true } 回傳新的結果
     res.status(200).send({ success: true, message: '', result })
   } catch (error) {
     console.log(error)

@@ -16,7 +16,9 @@ let storage
 // 收到檔案後的儲存設定
 // 判斷是否上傳 FTP
 if (process.env.FTP === 'true') {
+  // 處理上傳檔案 套件
   storage = new FTPStorage({
+    // 設定 ftp 帳密
     ftp: {
       host: process.env.FTP_HOST,
       user: process.env.FTP_USER,
@@ -24,9 +26,9 @@ if (process.env.FTP === 'true') {
       secure: false // 安全傳輸設定
     },
     // secure: false  安全傳輸設定
-    // 存放位置 / file 上傳的檔案
+    // 設定存放位置 / file 上傳的檔案
     destination (req, file, options, callback) {
-      // 用時間當檔名，這裡的檔名是完整的路徑
+      // 用時間當檔名，這裡的檔名是完整的路徑   '/' 根目錄
       callback(null, '/' + Date.now() + path.extname(file.originalname))
     }
   })
@@ -75,7 +77,7 @@ const upload = multer({
   },
   // 限制上傳檔案
   limits: {
-    // 大小 1MB 1024 = 1kb
+    // 大小 1MB 1024b = 1kb 1024kb = 1mb
     fileSize: 1024 * 1024
   }
 })

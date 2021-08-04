@@ -111,7 +111,7 @@ export default {
         description: '',
         sell: false,
         image: null,
-        _id: ''
+        _id: '' // 綁定id 方便編輯
       }
     }
   },
@@ -169,8 +169,8 @@ export default {
           fd.append(key, this.form[key])
         }
         if (this.form._id.length === 0) {
-          // 新增商品會在 devtool 的 network 新增2筆 product，一筆是傳進後端，一筆是瀏覽器...?
-          // 新增
+          // 新增商品會在 devtool 的 network 新增2筆 product，一筆是傳進後端，一筆是瀏覽器傳送的資料
+          // 新增商品
           await this.axios.post('/products', fd, {
             // 驗證身分
             headers: {
@@ -178,7 +178,7 @@ export default {
             }
           })
         } else {
-          // 更新
+          // 更新商品
           const { data } = await this.axios.patch('/products/' + this.form._id, fd, {
             headers: {
               authorization: 'Bearer ' + this.$store.state.jwt.token
@@ -189,11 +189,13 @@ export default {
             price: this.form.price,
             description: this.form.description,
             sell: this.form.sell,
+            // image 是回傳的 data 的 image
             image: `${process.env.VUE_APP_API}/files/${data.result.image}`,
             _id: this.form._id
           }
-          // 強制 Table 重新整理...?
+          // 更新商品後，強制 Table 重新整理 -> 即時更新內容
           this.$refs.productTable.refresh()
+          // this.$root.$emit('bv::refresh:table', 'table-product(table的id)')
         }
         // 資料送出後，將 modal 關閉
         this.$bvModal.hide('modal-product')
@@ -216,7 +218,9 @@ export default {
         }
       })
       this.products = data.result.map(product => {
+        // 有圖片才更新網址
         if (product.image) {
+          // 處理 image 路徑  因為 :src 會錯誤判別 process.env
           product.image = `${process.env.VUE_APP_API}/files/${product.image}`
         }
         return product
