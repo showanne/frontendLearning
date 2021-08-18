@@ -51,6 +51,7 @@ export default {
   },
   async mounted () {
     if (this.$store.state.jwt.token.length === 0) return
+    // 計算收到 jwt 的時間
     const diff = Date.now() - this.$store.state.jwt.received
     try {
       // 如果進入網頁時，距離收到 jwt 過了六天，重新取得一次新的 jwt

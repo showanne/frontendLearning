@@ -39,6 +39,7 @@ export const newProduct = async (req, res) => {
 // 檢視商品 (一般消費者)
 export const getProduct = async (req, res) => {
   try {
+    // find() 內可以指定搜尋條件 ex: sell: true
     const result = await products.find({ sell: true })
     res.status(200).send({ success: true, message: '', result })
   } catch (error) {
@@ -65,6 +66,7 @@ export const getAllProduct = async (req, res) => {
 // 個別商品頁面
 export const getProductById = async (req, res) => {
   try {
+    // .findById() 尋找傳進來的那個 ID 的商品
     const result = await products.findById(req.params.id)
     res.status(200).send({ success: true, message: '', result })
   } catch (error) {

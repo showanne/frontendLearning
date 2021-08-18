@@ -34,7 +34,7 @@ Vue.mixin(mixin)
 
 // google analytics 評估 ID
 Vue.use(VueGtag, {
-  config: { id: 'G-ES8HT9G2XD' }
+  config: { id: 'G-NYSBPCDN0G' }
 })
 
 Vue.config.productionTip = false

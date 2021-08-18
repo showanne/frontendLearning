@@ -70,6 +70,7 @@ export default new Vuex.Store({
   // 將 Vuex 資料存 localstorage
   plugins: [
     createPersistedState({
+      // paths: ['jwt'] // 可以指定 Vuex 存 localstorage 只存 jwt
       key: 'Shopping'
     })
   ]

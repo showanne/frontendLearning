@@ -157,8 +157,11 @@ export const addCart = async (req, res) => {
       // 如果購物車內沒有這項商品就把商品新增進購物車
       req.user.cart.push({ product: req.body.product, amount: req.body.amount })
     }
+    // 不驗證就存入
     await req.user.save({ validateBeforeSave: false })
     res.status(200).send({ success: true, message: '' })
+    // 回傳購物車目前商品數量，可用於在購物車 icon 顯示數字
+    // res.status(200).send({ success: true, message: '', result: req.user.cart.length })
   } catch (error) {
     console.log(error)
     res.status(500).send({ success: false, message: '伺服器錯誤' })
@@ -170,6 +173,7 @@ export const addCart = async (req, res) => {
 export const getCart = async (req, res) => {
   try {
     // 用使用者 id 查詢使用者，只取 cart 欄位並將 ref 的商品資料一起帶出來
+    // .populate 可以將 ref 欄位的資料帶出來 -> ref: 'product'
     const { cart } = await users.findById(req.user._id, 'cart').populate('cart.product')
     res.status(200).send({ success: true, message: '', result: cart })
   } catch (error) {

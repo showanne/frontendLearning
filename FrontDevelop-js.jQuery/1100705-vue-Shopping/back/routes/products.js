@@ -20,6 +20,7 @@ router.get('/', getProduct)
 router.get('/all', auth, getAllProduct)
 // 個別商品頁面
 router.get('/:id', getProductById)
+// get 順序需先 /all 再 /:id 否則 all 會被當成 id
 // 編輯商品
 router.patch('/:id', auth, upload, editProduct)
 

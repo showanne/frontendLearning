@@ -11,7 +11,7 @@
 </template>
 
 <script>
-// components元件 會重複使用的寫成元件方便使用...?
+// components元件 會重複使用的寫成元件方便網頁多處重複使用
 import ProductCard from '@/components/ProductCard.vue'
 
 export default {
